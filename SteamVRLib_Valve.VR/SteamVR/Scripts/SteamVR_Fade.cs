@@ -115,7 +115,7 @@ namespace Valve.VR
             {
                 fadeMaterial.SetColor(fadeMaterialColorID, currentColor);
                 fadeMaterial.SetPass(0);
-                GL.Begin(GL.QUADS);
+                GL.Begin(4  /*GL.QUADS*/);
 
                 GL.Vertex3(-1, -1, 0);
                 GL.Vertex3(1, -1, 0);

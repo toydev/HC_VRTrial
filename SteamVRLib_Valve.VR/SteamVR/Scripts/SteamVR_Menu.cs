@@ -1,3 +1,4 @@
+/*
 //======= Copyright (c) Valve Corporation, All rights reserved. ===============
 //
 // Purpose: Example menu using OnGUI with SteamVR_Camera's overlay support
@@ -318,3 +319,4 @@ namespace Valve.VR
         }
     }
 }
+*/
