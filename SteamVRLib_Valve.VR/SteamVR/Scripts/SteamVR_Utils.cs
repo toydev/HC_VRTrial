@@ -284,20 +284,20 @@ public static class SteamVR_Utils
 		{
 			var m = Matrix4x4.identity;
 
-			m[0, 0] = pose.m0;
-			m[0, 1] = pose.m1;
-			m[0, 2] = -pose.m2;
-			m[0, 3] = pose.m3;
+			m.m00 = pose.m0;
+			m.m01 = pose.m1;
+			m.m02 = -pose.m2;
+			m.m03 = pose.m3;
 
-			m[1, 0] = pose.m4;
-			m[1, 1] = pose.m5;
-			m[1, 2] = -pose.m6;
-			m[1, 3] = pose.m7;
+			m.m10 = pose.m4;
+			m.m11 = pose.m5;
+			m.m12 = -pose.m6;
+			m.m13 = pose.m7;
 
-			m[2, 0] = -pose.m8;
-			m[2, 1] = -pose.m9;
-			m[2, 2] = pose.m10;
-			m[2, 3] = -pose.m11;
+			m.m20 = -pose.m8;
+			m.m21 = -pose.m9;
+			m.m22 = pose.m10;
+			m.m23 = -pose.m11;
 
 			this.pos = m.GetPosition();
 			this.rot = m.GetRotation();
@@ -307,25 +307,25 @@ public static class SteamVR_Utils
 		{
 			var m = Matrix4x4.identity;
 
-			m[0, 0] = pose.m0;
-			m[0, 1] = pose.m1;
-			m[0, 2] = -pose.m2;
-			m[0, 3] = pose.m3;
+			m.m00 = pose.m0;
+			m.m01 = pose.m1;
+			m.m02 = -pose.m2;
+			m.m03 = pose.m3;
 
-			m[1, 0] = pose.m4;
-			m[1, 1] = pose.m5;
-			m[1, 2] = -pose.m6;
-			m[1, 3] = pose.m7;
+			m.m10 = pose.m4;
+			m.m11 = pose.m5;
+			m.m12 = -pose.m6;
+			m.m13 = pose.m7;
 
-			m[2, 0] = -pose.m8;
-			m[2, 1] = -pose.m9;
-			m[2, 2] = pose.m10;
-			m[2, 3] = -pose.m11;
+			m.m20 = -pose.m8;
+			m.m21 = -pose.m9;
+			m.m22 = pose.m10;
+			m.m23 = -pose.m11;
 
-			m[3, 0] = pose.m12;
-			m[3, 1] = pose.m13;
-			m[3, 2] = -pose.m14;
-			m[3, 3] = pose.m15;
+			m.m30 = pose.m12;
+			m.m31 = pose.m13;
+			m.m32 = -pose.m14;
+			m.m33 = pose.m15;
 
 			this.pos = m.GetPosition();
 			this.rot = m.GetRotation();
@@ -336,25 +336,25 @@ public static class SteamVR_Utils
 			var m = Matrix4x4.TRS(pos, rot, Vector3.one);
 			var pose = new HmdMatrix44_t();
 
-			pose.m0 = m[0, 0];
-			pose.m1 = m[0, 1];
-			pose.m2 = -m[0, 2];
-			pose.m3 = m[0, 3];
+			pose.m0 = m.m00;
+			pose.m1 = m.m01;
+			pose.m2 = -m.m02;
+			pose.m3 = m.m03;
 
-			pose.m4 = m[1, 0];
-			pose.m5 = m[1, 1];
-			pose.m6 = -m[1, 2];
-			pose.m7 = m[1, 3];
+			pose.m4 = m.m10;
+			pose.m5 = m.m11;
+			pose.m6 = -m.m12;
+			pose.m7 = m.m13;
 
-			pose.m8 = -m[2, 0];
-			pose.m9 = -m[2, 1];
-			pose.m10 = m[2, 2];
-			pose.m11 = -m[2, 3];
+			pose.m8 = -m.m20;
+			pose.m9 = -m.m21;
+			pose.m10 = m.m22;
+			pose.m11 = -m.m23;
 
-			pose.m12 = m[3, 0];
-			pose.m13 = m[3, 1];
-			pose.m14 = -m[3, 2];
-			pose.m15 = m[3, 3];
+			pose.m12 = m.m30;
+			pose.m13 = m.m31;
+			pose.m14 = -m.m32;
+			pose.m15 = m.m33;
 
 			return pose;
 		}
@@ -364,20 +364,20 @@ public static class SteamVR_Utils
 			var m = Matrix4x4.TRS(pos, rot, Vector3.one);
 			var pose = new HmdMatrix34_t();
 
-			pose.m0 = m[0, 0];
-			pose.m1 = m[0, 1];
-			pose.m2 = -m[0, 2];
-			pose.m3 = m[0, 3];
+			pose.m0 = m.m00;
+			pose.m1 = m.m01;
+			pose.m2 = -m.m02;
+			pose.m3 = m.m03;
 
-			pose.m4 = m[1, 0];
-			pose.m5 = m[1, 1];
-			pose.m6 = -m[1, 2];
-			pose.m7 = m[1, 3];
+			pose.m4 = m.m10;
+			pose.m5 = m.m11;
+			pose.m6 = -m.m12;
+			pose.m7 = m.m13;
 
-			pose.m8 = -m[2, 0];
-			pose.m9 = -m[2, 1];
-			pose.m10 = m[2, 2];
-			pose.m11 = -m[2, 3];
+			pose.m8 = -m.m20;
+			pose.m9 = -m.m21;
+			pose.m10 = m.m22;
+			pose.m11 = -m.m23;
 
 			return pose;
 		}
