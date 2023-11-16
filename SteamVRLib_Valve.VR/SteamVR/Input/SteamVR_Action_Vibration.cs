@@ -11,7 +11,7 @@ namespace Valve.VR
     /// <summary>
     /// Vibration actions are used to trigger haptic feedback in vr controllers.
     /// </summary>
-    public class SteamVR_Action_Vibration : SteamVR_Action_Out<SteamVR_Action_Vibration_Source_Map, SteamVR_Action_Vibration_Source>, ISerializationCallbackReceiver
+    public class SteamVR_Action_Vibration : SteamVR_Action_Out<SteamVR_Action_Vibration_Source_Map, SteamVR_Action_Vibration_Source>/*, ISerializationCallbackReceiver*/
     {
         public delegate void ActiveChangeHandler(SteamVR_Action_Vibration fromAction, SteamVR_Input_Sources fromSource, bool active);
         public delegate void ExecuteHandler(SteamVR_Action_Vibration fromAction, SteamVR_Input_Sources fromSource, float secondsFromNow, float durationSeconds, float frequency, float amplitude);
@@ -105,6 +105,7 @@ namespace Valve.VR
             return sourceMap[inputSource].timeLastExecuted;
         }
 
+        /*
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
         }
@@ -113,6 +114,7 @@ namespace Valve.VR
         {
             InitAfterDeserialize();
         }
+        */
 
         public override bool IsUpdating(SteamVR_Input_Sources inputSource)
         {

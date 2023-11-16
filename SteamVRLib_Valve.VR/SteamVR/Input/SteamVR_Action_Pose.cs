@@ -12,7 +12,7 @@ namespace Valve.VR
     /// SteamVR keeps a log of past poses so you can retrieve old poses with GetPoseAtTimeOffset or GetVelocitiesAtTimeOffset.
     /// You can also pass in times in the future to these methods for SteamVR's best prediction of where the pose will be at that time.
     /// </summary>
-    public class SteamVR_Action_Pose : SteamVR_Action_Pose_Base<SteamVR_Action_Pose_Source_Map<SteamVR_Action_Pose_Source>, SteamVR_Action_Pose_Source>, ISerializationCallbackReceiver
+    public class SteamVR_Action_Pose : SteamVR_Action_Pose_Base<SteamVR_Action_Pose_Source_Map<SteamVR_Action_Pose_Source>, SteamVR_Action_Pose_Source>/*, ISerializationCallbackReceiver*/
     {
         public delegate void ActiveChangeHandler(SteamVR_Action_Pose fromAction, SteamVR_Input_Sources fromSource, bool active);
         public delegate void ChangeHandler(SteamVR_Action_Pose fromAction, SteamVR_Input_Sources fromSource);
@@ -155,12 +155,14 @@ namespace Valve.VR
             sourceMap[input_Sources].RemoveAllListeners();
         }
 
+        /*
         void ISerializationCallbackReceiver.OnBeforeSerialize() { }
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
             InitAfterDeserialize();
         }
+        */
 
         /// <summary>
         /// Sets all pose and skeleton actions to use the specified universe origin.

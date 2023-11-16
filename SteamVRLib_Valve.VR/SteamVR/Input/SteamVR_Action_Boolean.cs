@@ -10,7 +10,7 @@ namespace Valve.VR
     /// <summary>
     /// Boolean actions are either true or false. There are a variety of helper events included that will fire for the given input source. They're prefixed with "on".
     /// </summary>
-    public class SteamVR_Action_Boolean : SteamVR_Action_In<SteamVR_Action_Boolean_Source_Map, SteamVR_Action_Boolean_Source>, ISteamVR_Action_Boolean, ISerializationCallbackReceiver
+    public class SteamVR_Action_Boolean : SteamVR_Action_In<SteamVR_Action_Boolean_Source_Map, SteamVR_Action_Boolean_Source>, ISteamVR_Action_Boolean/*, ISerializationCallbackReceiver*/
     {
         public delegate void StateDownHandler(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource);
         public delegate void StateUpHandler(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource);
@@ -218,6 +218,7 @@ namespace Valve.VR
             sourceMap[input_Sources].RemoveAllListeners();
         }
 
+        /*
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
         }
@@ -226,6 +227,7 @@ namespace Valve.VR
         {
             InitAfterDeserialize();
         }
+        */
     }
 
     public class SteamVR_Action_Boolean_Source_Map : SteamVR_Action_In_Source_Map<SteamVR_Action_Boolean_Source>
