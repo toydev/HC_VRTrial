@@ -54,7 +54,7 @@ namespace UnityEngine.XR.Management
         /// <typeparam name="T">Type of the subsystem to get</typeparam>
         ///
         /// <returns>The loaded subsystem or null if not found.</returns>
-        public abstract T GetLoadedSubsystem<T>() where T : class, ISubsystem;
+        public virtual IntegratedSubsystem GetLoadedIntegratedSubsystem(string id) { return null; }
 
         /// <summary>
         /// Gets the loader's supported graphics device types. If the list is empty, it is assumed that it supports all graphics device types.

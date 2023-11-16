@@ -18,7 +18,7 @@ namespace UnityEngine.XR.Management
         /// Map of loaded susbsystems. Used so we don't always have to fo to XRSubsystemManger and do a manual
         /// search to find the instance we loaded.
         /// </summary>
-        protected Dictionary<Type, ISubsystem> m_SubsystemInstanceMap = new Dictionary<Type, ISubsystem>();
+        protected Dictionary<string, IntegratedSubsystem> m_IntegratedSubsystemInstanceMap = new Dictionary<string, IntegratedSubsystem>();
 
         /// <summary>
         /// Gets the loaded subsystem of the specified type. Implementation dependent as only implemetnations
@@ -28,12 +28,11 @@ namespace UnityEngine.XR.Management
         /// <typeparam name="T">Type of the subsystem to get.</typeparam>
         ///
         /// <returns>The loaded subsystem or null if not found.</returns>
-        public override T GetLoadedSubsystem<T>()
+        public override IntegratedSubsystem GetLoadedIntegratedSubsystem(string id)
         {
-            Type subsystemType = typeof(T);
-            ISubsystem subsystem;
-            m_SubsystemInstanceMap.TryGetValue(subsystemType, out subsystem);
-            return subsystem as T;
+            IntegratedSubsystem subsystem;
+            m_IntegratedSubsystemInstanceMap.TryGetValue(id, out subsystem);
+            return subsystem;
         }
 
         /// <summary>
@@ -42,9 +41,9 @@ namespace UnityEngine.XR.Management
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void StartSubsystem<T>() where T : class, ISubsystem
+        protected void StartIntegratedSubsystem(string id)
         {
-            T subsystem = GetLoadedSubsystem<T>();
+            var subsystem = GetLoadedIntegratedSubsystem(id);
             if (subsystem != null)
                 subsystem.Start();
         }
@@ -55,9 +54,9 @@ namespace UnityEngine.XR.Management
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void StopSubsystem<T>() where T : class, ISubsystem
+        protected void StopIntegratedSubsystem(string id)
         {
-            T subsystem = GetLoadedSubsystem<T>();
+            var subsystem = GetLoadedIntegratedSubsystem(id);
             if (subsystem != null)
                 subsystem.Stop();
         }
@@ -68,15 +67,14 @@ namespace UnityEngine.XR.Management
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void DestroySubsystem<T>() where T : class, ISubsystem
+        protected void DestroyIntegratedSubsystem(string id)
         {
-            T subsystem = GetLoadedSubsystem<T>();
+            var subsystem = GetLoadedIntegratedSubsystem(id);
             if (subsystem != null)
             {
-                var subsystemType = typeof(T);
-                if (m_SubsystemInstanceMap.ContainsKey(subsystemType))
-                    m_SubsystemInstanceMap.Remove(subsystemType);
-                subsystem.Destroy();
+                if (m_IntegratedSubsystemInstanceMap.ContainsKey(id))
+                    m_IntegratedSubsystemInstanceMap.Remove(id);
+                UnityEngineExtensions.IntegratedSubsystemExtensions.Destroy(subsystem);
             }
         }
 
@@ -93,68 +91,29 @@ namespace UnityEngine.XR.Management
         /// <typeparam name="TSubsystem">The subsystem type being requested</typeparam>
         /// <param name="descriptors">List of TDescriptor instances to use for subsystem matching.</param>
         /// <param name="id">The identifier key of the particualr subsystem implementation being requested.</param>
-        protected void CreateSubsystem<TDescriptor, TSubsystem>(List<TDescriptor> descriptors, string id)
-            where TDescriptor : ISubsystemDescriptor
-            where TSubsystem : ISubsystem
+        protected void CreateIntegratedSubsystem(List<IntegratedSubsystemDescriptor> descriptors, string id)
         {
             if (descriptors == null)
                 throw new ArgumentNullException("descriptors");
 
-            SubsystemManager.GetSubsystemDescriptors<TDescriptor>(descriptors);
+            UnityEngineExtensions.SubsystemManagerExtensions.GetIntegratedSubsystemDescriptors(descriptors);
 
             if (descriptors.Count > 0)
             {
                 foreach (var descriptor in descriptors)
                 {
-                    ISubsystem subsys = null;
+                    IntegratedSubsystem subsys = null;
                     if (String.Compare(descriptor.id, id, true) == 0)
                     {
-                        subsys = descriptor.Create();
+                        subsys = UnityEngineExtensions.IntegratedSubsystemDescriptorExtensions.Create(descriptor);
                     }
                     if (subsys != null)
                     {
-                        m_SubsystemInstanceMap[typeof(TSubsystem)] = subsys;
+                        m_IntegratedSubsystemInstanceMap[id] = subsys;
                         break;
                     }
                 }
             }
-        }
-
-
-        /// <summary>
-        /// Creates a native, integrated subsystem given a list of descriptors and a specific subsystem id.
-        /// DEPRECATED: Please use the geenric CreateSubsystem method. This method is soley retained for
-        /// backwards compatibility and will be removed in a future release.
-        /// </summary>
-        ///
-        /// <typeparam name="TDescriptor">The descriptor type being passed in.</typeparam>
-        /// <typeparam name="TSubsystem">The subsystem type being requested</typeparam>
-        /// <param name="descriptors">List of TDescriptor instances to use for subsystem matching.</param>
-        /// <param name="id">The identifier key of the particualr subsystem implementation being requested.</param>
-        [Obsolete("This method is obsolete. Please use the geenric CreateSubsystem method.", false)]
-        protected void CreateIntegratedSubsystem<TDescriptor, TSubsystem>(List<TDescriptor> descriptors, string id)
-            where TDescriptor : IntegratedSubsystemDescriptor
-            where TSubsystem : IntegratedSubsystem
-        {
-            CreateSubsystem<TDescriptor, TSubsystem>(descriptors, id);
-        }
-
-        /// <summary>
-        /// Creates a managed, standalone subsystem given a list of descriptors and a specific subsystem id.
-        /// DEPRECATED: Please use the geenric CreateSubsystem method. This method is soley retained for
-        /// backwards compatibility and will be removed in a future release.
-        /// </summary>
-        ///
-        /// <typeparam name="TDescriptor">The descriptor type being passed in.</typeparam>
-        /// <typeparam name="TSubsystem">The subsystem type being requested</typeparam>
-        /// <param name="descriptors">List of TDescriptor instances to use for subsystem matching.</param>
-        /// <param name="id">The identifier key of the particualr subsystem implementation being requested.</param>
-        [Obsolete("This method is obsolete. Please use the generic CreateSubsystem method.", false)]
-        protected void CreateStandaloneSubsystem<TDescriptor, TSubsystem>(List<TDescriptor> descriptors, string id)
-            where TDescriptor : SubsystemDescriptor
-            where TSubsystem : Subsystem
-        {
-            CreateSubsystem<TDescriptor, TSubsystem>(descriptors, id);
         }
 
         /// <summary>
@@ -167,7 +126,7 @@ namespace UnityEngine.XR.Management
         /// <returns>True if de-initialization was successful.</returns>
         public override bool Deinitialize()
         {
-            m_SubsystemInstanceMap.Clear();
+            m_IntegratedSubsystemInstanceMap.Clear();
             return base.Deinitialize();
         }
 

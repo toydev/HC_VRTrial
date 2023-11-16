@@ -121,23 +121,25 @@ namespace Unity.XR.OpenVR
     , IXRLoaderPreInit
 #endif
     {
-        private static List<XRDisplaySubsystemDescriptor> s_DisplaySubsystemDescriptors = new List<XRDisplaySubsystemDescriptor>();
-        private static List<XRInputSubsystemDescriptor> s_InputSubsystemDescriptors = new List<XRInputSubsystemDescriptor>();
-        
+        private static List<IntegratedSubsystemDescriptor> s_DisplaySubsystemDescriptors = new List<IntegratedSubsystemDescriptor>();
+        private static List<IntegratedSubsystemDescriptor> s_InputSubsystemDescriptors = new List<IntegratedSubsystemDescriptor>();
 
-        public XRDisplaySubsystem displaySubsystem
+        public const string OPEN_VR_DISPLAY = "OpenVR Display";
+        public const string OPEN_VR_INPUT = "OpenVR Input";
+
+        public IntegratedSubsystem displaySubsystem
         {
             get
             {
-                return GetLoadedSubsystem<XRDisplaySubsystem>();
+                return GetLoadedIntegratedSubsystem(OPEN_VR_DISPLAY);
             }
         }
 
-        public XRInputSubsystem inputSubsystem
+        public IntegratedSubsystem inputSubsystem
         {
             get
             {
-                return GetLoadedSubsystem<XRInputSubsystem>();
+                return GetLoadedIntegratedSubsystem(OPEN_VR_INPUT);
             }
         }
 
@@ -148,7 +150,7 @@ namespace Unity.XR.OpenVR
 #endif
 
 
-//this only works at the right time in editor. In builds we use a different method (reading the asset manually)
+            //this only works at the right time in editor. In builds we use a different method (reading the asset manually)
 #if UNITY_EDITOR
             OpenVRSettings settings = OpenVRSettings.GetSettings();
             if (settings != null)
@@ -180,18 +182,18 @@ namespace Unity.XR.OpenVR
                 SetUserDefinedSettings(userDefinedSettings); 
             }
 #endif
-            
-            CreateSubsystem<XRDisplaySubsystemDescriptor, XRDisplaySubsystem>(s_DisplaySubsystemDescriptors, "OpenVR Display");
+
+            CreateIntegratedSubsystem(s_DisplaySubsystemDescriptors, OPEN_VR_DISPLAY);
 
             EVRInitError result = GetInitializationResult();
             if (result != EVRInitError.None)
             {
-                DestroySubsystem<XRDisplaySubsystem>();
+                DestroyIntegratedSubsystem(OPEN_VR_DISPLAY);
                 Debug.LogError("<b>[OpenVR]</b> Could not initialize OpenVR. Error code: " + result.ToString());
                 return false;
             }
 
-            CreateSubsystem<XRInputSubsystemDescriptor, XRInputSubsystem>(s_InputSubsystemDescriptors, "OpenVR Input");
+            CreateIntegratedSubsystem(s_InputSubsystemDescriptors, OPEN_VR_INPUT);
 
             OpenVREvents.Initialize();
             TickCallbackDelegate callback = TickCallback;
@@ -227,8 +229,8 @@ namespace Unity.XR.OpenVR
             running = true;
             WatchForReload();
 
-            StartSubsystem<XRDisplaySubsystem>();
-            StartSubsystem<XRInputSubsystem>();
+            StartIntegratedSubsystem(OPEN_VR_DISPLAY);
+            StartIntegratedSubsystem(OPEN_VR_INPUT);
 
             SetupFileSystemWatchers();
 
@@ -381,10 +383,10 @@ namespace Unity.XR.OpenVR
             running = false;
             CleanupTick();
             CleanupReloadWatcher();
-            DestroyMirrorModeWatcher();            
+            DestroyMirrorModeWatcher();
 
-            StopSubsystem<XRInputSubsystem>();
-            StopSubsystem<XRDisplaySubsystem>(); //display actually does vrshutdown
+            StopIntegratedSubsystem(OPEN_VR_INPUT);
+            StopIntegratedSubsystem(OPEN_VR_DISPLAY); //display actually does vrshutdown
 
             return true;
         }
@@ -395,8 +397,8 @@ namespace Unity.XR.OpenVR
             CleanupReloadWatcher();
             DestroyMirrorModeWatcher();
 
-            DestroySubsystem<XRInputSubsystem>();
-            DestroySubsystem<XRDisplaySubsystem>();
+            DestroyIntegratedSubsystem(OPEN_VR_INPUT);
+            DestroyIntegratedSubsystem(OPEN_VR_DISPLAY);
 
             return true;
         }
