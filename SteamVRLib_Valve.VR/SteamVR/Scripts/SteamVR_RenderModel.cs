@@ -814,9 +814,9 @@ namespace Valve.VR
             }
         }
 
-        public void SetInputSource(SteamVR_Input_Sources newInputSource)
+        public void SetInputSource(int newInputSource)
         {
-            inputSource = newInputSource;
+            inputSource = (SteamVR_Input_Sources)newInputSource;
         }
 
         private static void Sleep()

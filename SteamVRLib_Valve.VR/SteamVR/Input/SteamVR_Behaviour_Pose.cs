@@ -170,7 +170,7 @@ namespace Valve.VR
 
                     if (broadcastDeviceChanges)
                     {
-                        this.gameObject.BroadcastMessage("SetInputSource", inputSource, SendMessageOptions.DontRequireReceiver);
+                        this.gameObject.BroadcastMessage("SetInputSource", (int)inputSource, SendMessageOptions.DontRequireReceiver);
                         this.gameObject.BroadcastMessage("SetDeviceIndex", deviceIndex, SendMessageOptions.DontRequireReceiver);
                     }
 
