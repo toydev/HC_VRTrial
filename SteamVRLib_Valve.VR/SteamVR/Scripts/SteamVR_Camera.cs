@@ -7,9 +7,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Reflection;
+using Il2CppInterop.Runtime;
 
 #if UNITY_2017_2_OR_NEWER
-    using UnityEngine.XR;
+using UnityEngine.XR;
 #else
 using XRSettings = UnityEngine.VR.VRSettings;
 using XRDevice = UnityEngine.VR.VRDevice;
@@ -196,7 +197,7 @@ namespace Valve.VR
 
             if (head == null)
             {
-                _head = new GameObject(name + headSuffix, typeof(SteamVR_TrackedObject)).transform;
+                _head = new GameObject(name + headSuffix, Il2CppType.From(typeof(SteamVR_TrackedObject))).transform;
                 head.parent = _origin;
                 head.position = transform.position;
                 head.rotation = transform.rotation;
@@ -225,7 +226,7 @@ namespace Valve.VR
                 if (audioListener != null)
                 {
                     DestroyImmediate(audioListener);
-                    _ears = new GameObject(name + earsSuffix, typeof(SteamVR_Ears)).transform;
+                    _ears = new GameObject(name + earsSuffix, Il2CppType.From(typeof(SteamVR_Ears))).transform;
                     ears.parent = _head;
                     ears.localPosition = Vector3.zero;
                     ears.localRotation = Quaternion.identity;
@@ -260,7 +261,7 @@ namespace Valve.VR
                 DestroyImmediate(ears.gameObject);
                 _ears = null;
 
-                gameObject.AddComponent(typeof(AudioListener));
+                gameObject.AddComponent(Il2CppType.From(typeof(AudioListener)));
             }
 
             if (origin != null)
