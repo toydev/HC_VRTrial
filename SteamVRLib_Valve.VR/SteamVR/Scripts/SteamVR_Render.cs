@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Rendering;
 
 namespace Valve.VR
 {
@@ -304,6 +305,11 @@ namespace Valve.VR
 
         private EVRScreenshotType[] screenshotTypes = new EVRScreenshotType[] { EVRScreenshotType.StereoPanorama };
 
+        private void Awake()
+        {
+            onBeforeRender = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)OnBeforeRender;
+        }
+
         private void OnEnable()
         {
             BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, RenderLoop());
@@ -314,7 +320,7 @@ namespace Valve.VR
                 SteamVR_ExternalCamera_LegacyManager.SubscribeToNewPoses();
 
 #if UNITY_2017_1_OR_NEWER
-		    Application.onBeforeRender += OnBeforeRender;
+            RenderPipelineManager.beginContextRendering += onBeforeRender;
 #else
             Camera.onPreCull += OnCameraPreCull;
 #endif
@@ -338,7 +344,7 @@ namespace Valve.VR
             SteamVR_Events.System(EVREventType.VREvent_RequestScreenshot).Remove(OnRequestScreenshot);
 
 #if UNITY_2017_1_OR_NEWER
-		    Application.onBeforeRender -= OnBeforeRender;
+            RenderPipelineManager.beginContextRendering -= onBeforeRender;
 #else
             Camera.onPreCull -= OnCameraPreCull;
 #endif
@@ -359,7 +365,8 @@ namespace Valve.VR
         }
 
 #if UNITY_2017_1_OR_NEWER
-	    void OnBeforeRender()
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRender;
+        protected void OnBeforeRender(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
         {
             if (SteamVR.active == false)
                 return;

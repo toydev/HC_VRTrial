@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 #if UNITY_2017_2_OR_NEWER
 using UnityEngine.XR;
@@ -94,6 +95,7 @@ namespace Valve.VR
         {
             isPlaying = true;
             xrDevice_deviceLoaded = (Il2CppSystem.Action<string>)XRDevice_deviceLoaded;
+            onBeforeRender = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)OnBeforeRender;
 
             if (initializeSteamVROnAwake && forcingInitialization == false)
                 InitializeSteamVR();
@@ -176,15 +178,16 @@ namespace Valve.VR
 #if UNITY_2017_1_OR_NEWER
         protected void OnEnable()
         {
-		    Application.onBeforeRender += OnBeforeRender;
+            RenderPipelineManager.beginContextRendering += onBeforeRender;
             SteamVR_Events.System(EVREventType.VREvent_Quit).Listen(OnQuit);
         }
         protected void OnDisable()
         {
-		    Application.onBeforeRender -= OnBeforeRender;
+            RenderPipelineManager.beginContextRendering -= onBeforeRender;
             SteamVR_Events.System(EVREventType.VREvent_Quit).Remove(OnQuit);
         }
-	    protected void OnBeforeRender()
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRender;
+        protected void OnBeforeRender(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
         {
             PreCull();
         }
