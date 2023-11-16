@@ -121,6 +121,11 @@ namespace Unity.XR.OpenVR
     , IXRLoaderPreInit
 #endif
     {
+        static OpenVRLoader()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OpenVRLoader>();
+        }
+
         private static List<IntegratedSubsystemDescriptor> s_DisplaySubsystemDescriptors = new List<IntegratedSubsystemDescriptor>();
         private static List<IntegratedSubsystemDescriptor> s_InputSubsystemDescriptors = new List<IntegratedSubsystemDescriptor>();
 

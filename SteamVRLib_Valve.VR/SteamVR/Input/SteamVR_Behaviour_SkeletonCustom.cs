@@ -10,6 +10,11 @@ namespace Valve.VR
     /// </summary>
     public class SteamVR_Behaviour_SkeletonCustom : SteamVR_Behaviour_Skeleton
     {
+        static SteamVR_Behaviour_SkeletonCustom()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Behaviour_SkeletonCustom>();
+        }
+
         // [SerializeField]
         protected Transform _wrist;
 

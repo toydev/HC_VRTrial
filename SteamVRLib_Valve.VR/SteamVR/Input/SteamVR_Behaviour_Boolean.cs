@@ -11,6 +11,11 @@ namespace Valve.VR
     /// </summary>
     public class SteamVR_Behaviour_Boolean : MonoBehaviour
     {
+        static SteamVR_Behaviour_Boolean()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Behaviour_Boolean>();
+        }
+
         // [Tooltip("The SteamVR boolean action that this component should use")]
         public SteamVR_Action_Boolean booleanAction;
 

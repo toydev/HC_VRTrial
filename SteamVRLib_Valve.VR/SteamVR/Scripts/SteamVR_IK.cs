@@ -10,6 +10,11 @@ namespace Valve.VR
 {
     public class SteamVR_IK : MonoBehaviour
     {
+        static SteamVR_IK()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_IK>();
+        }
+
         public Transform target;
         public Transform start, joint, end;
         public Transform poleVector, upVector;

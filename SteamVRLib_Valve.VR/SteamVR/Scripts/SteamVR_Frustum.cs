@@ -11,6 +11,11 @@ namespace Valve.VR
     // [ExecuteInEditMode, RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
     public class SteamVR_Frustum : MonoBehaviour
     {
+        static SteamVR_Frustum()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Frustum>();
+        }
+
         public SteamVR_TrackedObject.EIndex index;
 
         public float fovLeft = 45, fovRight = 45, fovTop = 45, fovBottom = 45, nearZ = 0.5f, farZ = 2.5f;

@@ -10,6 +10,11 @@ namespace Valve.VR
 {
     public class SteamVR_TrackedObject : MonoBehaviour
     {
+        static SteamVR_TrackedObject()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_TrackedObject>();
+        }
+
         public enum EIndex
         {
             None = -1,

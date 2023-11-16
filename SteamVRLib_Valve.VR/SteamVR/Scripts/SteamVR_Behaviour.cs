@@ -15,6 +15,11 @@ namespace Valve.VR
 {
     public class SteamVR_Behaviour : MonoBehaviour
     {
+        static SteamVR_Behaviour()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Behaviour>();
+        }
+
         private const string openVRDeviceName = "OpenVR";
         public static bool forcingInitialization = false;
 

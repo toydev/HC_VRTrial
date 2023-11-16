@@ -11,6 +11,11 @@ namespace Valve.VR
 {
     public class SteamVR_ExternalCamera : MonoBehaviour
     {
+        static SteamVR_ExternalCamera()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_ExternalCamera>();
+        }
+
         private SteamVR_Action_Pose cameraPose = null;
         private SteamVR_Input_Sources cameraInputSource = SteamVR_Input_Sources.Camera;
 

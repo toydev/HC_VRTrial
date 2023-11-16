@@ -9,6 +9,11 @@ namespace Valve.VR
     /// </summary>
     public class SteamVR_Behaviour_Single : MonoBehaviour
     {
+        static SteamVR_Behaviour_Single()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Behaviour_Single>();
+        }
+
         /// <summary>The single action to get data from.</summary>
         public SteamVR_Action_Single singleAction;
 

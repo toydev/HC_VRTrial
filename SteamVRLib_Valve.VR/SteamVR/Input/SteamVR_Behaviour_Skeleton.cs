@@ -8,6 +8,11 @@ namespace Valve.VR
 {
     public class SteamVR_Behaviour_Skeleton : MonoBehaviour
     {
+        static SteamVR_Behaviour_Skeleton()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Behaviour_Skeleton>();
+        }
+
         // [Tooltip("If not set, will try to auto assign this based on 'Skeleton' + inputSource")]
         /// <summary>The action this component will use to update the model. Must be a Skeleton type action.</summary>
         public SteamVR_Action_Skeleton skeletonAction;

@@ -38,6 +38,11 @@ namespace UnityEngine.XR.Management
     /// </summary>
     public sealed class XRManagerSettings : ScriptableObject
     {
+        static XRManagerSettings()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<XRManagerSettings>();
+        }
+
         // [HideInInspector]
         bool m_InitializationComplete = false;
 

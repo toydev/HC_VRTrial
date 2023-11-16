@@ -9,6 +9,11 @@ namespace UnityEngine.XR.Management
     /// </summary>
     public class XRGeneralSettings : ScriptableObject
     {
+        static XRGeneralSettings()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<XRGeneralSettings>();
+        }
+
         /// <summary>The key used to query to get the current loader settings.</summary>
         public static string k_SettingsKey = "com.unity.xr.management.loader_settings";
         internal static XRGeneralSettings s_RuntimeSettingsInstance = null;

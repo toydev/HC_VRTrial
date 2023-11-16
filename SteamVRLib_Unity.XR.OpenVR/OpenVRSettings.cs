@@ -13,6 +13,11 @@ namespace Unity.XR.OpenVR
     [System.Serializable]
     public class OpenVRSettings : ScriptableObject
     {
+        static OpenVRSettings()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OpenVRSettings>();
+        }
+
         public enum StereoRenderingModes
         {
             MultiPass = 0,

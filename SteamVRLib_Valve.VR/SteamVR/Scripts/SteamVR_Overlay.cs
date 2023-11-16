@@ -10,6 +10,11 @@ namespace Valve.VR
 {
     public class SteamVR_Overlay : MonoBehaviour
     {
+        static SteamVR_Overlay()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Overlay>();
+        }
+
         public Texture texture;
 
         // [Tooltip("Size of overlay view.")]

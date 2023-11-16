@@ -7,6 +7,11 @@ namespace Valve.VR
 {
     public class SteamVR_Settings : ScriptableObject
     {
+        static SteamVR_Settings()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Settings>();
+        }
+
         private static SteamVR_Settings _instance;
         public static SteamVR_Settings instance
         {

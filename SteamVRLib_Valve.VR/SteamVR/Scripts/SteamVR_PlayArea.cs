@@ -13,6 +13,11 @@ namespace Valve.VR
     // [ExecuteInEditMode, RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
     public class SteamVR_PlayArea : MonoBehaviour
     {
+        static SteamVR_PlayArea()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_PlayArea>();
+        }
+
         public float borderThickness = 0.15f;
         public float wireframeHeight = 2.0f;
         public bool drawWireframeWhenSelectedOnly = false;

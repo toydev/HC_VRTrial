@@ -5,6 +5,11 @@ namespace Valve.VR
 {
     public class SteamVR_TrackingReferenceManager : MonoBehaviour
     {
+        static SteamVR_TrackingReferenceManager()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_TrackingReferenceManager>();
+        }
+
         private Dictionary<uint, TrackingReferenceObject> trackingReferences = new Dictionary<uint, TrackingReferenceObject>();
 
         private void OnEnable()

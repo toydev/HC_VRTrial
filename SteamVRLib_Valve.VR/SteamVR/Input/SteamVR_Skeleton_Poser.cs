@@ -7,6 +7,11 @@ namespace Valve.VR
 {
     public class SteamVR_Skeleton_Poser : MonoBehaviour
     {
+        static SteamVR_Skeleton_Poser()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Skeleton_Poser>();
+        }
+
         #region Editor Storage
         public bool poseEditorExpanded = true;
         public bool blendEditorExpanded = true;

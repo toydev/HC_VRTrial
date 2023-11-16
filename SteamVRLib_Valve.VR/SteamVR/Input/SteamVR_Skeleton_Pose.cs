@@ -9,6 +9,11 @@ namespace Valve.VR
 {
     public class SteamVR_Skeleton_Pose : ScriptableObject
     {
+        static SteamVR_Skeleton_Pose()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Skeleton_Pose>();
+        }
+
         public SteamVR_Skeleton_Pose_Hand leftHand = new SteamVR_Skeleton_Pose_Hand(SteamVR_Input_Sources.LeftHand);
         public SteamVR_Skeleton_Pose_Hand rightHand = new SteamVR_Skeleton_Pose_Hand(SteamVR_Input_Sources.RightHand);
 

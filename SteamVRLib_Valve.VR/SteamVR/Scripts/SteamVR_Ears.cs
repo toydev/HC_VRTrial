@@ -11,6 +11,11 @@ namespace Valve.VR
     // [RequireComponent(typeof(AudioListener))]
     public class SteamVR_Ears : MonoBehaviour
     {
+        static SteamVR_Ears()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Ears>();
+        }
+
         public SteamVR_Camera vrcam;
 
         bool usingSpeakers;

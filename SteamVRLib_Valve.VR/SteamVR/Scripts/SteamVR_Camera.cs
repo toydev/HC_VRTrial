@@ -21,6 +21,11 @@ namespace Valve.VR
     // [RequireComponent(typeof(Camera))]
     public class SteamVR_Camera : MonoBehaviour
     {
+        static SteamVR_Camera()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Camera>();
+        }
+
         // [SerializeField]
         private Transform _head;
         public Transform head { get { return _head; } }

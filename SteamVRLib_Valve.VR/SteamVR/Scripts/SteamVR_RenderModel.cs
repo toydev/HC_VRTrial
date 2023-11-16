@@ -14,6 +14,11 @@ namespace Valve.VR
     // [ExecuteInEditMode]
     public class SteamVR_RenderModel : MonoBehaviour
     {
+        static SteamVR_RenderModel()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_RenderModel>();
+        }
+
         public SteamVR_TrackedObject.EIndex index = SteamVR_TrackedObject.EIndex.None;
         protected SteamVR_Input_Sources inputSource;
 

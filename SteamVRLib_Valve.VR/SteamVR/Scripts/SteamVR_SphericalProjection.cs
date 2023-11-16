@@ -11,6 +11,11 @@ namespace Valve.VR
     // [ExecuteInEditMode]
     public class SteamVR_SphericalProjection : MonoBehaviour
     {
+        static SteamVR_SphericalProjection()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_SphericalProjection>();
+        }
+
         static Material material;
 
         public void Set(Vector3 N,

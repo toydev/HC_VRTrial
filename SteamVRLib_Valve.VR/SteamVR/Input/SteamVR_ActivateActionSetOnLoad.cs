@@ -9,6 +9,11 @@ namespace Valve.VR
     /// </summary>
     public class SteamVR_ActivateActionSetOnLoad : MonoBehaviour
     {
+        static SteamVR_ActivateActionSetOnLoad()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_ActivateActionSetOnLoad>();
+        }
+
         public SteamVR_ActionSet actionSet = SteamVR_Input.GetActionSet("default");
 
         public SteamVR_Input_Sources forSources = SteamVR_Input_Sources.Any;

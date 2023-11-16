@@ -12,6 +12,11 @@ namespace Valve.VR
 {
     public class SteamVR_Render : MonoBehaviour
     {
+        static SteamVR_Render()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<SteamVR_Render>();
+        }
+
         public SteamVR_ExternalCamera externalCamera;
         public string externalCameraConfigPath = "externalcamera.cfg";
 
