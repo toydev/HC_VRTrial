@@ -1,14 +1,9 @@
 ﻿#if UNITY_XR_MANAGEMENT
-using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.XR;
-using UnityEngine.Experimental.XR;
 using UnityEngine.XR.Management;
-using System.IO;
 using Valve.VR;
-using System.Runtime.CompilerServices;
 
 #if UNITY_INPUT_SYSTEM
 using UnityEngine.InputSystem;

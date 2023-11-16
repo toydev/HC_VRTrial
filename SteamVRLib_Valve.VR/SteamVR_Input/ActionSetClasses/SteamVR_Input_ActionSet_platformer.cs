@@ -10,10 +10,6 @@
 
 namespace Valve.VR
 {
-    using System;
-    using UnityEngine;
-    
-    
     public class SteamVR_Input_ActionSet_platformer : Valve.VR.SteamVR_ActionSet
     {
         

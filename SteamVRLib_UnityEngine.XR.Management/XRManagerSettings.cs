@@ -1,16 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
 
-using UnityEditor;
-
-using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 using UnityEngine.Serialization;
-using UnityEngine.XR.Management;
 
 [assembly: InternalsVisibleTo("Unity.XR.Management.Tests")]
 [assembly: InternalsVisibleTo("Unity.XR.Management.EditorTests")]

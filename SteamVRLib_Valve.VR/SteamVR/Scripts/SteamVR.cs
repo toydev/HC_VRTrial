@@ -5,9 +5,7 @@
 //=============================================================================
 
 using UnityEngine;
-using Valve.VR;
 using System.IO;
-using System.Linq;
 
 #if UNITY_2017_2_OR_NEWER
     using UnityEngine.XR;
