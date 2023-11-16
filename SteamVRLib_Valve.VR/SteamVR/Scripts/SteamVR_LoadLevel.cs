@@ -99,7 +99,7 @@ namespace Valve.VR
         public void Trigger()
         {
             if (!loading && !string.IsNullOrEmpty(levelName))
-                StartCoroutine(LoadLevel());
+                BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, LoadLevel());
         }
 
         // Helper function to quickly and simply load a level from script.

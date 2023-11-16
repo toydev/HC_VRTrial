@@ -161,7 +161,7 @@ namespace Valve.VR
             var s = buffer.ToString();
             if (renderModelName != s)
             {
-                StartCoroutine(SetModelAsync(s));
+                BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, SetModelAsync(s));
             }
         }
 
@@ -477,7 +477,7 @@ namespace Valve.VR
                 renderModels.FreeRenderModel(pRenderModel);
             else
 #endif
-                StartCoroutine(FreeRenderModel(pRenderModel));
+                BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, FreeRenderModel(pRenderModel));
 
             return new RenderModel(mesh, material);
         }

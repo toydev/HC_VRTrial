@@ -497,7 +497,7 @@ namespace Valve.VR
                 StopCoroutine(blendRoutine);
 
             if (this.gameObject.activeInHierarchy)
-                blendRoutine = StartCoroutine(DoBlendRoutine(blendToAmount, overTime));
+                blendRoutine = BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, DoBlendRoutine(blendToAmount, overTime));
         }
 
 
@@ -528,7 +528,7 @@ namespace Valve.VR
 
             if (this.gameObject.activeInHierarchy)
             {
-                rangeOfMotionBlendRoutine = StartCoroutine(DoRangeOfMotionBlend(oldRangeOfMotion, newRangeOfMotion, blendOverSeconds));
+                rangeOfMotionBlendRoutine = BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, DoRangeOfMotionBlend(oldRangeOfMotion, newRangeOfMotion, blendOverSeconds));
             }
         }
 
@@ -545,7 +545,7 @@ namespace Valve.VR
 
             if (this.gameObject.activeInHierarchy)
             {
-                rangeOfMotionBlendRoutine = StartCoroutine(DoRangeOfMotionBlend(oldRangeOfMotion, newRangeOfMotion, blendOverSeconds));
+                rangeOfMotionBlendRoutine = BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, DoRangeOfMotionBlend(oldRangeOfMotion, newRangeOfMotion, blendOverSeconds));
             }
         }
 
@@ -564,7 +564,7 @@ namespace Valve.VR
 
                 if (this.gameObject.activeInHierarchy)
                 {
-                    rangeOfMotionBlendRoutine = StartCoroutine(DoRangeOfMotionBlend(oldRangeOfMotion, newRangeOfMotion, blendOverSeconds));
+                    rangeOfMotionBlendRoutine = BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, DoRangeOfMotionBlend(oldRangeOfMotion, newRangeOfMotion, blendOverSeconds));
                 }
             }
         }

@@ -306,7 +306,7 @@ namespace Valve.VR
 
         private void OnEnable()
         {
-            StartCoroutine(RenderLoop());
+            BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, RenderLoop());
             SteamVR_Events.InputFocus.Listen(OnInputFocus);
             SteamVR_Events.System(EVREventType.VREvent_RequestScreenshot).Listen(OnRequestScreenshot);
 

@@ -111,7 +111,7 @@ namespace Valve.VR
                 if (XRSettings.loadedDeviceName == openVRDeviceName)
                     EnableOpenVR();
                 else
-                    initializeCoroutine = StartCoroutine(DoInitializeSteamVR(forceUnityVRToOpenVR));
+                    initializeCoroutine = BepInEx.Unity.IL2CPP.Utils.MonoBehaviourExtensions.StartCoroutine(this, DoInitializeSteamVR(forceUnityVRToOpenVR));
             }
             else
             {
