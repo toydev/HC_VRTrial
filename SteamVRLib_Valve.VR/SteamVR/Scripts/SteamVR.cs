@@ -161,6 +161,17 @@ namespace Valve.VR
                 }
 #endif
 
+                OpenVR.Init(ref error, EVRApplicationType.VRApplication_Scene);
+                if (error != EVRInitError.None)
+                {
+                    Debug.LogError("step 11");
+                    initializedState = InitializedStates.InitializeFailure;
+                    ReportError(error);
+                    ReportGeneralErrors();
+                    SteamVR_Events.Initialized.Send(false);
+                    return null;
+                }
+
                 // Verify common interfaces are valid.
 
                 OpenVR.GetGenericInterface(OpenVR.IVRCompositor_Version, ref error);
