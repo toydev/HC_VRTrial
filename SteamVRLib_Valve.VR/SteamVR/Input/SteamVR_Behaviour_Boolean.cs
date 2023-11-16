@@ -11,10 +11,10 @@ namespace Valve.VR
     /// </summary>
     public class SteamVR_Behaviour_Boolean : MonoBehaviour
     {
-        [Tooltip("The SteamVR boolean action that this component should use")]
+        // [Tooltip("The SteamVR boolean action that this component should use")]
         public SteamVR_Action_Boolean booleanAction;
 
-        [Tooltip("The device this action should apply to. Any if the action is not device specific.")]
+        // [Tooltip("The device this action should apply to. Any if the action is not device specific.")]
         public SteamVR_Input_Sources inputSource;
 
         /// <summary>This UnityEvent fires whenever a change happens in the action</summary>

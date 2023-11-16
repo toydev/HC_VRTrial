@@ -17,10 +17,10 @@ using XRDevice = UnityEngine.VR.VRDevice;
 
 namespace Valve.VR
 {
-    [RequireComponent(typeof(Camera))]
+    // [RequireComponent(typeof(Camera))]
     public class SteamVR_Camera : MonoBehaviour
     {
-        [SerializeField]
+        // [SerializeField]
         private Transform _head;
         public Transform head { get { return _head; } }
         public Transform offset { get { return _head; } } // legacy
@@ -28,7 +28,7 @@ namespace Valve.VR
 
         public new Camera camera { get; private set; }
 
-        [SerializeField]
+        // [SerializeField]
         private Transform _ears;
         public Transform ears { get { return _ears; } }
 

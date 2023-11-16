@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Valve.VR
 {
-    [ExecuteInEditMode]
+    // [ExecuteInEditMode]
     public class SteamVR_SphericalProjection : MonoBehaviour
     {
         static Material material;

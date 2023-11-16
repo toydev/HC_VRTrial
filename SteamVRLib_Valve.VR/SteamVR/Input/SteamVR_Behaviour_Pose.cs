@@ -12,10 +12,10 @@ namespace Valve.VR
     {
         public SteamVR_Action_Pose poseAction = SteamVR_Input.GetAction<SteamVR_Action_Pose>("Pose");
 
-        [Tooltip("The device this action should apply to. Any if the action is not device specific.")]
+        // [Tooltip("The device this action should apply to. Any if the action is not device specific.")]
         public SteamVR_Input_Sources inputSource;
 
-        [Tooltip("If not set, relative to parent")]
+        // [Tooltip("If not set, relative to parent")]
         public Transform origin;
 
         /// <summary>Returns whether or not the current pose is in a valid state</summary>
@@ -57,7 +57,7 @@ namespace Valve.VR
         public DeviceIndexChangedHandler onDeviceIndexChangedEvent;
 
 
-        [Tooltip("Can be disabled to stop broadcasting bound device status changes")]
+        // [Tooltip("Can be disabled to stop broadcasting bound device status changes")]
         public bool broadcastDeviceChanges = true;
 
         protected int deviceIndex = -1;

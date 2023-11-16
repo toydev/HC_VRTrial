@@ -16,7 +16,7 @@ namespace Valve.VR
 
         public float blendPct = 1.0f;
 
-        [HideInInspector]
+        // [HideInInspector]
         public Transform startXform, jointXform, endXform;
 
         void LateUpdate()

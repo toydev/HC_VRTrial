@@ -34,7 +34,7 @@ namespace Valve.VR
 
         public bool doNotDestroy = true;
 
-        [HideInInspector]
+        // [HideInInspector]
         public SteamVR_Render steamvr_render;
 
         internal static bool isPlaying = false;

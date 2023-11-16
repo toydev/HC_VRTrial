@@ -33,28 +33,28 @@ namespace Unity.XR.OpenVR
             OpenVR,
         }
 
-        [SerializeField, Tooltip("This will check the package version and the latest on github and prompt you to upgrade once per project load.")]
+        // [SerializeField, Tooltip("This will check the package version and the latest on github and prompt you to upgrade once per project load.")]
         public bool PromptToUpgradePackage = true;
 
-        [SerializeField, Tooltip("This will check the package version and the latest on github and prompt you to upgrade once per project load.")]
+        // [SerializeField, Tooltip("This will check the package version and the latest on github and prompt you to upgrade once per project load.")]
         public bool PromptToUpgradePreviewPackages = true;
 
-        [SerializeField, Tooltip("This allows developers to skip upgrade prompts for just this version.")]
+        // [SerializeField, Tooltip("This allows developers to skip upgrade prompts for just this version.")]
         public string SkipPromptForVersion = null;
 
-        [SerializeField, Tooltip("Set the Stereo Rendering Method")]
+        // [SerializeField, Tooltip("Set the Stereo Rendering Method")]
         public StereoRenderingModes StereoRenderingMode = StereoRenderingModes.SinglePassInstanced;
 
-        [SerializeField, Tooltip("Most applications initialize as type Scene")]
+        // [SerializeField, Tooltip("Most applications initialize as type Scene")]
         public InitializationTypes InitializationType = InitializationTypes.Scene;
 
-        [SerializeField, Tooltip("A generated unique identifier for your application while in the editor")]
+        // [SerializeField, Tooltip("A generated unique identifier for your application while in the editor")]
         public string EditorAppKey = null;
 
-        [SerializeField, Tooltip("Internal value that tells the system what the relative path is to the manifest")]
+        // [SerializeField, Tooltip("Internal value that tells the system what the relative path is to the manifest")]
         public string ActionManifestFileRelativeFilePath;
 
-        [SerializeField, Tooltip("Which eye to use when rendering the headset view to the main window (none, left, right, or a composite of both + OpenVR overlays)")]
+        // [SerializeField, Tooltip("Which eye to use when rendering the headset view to the main window (none, left, right, or a composite of both + OpenVR overlays)")]
         public MirrorViewModes MirrorView = MirrorViewModes.Right;
 
         public const string StreamingAssetsFolderName = "SteamVR";
@@ -80,7 +80,7 @@ namespace Unity.XR.OpenVR
                 directory.Create();
         }
 
-        [SerializeField, Tooltip("Internal value that tells the system if we have copied the default binding files yet.")]
+        // [SerializeField, Tooltip("Internal value that tells the system if we have copied the default binding files yet.")]
         public bool HasCopiedDefaults = false;
 
         public ushort GetStereoRenderingMode()

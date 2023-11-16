@@ -14,7 +14,7 @@ namespace Valve.VR
     {
         public SteamVR_ActionSet() { }
 
-        [SerializeField]
+        // [SerializeField]
         private string actionSetPath;
 
         [NonSerialized]

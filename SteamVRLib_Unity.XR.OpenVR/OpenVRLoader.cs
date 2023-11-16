@@ -429,7 +429,7 @@ namespace Unity.XR.OpenVR
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         delegate void TickCallbackDelegate(int value);
 
-        [AOT.MonoPInvokeCallback(typeof(TickCallbackDelegate))]
+        // [AOT.MonoPInvokeCallback(typeof(TickCallbackDelegate))]
         public static void TickCallback(int value)
         {
             OpenVREvents.Update();

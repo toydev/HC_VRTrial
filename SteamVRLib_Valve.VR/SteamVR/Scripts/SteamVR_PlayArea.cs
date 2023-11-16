@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace Valve.VR
 {
-    [ExecuteInEditMode, RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
+    // [ExecuteInEditMode, RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
     public class SteamVR_PlayArea : MonoBehaviour
     {
         public float borderThickness = 0.15f;
@@ -29,7 +29,7 @@ namespace Valve.VR
         public Size size;
         public Color color = Color.cyan;
 
-        [HideInInspector]
+        // [HideInInspector]
         public Vector3[] vertices;
 
         public static bool GetBounds(Size size, ref HmdQuad_t pRect)

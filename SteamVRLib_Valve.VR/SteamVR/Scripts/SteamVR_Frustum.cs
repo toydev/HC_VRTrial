@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Valve.VR
 {
-    [ExecuteInEditMode, RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
+    // [ExecuteInEditMode, RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
     public class SteamVR_Frustum : MonoBehaviour
     {
         public SteamVR_TrackedObject.EIndex index;

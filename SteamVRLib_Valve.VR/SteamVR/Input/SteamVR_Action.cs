@@ -270,10 +270,10 @@ namespace Valve.VR
     {
         public SteamVR_Action() { }
 
-        [SerializeField]
+        // [SerializeField]
         protected string actionPath;
 
-        [SerializeField]
+        // [SerializeField]
         protected bool needsReinit;
 
         /// <summary>
