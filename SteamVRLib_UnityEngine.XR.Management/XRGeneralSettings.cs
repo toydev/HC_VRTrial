@@ -92,6 +92,7 @@ namespace UnityEngine.XR.Management
             s_RuntimeSettingsInstance = this;
             Application.quitting += (Il2CppSystem.Action)Quit;
             DontDestroyOnLoad(s_RuntimeSettingsInstance);
+            s_RuntimeSettingsInstance.hideFlags = HideFlags.HideAndDontSave;
         }
 #endif
 

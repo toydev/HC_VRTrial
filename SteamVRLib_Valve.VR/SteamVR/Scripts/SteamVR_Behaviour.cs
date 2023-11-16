@@ -90,7 +90,10 @@ namespace Valve.VR
                 }
 
                 if (_instance != null && _instance.doNotDestroy)
+                {
                     GameObject.DontDestroyOnLoad(_instance.transform.root.gameObject);
+                    _instance.transform.root.gameObject.hideFlags = HideFlags.HideAndDontSave;
+                }
 
                 initializing = false;
             }
