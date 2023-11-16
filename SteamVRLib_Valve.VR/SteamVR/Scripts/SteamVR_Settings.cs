@@ -25,6 +25,7 @@ namespace Valve.VR
 
         public bool pauseGameWhenDashboardVisible = true;
         public bool lockPhysicsUpdateRateToRenderFrequency = true;
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public ETrackingUniverseOrigin trackingSpace
         {
             get
@@ -84,10 +85,12 @@ namespace Valve.VR
         private const string previewRightDefaultAssetName = "vr_glove_right_model_slim";
 
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool IsInputUpdateMode(SteamVR_UpdateModes tocheck)
         {
             return (inputUpdateMode & tocheck) == tocheck;
         }
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool IsPoseUpdateMode(SteamVR_UpdateModes tocheck)
         {
             return (poseUpdateMode & tocheck) == tocheck;

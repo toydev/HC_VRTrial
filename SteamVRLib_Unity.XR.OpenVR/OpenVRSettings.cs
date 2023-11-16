@@ -98,6 +98,7 @@ namespace Unity.XR.OpenVR
             return (ushort)InitializationType;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public MirrorViewModes GetMirrorViewMode()
         {
             return MirrorView;
@@ -107,6 +108,7 @@ namespace Unity.XR.OpenVR
         /// Sets the mirror view mode (left, right, composite of both + openvr overlays) at runtime.
         /// </summary>
         /// <param name="newMode">left, right, composite of both + openvr overlays</param>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public void SetMirrorViewMode(MirrorViewModes newMode)
         {
             MirrorView = newMode;

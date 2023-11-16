@@ -28,6 +28,7 @@ namespace UnityEngine.XR.Management
         /// <typeparam name="T">Type of the subsystem to get.</typeparam>
         ///
         /// <returns>The loaded subsystem or null if not found.</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public override IntegratedSubsystem GetLoadedIntegratedSubsystem(string id)
         {
             IntegratedSubsystem subsystem;
@@ -91,6 +92,7 @@ namespace UnityEngine.XR.Management
         /// <typeparam name="TSubsystem">The subsystem type being requested</typeparam>
         /// <param name="descriptors">List of TDescriptor instances to use for subsystem matching.</param>
         /// <param name="id">The identifier key of the particualr subsystem implementation being requested.</param>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         protected void CreateIntegratedSubsystem(List<IntegratedSubsystemDescriptor> descriptors, string id)
         {
             if (descriptors == null)

@@ -31,18 +31,21 @@ namespace Valve.VR
             SteamVR.SafeDispose();
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         static public void Add(SteamVR_Camera vrcam)
         {
             if (!isQuitting)
                 instance.AddInternal(vrcam);
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         static public void Remove(SteamVR_Camera vrcam)
         {
             if (!isQuitting && instance != null)
                 instance.RemoveInternal(vrcam);
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         static public SteamVR_Camera Top()
         {
             if (!isQuitting)
@@ -53,6 +56,7 @@ namespace Valve.VR
 
         private SteamVR_Camera[] cameras = new SteamVR_Camera[0];
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         void AddInternal(SteamVR_Camera vrcam)
         {
             var camera = vrcam.GetComponent<Camera>();
@@ -73,6 +77,7 @@ namespace Valve.VR
             cameras = sorted;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         void RemoveInternal(SteamVR_Camera vrcam)
         {
             var length = cameras.Length;
@@ -98,6 +103,7 @@ namespace Valve.VR
             cameras = sorted;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         SteamVR_Camera TopInternal()
         {
             if (cameras.Length > 0)
@@ -125,6 +131,7 @@ namespace Valve.VR
 
         private WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private IEnumerator RenderLoop()
         {
             while (Application.isPlaying)
@@ -265,6 +272,7 @@ namespace Valve.VR
             }
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private string GetScreenshotFilename(uint screenshotHandle, EVRScreenshotPropertyFilenames screenshotPropertyFilename)
         {
             var error = EVRScreenshotError.None;
@@ -282,6 +290,7 @@ namespace Valve.VR
             return null;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private void OnRequestScreenshot(VREvent_t vrEvent)
         {
             var screenshotHandle = vrEvent.data.screenshot.handle;

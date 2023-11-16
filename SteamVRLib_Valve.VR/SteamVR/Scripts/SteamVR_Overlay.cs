@@ -128,6 +128,7 @@ namespace Valve.VR
             }
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool PollNextEvent(ref VREvent_t pEvent)
         {
             var overlay = OpenVR.Overlay;
@@ -146,6 +147,7 @@ namespace Valve.VR
             public float distance;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool ComputeIntersection(Vector3 source, Vector3 direction, ref IntersectionResults results)
         {
             var overlay = OpenVR.Overlay;

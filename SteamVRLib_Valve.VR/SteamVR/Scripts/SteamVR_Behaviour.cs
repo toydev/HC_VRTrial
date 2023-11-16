@@ -130,6 +130,7 @@ namespace Valve.VR
 
 #if UNITY_2018_3_OR_NEWER
         private bool loadedOpenVRDeviceSuccess = false;
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private IEnumerator DoInitializeSteamVR(bool forceUnityVRToOpenVR = false)
         {
             XRDevice.deviceLoaded += xrDevice_deviceLoaded;
@@ -255,6 +256,7 @@ namespace Valve.VR
             }
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         protected void OnQuit(VREvent_t vrEvent)
         {
 #if UNITY_EDITOR

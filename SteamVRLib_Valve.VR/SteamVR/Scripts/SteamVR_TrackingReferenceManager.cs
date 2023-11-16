@@ -22,6 +22,7 @@ namespace Valve.VR
             SteamVR_Events.NewPoses.Remove(OnNewPoses);
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private void OnNewPoses(TrackedDevicePose_t[] poses)
         {
             if (poses == null)

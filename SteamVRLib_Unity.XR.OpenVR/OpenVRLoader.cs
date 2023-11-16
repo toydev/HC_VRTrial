@@ -332,6 +332,7 @@ namespace Unity.XR.OpenVR
         private OpenVRSettings settings;
 
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private void OnChanged(object source, System.IO.FileSystemEventArgs e)
         {
             ReadMirrorModeConfig();

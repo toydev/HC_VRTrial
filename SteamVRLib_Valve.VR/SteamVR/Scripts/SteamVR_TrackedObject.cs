@@ -44,6 +44,7 @@ namespace Valve.VR
 
         public bool isValid { get; private set; }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private void OnNewPoses(TrackedDevicePose_t[] poses)
         {
             if (index == EIndex.None)

@@ -62,6 +62,7 @@ namespace UnityEngine.XR.Management
         ///
         /// <param name="buildingPlayer">True if the player is being built. You may want to include or exclude graphics apis if the player is being built or not.</param>
         /// <returns>Returns the loader's supported graphics device types.</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public virtual List<GraphicsDeviceType> GetSupportedGraphicsDeviceTypes(bool buildingPlayer)
         {
             return new List<GraphicsDeviceType>();
