@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DefineConstants>$(DefineConstants);UNITY_5_3_OR_NEWER;UNITY_XR_MANAGEMENT</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>$(DefineConstants);UNITY_5_3_OR_NEWER;UNITY_XR_MANAGEMENT</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Preloader.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.Common.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.IL2CPP.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\Il2CppInterop.Runtime.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\Il2Cppmscorlib.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.CoreModule.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.SubsystemsModule.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.XRModule.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SteamVRLib_UnityEngine.XR.Management\SteamVRLib_UnityEngine.XR.Management.csproj" />
+	</ItemGroup>
+</Project>
