@@ -322,7 +322,7 @@ namespace Valve.VR
             if (SteamVR.initializedState == SteamVR.InitializedStates.InitializeSuccess)
                 OpenVR.Screenshots.HookScreenshot(screenshotTypes);
             else
-                SteamVR_Events.Initialized.AddListener(OnSteamVRInitialized);
+                SteamVR_Events.Initialized.Listen(OnSteamVRInitialized);
         }
 
         private void OnSteamVRInitialized(bool success)
@@ -344,7 +344,7 @@ namespace Valve.VR
 #endif
 
             if (SteamVR.initializedState != SteamVR.InitializedStates.InitializeSuccess)
-                SteamVR_Events.Initialized.RemoveListener(OnSteamVRInitialized);
+                SteamVR_Events.Initialized.Remove(OnSteamVRInitialized);
         }
 
         public void UpdatePoses()
