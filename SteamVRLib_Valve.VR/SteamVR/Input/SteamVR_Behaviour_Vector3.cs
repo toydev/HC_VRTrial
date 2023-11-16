@@ -75,7 +75,7 @@ namespace Valve.VR
         {
             if (onUpdate != null)
             {
-                onUpdate.Invoke(this, fromSource, newAxis, newDelta);
+                onUpdate.Send(this, fromSource, newAxis, newDelta);
             }
             if (onUpdateEvent != null)
             {
@@ -87,7 +87,7 @@ namespace Valve.VR
         {
             if (onChange != null)
             {
-                onChange.Invoke(this, fromSource, newAxis, newDelta);
+                onChange.Send(this, fromSource, newAxis, newDelta);
             }
             if (onChangeEvent != null)
             {
@@ -99,7 +99,7 @@ namespace Valve.VR
         {
             if (onAxis != null)
             {
-                onAxis.Invoke(this, fromSource, newAxis, newDelta);
+                onAxis.Send(this, fromSource, newAxis, newDelta);
             }
             if (onAxisEvent != null)
             {
