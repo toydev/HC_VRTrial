@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 #if UNITY_2017_2_OR_NEWER
-    using UnityEngine.XR;
+using UnityEngine.XR;
 #else
 using XRSettings = UnityEngine.VR.VRSettings;
 using XRDevice = UnityEngine.VR.VRDevice;
@@ -92,6 +93,7 @@ namespace Valve.VR
         protected void Awake()
         {
             isPlaying = true;
+            xrDevice_deviceLoaded = (Il2CppSystem.Action<string>)XRDevice_deviceLoaded;
 
             if (initializeSteamVROnAwake && forcingInitialization == false)
                 InitializeSteamVR();
@@ -123,16 +125,17 @@ namespace Valve.VR
         private bool loadedOpenVRDeviceSuccess = false;
         private IEnumerator DoInitializeSteamVR(bool forceUnityVRToOpenVR = false)
         {
-            XRDevice.deviceLoaded += XRDevice_deviceLoaded;
+            XRDevice.deviceLoaded += xrDevice_deviceLoaded;
             XRSettings.LoadDeviceByName(openVRDeviceName);
             while (loadedOpenVRDeviceSuccess == false)
             {
                 yield return null;
             }
-            XRDevice.deviceLoaded -= XRDevice_deviceLoaded;
+            XRDevice.deviceLoaded -= xrDevice_deviceLoaded;
             EnableOpenVR();
         }
 
+        private Il2CppSystem.Action<string> xrDevice_deviceLoaded;
         private void XRDevice_deviceLoaded(string deviceName)
         {
             if (deviceName == openVRDeviceName)

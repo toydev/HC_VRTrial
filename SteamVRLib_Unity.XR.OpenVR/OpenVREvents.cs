@@ -63,7 +63,7 @@ namespace Unity.XR.OpenVR
 
         public void RegisterDefaultEvents()
         {
-            AddListener(EVREventType.VREvent_Quit, On_VREvent_Quit);
+            AddListener(EVREventType.VREvent_Quit, (UnityAction<VREvent_t>)On_VREvent_Quit);
         }
 
         public static void AddListener(EVREventType eventType, UnityAction<VREvent_t> action, bool removeOtherListeners = false)
