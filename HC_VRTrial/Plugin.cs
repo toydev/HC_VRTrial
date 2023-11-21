@@ -24,7 +24,7 @@ namespace HC_VRTrial
 
             // Check
             for (var i = 0; i < 32; ++i) PluginLog.Info($"Layer[{i}]: {LayerMask.LayerToName(i)}");
-            foreach (var i in Resources.FindObjectsOfTypeAll(Il2CppType.From(typeof(Shader)))) PluginLog.Info($"Share: {i.name}");
+            foreach (var i in Resources.FindObjectsOfTypeAll(Il2CppType.From(typeof(Shader)))) PluginLog.Info($"Shader: {i.name}");
 
             try
             {
