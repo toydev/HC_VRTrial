@@ -16,23 +16,56 @@ namespace Unity.XR.OpenVR
 
         public static Type GetType(string className, bool fullname = false)
         {
-            Type foundType = null;
             if (fullname)
             {
-                foundType = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                             from type in assembly.GetTypes()
-                             where type.FullName == className
-                             select type).FirstOrDefault();
+                try
+                {
+                    foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+                    {
+                        try
+                        {
+                            foreach (var type in assembly.GetTypes())
+                            {
+                                if (type.FullName == className) return type;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            // ignore
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // ignore
+                }
+                return null;
             }
             else
             {
-                foundType = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                             from type in assembly.GetTypes()
-                             where type.Name == className
-                             select type).FirstOrDefault();
+                try
+                {
+                    foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+                    {
+                        try
+                        {
+                            foreach (var type in assembly.GetTypes())
+                            {
+                                if (type.Name == className) return type;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            // ignore
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // ignore
+                }
+                return null;
             }
-
-            return foundType;
         }
 
         public static string GetActionManifestPathFromPlugin()
