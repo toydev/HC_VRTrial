@@ -37,6 +37,11 @@ namespace UnityEngine.XR.OpenXR
 #if UNITY_EDITOR
         internal bool versionChanged = false;
 #else
+        static OpenXRSettings()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OpenXRSettings>();
+        }
+
         private static OpenXRSettings s_RuntimeInstance = null;
 
         private void Awake()
