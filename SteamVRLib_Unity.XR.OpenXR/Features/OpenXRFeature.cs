@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using UnityEngine.Serialization;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.InputSystem.Utilities;
-using UnityEngine.XR.OpenXR.Input;
+// using UnityEngine.InputSystem;
+// using UnityEngine.InputSystem.LowLevel;
+// using UnityEngine.InputSystem.Utilities;
+// using UnityEngine.XR.OpenXR.Input;
 using UnityEngine.XR.OpenXR.NativeTypes;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -701,6 +701,6 @@ namespace UnityEngine.XR.OpenXR.Features
         /// </summary>
         /// <param name="inputAction">Action to retrieve XrAction handles for</param>
         /// <returns>XrAction handle bound to the given <see cref="UnityEngine.InputSystem.InputAction"/> or 0 if there is no bound XrAction</returns>
-        protected ulong GetAction(InputAction inputAction) => OpenXRInput.GetActionHandle(inputAction);
+        // protected ulong GetAction(InputAction inputAction) => OpenXRInput.GetActionHandle(inputAction);
     }
 }
