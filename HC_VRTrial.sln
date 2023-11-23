@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamVRLib_UnityEngine.XR.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamVRLib_Valve.VR", "SteamVRLib_Valve.VR\SteamVRLib_Valve.VR.csproj", "{56FA2403-CB40-4835-A292-E7F7C53D5C63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamVRLib_Unity.XR.OpenXR", "SteamVRLib_Unity.XR.OpenXR\SteamVRLib_Unity.XR.OpenXR.csproj", "{557892F3-5E4F-4B2B-90EB-531988F2CDAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{56FA2403-CB40-4835-A292-E7F7C53D5C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56FA2403-CB40-4835-A292-E7F7C53D5C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56FA2403-CB40-4835-A292-E7F7C53D5C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557892F3-5E4F-4B2B-90EB-531988F2CDAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557892F3-5E4F-4B2B-90EB-531988F2CDAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557892F3-5E4F-4B2B-90EB-531988F2CDAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557892F3-5E4F-4B2B-90EB-531988F2CDAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
