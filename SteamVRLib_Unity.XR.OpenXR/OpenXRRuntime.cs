@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Il2CppInterop.Runtime;
+using System;
 using System.Runtime.InteropServices;
 
 namespace UnityEngine.XR.OpenXR
@@ -116,7 +117,7 @@ namespace UnityEngine.XR.OpenXR
                 }
                 catch (Exception exception)
                 {
-                    Debug.LogException(exception);
+                    Debug.LogError(exception.Message);
                 }
             }
 
