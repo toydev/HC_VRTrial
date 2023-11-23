@@ -351,7 +351,7 @@ namespace UnityEngine.XR.OpenXR
 
             if (!actionSetsAttached)
             {
-                OpenXRInput.AttachActionSets();
+                // OpenXRInput.AttachActionSets();
                 actionSetsAttached = true;
             }
 
