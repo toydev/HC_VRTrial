@@ -33,7 +33,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// <summary>
         /// Feature will be enabled when OpenXR is initialized.
         /// </summary>
-        // [FormerlySerializedAs("enabled")] [HideInInspector] [SerializeField] private bool m_enabled = false;
+        /* [FormerlySerializedAs("enabled")] [HideInInspector] [SerializeField] */ private bool m_enabled = false;
 
         internal bool failedInitialization { get; private set; } = false;
 
