@@ -5,6 +5,14 @@
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DefineConstants>$(DefineConstants);UNITY_2021_3_OR_NEWER</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>$(DefineConstants);UNITY_2021_3_OR_NEWER</DefineConstants>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Core.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Preloader.Core.dll" />

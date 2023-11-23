@@ -58,10 +58,11 @@ namespace UnityEngine.XR.OpenXR
     public partial class OpenXRLoaderBase : XRLoaderHelper
     {
         const double k_IdlePollingWaitTimeInSeconds = 0.1;
-        private static List<XRDisplaySubsystemDescriptor> s_DisplaySubsystemDescriptors =
-            new List<XRDisplaySubsystemDescriptor>();
-        private static List<XRInputSubsystemDescriptor> s_InputSubsystemDescriptors =
-            new List<XRInputSubsystemDescriptor>();
+        private static List<IntegratedSubsystemDescriptor> s_DisplaySubsystemDescriptors = new List<IntegratedSubsystemDescriptor>();
+        private static List<IntegratedSubsystemDescriptor> s_InputSubsystemDescriptors = new List<IntegratedSubsystemDescriptor>();
+
+        public const string OPEN_XR_DISPLAY = "OpenXR Display";
+        public const string OPEN_XR_INPUT = "OpenXR Input";
 
         /// <summary>
         /// Represents the running OpenXRLoader instance. This value should be non null after calling
@@ -111,12 +112,12 @@ namespace UnityEngine.XR.OpenXR
         /// <summary>
         /// Reference to the current display subsystem if the loader is initialized, or null if the loader is not initialized.
         /// </summary>
-        internal XRDisplaySubsystem displaySubsystem => GetLoadedSubsystem<XRDisplaySubsystem>();
+        internal IntegratedSubsystem displaySubsystem => GetLoadedIntegratedSubsystem(OPEN_XR_DISPLAY);
 
         /// <summary>
         /// Reference to the current input subsystem if the loader is initialized, or null if the loader is not initialized.
         /// </summary>
-        internal XRInputSubsystem inputSubsystem => Instance?.GetLoadedSubsystem<XRInputSubsystem>();
+        internal IntegratedSubsystem inputSubsystem => GetLoadedIntegratedSubsystem(OPEN_XR_INPUT);
 
         /// <summary>
         /// True if the loader has been initialized, false otherwise.
@@ -261,14 +262,14 @@ namespace UnityEngine.XR.OpenXR
 
             if (displaySubsystem == null)
             {
-                CreateSubsystem<XRDisplaySubsystemDescriptor, XRDisplaySubsystem>(s_DisplaySubsystemDescriptors, "OpenXR Display");
+                CreateIntegratedSubsystem(s_DisplaySubsystemDescriptors, OPEN_XR_DISPLAY);
                 if (displaySubsystem == null)
                     return false;
             }
 
             if (inputSubsystem == null)
             {
-                CreateSubsystem<XRInputSubsystemDescriptor, XRInputSubsystem>(s_InputSubsystemDescriptors, "OpenXR Input");
+                CreateIntegratedSubsystem(s_InputSubsystemDescriptors, OPEN_XR_INPUT);
                 if (inputSubsystem == null)
                     return false;
             }
@@ -341,7 +342,7 @@ namespace UnityEngine.XR.OpenXR
             }
 
             // Note: Display has to be started before Input so that Input can have access to the Session object
-            StartSubsystem<XRDisplaySubsystem>();
+            StartIntegratedSubsystem(OPEN_XR_DISPLAY);
             if (!displaySubsystem?.running ?? false)
                 return false;
 
@@ -355,10 +356,10 @@ namespace UnityEngine.XR.OpenXR
             }
 
             if (!displaySubsystem?.running ?? false)
-                StartSubsystem<XRDisplaySubsystem>();
+                StartIntegratedSubsystem(OPEN_XR_DISPLAY);
 
             if (!inputSubsystem?.running ?? false)
-                StartSubsystem<XRInputSubsystem>();
+                StartIntegratedSubsystem(OPEN_XR_INPUT);
 
             var inputRunning = inputSubsystem?.running ?? false;
             var displayRunning = displaySubsystem?.running ?? false;
@@ -397,10 +398,10 @@ namespace UnityEngine.XR.OpenXR
                 OpenXRFeature.ReceiveLoaderEvent(this, OpenXRFeature.LoaderEvent.SubsystemStop);
 
             if (inputRunning)
-                StopSubsystem<XRInputSubsystem>();
+                StopIntegratedSubsystem(OPEN_XR_INPUT);
 
             if (displayRunning)
-                StopSubsystem<XRDisplaySubsystem>();
+                StopIntegratedSubsystem(OPEN_XR_DISPLAY);
             StopInternal();
 
             currentLoaderState = LoaderState.Stopped;
@@ -447,8 +448,8 @@ namespace UnityEngine.XR.OpenXR
 
                 OpenXRFeature.ReceiveLoaderEvent(this, OpenXRFeature.LoaderEvent.SubsystemDestroy);
 
-                DestroySubsystem<XRInputSubsystem>();
-                DestroySubsystem<XRDisplaySubsystem>();
+                DestroyIntegratedSubsystem(OPEN_XR_INPUT);
+                DestroyIntegratedSubsystem(OPEN_XR_DISPLAY);
 
                 DiagnosticReport.DumpReport("System Shutdown");
 
@@ -476,19 +477,6 @@ namespace UnityEngine.XR.OpenXR
                 Instance = null;
             }
         }
-
-        internal new void CreateSubsystem<TDescriptor, TSubsystem>(List<TDescriptor> descriptors, string id)
-            where TDescriptor : ISubsystemDescriptor
-            where TSubsystem : ISubsystem
-        {
-            base.CreateSubsystem<TDescriptor, TSubsystem>(descriptors, id);
-        }
-
-        internal new void StartSubsystem<T>() where T : class, ISubsystem => base.StartSubsystem<T>();
-
-        internal new void StopSubsystem<T>() where T : class, ISubsystem => base.StopSubsystem<T>();
-
-        internal new void DestroySubsystem<T>() where T : class, ISubsystem => base.DestroySubsystem<T>();
 
         private void SetApplicationInfo()
         {
