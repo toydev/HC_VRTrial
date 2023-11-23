@@ -12,11 +12,11 @@ using UnityEngine.Scripting;
 using UnityEngine.XR.Management;
 // using UnityEngine.XR.OpenXR.Input;
 using UnityEngine.XR.OpenXR.Features;
+using UnityEngine.Rendering;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.XR.Management;
 using UnityEditor.XR.OpenXR;
-
 #endif
 
 // [assembly: Preserve]
@@ -247,7 +247,7 @@ namespace UnityEngine.XR.OpenXR
 
             DebugLogEnabledSpecExtensions();
 
-            Application.onBeforeRender += ProcessOpenXRMessageLoop;
+            RenderPipelineManager.beginContextRendering += onBeforeRender;
             currentLoaderState = LoaderState.Initialized;
             return true;
         }
@@ -279,6 +279,11 @@ namespace UnityEngine.XR.OpenXR
 
         private double lastPollCheckTime = 0;
 
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRender;
+        internal void ProcessOpenXRMessageLoop(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
+        {
+            ProcessOpenXRMessageLoop();
+        }
         internal void ProcessOpenXRMessageLoop()
         {
             if (currentOpenXRState == OpenXRFeature.NativeEvent.XrIdle ||
@@ -296,6 +301,11 @@ namespace UnityEngine.XR.OpenXR
             }
 
             Internal_PumpMessageLoop();
+        }
+
+        public void Awake()
+        {
+            onBeforeRender = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)ProcessOpenXRMessageLoop;
         }
 
         /// <summary>
@@ -413,7 +423,7 @@ namespace UnityEngine.XR.OpenXR
         {
             Internal_EndSession();
 
-            ProcessOpenXRMessageLoop();
+            ProcessOpenXRMessageLoop(new ScriptableRenderContext(), null);
         }
 
         /// <summary>
@@ -442,7 +452,7 @@ namespace UnityEngine.XR.OpenXR
 #endif
                 Internal_RequestExitSession();
 
-                Application.onBeforeRender -= ProcessOpenXRMessageLoop;
+                RenderPipelineManager.beginContextRendering -= onBeforeRender;
 
                 ProcessOpenXRMessageLoop(); // Drain any remaining events.
 
