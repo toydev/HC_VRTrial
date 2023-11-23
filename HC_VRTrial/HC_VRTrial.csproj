@@ -12,7 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
-		<ProjectReference Include="..\SteamVRLib_Unity.XR.OpenVR\SteamVRLib_Unity.XR.OpenVR.csproj" />
+		<ProjectReference Include="..\SteamVRLib_Unity.XR.OpenXR\SteamVRLib_Unity.XR.OpenXR.csproj" />
 		<ProjectReference Include="..\SteamVRLib_UnityEngine.XR.Management\SteamVRLib_UnityEngine.XR.Management.csproj" />
 		<ProjectReference Include="..\SteamVRLib_Valve.VR\SteamVRLib_Valve.VR.csproj" />
     </ItemGroup>

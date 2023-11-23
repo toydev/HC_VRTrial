@@ -19,9 +19,9 @@ IF EXIST "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Valve.VR.dll" (
   DEL "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Valve.VR.dll"
 )
 
-IF EXIST "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenVR.dll" (
-  ECHO DELETE %HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenVR.dll
-  DEL "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenVR.dll"
+IF EXIST "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenXR.dll" (
+  ECHO DELETE %HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenXR.dll
+  DEL "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenXR.dll"
 )
 
 IF EXIST "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\openvr_api.dll" (

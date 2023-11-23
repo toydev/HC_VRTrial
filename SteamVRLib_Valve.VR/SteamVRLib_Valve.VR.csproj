@@ -6,11 +6,11 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DefineConstants>$(DefineConstants);UNITY_5_3_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_3_OR_NEWER;OPENVR_XR_API;UNITY_URP</DefineConstants>
+		<DefineConstants>$(DefineConstants);UNITY_5_3_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_URP</DefineConstants>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<DefineConstants>$(DefineConstants);UNITY_5_3_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_3_OR_NEWER;OPENVR_XR_API;UNITY_URP</DefineConstants>
+		<DefineConstants>$(DefineConstants);UNITY_5_3_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_URP</DefineConstants>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -30,6 +30,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\SteamVRLib_Unity.XR.OpenVR\SteamVRLib_Unity.XR.OpenVR.csproj" />
+		<ProjectReference Include="..\SteamVRLib_Unity.XR.OpenXR\SteamVRLib_Unity.XR.OpenXR.csproj" />
 	</ItemGroup>
 </Project>

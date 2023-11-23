@@ -129,7 +129,7 @@ namespace Valve.VR
             {
                 if (XRSettings.supportedDevices.Contains("OpenVR") == false)
                     errorLog += "OpenVR is not in your list of supported virtual reality SDKs. Add it to the list in player settings. ";
-                else if (XRSettings.supportedDevices.First().Contains("OpenVR") == false)
+                else if (XRSettings.supportedDevices[0].Contains("OpenVR") == false)
                     errorLog += "OpenVR is not first in your list of supported virtual reality SDKs. <b>This is okay, but if you have an Oculus device plugged in, and Oculus above OpenVR in this list, it will try and use the Oculus SDK instead of OpenVR.</b> ";
             }
             else

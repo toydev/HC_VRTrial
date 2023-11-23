@@ -4,8 +4,8 @@ using System.Collections;
 using BepInEx.Unity.IL2CPP.Utils;
 using Il2CppInterop.Runtime.Attributes;
 using Il2CppInterop.Runtime.Injection;
-using Unity.XR.OpenVR;
 using UnityEngine;
+using UnityEngine.XR.OpenXR;
 using Valve.VR;
 
 using HC_VRTrial.Logging;
@@ -45,8 +45,8 @@ namespace HC_VRTrial.VRUtils
                 try
                 {
                     // Initialize the OpenVR Display and OpenVR Input submodules.
-                    var vrLoader = ScriptableObject.CreateInstance<OpenVRLoader>();
-                    if (vrLoader.Initialize())
+                    var xrLoader = ScriptableObject.CreateInstance<OpenXRLoader>();
+                    if (xrLoader.Initialize())
                     {
                         PluginLog.Info("OpenVRLoader.Initialize succeeded.");
                     }
@@ -57,7 +57,7 @@ namespace HC_VRTrial.VRUtils
                     }
 
                     // Start the OpenVR Display and OpenVR Input submodules.
-                    if (vrLoader.Start())
+                    if (xrLoader.Start())
                     {
                         PluginLog.Info("OpenVRLoader.Start succeeded.");
                     }
