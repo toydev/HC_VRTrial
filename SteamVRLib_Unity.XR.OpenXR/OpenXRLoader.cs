@@ -655,6 +655,7 @@ namespace UnityEngine.XR.OpenXR
 
         internal static void RegisterOpenXRCallbacks()
         {
+            Debug.LogError("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
             Internal_SetCallbacks(ReceiveNativeEvent);
         }
 

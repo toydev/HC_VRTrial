@@ -24,26 +24,11 @@ IF EXIST "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenXR.dll"
   DEL "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\SteamVRLib_Unity.XR.OpenXR.dll"
 )
 
-IF EXIST "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\openvr_api.dll" (
-  ECHO DELETE %HC_VRTrial_GAME_HOME%\BepInEx\plugins\openvr_api.dll
-  DEL "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\openvr_api.dll"
-)
-
-IF EXIST "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\XRSDKOpenVR.dll" (
-  ECHO DELETE %HC_VRTrial_GAME_HOME%\BepInEx\plugins\XRSDKOpenVR.dll
-  DEL "%HC_VRTrial_GAME_HOME%\BepInEx\plugins\XRSDKOpenVR.dll"
-)
-
 REM ========== Data
 REM DLL files
-IF EXIST "%HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\openvr_api.dll" (
-  ECHO DELETE %HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\openvr_api.dll
-  DEL "%HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\openvr_api.dll"
-)
-
-IF EXIST "%HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\XRSDKOpenVR.dll" (
-  ECHO DELETE %HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\XRSDKOpenVR.dll
-  DEL "%HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\XRSDKOpenVR.dll"
+IF EXIST "%HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\UnityOpenXR.dll" (
+  ECHO DELETE %HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\UnityOpenXR.dll
+  DEL "%HC_VRTrial_GAME_DATA_DIR%\Plugins\x86_64\UnityOpenXR.dll"
 )
 
 REM SteamVR Input action files
@@ -59,9 +44,9 @@ IF EXIST "%HC_VRTrial_GAME_DATA_DIR%\StreamingAssets\SteamVR\OpenVRSettings.asse
 )
 
 REM UnitySubsystemsManifest.json
-IF EXIST "%HC_VRTrial_GAME_DATA_DIR%\UnitySubsystems\XRSDKOpenVR\UnitySubsystemsManifest.json" (
-  ECHO DELETE %HC_VRTrial_GAME_DATA_DIR%\UnitySubsystems\XRSDKOpenVR\UnitySubsystemsManifest.json
-  DEL "%HC_VRTrial_GAME_DATA_DIR%\UnitySubsystems\XRSDKOpenVR\UnitySubsystemsManifest.json"
+IF EXIST "%HC_VRTrial_GAME_DATA_DIR%\UnitySubsystems\UnityOpenXR\UnitySubsystemsManifest.json" (
+  ECHO DELETE %HC_VRTrial_GAME_DATA_DIR%\UnitySubsystems\UnityOpenXR\UnitySubsystemsManifest.json
+  DEL "%HC_VRTrial_GAME_DATA_DIR%\UnitySubsystems\UnityOpenXR\UnitySubsystemsManifest.json"
 )
 
 IF "%1" NEQ "called" PAUSE
