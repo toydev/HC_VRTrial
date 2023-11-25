@@ -40,6 +40,13 @@ namespace HC_VRTrial
                             {
                                 new GameObject($"{nameof(SimpleVRController)}_{scene.name}").AddComponent<SimpleVRController>();
                             }
+
+                            // #2: Improved the discomfort between the left and right eyes: Shadows and lights.
+                            foreach (var i in UnityEngine.Object.FindObjectsOfType<Light>())
+                            {
+                                if (i.shadows != LightShadows.None) i.shadows = LightShadows.None;
+                                if (i.type == LightType.Spot || i.type == LightType.Point) i.enabled = false;
+                            }
                         });
                     });
                 }
