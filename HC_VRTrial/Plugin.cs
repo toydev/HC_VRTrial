@@ -47,6 +47,16 @@ namespace HC_VRTrial
                                 if (i.shadows != LightShadows.None) i.shadows = LightShadows.None;
                                 if (i.type == LightType.Spot || i.type == LightType.Point) i.enabled = false;
                             }
+
+                            // #3: Improved the discomfort between the left and right eyes: Plants.
+                            foreach (var i in GameObject.FindObjectsOfType<LODGroup>())
+                            {
+                                if (1 < i.lodCount)
+                                {
+                                    i.SetLODs(new LOD[] { i.GetLODs()[0] });
+                                    i.RecalculateBounds();
+                                }
+                            }
                         });
                     });
                 }
