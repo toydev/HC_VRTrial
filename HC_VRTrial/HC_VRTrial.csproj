@@ -26,6 +26,7 @@
         <Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.dll" />
         <Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.CoreModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.InputLegacyModule.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.ParticleSystemModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.PhysicsModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.ImageConversionModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.SubsystemsModule.dll" />
