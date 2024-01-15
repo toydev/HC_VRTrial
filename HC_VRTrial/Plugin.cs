@@ -58,12 +58,16 @@ namespace HC_VRTrial
                                 }
                             }
 
-                            // #4: Improved the discomfort between the left and right eyes: Pal's Room particles
+                            // #4: Improved the discomfort between the left and right eyes: Particles
                             foreach (var i in UnityEngine.Object.FindObjectsOfType<ParticleSystem>())
                             {
                                 string particlesName = i.name;
-                                if (particlesName == "e_hc_00_fire01_00" || particlesName == "particle_dust00")
+                                if (particlesName == "e_hc_00_fire01_00"    // Pal's Room - flame
+                                || particlesName == "particle_dust00"       // Pal's Room - dust
+                                || particlesName == "Particle_amamori")     // Cellar - water droplets
+                                {
                                     i.gameObject.SetActive(false);
+                                }
                             }
                         });
                     });
