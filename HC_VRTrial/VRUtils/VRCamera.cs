@@ -85,5 +85,17 @@ namespace HC_VRTrial.VRUtils
 
             Normal.depth = Depth;
         }
+
+        public void Update()
+        {
+            // Remove X and Z components from the camera parent
+            // This is done as the camera is often tilted, and can be freely manipulated in some scenes.
+            // This is very nauseating, especially if you try to look around
+            Vector3 cameraParentRotEuler = transform.parent.rotation.eulerAngles;
+            cameraParentRotEuler.x = 0;
+            cameraParentRotEuler.z = 0;
+
+            transform.parent.rotation = Quaternion.Euler(cameraParentRotEuler);
+        }
     }
 }
