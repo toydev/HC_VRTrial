@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 using BepInEx;
 using BepInEx.Unity.IL2CPP;
@@ -21,6 +22,7 @@ namespace HC_VRTrial
         public override void Load()
         {
             PluginLog.Setup(Log);
+            PluginConfig.Setup(Config);
 
             // Check
             for (var i = 0; i < 32; ++i) PluginLog.Info($"Layer[{i}]: {LayerMask.LayerToName(i)}");
@@ -42,31 +44,47 @@ namespace HC_VRTrial
                             }
 
                             // #2: Improved the discomfort between the left and right eyes: Shadows and lights.
-                            foreach (var i in UnityEngine.Object.FindObjectsOfType<Light>())
+                            if (PluginConfig.IsLightDisabled.Value)
                             {
-                                if (i.shadows != LightShadows.None) i.shadows = LightShadows.None;
-                                if (i.type == LightType.Spot || i.type == LightType.Point) i.enabled = false;
-                            }
-
-                            // #3: Improved the discomfort between the left and right eyes: Plants.
-                            foreach (var i in GameObject.FindObjectsOfType<LODGroup>())
-                            {
-                                if (1 < i.lodCount)
+                                foreach (var i in UnityEngine.Object.FindObjectsOfType<Light>())
                                 {
-                                    i.SetLODs(new LOD[] { i.GetLODs()[0] });
-                                    i.RecalculateBounds();
+                                    if (i.shadows != LightShadows.None)
+                                    {
+                                        PluginLog.Info($"Disable Light shadows: {i.name}");
+                                        i.shadows = LightShadows.None;
+                                    }
+                                    if (i.type == LightType.Spot || i.type == LightType.Point)
+                                    {
+                                        PluginLog.Info($"Disable Light: {i.name}");
+                                        i.enabled = false;
+                                    }
                                 }
                             }
 
-                            // #4: Improved the discomfort between the left and right eyes: Particles
-                            foreach (var i in UnityEngine.Object.FindObjectsOfType<ParticleSystem>())
+                            // #3: Improved the discomfort between the left and right eyes: Plants.
+                            if (PluginConfig.IsLODGroupDisabled.Value)
                             {
-                                string particlesName = i.name;
-                                if (particlesName == "e_hc_00_fire01_00"    // Pal's Room - flame
-                                || particlesName == "particle_dust00"       // Pal's Room - dust
-                                || particlesName == "Particle_amamori")     // Cellar - water droplets
+                                foreach (var i in UnityEngine.Object.FindObjectsOfType<LODGroup>())
                                 {
-                                    i.gameObject.SetActive(false);
+                                    if (1 < i.lodCount)
+                                    {
+                                        PluginLog.Info($"Disable LODGroup: {i.name}");
+                                        i.SetLODs(new LOD[] { i.GetLODs()[0] });
+                                        i.RecalculateBounds();
+                                    }
+                                }
+                            }
+
+                            // #10: Improved the discomfort between the left and right eyes: Particles.
+                            if (PluginConfig.IsParticleSystemDisabled.Value)
+                            {
+                                foreach (var i in UnityEngine.Object.FindObjectsOfType<ParticleSystem>())
+                                {
+                                    if (Regex.IsMatch(i.name, PluginConfig.DisabledParticleNameRegex.Value))
+                                    {
+                                        PluginLog.Info($"Disable ParticleSystem: {i.name}");
+                                        i.gameObject.SetActive(false);
+                                    }
                                 }
                             }
                         });

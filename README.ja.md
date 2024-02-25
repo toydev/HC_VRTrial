@@ -16,6 +16,8 @@ Honey Come の VR プラグイン実験プロジェクトです。
 - 最新バージョンの [BepInEx 6.x Unity IL2CPP for Windows (x64) games](https://builds.bepinex.dev/projects/bepinex_be)
 - HMD（私は Meta Quest 2 を使っているが SteamVR が認識すれば基本的には動くと思う）
 - SteamVR
+- [BepisPlugins](https://github.com/IllusionMods/BepisPlugins/)
+- [BepInEx.ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager)
 - 他の VR プラグインが入っていないこと
 
 ----
@@ -31,6 +33,16 @@ Honey Come の VR プラグイン実験プロジェクトです。
 特別な操作方法は実装していません。
 
 通常プレイ通り、キーボード・マウスで操作してください。
+
+----
+
+## 設定
+|セクション|キー|デフォルト値|説明|
+|----|----|----|----|
+|General|IsLightDisabled|true|ライトの無効化を有効にします。true でライトを無効にします。|
+|General|IsLODGroupDisabled|true|LODGroup の無効化を有効にします。true でライトを無効にします。|
+|General|IsParticleSystemDisabled|true|パーティクルシステムの無効化を有効にします。true でライトを無効にします。|
+|General|DisabledParticleNameRegex|(?!Star\|Heart\|ef_ne)|無効化対象のパーティクルシステム名のパターンです。この正規表現にマッチする名前のパーティクルシステムが無効化されます。|
 
 ----
 

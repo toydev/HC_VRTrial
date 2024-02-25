@@ -34,5 +34,6 @@
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.UIModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.XRModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\Il2Cppmscorlib.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\plugins\ConfigurationManager\ConfigurationManager.dll" />
     </ItemGroup>
 </Project>
