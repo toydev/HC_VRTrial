@@ -32,7 +32,12 @@ namespace HC_VRTrial.VRUtils
             // Set the current position and rotation of the head as the base head.
             HasBaseHead = true;
             BaseHeadPosition = vrCamera.transform.localPosition;
-            BaseHeadRotation = vrCamera.transform.localRotation;
+
+            // Ignore the local X and Z components of the rotation - they will be affected by HMD tilt when starting the game
+            // For example, if starting the game with a tilted headset, the user will need to maintain the tilt to play, 
+            // which is uncomfortable.
+            Vector3 baseRotEuler = vrCamera.transform.localRotation.eulerAngles;
+            BaseHeadRotation = Quaternion.Euler(0, baseRotEuler.y, 0);
         }
 
         private int Depth { get; set; }
@@ -79,6 +84,18 @@ namespace HC_VRTrial.VRUtils
             }
 
             Normal.depth = Depth;
+        }
+
+        public void Update()
+        {
+            // Remove X and Z components from the camera parent
+            // This is done as the camera is often tilted, and can be freely manipulated in some scenes.
+            // This is very nauseating, especially if you try to look around
+            Vector3 cameraParentRotEuler = transform.parent.rotation.eulerAngles;
+            cameraParentRotEuler.x = 0;
+            cameraParentRotEuler.z = 0;
+
+            transform.parent.rotation = Quaternion.Euler(cameraParentRotEuler);
         }
     }
 }
