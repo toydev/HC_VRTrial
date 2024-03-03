@@ -9,6 +9,10 @@ namespace HC_VRTrial
         public static ConfigEntry<bool> IsParticleSystemDisabled { get; private set; }
         public static ConfigEntry<string> DisabledParticleNameRegex { get; private set; }
 
+        public static ConfigEntry<bool> ReflectHMDRotationXOnViewport { get; private set; }
+        public static ConfigEntry<bool> ReflectHMDRotationYOnViewport { get; private set; }
+        public static ConfigEntry<bool> ReflectHMDRotationZOnViewport { get; private set; }
+
         public static void Setup(ConfigFile config)
         {
             IsLightDisabled = config.Bind(
@@ -26,6 +30,13 @@ namespace HC_VRTrial
             DisabledParticleNameRegex = config.Bind(
                 "General", nameof(DisabledParticleNameRegex), "^(?!Star|Heart|ef_ne)",
                 "Regex pattern for names of ParticleSystems to be disabled. ParticleSystems with names matching this pattern will be disabled.");
+
+            ReflectHMDRotationXOnViewport = config.Bind("Viewport", nameof(ReflectHMDRotationXOnViewport), true,
+                "Reflects the HMD's vertical orientation (X-axis rotation) on the viewport. Enable this for use while lying on your back or stomach.");
+            ReflectHMDRotationYOnViewport = config.Bind("Viewport", nameof(ReflectHMDRotationYOnViewport), true,
+                "Reflects the HMD's horizontal orientation (Y-axis rotation) on the viewport. It is commonly enabled for use.");
+            ReflectHMDRotationZOnViewport = config.Bind("Viewport", nameof(ReflectHMDRotationZOnViewport), true,
+                "Reflects the HMD's tilt (Z-axis rotation) on the viewport. Enable this for use while lying on your side.");
         }
     }
 }
