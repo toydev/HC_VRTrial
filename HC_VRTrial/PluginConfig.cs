@@ -9,6 +9,7 @@ namespace HC_VRTrial
         public static ConfigEntry<bool> IsParticleSystemDisabled { get; private set; }
         public static ConfigEntry<string> DisabledParticleNameRegex { get; private set; }
 
+        public static ConfigEntry<float> DoubleClickIntervalToUpdateViewport { get; private set; }
         public static ConfigEntry<bool> ReflectHMDRotationXOnViewport { get; private set; }
         public static ConfigEntry<bool> ReflectHMDRotationYOnViewport { get; private set; }
         public static ConfigEntry<bool> ReflectHMDRotationZOnViewport { get; private set; }
@@ -31,6 +32,8 @@ namespace HC_VRTrial
                 "General", nameof(DisabledParticleNameRegex), "^(?!Star|Heart|ef_ne)",
                 "Regex pattern for names of ParticleSystems to be disabled. ParticleSystems with names matching this pattern will be disabled.");
 
+            DoubleClickIntervalToUpdateViewport = config.Bind("Viewport", nameof(DoubleClickIntervalToUpdateViewport), 0.2f,
+                "Defines the maximum interval, in seconds, that is considered for detecting a double-click to update the viewport's orientation based on HMD rotation. Set to 0 or less to disable this feature.");
             ReflectHMDRotationXOnViewport = config.Bind("Viewport", nameof(ReflectHMDRotationXOnViewport), true,
                 "Reflects the HMD's vertical orientation (X-axis rotation) on the viewport. Enable this for use while lying on your back or stomach.");
             ReflectHMDRotationYOnViewport = config.Bind("Viewport", nameof(ReflectHMDRotationYOnViewport), true,

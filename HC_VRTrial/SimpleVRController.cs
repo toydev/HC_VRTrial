@@ -28,40 +28,69 @@ namespace HC_VRTrial
         // Distance from player to UI screen, in meters.
         public const float UI_SCREEN_DISTANCE = 1.0f;
 
-        void Start()
+        [HideFromIl2Cpp] public VRCamera MainVRCamera { get; private set; }
+        [HideFromIl2Cpp] public UIScreen UIScreen { get; private set; }
+
+        void Awake()
         {
-            // mainVRCamera is a camera that displays 3D space.
-            var mainVRCamera = VRCamera.Create(gameObject, $"{gameObject.name}VRCamera", MAIN_VR_CAMERA_DEPTH);
+            // MainVRCamera is a camera that displays 3D space.
+            MainVRCamera = VRCamera.Create(gameObject, nameof(MainVRCamera), MAIN_VR_CAMERA_DEPTH);
 
             // uguiCapture captures 2D UI for display in 3D space.
             var uguiCapture = UGUICapture.Create(gameObject, $"{gameObject.name}UGUICapture", UGUI_CAPTURE_LAYER);
 
-            // uiScreen displays the texture as a screen using the built-in VRCamera.
+            // UIScreen displays the texture as a screen using the built-in VRCamera.
             // Also projects the mouse cursor onto the 3D screen.
-            var uiScreen = UIScreen.Create(gameObject, nameof(UIScreen), UI_SCREEN_CAMERA_DEPTH, UI_SCREEN_LAYER, uguiCapture.Texture);
+            UIScreen = UIScreen.Create(gameObject, nameof(UIScreen), UI_SCREEN_CAMERA_DEPTH, UI_SCREEN_LAYER, uguiCapture.Texture);
 
-            this.StartCoroutine(Hijack(mainVRCamera, uiScreen));
+            this.StartCoroutine(Setup());
         }
 
         [HideFromIl2Cpp]
-        IEnumerator Hijack(VRCamera mainVRCamera, UIScreen uiScreen)
+        IEnumerator Setup()
         {
-            // Wait a moment for HMD tracking.
+            // Delays setup to ensure accurate HMD tracking initialization.
             yield return new WaitForSeconds(0.1f);
 
-            // For the first time, Fix the position of the player's base head.
-            if (!VRCamera.HasBaseHead) VRCamera.UpdateBaseHead(mainVRCamera);
-
-            // Hijack the view of Camera.main and sync it to mainVRCamera.
-            mainVRCamera.Hijack(Camera.main);
-
-            // Put the UI screen in front of mainVRCamera.
-            uiScreen.LinkToFront(mainVRCamera, UI_SCREEN_DISTANCE);
+            UpdateCamera(false);
         }
+
+        [HideFromIl2Cpp]
+        void UpdateCamera(bool forceUpdateOrientationPose)
+        {
+            if (!VRCamera.HasBaseHead || forceUpdateOrientationPose) VRCamera.UpdateBaseHead(MainVRCamera);
+
+            // Redirects the main game camera's view to the MainVRCamera
+            // and positions the UIScreen at a specified distance in front of it,
+            // ensuring it remains static relative to the player's head movement.
+            MainVRCamera.Hijack(Camera.main);
+            UIScreen.LinkToFront(MainVRCamera, UI_SCREEN_DISTANCE);
+        }
+
+        private float LastClickTime { get; set; } = -1f;
 
         void Update()
         {
+            UpdateViewport();
             OptimizeVRExperience();
+        }
+
+        void UpdateViewport()
+        {
+            // Update the viewport with a double-click of the right mouse button.
+            if (0f < PluginConfig.DoubleClickIntervalToUpdateViewport.Value && Input.GetMouseButtonDown(1))
+            {
+                var currentTime = Time.time;
+                if (currentTime - LastClickTime <= PluginConfig.DoubleClickIntervalToUpdateViewport.Value)
+                {
+                    UpdateCamera(true);
+                    LastClickTime = 0f;
+                }
+                else
+                {
+                    LastClickTime = currentTime;
+                }
+            }
         }
 
         void OptimizeVRExperience()
