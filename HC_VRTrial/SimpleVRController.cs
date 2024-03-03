@@ -15,7 +15,7 @@ namespace HC_VRTrial
     {
         static SimpleVRController() { ClassInjector.RegisterTypeInIl2Cpp<SimpleVRController>(); }
 
-        // Layer: Assign layers not used by the game.
+        // Layer: These layers should be exclusive to the VR UI to prevent interference with game's main rendering layers.
         // for UGUI capture work
         public const int UGUI_CAPTURE_LAYER = 15;
         // for UI screen camera
@@ -33,11 +33,10 @@ namespace HC_VRTrial
 
         void Awake()
         {
+            PluginLog.Debug($"Awake: {name}");
+
             // MainVRCamera is a camera that displays 3D space.
             MainVRCamera = VRCamera.Create(gameObject, nameof(MainVRCamera), MAIN_VR_CAMERA_DEPTH);
-
-            // uguiCapture captures 2D UI for display in 3D space.
-            var uguiCapture = UGUICapture.Create(gameObject, $"{gameObject.name}UGUICapture", UGUI_CAPTURE_LAYER);
 
             // UIScreen displays the texture as a screen using the built-in VRCamera.
             // Also projects the mouse cursor onto the 3D screen.
@@ -48,6 +47,11 @@ namespace HC_VRTrial
                 });
 
             this.StartCoroutine(Setup());
+        }
+
+        void OnDestroy()
+        {
+            PluginLog.Debug($"OnDestroy: {name}");
         }
 
         [HideFromIl2Cpp]
@@ -62,7 +66,7 @@ namespace HC_VRTrial
         [HideFromIl2Cpp]
         void UpdateCamera(bool forceUpdateOrientationPose)
         {
-            if (!VRCamera.HasBaseHead || forceUpdateOrientationPose) VRCamera.UpdateBaseHead(MainVRCamera);
+            if (!VRCamera.IsBaseHeadSet || forceUpdateOrientationPose) VRCamera.UpdateViewport(MainVRCamera);
 
             // Redirects the main game camera's view to the MainVRCamera
             // and positions the UIScreen at a specified distance in front of it,
@@ -100,7 +104,7 @@ namespace HC_VRTrial
         void OptimizeVRExperience()
         {
             // #2: Improved the discomfort between the left and right eyes: Shadows and lights.
-            if (PluginConfig.IsLightDisabled.Value)
+            if (PluginConfig.DisableLights.Value)
             {
                 foreach (var i in FindObjectsOfType<Light>())
                 {
@@ -118,7 +122,7 @@ namespace HC_VRTrial
             }
 
             // #3: Improved the discomfort between the left and right eyes: Plants.
-            if (PluginConfig.IsLODGroupDisabled.Value)
+            if (PluginConfig.DisableLODGroups.Value)
             {
                 foreach (var i in FindObjectsOfType<LODGroup>())
                 {
@@ -132,11 +136,11 @@ namespace HC_VRTrial
             }
 
             // #10: Improved the discomfort between the left and right eyes: Particles.
-            if (PluginConfig.IsParticleSystemDisabled.Value)
+            if (PluginConfig.DisableParticleSystems.Value)
             {
                 foreach (var i in FindObjectsOfType<ParticleSystem>())
                 {
-                    if (Regex.IsMatch(i.name, PluginConfig.DisabledParticleNameRegex.Value))
+                    if (Regex.IsMatch(i.name, PluginConfig.ParticleNameDisableRegex.Value))
                     {
                         PluginLog.Info($"Disable ParticleSystem: {i.name}");
                         i.gameObject.SetActive(false);

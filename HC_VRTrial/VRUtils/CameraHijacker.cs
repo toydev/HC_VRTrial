@@ -7,10 +7,21 @@ using HC_VRTrial.Logging;
 
 namespace HC_VRTrial.VRUtils
 {
+    /// <summary>
+    /// Hijack the camera's view to another camera.
+    /// To minimize the impact, the original camera remains enabled and is virtually disabled by adjusting CullingMask before and after drawing.
+    /// </summary>
     public class CameraHijacker : MonoBehaviour
     {
         static CameraHijacker() { ClassInjector.RegisterTypeInIl2Cpp<CameraHijacker>(); }
 
+        /// <summary>
+        /// Hijack the camera's view to another camera.
+        /// </summary>
+        /// <param name="source">The source camera.</param>
+        /// <param name="destination">The destination camera. If null, the function only disables the source camera without redirecting its view.</param>
+        /// <param name="useCopyFrom">If true, copies the camera settings using Camera.CopyFrom.</param>
+        /// <param name="synchronization">If true, synchronizes some of the camera settings in real-time. Refer to CameraHijacker.Synchronize for detailed synchronization content.</param>
         [HideFromIl2Cpp]
         public static void Hijack(Camera source, Camera destination = null, bool useCopyFrom = true, bool synchronization = true)
         {
@@ -54,18 +65,11 @@ namespace HC_VRTrial.VRUtils
             var camera = GetComponent<Camera>();
             if (camera != null)
             {
-                // Disable camera before the rendering phase begins.
-                // Temporarily change cullingMask and clearFlags to minimize impact on the game.
                 LastCullingMask = camera.cullingMask;
                 LastClearFlags = camera.clearFlags;
                 camera.cullingMask = 0;
                 camera.clearFlags = CameraClearFlags.Nothing;
-                if (Destination != null)
-                {
-                    // The displayed layer may be turned on or off, so copy it in real time.
-                    Destination.cullingMask = LastCullingMask;
-                    Destination.clearFlags = LastClearFlags;
-                }
+                if (Destination != null) Synchronize();
             }
         }
 
@@ -76,10 +80,15 @@ namespace HC_VRTrial.VRUtils
             var camera = GetComponent<Camera>();
             if (camera != null)
             {
-                // Revert after the rendering phase to minimize impact on game.
                 camera.cullingMask = LastCullingMask;
                 camera.clearFlags = LastClearFlags;
             }
+        }
+
+        private void Synchronize()
+        {
+            Destination.cullingMask = LastCullingMask;
+            Destination.clearFlags = LastClearFlags;
         }
     }
 }

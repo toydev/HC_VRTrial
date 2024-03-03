@@ -4,10 +4,10 @@ namespace HC_VRTrial
 {
     public class PluginConfig
     {
-        public static ConfigEntry<bool> IsLightDisabled { get; private set; }
-        public static ConfigEntry<bool> IsLODGroupDisabled { get; private set; }
-        public static ConfigEntry<bool> IsParticleSystemDisabled { get; private set; }
-        public static ConfigEntry<string> DisabledParticleNameRegex { get; private set; }
+        public static ConfigEntry<bool> DisableLights { get; private set; }
+        public static ConfigEntry<bool> DisableLODGroups { get; private set; }
+        public static ConfigEntry<bool> DisableParticleSystems { get; private set; }
+        public static ConfigEntry<string> ParticleNameDisableRegex { get; private set; }
 
         public static ConfigEntry<float> DoubleClickIntervalToUpdateViewport { get; private set; }
         public static ConfigEntry<bool> ReflectHMDRotationXOnViewport { get; private set; }
@@ -16,21 +16,14 @@ namespace HC_VRTrial
 
         public static void Setup(ConfigFile config)
         {
-            IsLightDisabled = config.Bind(
-                "General", nameof(IsLightDisabled), true,
-                "Enables the disabling of lights. Set to true to disable lights.");
-
-            IsLODGroupDisabled = config.Bind(
-                "General", nameof(IsLODGroupDisabled), true,
-                "Enables the disabling of LODGroups. Set to true to disable LODGroups.");
-
-            IsParticleSystemDisabled = config.Bind(
-                "General", nameof(IsParticleSystemDisabled), true,
-                "Enables the disabling of ParticleSystems. Set to true to disable ParticleSystems.");
-
-            DisabledParticleNameRegex = config.Bind(
-                "General", nameof(DisabledParticleNameRegex), "^(?!Star|Heart|ef_ne)",
-                "Regex pattern for names of ParticleSystems to be disabled. ParticleSystems with names matching this pattern will be disabled.");
+            DisableLights = config.Bind("VRExperienceOptimization", nameof(DisableLights), true,
+                "If true, disables all lights.");
+            DisableLODGroups = config.Bind("VRExperienceOptimization", nameof(DisableLODGroups), true,
+                "If true, disables all LODGroups.");
+            DisableParticleSystems = config.Bind("VRExperienceOptimization", nameof(DisableParticleSystems), true,
+                "If true, enables the conditional disabling of ParticleSystems based on the ParticleNameDisableRegex setting.");
+            ParticleNameDisableRegex = config.Bind("VRExperienceOptimization", nameof(ParticleNameDisableRegex), "^(?!Star|Heart|ef_ne)",
+                "Regex pattern to specify which ParticleSystems should be disabled. Requires DisableParticleSystems to be true. Only ParticleSystems matching this pattern will be affected.");
 
             DoubleClickIntervalToUpdateViewport = config.Bind("Viewport", nameof(DoubleClickIntervalToUpdateViewport), 0.2f,
                 "Defines the maximum interval, in seconds, that is considered for detecting a double-click to update the viewport's orientation based on HMD rotation. Set to 0 or less to disable this feature.");

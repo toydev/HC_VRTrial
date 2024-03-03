@@ -10,15 +10,25 @@ using Il2CppInterop.Runtime.Attributes;
 
 namespace HC_VRTrial.VRUtils
 {
+    /// <summary>
+    /// This class captures uGUI elements and displays them on a RenderTexture.
+    /// </summary>
     public class UGUICapture : MonoBehaviour
     {
         static UGUICapture() { ClassInjector.RegisterTypeInIl2Cpp<UGUICapture>(); }
 
+        /// <summary>
+        /// Creates and initializes a UGUICapture instance.
+        /// </summary>
+        /// <param name="parentGameObject">Parent game object.</param>
+        /// <param name="name">Name.</param>
+        /// <param name="layer">Working layer occupied for capture.</param>
+        /// <returns>A new instance of UGUICapture.</returns>
         [HideFromIl2Cpp]
         public static UGUICapture Create(GameObject parentGameObject, string name, int layer)
         {
             var gameObject = new GameObject($"{parentGameObject.name}{name}");
-            // Synchronized lifecycle
+            // Ensure the lifecycle of the GameObject is synchronized with its parent.
             gameObject.transform.parent = parentGameObject.transform;
             gameObject.SetActive(false);
             var result = gameObject.AddComponent<UGUICapture>();
@@ -39,7 +49,7 @@ namespace HC_VRTrial.VRUtils
 
             Texture = new RenderTexture(Screen.width, Screen.height, 0, RenderTextureFormat.ARGB32);
 
-            // Camera for texture projection
+            // Creates a camera to project the captured uGUI elements onto the RenderTexture.
             var camera = gameObject.AddComponent<Camera>();
             camera.cullingMask = 1 << Layer;
             camera.depth = float.MaxValue;
@@ -53,9 +63,20 @@ namespace HC_VRTrial.VRUtils
             CanvasGraphics = GraphicRegistry.instance.m_Graphics;
         }
 
+        void OnDestroy()
+        {
+            PluginLog.Debug($"OnDestroy: {name}");
+
+            if (Texture != null)
+            {
+                Texture.Release();
+                Texture = null;
+            }
+        }
+
         void Update()
         {
-            // Change the output destination of the 2D UI canvas to the prepared texture and capture it
+            // Redirects the uGUI canvas output to a pre-prepared RenderTexture for capturing.
             var camera = GetComponent<Camera>();
             foreach (var canvas in CanvasGraphics.Keys)
             {
@@ -67,17 +88,6 @@ namespace HC_VRTrial.VRUtils
                     canvas.worldCamera = camera;
                     foreach (var i in canvas.gameObject.GetComponentsInChildren<Transform>()) i.gameObject.layer = Layer;
                 }
-            }
-        }
-
-        void OnDestroy()
-        {
-            PluginLog.Debug($"OnDestroy: {name}");
-
-            if (Texture != null)
-            {
-                Texture.Release();
-                Texture = null;
             }
         }
     }
