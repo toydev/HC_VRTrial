@@ -30,19 +30,36 @@ Honey Come の VR プラグイン実験プロジェクトです。
 ----
 
 ## 操作
-特別な操作方法は実装していません。
+右ダブルクリックで頭の向きに合わせてビューポートを更新します。
 
-通常プレイ通り、キーボード・マウスで操作してください。
+その他の操作については通常プレイ通りキーボードとマウスで操作してください。
 
 ----
 
 ## 設定
-|セクション|キー|デフォルト値|説明|
+### VRExperienceOptimization セクション
+|キー|デフォルト値|説明|
+|----|----|----|
+|DisableLights|true|true で全てのライトを無効にします。|
+|DisableLODGroups|true|true で全ての LODGroup を無効にします。|
+|DisableParticleSystems|true|true で ParticleNameDisableRegex に基づき特定の ParticleSystem を無効にします。|
+|ParticleNameDisableRegex|(?!Star\|Heart\|ef_ne)|無効にする ParticleSystem 名の正規表現パターンです。DisableParticleSystems を true にする必要があります。パターンにマッチする ParticleSystem を無効にします。|
+
+### Viewport セクション
+|キー|デフォルト値|説明|
+|----|----|----|
+|DoubleClickIntervalToUpdateViewport|0.2f|ビューポート更新のダブルクリック検出のための最大秒数です。0 以下の値で無効にできます。|
+|ReflectHMDRotationXOnViewport|true|HMDの縦の向き（X 軸回転）をビューポートに反映させます。仰向けやうつ伏せで使う人は有効にしてください。|
+|ReflectHMDRotationYOnViewport|true|HMDの横の向き（Y 軸回転）をビューポートに反映させます。有効にして使うのが一般的です。|
+|ReflectHMDRotationZOnViewport|false|HMDの傾き（Z 軸回転）をビューポートに反映させます。横向きに寝て使う人は有効にしてください。|
+
+以下はプレイスタイル毎の設定例です。仰向け／うつ伏せがデフォルトです。
+
+|スタイル|ReflectHMDRotationXOnViewport<br>HMDの縦の向き<br>（X 軸回転）|ReflectHMDRotationYOnViewport<br>HMDの横の向き<br>（Y 軸回転）|ReflectHMDRotationZOnViewport<br>HMDの傾き<br>（Z 軸回転）|
 |----|----|----|----|
-|General|IsLightDisabled|true|ライトの無効化を有効にします。true でライトを無効にします。|
-|General|IsLODGroupDisabled|true|LODGroup の無効化を有効にします。true でライトを無効にします。|
-|General|IsParticleSystemDisabled|true|パーティクルシステムの無効化を有効にします。true でライトを無効にします。|
-|General|DisabledParticleNameRegex|(?!Star\|Heart\|ef_ne)|無効化対象のパーティクルシステム名のパターンです。この正規表現にマッチする名前のパーティクルシステムが無効化されます。|
+|座位／立位|無効|有効|無効|
+|仰向け／うつ伏せ（デフォルト）|有効|有効|有効|
+|側位|有効|有効|有効|
 
 ----
 
