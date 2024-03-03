@@ -19,10 +19,10 @@
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.Common.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.IL2CPP.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\Il2CppInterop.Runtime.dll" />
-		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\Il2Cppmscorlib.dll" />
-		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.CoreModule.dll" />
-		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.SubsystemsModule.dll" />
-		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.XRModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\Il2Cppmscorlib.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.CoreModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.SubsystemsModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.XRModule.dll" />
 	</ItemGroup>
 
 	<ItemGroup>
