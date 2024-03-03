@@ -11,6 +11,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <EmbeddedResource Include="AssetBundles\custom_asset_bundle" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
 		<ProjectReference Include="..\SteamVRLib_Unity.XR.OpenVR\SteamVRLib_Unity.XR.OpenVR.csproj" />
 		<ProjectReference Include="..\SteamVRLib_UnityEngine.XR.Management\SteamVRLib_UnityEngine.XR.Management.csproj" />
@@ -24,11 +28,13 @@
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.IL2CPP.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\Il2CppInterop.Runtime.dll" />
         <Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.dll" />
-        <Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.CoreModule.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.AssetBundleModule.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.CoreModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.InputLegacyModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.ParticleSystemModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.PhysicsModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.ImageConversionModule.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.IMGUIModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.SubsystemsModule.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.UI.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\interop\UnityEngine.UIModule.dll" />

@@ -41,7 +41,11 @@ namespace HC_VRTrial
 
             // UIScreen displays the texture as a screen using the built-in VRCamera.
             // Also projects the mouse cursor onto the 3D screen.
-            UIScreen = UIScreen.Create(gameObject, nameof(UIScreen), UI_SCREEN_CAMERA_DEPTH, UI_SCREEN_LAYER, uguiCapture.Texture);
+            UIScreen = UIScreen.Create(gameObject, nameof(UIScreen), UI_SCREEN_CAMERA_DEPTH, UI_SCREEN_LAYER,
+                new UIScreenPanel[] {
+                    new(UGUICapture.Create(gameObject, nameof(UGUICapture), UGUI_CAPTURE_LAYER).Texture),
+                    new(IMGUICapture.Create(gameObject, nameof(IMGUICapture)).Texture, -0.001f * Vector3.forward, Vector3.one),
+                });
 
             this.StartCoroutine(Setup());
         }

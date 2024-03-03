@@ -16,7 +16,7 @@ namespace HC_VRTrial.VRUtils
             string name,
             int cameraDepth,
             int screenLayer,
-            RenderTexture targetTexture,
+            UIScreenPanel[] panels,
             CameraClearFlags clearFlags = CameraClearFlags.Nothing
         )
         {
@@ -25,7 +25,7 @@ namespace HC_VRTrial.VRUtils
             gameObject.transform.parent = parentGameObject.transform;
             gameObject.SetActive(false);
             var result = gameObject.AddComponent<UIScreen>();
-            result.TargetTexture = targetTexture;
+            result.Panels = panels;
             result.CameraDepth = cameraDepth;
             result.ScreenLayer = screenLayer;
             result.ClearFlags = clearFlags;
@@ -33,15 +33,16 @@ namespace HC_VRTrial.VRUtils
             return result;
         }
 
-        public const string TRANSPARENT_SHADER_NAME = "Easy Masking Transition/Unlit/Transparent Tint";
         public const string COLOR_SHADER_NAME = "Unlit/Color";
 
         [HideFromIl2Cpp] public VRCamera Camera { get; private set; }
         private int CameraDepth { get; set; }
         private int ScreenLayer { get; set; }
-        private RenderTexture TargetTexture { get; set; }
+        [HideFromIl2Cpp] private UIScreenPanel[] Panels { get; set; }
         private CameraClearFlags ClearFlags { get; set; }
-        private GameObject Screen { get; set; }
+        private GameObject ScreenObject { get; set; }
+        [HideFromIl2Cpp] private GameObject[] PanelObjects { get; set; }
+        private GameObject MainPanelObject { get => PanelObjects != null && 1 <= PanelObjects.Length ? PanelObjects[0] : null; }
         private GameObject MouseCursor { get; set; }
 
         [HideFromIl2Cpp]
@@ -49,35 +50,51 @@ namespace HC_VRTrial.VRUtils
         {
             if (!Camera || !Camera.Normal)
             {
-                PluginLog.Info($"Setup Camera: {name}");
                 Camera = VRCamera.Create(gameObject, nameof(Camera), CameraDepth);
                 Camera.Normal.cullingMask = 1 << ScreenLayer;
                 Camera.Normal.clearFlags = ClearFlags;
                 Camera.Normal.nearClipPlane = 0.01f;  // 1cm
             }
 
-            if (!Screen)
+            if (!ScreenObject)
             {
-                PluginLog.Debug($"Setup Screen: {name}");
-                Screen = new GameObject($"{gameObject.name}Screen");
-                Screen.transform.parent = transform;
-                Screen.transform.localPosition = Vector3.zero;
-                Screen.transform.localScale = new Vector3(TargetTexture.width / (float)TargetTexture.height, 1f, 1f);
-                Screen.layer = ScreenLayer;
-                var meshFilter = Screen.AddComponent<MeshFilter>();
-                meshFilter.mesh = Resources.GetBuiltinResource<Mesh>("Quad.fbx");
-                var material = new Material(Shader.Find(TRANSPARENT_SHADER_NAME))
+                ScreenObject = new GameObject($"{gameObject.name}{nameof(ScreenObject)}");
+                // Synchronized lifecycle
+                ScreenObject.transform.parent = transform;
+                ScreenObject.transform.localPosition = Vector3.zero;
+                ScreenObject.transform.localScale = Vector3.one;
+            }
+
+            PanelObjects ??= new GameObject[Panels.Length];
+            for (var i = 0; i < Panels.Length; ++i)
+            {
+                if (!PanelObjects[i])
                 {
-                    mainTexture = TargetTexture,
-                };
-                var meshRenderer = Screen.AddComponent<MeshRenderer>();
-                meshRenderer.material = material;
+                    var panelObject = new GameObject($"{gameObject.name}PanelObject{i}");
+                    var panel = Panels[i];
+                    // Synchronized lifecycle
+                    panelObject.transform.parent = ScreenObject.transform;
+                    panelObject.transform.localPosition = panel.Offset;
+                    panelObject.transform.localScale = new Vector3(panel.Texture.width / (float)panel.Texture.height * panel.Scale.x, panel.Scale.y, panel.Scale.z);
+                    panelObject.layer = ScreenLayer;
+                    var meshFilter = panelObject.AddComponent<MeshFilter>();
+                    meshFilter.mesh = Resources.GetBuiltinResource<Mesh>("Quad.fbx");
+                    var material = new Material(CustomAssetManager.UiUnlitTransparentShader)
+                    {
+                        mainTexture = panel.Texture,
+                    };
+                    var meshRenderer = panelObject.AddComponent<MeshRenderer>();
+                    meshRenderer.material = material;
+
+                    PanelObjects[i] = panelObject;
+                }
             }
 
             if (!MouseCursor)
             {
-                PluginLog.Info($"Setup MouseCursor: {name}");
                 MouseCursor = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                // Synchronized lifecycle
+                MouseCursor.transform.parent = gameObject.transform;
                 MouseCursor.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
                 MouseCursor.layer = ScreenLayer;
                 MouseCursor.GetComponent<MeshRenderer>().material = new Material(Shader.Find(COLOR_SHADER_NAME))
@@ -110,18 +127,11 @@ namespace HC_VRTrial.VRUtils
             }
         }
 
-        void OnDestroy()
-        {
-            PluginLog.Debug($"OnDestroy: {name}");
-            if (Camera) Destroy(Camera);
-            if (Screen) Destroy(Screen);
-            if (MouseCursor) Destroy(MouseCursor);
-        }
-
         public Vector3? GetWorldPositionFromScreen(float x, float y)
         {
-            return Screen
-                ? Screen.transform.TransformPoint(x / UnityEngine.Screen.width - 0.5f, y / UnityEngine.Screen.height - 0.5f, 0f)
+            var mainPanelObject = MainPanelObject;
+            return mainPanelObject
+                ? mainPanelObject.transform.TransformPoint(x / UnityEngine.Screen.width - 0.5f, y / UnityEngine.Screen.height - 0.5f, 0f)
                 : null;
         }
 
@@ -136,13 +146,13 @@ namespace HC_VRTrial.VRUtils
             Camera.VR.origin.localRotation = Quaternion.identity;
 
             // Put the screen in front of the base head. The screen doesn't follow player's head movements.
-            Screen.transform.SetParent(targetCamera.VR.origin);
-            Screen.transform.localPosition = VRCamera.BaseHeadPosition + VRCamera.BaseHeadRotation * (distance * Vector3.forward);
-            Screen.transform.localRotation = VRCamera.BaseHeadRotation;
+            ScreenObject.transform.SetParent(targetCamera.VR.origin);
+            ScreenObject.transform.localPosition = VRCamera.BaseHeadPosition + VRCamera.BaseHeadRotation * (distance * Vector3.forward);
+            ScreenObject.transform.localRotation = VRCamera.BaseHeadRotation;
             // Example: Always keep the screen in front of player's head.
-            // Screen.transform.SetParent(targetCamera.VR.head);
-            // Screen.transform.localPosition = distance * Vector3.forward;
-            // Screen.transform.localRotation = Quaternion.identity;
+            // ScreenObject.transform.SetParent(targetCamera.VR.head);
+            // ScreenObject.transform.localPosition = distance * Vector3.forward;
+            // ScreenObject.transform.localRotation = Quaternion.identity;
         }
     }
 }
