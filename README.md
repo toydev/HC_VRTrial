@@ -51,7 +51,7 @@ For all other controls, please use the keyboard and mouse as you would in normal
 |DoubleClickIntervalToUpdateViewport|0.2f|Defines the maximum interval, in seconds, that is considered for detecting a double-click to update the viewport's orientation based on HMD rotation. Set to 0 or less to disable this feature.|
 |ReflectHMDRotationXOnViewport|true|Reflects the HMD's vertical orientation (X-axis rotation) on the viewport. Enable this for use while lying on your back or stomach.|
 |ReflectHMDRotationYOnViewport|true|Reflects the HMD's horizontal orientation (Y-axis rotation) on the viewport. It is commonly enabled for use.|
-|ReflectHMDRotationZOnViewport|false|Reflects the HMD's tilt (Z-axis rotation) on the viewport. Enable this for use while lying on your side.|
+|ReflectHMDRotationZOnViewport|true|Reflects the HMD's tilt (Z-axis rotation) on the viewport. Enable this for use while lying on your side.|
 
 Below are examples of settings for each playstyle, with `Supine/Prone` set as the default.
 

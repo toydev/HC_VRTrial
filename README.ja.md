@@ -51,7 +51,7 @@ Honey Come の VR プラグイン実験プロジェクトです。
 |DoubleClickIntervalToUpdateViewport|0.2f|ビューポート更新のダブルクリック検出のための最大秒数です。0 以下の値で無効にできます。|
 |ReflectHMDRotationXOnViewport|true|HMDの縦の向き（X 軸回転）をビューポートに反映させます。仰向けやうつ伏せで使う人は有効にしてください。|
 |ReflectHMDRotationYOnViewport|true|HMDの横の向き（Y 軸回転）をビューポートに反映させます。有効にして使うのが一般的です。|
-|ReflectHMDRotationZOnViewport|false|HMDの傾き（Z 軸回転）をビューポートに反映させます。横向きに寝て使う人は有効にしてください。|
+|ReflectHMDRotationZOnViewport|true|HMDの傾き（Z 軸回転）をビューポートに反映させます。横向きに寝て使う人は有効にしてください。|
 
 以下はプレイスタイル毎の設定例です。仰向け／うつ伏せがデフォルトです。
 
