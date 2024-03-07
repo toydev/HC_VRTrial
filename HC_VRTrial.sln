@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HC_VRTrial", "HC_VRTrial\HC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenXRLib_UnityEngine.XR.Management", "OpenXRLib_UnityEngine.XR.Management\OpenXRLib_UnityEngine.XR.Management.csproj", "{0D532DF9-4AAE-4BC2-AE9D-5722DFE54D4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXRLib_UnityEngine.XR.OpenXR", "OpenXRLib_UnityEngine.XR.OpenXR\OpenXRLib_UnityEngine.XR.OpenXR.csproj", "{C39D8C3D-9BB7-4D2C-A757-282BA6148B54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0D532DF9-4AAE-4BC2-AE9D-5722DFE54D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D532DF9-4AAE-4BC2-AE9D-5722DFE54D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D532DF9-4AAE-4BC2-AE9D-5722DFE54D4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39D8C3D-9BB7-4D2C-A757-282BA6148B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39D8C3D-9BB7-4D2C-A757-282BA6148B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39D8C3D-9BB7-4D2C-A757-282BA6148B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39D8C3D-9BB7-4D2C-A757-282BA6148B54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
