@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Preloader.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.Common.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.IL2CPP.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\Il2CppInterop.Runtime.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\Il2Cppmscorlib.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.CoreModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.InputModule.dll" />
+	</ItemGroup>
+
+</Project>
