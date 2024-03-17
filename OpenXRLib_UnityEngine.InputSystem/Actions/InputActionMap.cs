@@ -69,7 +69,7 @@ namespace UnityEngine.InputSystem
     /// <seealso cref="InputActionAsset"/>
     /// <seealso cref="InputAction"/>
     [Serializable]
-    public sealed class InputActionMap : ICloneable, ISerializationCallbackReceiver, IInputActionCollection2, IDisposable
+    public sealed class InputActionMap : ICloneable/*, ISerializationCallbackReceiver */, IInputActionCollection2, IDisposable
     {
         /// <summary>
         /// Name of the action map.

@@ -17,7 +17,7 @@ namespace UnityEngine.InputSystem.XR
     /// </remarks>
     [Serializable]
     // [AddComponentMenu("XR/Tracked Pose Driver (Input System)")]
-    public class TrackedPoseDriver : MonoBehaviour, ISerializationCallbackReceiver
+    public class TrackedPoseDriver : MonoBehaviour/*, ISerializationCallbackReceiver */
     {
         /// <summary>
         /// Options for which <see cref="Transform"/> properties to update.
@@ -386,6 +386,7 @@ namespace UnityEngine.InputSystem.XR
             m_HasMigratedActions = true;
         }
 
+        /*
         /// <inheritdoc />
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
@@ -403,6 +404,7 @@ namespace UnityEngine.InputSystem.XR
             m_HasMigratedActions = true;
 #pragma warning restore 0612
         }
+        */
 
         #endregion
     }
