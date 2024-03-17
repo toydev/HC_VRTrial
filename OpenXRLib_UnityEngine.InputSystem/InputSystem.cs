@@ -14,6 +14,8 @@ using UnityEngine.InputSystem.XInput;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.Profiling;
 
+using Il2CppInterop.Runtime;
+
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine.InputSystem.Editor;
@@ -3375,7 +3377,7 @@ namespace UnityEngine.InputSystem
         private static void InitializeInPlayer(IInputRuntime runtime = null, InputSettings settings = null)
         {
             if (settings == null)
-                settings = Resources.FindObjectsOfTypeAll<InputSettings>().FirstOrDefault() ?? ScriptableObject.CreateInstance<InputSettings>();
+                settings = (Resources.FindObjectsOfTypeAll(Il2CppType.From(typeof(InputSettings))).FirstOrDefault() ?? ScriptableObject.CreateInstance<InputSettings>()).Cast<InputSettings>();
 
             // No domain reloads in the player so we don't need to look for existing
             // instances.
