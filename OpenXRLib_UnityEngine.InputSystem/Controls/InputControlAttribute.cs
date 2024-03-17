@@ -80,7 +80,7 @@ namespace UnityEngine.InputSystem.Layouts
     /// <seealso cref="InputControlLayout"/>
     /// <seealso cref="InputBindingComposite"/>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = true)]
-    public sealed class InputControlAttribute : PropertyAttribute
+    public sealed class InputControlAttribute : Attribute
     {
         /// <summary>
         /// Layout to use for the control.
