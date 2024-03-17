@@ -1040,7 +1040,7 @@ namespace UnityEngine.InputSystem.HID
                     parser.ExpectSingleChar(jsonSpan, ':');
                     parser.ExpectSingleChar(jsonSpan, '[');
 
-                    using var pool = ListPool<HIDElementDescriptor>.Get(out var elements);
+                    var elements = new List<HIDElementDescriptor>();
                     while (!parser.AcceptSingleChar(jsonSpan, ']'))
                     {
                         parser.AcceptSingleChar(jsonSpan, ',');
