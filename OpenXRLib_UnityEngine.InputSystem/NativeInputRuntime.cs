@@ -4,6 +4,9 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngineInternal.Input;
 
+using Il2CppInterop.Runtime;
+using Il2CppSystem.Runtime.InteropServices;
+
 #if UNITY_EDITOR
 using System.Reflection;
 using UnityEditor;
@@ -52,40 +55,44 @@ namespace UnityEngine.InputSystem.LowLevel
             set
             {
                 if (value != null)
-                    NativeInputSystem.onUpdate =
-                        (updateType, eventBufferPtr) =>
+                    NativeInputSystem.onUpdate = DelegateSupport.ConvertDelegate<NativeUpdateCallback>(new Action<NativeInputUpdateType, IntPtr>(
+                        (updateType, eventBufferIntPtr) =>
                     {
-                        var buffer = new InputEventBuffer((InputEvent*)eventBufferPtr->eventBuffer,
-                            eventBufferPtr->eventCount,
-                            sizeInBytes: eventBufferPtr->sizeInBytes,
-                            capacityInBytes: eventBufferPtr->capacityInBytes);
+                        unsafe
+                        {
+                            var eventBufferPtr = (NativeInputEventBuffer*)eventBufferIntPtr;
+                            var buffer = new InputEventBuffer((InputEvent*)eventBufferPtr->eventBuffer,
+                                eventBufferPtr->eventCount,
+                                sizeInBytes: eventBufferPtr->sizeInBytes,
+                                capacityInBytes: eventBufferPtr->capacityInBytes);
 
-                        try
-                        {
-                            value((InputUpdateType)updateType, ref buffer);
-                        }
-                        catch (Exception e)
-                        {
-                            // Always report the original exception first to confuse users less about what it the actual failure.
-                            Debug.LogException(e);
-                            Debug.LogError($"{e.GetType().Name} during event processing of {updateType} update; resetting event buffer");
-                            buffer.Reset();
-                        }
+                            try
+                            {
+                                value((InputUpdateType)updateType, ref buffer);
+                            }
+                            catch (Exception e)
+                            {
+                                // Always report the original exception first to confuse users less about what it the actual failure.
+                                DebugEx.LogException(e);
+                                Debug.LogError($"{e.GetType().Name} during event processing of {updateType} update; resetting event buffer");
+                                buffer.Reset();
+                            }
 
-                        if (buffer.eventCount > 0)
-                        {
-                            eventBufferPtr->eventCount = buffer.eventCount;
-                            eventBufferPtr->sizeInBytes = (int)buffer.sizeInBytes;
-                            eventBufferPtr->capacityInBytes = (int)buffer.capacityInBytes;
-                            eventBufferPtr->eventBuffer =
-                                NativeArrayUnsafeUtility.GetUnsafeBufferPointerWithoutChecks(buffer.data);
+                            if (buffer.eventCount > 0)
+                            {
+                                eventBufferPtr->eventCount = buffer.eventCount;
+                                eventBufferPtr->sizeInBytes = (int)buffer.sizeInBytes;
+                                eventBufferPtr->capacityInBytes = (int)buffer.capacityInBytes;
+                                eventBufferPtr->eventBuffer =
+                                    (IntPtr)NativeArrayUnsafeUtility.GetUnsafeBufferPointerWithoutChecks(buffer.data);
+                            }
+                            else
+                            {
+                                eventBufferPtr->eventCount = 0;
+                                eventBufferPtr->sizeInBytes = 0;
+                            }
                         }
-                        else
-                        {
-                            eventBufferPtr->eventCount = 0;
-                            eventBufferPtr->sizeInBytes = 0;
-                        }
-                    };
+                    }));
                 else
                     NativeInputSystem.onUpdate = null;
                 m_OnUpdate = value;
@@ -100,7 +107,7 @@ namespace UnityEngine.InputSystem.LowLevel
                 // This is stupid but the enum prevents us from jacking the delegate in directly.
                 // This means we get a double dispatch here :(
                 if (value != null)
-                    NativeInputSystem.onBeforeUpdate = updateType => value((InputUpdateType)updateType);
+                    NativeInputSystem.onBeforeUpdate = new Action<NativeInputUpdateType>(updateType => value((InputUpdateType)updateType));
                 else
                     NativeInputSystem.onBeforeUpdate = null;
                 m_OnBeforeUpdate = value;
@@ -115,7 +122,7 @@ namespace UnityEngine.InputSystem.LowLevel
                 // This is stupid but the enum prevents us from jacking the delegate in directly.
                 // This means we get a double dispatch here :(
                 if (value != null)
-                    NativeInputSystem.onShouldRunUpdate = updateType => value((InputUpdateType)updateType);
+                    NativeInputSystem.onShouldRunUpdate = new Func<NativeInputUpdateType, bool>(updateType => value((InputUpdateType)updateType));
                 else
                     NativeInputSystem.onShouldRunUpdate = null;
                 m_OnShouldRunUpdate = value;
@@ -164,21 +171,24 @@ namespace UnityEngine.InputSystem.LowLevel
 
         public Action<int, string> onDeviceDiscovered
         {
-            get => NativeInputSystem.onDeviceDiscovered;
-            set => NativeInputSystem.onDeviceDiscovered = value;
+            get => (deviceId, deviceDescriptor) => NativeInputSystem.s_OnDeviceDiscoveredCallback.Invoke(deviceId, deviceDescriptor);
+            set => NativeInputSystem.s_OnDeviceDiscoveredCallback = value;
         }
 
+        private Il2CppSystem.Action m_onShutdown = null;
         public Action onShutdown
         {
             get => m_ShutdownMethod;
             set
             {
+                if (m_onShutdown == null) m_onShutdown = (Il2CppSystem.Action)OnShutdown;
+
                 if (value == null)
                 {
                     #if UNITY_EDITOR
                     EditorApplication.wantsToQuit -= OnWantsToShutdown;
                     #else
-                    Application.quitting -= OnShutdown;
+                    Application.quitting -= m_onShutdown;
                     #endif
                 }
                 else if (m_ShutdownMethod == null)
@@ -186,7 +196,7 @@ namespace UnityEngine.InputSystem.LowLevel
                     #if UNITY_EDITOR
                     EditorApplication.wantsToQuit += OnWantsToShutdown;
                     #else
-                    Application.quitting += OnShutdown;
+                    Application.quitting += m_onShutdown;
                     #endif
                 }
 
@@ -194,15 +204,18 @@ namespace UnityEngine.InputSystem.LowLevel
             }
         }
 
+        private Il2CppSystem.Action<bool> m_onFocusChanged = null;
         public Action<bool> onPlayerFocusChanged
         {
             get => m_FocusChangedMethod;
             set
             {
+                if (m_onFocusChanged == null) m_onFocusChanged = (Il2CppSystem.Action<bool>)OnFocusChanged;
+
                 if (value == null)
-                    Application.focusChanged -= OnFocusChanged;
+                    Application.focusChanged -= m_onFocusChanged;
                 else if (m_FocusChangedMethod == null)
-                    Application.focusChanged += OnFocusChanged;
+                    Application.focusChanged += m_onFocusChanged;
                 m_FocusChangedMethod = value;
             }
         }
