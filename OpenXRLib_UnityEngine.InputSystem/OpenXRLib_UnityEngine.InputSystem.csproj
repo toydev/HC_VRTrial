@@ -24,6 +24,7 @@
 		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\Il2Cppmscorlib.dll" />
 		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.CoreModule.dll" />
 		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.InputModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.XRModule.dll" />
 	</ItemGroup>
 
 </Project>
