@@ -136,7 +136,7 @@ namespace UnityEngine.InputSystem.OnScreen
                 {
                     Debug.LogError(
                         $"Could not create device with layout '{layoutName}' used in '{GetType().Name}' component");
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                     return;
                 }
                 InputSystem.AddDeviceUsage(device, "OnScreen");

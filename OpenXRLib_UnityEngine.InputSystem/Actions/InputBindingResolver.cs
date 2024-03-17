@@ -421,7 +421,7 @@ namespace UnityEngine.InputSystem
                     {
                         Debug.LogError(
                             $"{exception.GetType().Name} while resolving binding '{unresolvedBinding}' in action map '{actionMap}'");
-                        Debug.LogException(exception);
+                        DebugEx.LogException(exception);
 
                         // Don't swallow exceptions that indicate something is wrong in the code rather than
                         // in the data.

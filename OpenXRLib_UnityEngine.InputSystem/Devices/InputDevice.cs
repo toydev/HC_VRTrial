@@ -568,7 +568,7 @@ namespace UnityEngine.InputSystem
                 catch (Exception exception)
                 {
                     Debug.LogError($"{exception.GetType().Name} while executing 'InputSystem.onDeviceCommand' callbacks");
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                 }
             }
             manager.m_DeviceCommandCallbacks.UnlockForChanges();

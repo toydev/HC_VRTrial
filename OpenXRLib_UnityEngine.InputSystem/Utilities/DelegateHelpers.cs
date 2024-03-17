@@ -22,7 +22,7 @@ namespace UnityEngine.InputSystem.Utilities
                 }
                 catch (Exception exception)
                 {
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                     if (context != null)
                         Debug.LogError($"{exception.GetType().Name} while executing '{callbackName}' callbacks of '{context}'");
                     else
@@ -47,7 +47,7 @@ namespace UnityEngine.InputSystem.Utilities
                 }
                 catch (Exception exception)
                 {
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                     if (context != null)
                         Debug.LogError($"{exception.GetType().Name} while executing '{callbackName}' callbacks of '{context}'");
                     else
@@ -72,7 +72,7 @@ namespace UnityEngine.InputSystem.Utilities
                 }
                 catch (Exception exception)
                 {
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                     if (context != null)
                         Debug.LogError($"{exception.GetType().Name} while executing '{callbackName}' callbacks of '{context}'");
                     else
@@ -99,7 +99,7 @@ namespace UnityEngine.InputSystem.Utilities
                 }
                 catch (Exception exception)
                 {
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                     if (context != null)
                         Debug.LogError($"{exception.GetType().Name} while executing '{callbackName}' callbacks of '{context}'");
                     else

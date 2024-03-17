@@ -223,7 +223,7 @@ namespace UnityEngine.InputSystem.HID
                 catch (Exception exception)
                 {
                     Debug.LogError($"Could not parse HID descriptor of device '{deviceDescription}'");
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                 }
             }
 
@@ -290,7 +290,7 @@ namespace UnityEngine.InputSystem.HID
                         catch (Exception exception)
                         {
                             Debug.LogError($"Could not parse HID descriptor of device '{deviceDescription}'");
-                            Debug.LogException(exception);
+                            DebugEx.LogException(exception);
                             return new HIDDeviceDescriptor();
                         }
 

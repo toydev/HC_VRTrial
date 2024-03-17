@@ -1028,7 +1028,7 @@ namespace UnityEngine.InputSystem.Users
                 catch (Exception exception)
                 {
                     Debug.LogError($"{exception.GetType().Name} while executing 'InputUser.onChange' callbacks");
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                 }
             }
             s_GlobalState.onChange.UnlockForChanges();
@@ -1677,7 +1677,7 @@ namespace UnityEngine.InputSystem.Users
                     catch (Exception exception)
                     {
                         Debug.LogError($"{exception.GetType().Name} while executing 'InputUser.onUnpairedDeviceUsed' callbacks");
-                        Debug.LogException(exception);
+                        DebugEx.LogException(exception);
                     }
 
                     if (pairingStateVersionBefore != s_GlobalState.pairingStateVersion

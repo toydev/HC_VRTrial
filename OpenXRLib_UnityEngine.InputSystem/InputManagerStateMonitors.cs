@@ -384,7 +384,7 @@ namespace UnityEngine.InputSystem
                 {
                     Debug.LogError(
                         $"Exception '{exception.GetType().Name}' thrown from state change monitor '{listener.monitor.GetType().Name}' on '{listener.control}'");
-                    Debug.LogException(exception);
+                    DebugEx.LogException(exception);
                 }
 
                 // If the monitor signalled that it has processed the state change, reset all signalled

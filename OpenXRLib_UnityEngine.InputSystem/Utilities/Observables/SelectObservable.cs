@@ -35,7 +35,7 @@ namespace UnityEngine.InputSystem.LowLevel
 
             public void OnError(Exception error)
             {
-                Debug.LogException(error);
+                DebugEx.LogException(error);
             }
 
             public void OnNext(TSource evt)

@@ -722,7 +722,7 @@ namespace UnityEngine.InputSystem
                     {
                         Debug.LogError(
                             $"Layout '{layout}' matches existing device '{m_AvailableDevices[i].description}' but failed to instantiate: {exception}");
-                        Debug.LogException(exception);
+                        DebugEx.LogException(exception);
                         continue;
                     }
 
@@ -848,7 +848,7 @@ namespace UnityEngine.InputSystem
                     catch (Exception exception)
                     {
                         Debug.LogError($"{exception.GetType().Name} while executing 'InputSystem.onFindLayoutForDevice' callbacks");
-                        Debug.LogException(exception);
+                        DebugEx.LogException(exception);
                     }
                 }
                 m_DeviceFindLayoutCallbacks.UnlockForChanges();
