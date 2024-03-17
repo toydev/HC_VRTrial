@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine.InputSystem;
 
-[assembly: AssemblyVersion(InputSystem.kAssemblyVersion)]
+// [assembly: AssemblyVersion(InputSystem.kAssemblyVersion)]
 [assembly: InternalsVisibleTo("Unity.InputSystem.TestFramework")]
 [assembly: InternalsVisibleTo("Unity.InputSystem.Tests.Editor")]
 [assembly: InternalsVisibleTo("Unity.InputSystem.Tests")]
