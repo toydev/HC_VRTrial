@@ -696,33 +696,33 @@ namespace UnityEngine.InputSystem
             OnChange();
         }
 
-        [Tooltip("Determine which type of devices are used by the application. By default, this is empty meaning that all devices recognized "
-            + "by Unity will be used. Restricting the set of supported devices will make only those devices appear in the input system.")]
-        [SerializeField] private string[] m_SupportedDevices;
-        [Tooltip("Determine when Unity processes events. By default, accumulated input events are flushed out before each fixed update and "
-            + "before each dynamic update. This setting can be used to restrict event processing to only where the application needs it.")]
-        [SerializeField] private UpdateMode m_UpdateMode = UpdateMode.ProcessEventsInDynamicUpdate;
-        [SerializeField] private int m_MaxEventBytesPerUpdate = 5 * 1024 * 1024;
-        [SerializeField] private int m_MaxQueuedEventsPerUpdate = 1000;
+        // [Tooltip("Determine which type of devices are used by the application. By default, this is empty meaning that all devices recognized "
+        //     + "by Unity will be used. Restricting the set of supported devices will make only those devices appear in the input system.")]
+        /* [SerializeField] */ private string[] m_SupportedDevices;
+        // [Tooltip("Determine when Unity processes events. By default, accumulated input events are flushed out before each fixed update and "
+        //     + "before each dynamic update. This setting can be used to restrict event processing to only where the application needs it.")]
+        /* [SerializeField] */ private UpdateMode m_UpdateMode = UpdateMode.ProcessEventsInDynamicUpdate;
+        /* [SerializeField] */ private int m_MaxEventBytesPerUpdate = 5 * 1024 * 1024;
+        /* [SerializeField] */ private int m_MaxQueuedEventsPerUpdate = 1000;
 
-        [SerializeField] private bool m_CompensateForScreenOrientation = true;
-        [SerializeField] private BackgroundBehavior m_BackgroundBehavior = BackgroundBehavior.ResetAndDisableNonBackgroundDevices;
-        [SerializeField] private EditorInputBehaviorInPlayMode m_EditorInputBehaviorInPlayMode;
-        [SerializeField] private float m_DefaultDeadzoneMin = 0.125f;
-        [SerializeField] private float m_DefaultDeadzoneMax = 0.925f;
+        /* [SerializeField] */ private bool m_CompensateForScreenOrientation = true;
+        /* [SerializeField] */ private BackgroundBehavior m_BackgroundBehavior = BackgroundBehavior.ResetAndDisableNonBackgroundDevices;
+        /* [SerializeField] */ private EditorInputBehaviorInPlayMode m_EditorInputBehaviorInPlayMode;
+        /* [SerializeField] */ private float m_DefaultDeadzoneMin = 0.125f;
+        /* [SerializeField] */ private float m_DefaultDeadzoneMax = 0.925f;
         // A setting of 0.5 seems to roughly be what games generally use on the gamepad triggers.
         // Having a higher value here also obsoletes the need for custom press points on stick buttons
         // (the up/down/left/right ones).
-        [Min(ButtonControl.kMinButtonPressPoint)]
-        [SerializeField] private float m_DefaultButtonPressPoint = 0.5f;
-        [SerializeField] private float m_ButtonReleaseThreshold = 0.75f;
-        [SerializeField] private float m_DefaultTapTime = 0.2f;
-        [SerializeField] private float m_DefaultSlowTapTime = 0.5f;
-        [SerializeField] private float m_DefaultHoldTime = 0.4f;
-        [SerializeField] private float m_TapRadius = 5;
-        [SerializeField] private float m_MultiTapDelayTime = 0.75f;
-        [SerializeField] private bool m_DisableRedundantEventsMerging = false;
-        [SerializeField] private bool m_ShortcutKeysConsumeInputs = false; // This is the shortcut support from v1.4. Temporarily moved here as an opt-in feature, while it's issues are investigated.
+        // [Min(ButtonControl.kMinButtonPressPoint)]
+        /* [SerializeField] */ private float m_DefaultButtonPressPoint = 0.5f;
+        /* [SerializeField] */ private float m_ButtonReleaseThreshold = 0.75f;
+        /* [SerializeField] */ private float m_DefaultTapTime = 0.2f;
+        /* [SerializeField] */ private float m_DefaultSlowTapTime = 0.5f;
+        /* [SerializeField] */ private float m_DefaultHoldTime = 0.4f;
+        /* [SerializeField] */ private float m_TapRadius = 5;
+        /* [SerializeField] */ private float m_MultiTapDelayTime = 0.75f;
+        /* [SerializeField] */ private bool m_DisableRedundantEventsMerging = false;
+        /* [SerializeField] */ private bool m_ShortcutKeysConsumeInputs = false; // This is the shortcut support from v1.4. Temporarily moved here as an opt-in feature, while it's issues are investigated.
 
         [NonSerialized] internal HashSet<string> m_FeatureFlags;
 

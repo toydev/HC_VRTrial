@@ -20,13 +20,13 @@ namespace UnityEngine.InputSystem.Processors
         /// <summary>
         /// Scale factor to apply to the vector's <c>x</c> axis. Defaults to 1.
         /// </summary>
-        [Tooltip("Scale factor to multiply the incoming Vector2's X component by.")]
+        // [Tooltip("Scale factor to multiply the incoming Vector2's X component by.")]
         public float x = 1;
 
         /// <summary>
         /// Scale factor to apply to the vector's <c>y</c> axis. Defaults to 1.
         /// </summary>
-        [Tooltip("Scale factor to multiply the incoming Vector2's Y component by.")]
+        // [Tooltip("Scale factor to multiply the incoming Vector2's Y component by.")]
         public float y = 1;
 
         /// <summary>

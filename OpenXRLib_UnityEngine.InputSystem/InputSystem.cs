@@ -3159,7 +3159,7 @@ namespace UnityEngine.InputSystem
 
         ////FIXME: Unity is not calling this method if it's inside an #if block that is not
         ////       visible to the editor; that shouldn't be the case
-        [RuntimeInitializeOnLoadMethod(loadType: RuntimeInitializeLoadType.SubsystemRegistration)]
+        // [RuntimeInitializeOnLoadMethod(loadType: RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void RunInitializeInPlayer()
         {
             // We're using this method just to make sure the class constructor is called
@@ -3395,7 +3395,7 @@ namespace UnityEngine.InputSystem
 
 #endif // UNITY_EDITOR
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void RunInitialUpdate()
         {
             // Request an initial Update so that user methods such as Start and Awake
@@ -3558,12 +3558,12 @@ namespace UnityEngine.InputSystem
         {
             [NonSerialized] public InputManager manager;
             [NonSerialized] public InputRemoting remote;
-            [SerializeField] public RemoteInputPlayerConnection remoteConnection;
-            [SerializeField] public InputManager.SerializedState managerState;
-            [SerializeField] public InputRemoting.SerializedState remotingState;
+            /* [SerializeField] */ public RemoteInputPlayerConnection remoteConnection;
+            /* [SerializeField] */ public InputManager.SerializedState managerState;
+            /* [SerializeField] */ public InputRemoting.SerializedState remotingState;
             #if UNITY_EDITOR
-            [SerializeField] public InputEditorUserSettings.SerializedState userSettings;
-            [SerializeField] public string systemObject;
+            /* [SerializeField] */ public InputEditorUserSettings.SerializedState userSettings;
+            /* [SerializeField] */ public string systemObject;
             #endif
             ////TODO: make these saved states capable of surviving domain reloads
             [NonSerialized] public ISavedState inputActionState;

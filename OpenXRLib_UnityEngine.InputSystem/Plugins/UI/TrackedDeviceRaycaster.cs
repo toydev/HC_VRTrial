@@ -238,21 +238,21 @@ namespace UnityEngine.InputSystem.UI
         }
 
         [FormerlySerializedAs("ignoreReversedGraphics")]
-        [SerializeField]
+        /* [SerializeField] */
         private bool m_IgnoreReversedGraphics;
 
         [FormerlySerializedAs("checkFor2DOcclusion")]
-        [SerializeField]
+        /* [SerializeField] */
         private bool m_CheckFor2DOcclusion;
 
         [FormerlySerializedAs("checkFor3DOcclusion")]
-        [SerializeField]
+        /* [SerializeField] */
         private bool m_CheckFor3DOcclusion;
 
         [Tooltip("Maximum distance (in 3D world space) that rays are traced to find a hit.")]
-        [SerializeField] private float m_MaxDistance = 1000;
+        /* [SerializeField] */ private float m_MaxDistance = 1000;
 
-        [SerializeField]
+        /* [SerializeField] */
         private LayerMask m_BlockingMask;
 
         [NonSerialized]

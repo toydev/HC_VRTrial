@@ -666,14 +666,14 @@ namespace UnityEngine.InputSystem
         // The state we persist is pretty much just a name, a flat list of actions, and a flat
         // list of bindings. The rest is state we keep at runtime when a map is in use.
 
-        [SerializeField] internal string m_Name;
-        [SerializeField] internal string m_Id; // Can't serialize System.Guid and Unity's GUID is editor only.
-        [SerializeField] internal InputActionAsset m_Asset;
+        /* [SerializeField] */ internal string m_Name;
+        /* [SerializeField] */ internal string m_Id; // Can't serialize System.Guid and Unity's GUID is editor only.
+        /* [SerializeField] */ internal InputActionAsset m_Asset;
 
         /// <summary>
         /// List of actions in this map.
         /// </summary>
-        [SerializeField] internal InputAction[] m_Actions;
+        /* [SerializeField] */ internal InputAction[] m_Actions;
 
         /// <summary>
         /// List of bindings in this map.
@@ -681,7 +681,7 @@ namespace UnityEngine.InputSystem
         /// <remarks>
         /// For singleton actions, we ensure this is always the same as <see cref="InputAction.m_SingletonActionBindings"/>.
         /// </remarks>
-        [SerializeField] internal InputBinding[] m_Bindings;
+        /* [SerializeField] */ internal InputBinding[] m_Bindings;
 
         // These fields are caches. If m_Bindings is modified, these are thrown away
         // and re-computed only if needed.

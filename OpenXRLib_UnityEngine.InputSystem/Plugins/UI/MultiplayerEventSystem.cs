@@ -16,7 +16,7 @@ namespace UnityEngine.InputSystem.UI
     public class MultiplayerEventSystem : EventSystem
     {
         [Tooltip("If set, only process mouse and navigation events for any game objects which are children of this game object.")]
-        [SerializeField] private GameObject m_PlayerRoot;
+        /* [SerializeField] */ private GameObject m_PlayerRoot;
 
         /// <summary>
         /// The root object of the UI hierarchy that belongs to the given player.

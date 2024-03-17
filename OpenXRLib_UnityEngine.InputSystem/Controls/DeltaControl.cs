@@ -12,7 +12,7 @@ namespace UnityEngine.InputSystem.Controls
     /// </remarks>
     /// <see cref="Pointer.delta"/>
     /// <seealso cref="Mouse.scroll"/>
-    [Preserve]
+    // [Preserve]
     public class DeltaControl : Vector2Control
     {
         /// <summary>
@@ -23,7 +23,7 @@ namespace UnityEngine.InputSystem.Controls
         /// The control is marked as <see cref="InputControl.synthetic"/>.
         /// </remarks>
         [InputControl(useStateFrom = "y", parameters = "clamp=1,clampMin=0,clampMax=3.402823E+38", synthetic = true, displayName = "Up")]
-        [Preserve]
+        // [Preserve]
         public AxisControl up { get; set; }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace UnityEngine.InputSystem.Controls
         /// The control is marked as <see cref="InputControl.synthetic"/>.
         /// </remarks>
         [InputControl(useStateFrom = "y", parameters = "clamp=1,clampMin=-3.402823E+38,clampMax=0,invert", synthetic = true, displayName = "Down")]
-        [Preserve]
+        // [Preserve]
         public AxisControl down { get; set; }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace UnityEngine.InputSystem.Controls
         /// The control is marked as <see cref="InputControl.synthetic"/>.
         /// </remarks>
         [InputControl(useStateFrom = "x", parameters = "clamp=1,clampMin=-3.402823E+38,clampMax=0,invert", synthetic = true, displayName = "Left")]
-        [Preserve]
+        // [Preserve]
         public AxisControl left { get; set; }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace UnityEngine.InputSystem.Controls
         /// The control is marked as <see cref="InputControl.synthetic"/>.
         /// </remarks>
         [InputControl(useStateFrom = "x", parameters = "clamp=1,clampMin=0,clampMax=3.402823E+38", synthetic = true, displayName = "Right")]
-        [Preserve]
+        // [Preserve]
         public AxisControl right { get; set; }
 
         protected override void FinishSetup()

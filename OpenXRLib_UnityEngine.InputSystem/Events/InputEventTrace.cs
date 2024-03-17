@@ -712,7 +712,7 @@ namespace UnityEngine.InputSystem.LowLevel
         [NonSerialized] private bool m_Enabled;
         [NonSerialized] private Func<InputEventPtr, InputDevice, bool> m_OnFilterEvent;
 
-        [SerializeField] private int m_DeviceId = InputDevice.InvalidDeviceId;
+        /* [SerializeField] */ private int m_DeviceId = InputDevice.InvalidDeviceId;
         [NonSerialized] private CallbackArray<Action<InputEventPtr>> m_EventListeners;
 
         // Buffer for storing event trace. Allocated in native so that we can survive a
@@ -720,18 +720,18 @@ namespace UnityEngine.InputSystem.LowLevel
         // NOTE: Ideally this would simply use InputEventBuffer but we can't serialize that one because
         //       of the NativeArray it has inside. Also, due to the wrap-around nature, storage of
         //       events in the buffer may not be linear.
-        [SerializeField] private long m_EventBufferSize;
-        [SerializeField] private long m_MaxEventBufferSize;
-        [SerializeField] private long m_GrowIncrementSize;
-        [SerializeField] private long m_EventCount;
-        [SerializeField] private long m_EventSizeInBytes;
+        /* [SerializeField] */ private long m_EventBufferSize;
+        /* [SerializeField] */ private long m_MaxEventBufferSize;
+        /* [SerializeField] */ private long m_GrowIncrementSize;
+        /* [SerializeField] */ private long m_EventCount;
+        /* [SerializeField] */ private long m_EventSizeInBytes;
         // These are ulongs for the sake of Unity serialization which can't handle pointers or IntPtrs.
-        [SerializeField] private ulong m_EventBufferStorage;
-        [SerializeField] private ulong m_EventBufferHeadStorage;
-        [SerializeField] private ulong m_EventBufferTailStorage;
-        [SerializeField] private bool m_HasWrapped;
-        [SerializeField] private bool m_RecordFrameMarkers;
-        [SerializeField] private DeviceInfo[] m_DeviceInfos;
+        /* [SerializeField] */ private ulong m_EventBufferStorage;
+        /* [SerializeField] */ private ulong m_EventBufferHeadStorage;
+        /* [SerializeField] */ private ulong m_EventBufferTailStorage;
+        /* [SerializeField] */ private bool m_HasWrapped;
+        /* [SerializeField] */ private bool m_RecordFrameMarkers;
+        /* [SerializeField] */ private DeviceInfo[] m_DeviceInfos;
 
         private byte* m_EventBuffer
         {
@@ -1558,11 +1558,11 @@ namespace UnityEngine.InputSystem.LowLevel
                 set => m_StateSizeInBytes = value;
             }
 
-            [SerializeField] internal int m_DeviceId;
-            [SerializeField] internal string m_Layout;
-            [SerializeField] internal FourCC m_StateFormat;
-            [SerializeField] internal int m_StateSizeInBytes;
-            [SerializeField] internal string m_FullLayoutJson;
+            /* [SerializeField] */ internal int m_DeviceId;
+            /* [SerializeField] */ internal string m_Layout;
+            /* [SerializeField] */ internal FourCC m_StateFormat;
+            /* [SerializeField] */ internal int m_StateSizeInBytes;
+            /* [SerializeField] */ internal string m_FullLayoutJson;
         }
     }
 }

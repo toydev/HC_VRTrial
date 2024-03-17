@@ -39,8 +39,8 @@ namespace UnityEngine.InputSystem.iOS
             set => m_Description = value;
         }
 
-        [SerializeField] private bool m_Enabled;
-        [SerializeField] private string m_Description;
+        /* [SerializeField] */ private bool m_Enabled;
+        /* [SerializeField] */ private string m_Description;
     }
 }
 
@@ -68,7 +68,7 @@ namespace UnityEngine.InputSystem
                 set => m_MotionUsage = value;
             }
 
-            [SerializeField] private PrivacyDataUsage m_MotionUsage = new PrivacyDataUsage();
+            /* [SerializeField] */ private PrivacyDataUsage m_MotionUsage = new PrivacyDataUsage();
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace UnityEngine.InputSystem
         /// </remarks>
         public iOSSettings iOS => m_iOSSettings;
 
-        [SerializeField]
+        /* [SerializeField] */
         private iOSSettings m_iOSSettings = new iOSSettings();
     }
 }

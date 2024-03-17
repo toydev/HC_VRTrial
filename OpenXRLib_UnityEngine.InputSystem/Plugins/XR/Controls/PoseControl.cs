@@ -122,7 +122,7 @@ namespace UnityEngine.InputSystem.XR
     ///
     /// For more information on tracking origins see <see cref="UnityEngine.XR.TrackingOriginModeFlags"/>.
     /// </remarks>
-    [Preserve, InputControlLayout(stateType = typeof(PoseState))]
+    [/* Preserve, */ InputControlLayout(stateType = typeof(PoseState))]
     public class PoseControl : InputControl<PoseState>
     {
         /// <summary>

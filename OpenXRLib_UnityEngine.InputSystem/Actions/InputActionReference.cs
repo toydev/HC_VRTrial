@@ -199,10 +199,10 @@ namespace UnityEngine.InputSystem
             return reference;
         }
 
-        [SerializeField] internal InputActionAsset m_Asset;
+        /* [SerializeField] */ internal InputActionAsset m_Asset;
         // Can't serialize System.Guid and Unity's GUID is editor only so these
         // go out as strings.
-        [SerializeField] internal string m_ActionId;
+        /* [SerializeField] */ internal string m_ActionId;
 
         /// <summary>
         /// The resolved, cached input action.
