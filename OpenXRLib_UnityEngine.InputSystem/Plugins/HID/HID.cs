@@ -240,8 +240,8 @@ namespace UnityEngine.InputSystem.HID
                 if (sizeOfDescriptorInBytes > 0)
                 {
                     // Now try to fetch the HID descriptor.
-                    using (var buffer =
-                               InputDeviceCommand.AllocateNative(QueryHIDReportDescriptorDeviceCommandType, (int)sizeOfDescriptorInBytes))
+                    var buffer = InputDeviceCommand.AllocateNative(QueryHIDReportDescriptorDeviceCommandType, (int)sizeOfDescriptorInBytes);
+                    try
                     {
                         var commandPtr = (InputDeviceCommand*)buffer.GetUnsafePtr();
                         if (executeCommandDelegate(ref *commandPtr) != sizeOfDescriptorInBytes)
@@ -250,6 +250,10 @@ namespace UnityEngine.InputSystem.HID
                         // Try to parse the HID report descriptor.
                         if (!HIDParser.ParseReportDescriptor((byte*)commandPtr->payloadPtr, (int)sizeOfDescriptorInBytes, ref hidDeviceDescriptor))
                             return new HIDDeviceDescriptor();
+                    }
+                    finally
+                    {
+                        buffer.Dispose();
                     }
 
                     // Update the descriptor on the device with the information we got.
@@ -265,8 +269,8 @@ namespace UnityEngine.InputSystem.HID
                     // with some dirty hacks we're performing in the native runtime).
 
                     const int kMaxDescriptorBufferSize = 2 * 1024 * 1024; ////TODO: switch to larger buffer based on return code if request fails
-                    using (var buffer =
-                               InputDeviceCommand.AllocateNative(QueryHIDParsedReportDescriptorDeviceCommandType, kMaxDescriptorBufferSize))
+                    var buffer = InputDeviceCommand.AllocateNative(QueryHIDParsedReportDescriptorDeviceCommandType, kMaxDescriptorBufferSize);
+                    try
                     {
                         var commandPtr = (InputDeviceCommand*)buffer.GetUnsafePtr();
                         var utf8Length = executeCommandDelegate(ref *commandPtr);
@@ -296,6 +300,10 @@ namespace UnityEngine.InputSystem.HID
 
                         // Update the descriptor on the device with the information we got.
                         deviceDescription.capabilities = descriptorJson;
+                    }
+                    finally
+                    {
+                        buffer.Dispose();
                     }
                 }
             }

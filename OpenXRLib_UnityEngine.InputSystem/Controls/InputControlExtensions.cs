@@ -835,12 +835,17 @@ namespace UnityEngine.InputSystem
                 throw new ArgumentNullException(nameof(control));
 
             ////TODO: if it's not a bit-addressing control, send a delta state change only
-            using (StateEvent.From(control.device, out var eventPtr))
+            var buffer = StateEvent.From(control.device, out var eventPtr);
+            try
             {
                 if (time >= 0)
                     eventPtr.time = time;
                 control.WriteValueIntoEvent(value, eventPtr);
                 InputSystem.QueueEvent(eventPtr);
+            }
+            finally
+            {
+                buffer.Dispose();
             }
         }
 

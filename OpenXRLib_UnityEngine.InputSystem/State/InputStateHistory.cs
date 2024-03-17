@@ -763,7 +763,8 @@ namespace UnityEngine.InputSystem.LowLevel
 
         public unsafe Record RecordStateChange(InputControl<TValue> control, TValue value, double time = -1)
         {
-            using (StateEvent.From(control.device, out var eventPtr))
+            var buffer = StateEvent.From(control.device, out var eventPtr);
+            try
             {
                 var statePtr = (byte*)StateEvent.From(eventPtr)->state - control.device.stateBlock.byteOffset;
                 control.WriteValueIntoState(value, statePtr);
@@ -771,6 +772,10 @@ namespace UnityEngine.InputSystem.LowLevel
                     eventPtr.time = time;
                 var record = RecordStateChange(control, eventPtr);
                 return new Record(this, record.recordIndex, record.header);
+            }
+            finally
+            {
+                buffer.Dispose();
             }
         }
 

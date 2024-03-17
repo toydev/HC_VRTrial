@@ -1373,8 +1373,8 @@ namespace UnityEngine.InputSystem
                 //       pointer, the change will be considered an internal state change and will get ignored by some
                 //       pieces of code (such as EnhancedTouch which filters out internal state changes of Touchscreen
                 //       by ignoring any change that is not coming from an input event).
-                using (var tempBuffer =
-                           new NativeArray<byte>(InputEvent.kBaseEventSize + sizeof(int) + (int)deviceStateBlockSize, Allocator.Temp))
+                var tempBuffer = new NativeArray<byte>(InputEvent.kBaseEventSize + sizeof(int) + (int)deviceStateBlockSize, Allocator.Temp);
+                try
                 {
                     var stateEventPtr = (StateEvent*)tempBuffer.GetUnsafePtr();
                     var statePtr = stateEventPtr->state;
@@ -1420,6 +1420,10 @@ namespace UnityEngine.InputSystem
 
                     UpdateState(device, defaultUpdateType, statePtr, 0, deviceStateBlockSize, currentTime,
                         new InputEventPtr((InputEvent*)stateEventPtr));
+                }
+                finally
+                {
+                    tempBuffer.Dispose();
                 }
             }
 
