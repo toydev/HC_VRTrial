@@ -13,7 +13,7 @@ namespace UnityEngine.XR.OpenXR.Input
     /// <summary>
     /// Input System control that wraps up a <see cref="Haptic"/> structure.
     /// </summary>
-    [Preserve]
+    // [Preserve]
     public class HapticControl : InputControl<Haptic>
     {
         /// <summary>

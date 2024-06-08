@@ -19,7 +19,7 @@ using UnityEditor.XR.OpenXR;
 
 #endif
 
-[assembly: Preserve]
+// [assembly: Preserve]
 
 [assembly:InternalsVisibleTo("Unity.XR.OpenXR.TestHelpers")]
 [assembly:InternalsVisibleTo("Unity.XR.OpenXR.Tests")]

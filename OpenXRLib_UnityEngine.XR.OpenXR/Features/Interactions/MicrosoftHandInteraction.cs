@@ -38,79 +38,79 @@ namespace UnityEngine.XR.OpenXR.Features.Interactions
         /// <summary>
         /// An Input System device based off the hand interaction profile in the <see href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#XR_MSFT_hand_interaction">Hand Interaction Extension</see>. Enabled through <see cref="MicrosoftHandInteraction"/>.
         /// </summary>
-        [Preserve, InputControlLayout(displayName = "Hololens Hand (OpenXR)", commonUsages = new[] { "LeftHand", "RightHand" })]
+        /* [Preserve] */[InputControlLayout(displayName = "Hololens Hand (OpenXR)", commonUsages = new[] { "LeftHand", "RightHand" })]
         public class HoloLensHand : XRController
         {
             /// <summary>
             /// An [AxisControl](xref:UnityEngine.InputSystem.Controls.AxisControl) that represents the <see cref="MicrosoftHandInteraction.select"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(usage = "PrimaryAxis")]
+            /* [Preserve] */[InputControl(usage = "PrimaryAxis")]
             public AxisControl select { get; private set; }
 
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) that represents the <see cref="MicrosoftHandInteraction.select"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(aliases = new[] { "Primary", "selectbutton" }, usages = new[] { "PrimaryButton" })]
+            /* [Preserve] */[InputControl(aliases = new[] { "Primary", "selectbutton" }, usages = new[] { "PrimaryButton" })]
             public ButtonControl selectPressed { get; private set; }
 
             /// <summary>
             /// An [AxisControl](xref:UnityEngine.InputSystem.Controls.AxisControl) that represents the <see cref="MicrosoftHandInteraction.squeeze"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(alias = "Secondary", usage = "Grip")]
+            /* [Preserve] */[InputControl(alias = "Secondary", usage = "Grip")]
             public AxisControl squeeze { get; private set; }
 
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) that represents the <see cref="MicrosoftHandInteraction.squeeze"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(aliases = new[] { "GripButton", "squeezeClicked" }, usages = new[] { "GripButton" })]
+            /* [Preserve] */[InputControl(aliases = new[] { "GripButton", "squeezeClicked" }, usages = new[] { "GripButton" })]
             public ButtonControl squeezePressed { get; private set; }
 
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) that represents the Microsoft Hand Interaction devicePose OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(offset = 0, alias = "device", usage = "Device")]
+            /* [Preserve] */[InputControl(offset = 0, alias = "device", usage = "Device")]
             public PoseControl devicePose { get; private set; }
 
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) that represents the Microsoft Hand Interaction pointer OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(offset = 0, usage = "Pointer")]
+            /* [Preserve] */[InputControl(offset = 0, usage = "Pointer")]
             public PoseControl pointer { get; private set; }
 
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) required for backwards compatibility with the XRSDK layouts. This represents the overall tracking state of the device. This value is equivalent to mapping devicePose/isTracked.
             /// </summary>
-            [Preserve, InputControl(offset = 132)]
+            /* [Preserve] */[InputControl(offset = 132)]
             new public ButtonControl isTracked { get; private set; }
 
             /// <summary>
             /// A [IntegerControl](xref:UnityEngine.InputSystem.Controls.IntegerControl) required for backwards compatibility with the XRSDK layouts. This represents the bit flag set to indicate what data is valid. This value is equivalent to mapping devicePose/trackingState.
             /// </summary>
-            [Preserve, InputControl(offset = 136)]
+            /* [Preserve] */[InputControl(offset = 136)]
             new public IntegerControl trackingState { get; private set; }
 
             /// <summary>
             /// A [Vector3Control](xref:UnityEngine.InputSystem.Controls.Vector3Control) required for backwards compatibility with the XRSDK layouts. This is the device position, or grip position. This value is equivalent to mapping devicePose/position.
             /// </summary>
-            [Preserve, InputControl(offset = 20, alias = "gripPosition")]
+            /* [Preserve] */[InputControl(offset = 20, alias = "gripPosition")]
             new public Vector3Control devicePosition { get; private set; }
 
             /// <summary>
             /// A [QuaternionControl](xref:UnityEngine.InputSystem.Controls.QuaternionControl) required for backwards compatibility with the XRSDK layouts. This is the device orientation, or grip orientation. This value is equivalent to mapping devicePose/rotation.
             /// </summary>
-            [Preserve, InputControl(offset = 32, alias = "gripOrientation")]
+            /* [Preserve] */[InputControl(offset = 32, alias = "gripOrientation")]
             new public QuaternionControl deviceRotation { get; private set; }
 
             /// <summary>
             /// A [Vector3Control](xref:UnityEngine.InputSystem.Controls.Vector3Control) required for backwards compatibility with the XRSDK layouts. This is the pointer position. This value is equivalent to mapping pointerPose/position.
             /// </summary>
-            [Preserve, InputControl(offset = 80)]
+            /* [Preserve] */[InputControl(offset = 80)]
             public Vector3Control pointerPosition { get; private set; }
 
             /// <summary>
             /// A [QuaternionControl](xref:UnityEngine.InputSystem.Controls.QuaternionControl) required for backwards compatibility with the XRSDK layouts. This is the pointer rotation. This value is equivalent to mapping pointerPose/rotation.
             /// </summary>
-            [Preserve, InputControl(offset = 92, alias = "pointerOrientation")]
+            /* [Preserve] */[InputControl(offset = 92, alias = "pointerOrientation")]
             public QuaternionControl pointerRotation { get; private set; }
 
             /// <summary>
