@@ -42,7 +42,7 @@ namespace UnityEngine.XR.Management
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void StartIntegratedSubsystem(string id)
+        public void StartIntegratedSubsystem(string id)
         {
             var subsystem = GetLoadedIntegratedSubsystem(id);
             if (subsystem != null)
@@ -55,7 +55,7 @@ namespace UnityEngine.XR.Management
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void StopIntegratedSubsystem(string id)
+        public void StopIntegratedSubsystem(string id)
         {
             var subsystem = GetLoadedIntegratedSubsystem(id);
             if (subsystem != null)
@@ -68,7 +68,7 @@ namespace UnityEngine.XR.Management
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void DestroyIntegratedSubsystem(string id)
+        public void DestroyIntegratedSubsystem(string id)
         {
             var subsystem = GetLoadedIntegratedSubsystem(id);
             if (subsystem != null)
@@ -93,7 +93,7 @@ namespace UnityEngine.XR.Management
         /// <param name="descriptors">List of TDescriptor instances to use for subsystem matching.</param>
         /// <param name="id">The identifier key of the particualr subsystem implementation being requested.</param>
         [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
-        protected void CreateIntegratedSubsystem(List<IntegratedSubsystemDescriptor> descriptors, string id)
+        public void CreateIntegratedSubsystem(List<IntegratedSubsystemDescriptor> descriptors, string id)
         {
             if (descriptors == null)
                 throw new ArgumentNullException("descriptors");

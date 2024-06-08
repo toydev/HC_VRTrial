@@ -448,9 +448,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// <typeparam name="TSubsystem">The subsystem type being requested</typeparam>
         /// <param name="descriptors">List of TDescriptor instances to use for subsystem matching</param>
         /// <param name="id">The identifier key of the particular subsystem implementation being requested</param>
-        protected void CreateSubsystem<TDescriptor, TSubsystem>(List<TDescriptor> descriptors, string id)
-            where TDescriptor : ISubsystemDescriptor
-            where TSubsystem : ISubsystem
+        protected void CreateIntegratedSubsystem(List<IntegratedSubsystemDescriptor> descriptors, string id)
         {
             if (OpenXRLoaderBase.Instance == null)
             {
@@ -458,7 +456,7 @@ namespace UnityEngine.XR.OpenXR.Features
                 return;
             }
 
-            OpenXRLoaderBase.Instance.CreateSubsystem<TDescriptor, TSubsystem>(descriptors, id);
+            OpenXRLoaderBase.Instance.CreateIntegratedSubsystem(descriptors, id);
         }
 
         /// <summary>
@@ -468,7 +466,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void StartSubsystem<T>() where T : class, ISubsystem
+        protected void StartIntegratedSubsystem(string id)
         {
             if (OpenXRLoaderBase.Instance == null)
             {
@@ -476,7 +474,7 @@ namespace UnityEngine.XR.OpenXR.Features
                 return;
             }
 
-            OpenXRLoaderBase.Instance.StartSubsystem<T>();
+            OpenXRLoaderBase.Instance.StartIntegratedSubsystem(id);
         }
 
         /// <summary>
@@ -486,7 +484,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void StopSubsystem<T>() where T : class, ISubsystem
+        protected void StopIntegratedSubsystem(string id)
         {
             if (OpenXRLoaderBase.Instance == null)
             {
@@ -494,7 +492,7 @@ namespace UnityEngine.XR.OpenXR.Features
                 return;
             }
 
-            OpenXRLoaderBase.Instance.StopSubsystem<T>();
+            OpenXRLoaderBase.Instance.StopIntegratedSubsystem(id);
         }
 
         /// <summary>
@@ -504,7 +502,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// </summary>
         ///
         /// <typeparam name="T">A subclass of <see cref="ISubsystem"/></typeparam>
-        protected void DestroySubsystem<T>() where T : class, ISubsystem
+        protected void DestroyIntegratedSubsystem(string id)
         {
             if (OpenXRLoaderBase.Instance == null)
             {
@@ -512,7 +510,7 @@ namespace UnityEngine.XR.OpenXR.Features
                 return;
             }
 
-            OpenXRLoaderBase.Instance.DestroySubsystem<T>();
+            OpenXRLoaderBase.Instance.DestroyIntegratedSubsystem(id);
         }
 
         /// <inheritdoc />
