@@ -15,12 +15,13 @@
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\Il2CppInterop.Runtime.dll" />
 		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\Il2Cppmscorlib.dll" />
 		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.CoreModule.dll" />
-		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\BepInEx\interop\UnityEngine.SubsystemsModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.SubsystemsModule.dll" />
 		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.XRModule.dll" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\OpenXRLib_UnityEngine.InputSystem\OpenXRLib_UnityEngine.InputSystem.csproj" />
+		<ProjectReference Include="..\OpenXRLib_UnityEngine.XR.Management\OpenXRLib_UnityEngine.XR.Management.csproj" />
 	</ItemGroup>
 
 </Project>
