@@ -4,6 +4,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Management;
 
+using BepInEx.Unity.IL2CPP.Utils;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -101,7 +103,7 @@ namespace UnityEngine.XR.OpenXR
                 return;
             }
 
-            m_Coroutine = StartCoroutine(RestartCoroutine(false));
+            m_Coroutine = this.StartCoroutine(RestartCoroutine(false));
         }
 
         /// <summary>
@@ -118,7 +120,7 @@ namespace UnityEngine.XR.OpenXR
                 return;
             }
 
-            m_Coroutine = StartCoroutine(RestartCoroutine(true));
+            m_Coroutine = this.StartCoroutine(RestartCoroutine(true));
         }
 
         /// <summary>
@@ -137,7 +139,7 @@ namespace UnityEngine.XR.OpenXR
             }
 
             Debug.Log("Please make sure the device is connected. Will try to restart xr periodically.");
-            m_pauseAndRestartCoroutine = StartCoroutine(PauseAndRestartCoroutine(TimeBetweenRestartAttempts));
+            m_pauseAndRestartCoroutine = this.StartCoroutine(PauseAndRestartCoroutine(TimeBetweenRestartAttempts));
         }
 
         public IEnumerator PauseAndRestartCoroutine(float pauseTimeInSeconds)
@@ -148,7 +150,7 @@ namespace UnityEngine.XR.OpenXR
                 m_pauseAndRestartAttempts += 1;
                 if (m_Coroutine == null)
                 {
-                    m_Coroutine = StartCoroutine(RestartCoroutine(true));
+                    m_Coroutine = this.StartCoroutine(RestartCoroutine(true));
                 }
                 else
                 {
