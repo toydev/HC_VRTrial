@@ -172,6 +172,7 @@ namespace UnityEngine.XR.OpenXR.Features.Interactions
         }
     }
 
+    /*
     /// <summary>
     /// Tags that can be used with <see cref="InputDevice.TryGetFeatureValue"/> to get eye tracking related input features.  See <seealso cref="CommonUsages"/> for additional usages.
     /// </summary>
@@ -182,4 +183,5 @@ namespace UnityEngine.XR.OpenXR.Features.Interactions
         /// <summary>The orientation of the gaze, such that the direction of the gaze is the same as <see cref="Vector3.forward "/> * gazeRotation. Use with <see cref="gazePosition"/> to create a gaze ray.</summary>
         public static InputFeatureUsage<Quaternion> gazeRotation = new InputFeatureUsage<Quaternion>("gazeRotation");
     }
+    */
 }
