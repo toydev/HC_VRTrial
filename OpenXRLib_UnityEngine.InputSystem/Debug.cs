@@ -1,4 +1,4 @@
-﻿namespace UnityEngine.InputSystem
+﻿namespace UnityEngine
 {
     public class DebugEx
     {

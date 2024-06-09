@@ -189,7 +189,7 @@ namespace UnityEngine.XR.OpenXR
             }
             catch (Exception e)
             {
-                Debug.LogException(e);
+                DebugEx.LogException(e);
             }
 
             Deinitialize();
