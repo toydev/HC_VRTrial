@@ -12,6 +12,7 @@ using UnityEngine.Scripting;
 using UnityEngine.XR.Management;
 using UnityEngine.XR.OpenXR.Input;
 using UnityEngine.XR.OpenXR.Features;
+using UnityEngine.Rendering;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.XR.Management;
@@ -249,9 +250,19 @@ namespace UnityEngine.XR.OpenXR
 
             DebugLogEnabledSpecExtensions();
 
-            Application.onBeforeRender += ProcessOpenXRMessageLoop;
+            if (onBeforeRender == null)
+            {
+                onBeforeRender = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)OnBeforeRender;
+            }
+            RenderPipelineManager.beginContextRendering += onBeforeRender;
             currentLoaderState = LoaderState.Initialized;
             return true;
+        }
+
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRender;
+        protected void OnBeforeRender(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
+        {
+            ProcessOpenXRMessageLoop();
         }
 
         private bool CreateSubsystems()
@@ -444,7 +455,7 @@ namespace UnityEngine.XR.OpenXR
 #endif
                 Internal_RequestExitSession();
 
-                Application.onBeforeRender -= ProcessOpenXRMessageLoop;
+                RenderPipelineManager.beginContextRendering -= onBeforeRender;
 
                 ProcessOpenXRMessageLoop(); // Drain any remaining events.
 
