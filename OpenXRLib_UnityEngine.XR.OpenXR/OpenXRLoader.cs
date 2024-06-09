@@ -593,7 +593,7 @@ namespace UnityEngine.XR.OpenXR
             DiagnosticReport.AddSectionEntry(section, "Runtime extensions enabled", log.ToString());
         }
 
-        [AOT.MonoPInvokeCallback(typeof(ReceiveNativeEventDelegate))]
+        // [AOT.MonoPInvokeCallback(typeof(ReceiveNativeEventDelegate))]
         private static void ReceiveNativeEvent(OpenXRFeature.NativeEvent e, ulong payload)
         {
             var loader = Instance;
