@@ -1,9 +1,44 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<AssemblyName>HC_VRTrial</AssemblyName>
+		<Description>HC_VRTrial</Description>
+		<Version>1.0.2</Version>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+		<ProjectReference Include="..\OpenXRLib_UnityEngine.InputSystem\OpenXRLib_UnityEngine.InputSystem.csproj" />
+		<ProjectReference Include="..\OpenXRLib_UnityEngine.XR.Management\OpenXRLib_UnityEngine.XR.Management.csproj" />
+		<ProjectReference Include="..\OpenXRLib_UnityEngine.XR.OpenXR\OpenXRLib_UnityEngine.XR.OpenXR.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Preloader.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.Common.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.IL2CPP.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\Il2CppInterop.Runtime.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.AssetBundleModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.CoreModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.InputLegacyModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.ParticleSystemModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.PhysicsModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.ImageConversionModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.IMGUIModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.SubsystemsModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.UI.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.UIModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.XRModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\Il2Cppmscorlib.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="VRUtils\" />
+	</ItemGroup>
 </Project>
