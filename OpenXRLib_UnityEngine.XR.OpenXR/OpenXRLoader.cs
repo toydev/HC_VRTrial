@@ -41,6 +41,10 @@ namespace UnityEngine.XR.OpenXR
         , IXRLoaderPreInit
 #endif
     {
+        static OpenXRLoader()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OpenXRLoader>();
+        }
 #if UNITY_EDITOR
         public string GetPreInitLibraryName(BuildTarget buildTarget, BuildTargetGroup buildTargetGroup)
         {

@@ -22,6 +22,8 @@ namespace UnityEngine.XR.OpenXR
 
         static OpenXRRestarter()
         {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OpenXRRestarter>();
+
 #if UNITY_EDITOR
             EditorApplication.playModeStateChanged += (state) =>
             {

@@ -12,6 +12,11 @@ namespace UnityEngine.InputSystem
     /// </remarks>
     internal class InputSystemObject : ScriptableObject, ISerializationCallbackReceiver
     {
+        static InputSystemObject()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<InputSystemObject>();
+        }
+
         /* [SerializeField] */ public InputSystem.State systemState;
         /* [SerializeField] */ public bool newInputBackendsCheckedAsEnabled;
         /* [SerializeField] */ public string settings;

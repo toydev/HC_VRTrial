@@ -3152,11 +3152,21 @@ namespace UnityEngine.InputSystem
         // and to support the reset ability for tests.
         static InputSystem()
         {
-            #if UNITY_EDITOR
+            try
+            {
+                Debug.LogWarning("InputSystem static constructor started.");
+#if UNITY_EDITOR
             InitializeInEditor();
-            #else
-            InitializeInPlayer();
-            #endif
+#else
+                InitializeInPlayer();
+#endif
+                Debug.LogWarning("InputSystem static constructor completed.");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Exception in InputSystem static constructor: {ex.Message}\n{ex.StackTrace}");
+                throw;
+            }
         }
 
         ////FIXME: Unity is not calling this method if it's inside an #if block that is not

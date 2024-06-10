@@ -35,6 +35,11 @@ namespace UnityEngine.InputSystem
     /// <seealso cref="InputActionAsset"/>
     public class InputActionReference : ScriptableObject
     {
+        static InputActionReference()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<InputActionReference>();
+        }
+
         /// <summary>
         /// The asset that the referenced action is part of. Null if the reference
         /// is not initialized or if the asset has been deleted.

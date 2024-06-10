@@ -74,6 +74,11 @@ namespace UnityEngine.InputSystem
     /// </remarks>
     public class InputActionAsset : ScriptableObject, IInputActionCollection2
     {
+        static InputActionAsset()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<InputActionAsset>();
+        }
+
         /// <summary>
         /// File extension (without the dot) for InputActionAssets in JSON format.
         /// </summary>

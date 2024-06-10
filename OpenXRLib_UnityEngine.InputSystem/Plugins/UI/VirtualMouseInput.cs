@@ -44,6 +44,11 @@ namespace UnityEngine.InputSystem.UI
     [HelpURL(InputSystem.kDocUrl + "/manual/UISupport.html#virtual-mouse-cursor-control")]
     public class VirtualMouseInput : MonoBehaviour
     {
+        static VirtualMouseInput()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<VirtualMouseInput>();
+        }
+
         /// <summary>
         /// Optional transform that will be updated to correspond to the current mouse position.
         /// </summary>

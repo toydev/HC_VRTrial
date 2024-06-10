@@ -19,6 +19,11 @@ namespace UnityEngine.InputSystem.XR
     // [AddComponentMenu("XR/Tracked Pose Driver (Input System)")]
     public class TrackedPoseDriver : MonoBehaviour/*, ISerializationCallbackReceiver */
     {
+        static TrackedPoseDriver()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<TrackedPoseDriver>();
+        }
+
         /// <summary>
         /// Options for which <see cref="Transform"/> properties to update.
         /// </summary>
