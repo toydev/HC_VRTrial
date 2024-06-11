@@ -16,6 +16,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Core.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Preloader.Core.dll" />
 		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.Common.dll" />
