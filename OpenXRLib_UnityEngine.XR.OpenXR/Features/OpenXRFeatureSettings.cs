@@ -23,6 +23,7 @@ namespace UnityEngine.XR.OpenXR
         /// </summary>
         /// <typeparam name="TFeature">Type of the feature to retrieve</typeparam>
         /// <returns>Feature by type</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public TFeature GetFeature<TFeature>() where TFeature : OpenXRFeature => (TFeature)GetFeature(typeof(TFeature));
 
         /// <summary>
@@ -30,6 +31,7 @@ namespace UnityEngine.XR.OpenXR
         /// </summary>
         /// <param name="featureType">Type of the feature to return</param>
         /// <returns>Feature by type</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public OpenXRFeature GetFeature(Type featureType)
         {
             foreach(var feature in features)
@@ -44,6 +46,7 @@ namespace UnityEngine.XR.OpenXR
         /// </summary>
         /// <typeparam name="TFeature">Type of the feature to retrieve</typeparam>
         /// <returns>All components of Type</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public OpenXRFeature[] GetFeatures<TFeature>() => GetFeatures(typeof(TFeature));
 
         /// <summary>
@@ -51,6 +54,7 @@ namespace UnityEngine.XR.OpenXR
         /// </summary>
         /// <param name="featureType">Type of the feature to retrieve</param>
         /// <returns>All components of Type</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public OpenXRFeature[] GetFeatures(Type featureType)
         {
             var result = new List<OpenXRFeature>();
@@ -67,6 +71,7 @@ namespace UnityEngine.XR.OpenXR
         /// <param name="featuresOut">Output list of features</param>
         /// <typeparam name="TFeature">Feature type</typeparam>
         /// <returns>Number of features returned</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public int GetFeatures<TFeature>(List<TFeature> featuresOut) where TFeature : OpenXRFeature
         {
             featuresOut.Clear();
@@ -83,6 +88,7 @@ namespace UnityEngine.XR.OpenXR
         /// <param name="featureType">Type of the feature to retrieve</param>
         /// <param name="featuresOut">Output list of features</param>
         /// <returns>Number of features returned</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public int GetFeatures(Type featureType, List<OpenXRFeature> featuresOut)
         {
             featuresOut.Clear();
@@ -97,6 +103,7 @@ namespace UnityEngine.XR.OpenXR
         /// Return all features.
         /// </summary>
         /// <returns>All features</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public OpenXRFeature[] GetFeatures() => (OpenXRFeature[])features?.Clone() ?? new OpenXRFeature[0];
 
         /// <summary>
@@ -104,6 +111,7 @@ namespace UnityEngine.XR.OpenXR
         /// </summary>
         /// <param name="featuresOut">Output list of features</param>
         /// <returns>Number of features returned</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public int GetFeatures(List<OpenXRFeature> featuresOut)
         {
             featuresOut.Clear();

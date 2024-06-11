@@ -26,6 +26,7 @@ namespace UnityEngine.XR.Management
         internal bool m_InitManagerOnStart = true;
 
         /// <summary>The current active manager used to manage XR lifetime.</summary>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public XRManagerSettings Manager
         {
             get { return m_LoaderManagerInstance; }
@@ -40,6 +41,7 @@ namespace UnityEngine.XR.Management
 #pragma warning restore 414
 
         /// <summary>The current settings instance.</summary>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public static XRGeneralSettings Instance
         {
             get
@@ -55,6 +57,7 @@ namespace UnityEngine.XR.Management
         }
 
         /// <summary>The current active manager used to manage XR lifetime.</summary>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public XRManagerSettings AssignedSettings
         {
             get

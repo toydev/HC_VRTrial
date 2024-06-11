@@ -144,6 +144,7 @@ namespace UnityEngine.XR.OpenXR
             m_pauseAndRestartCoroutine = this.StartCoroutine(PauseAndRestartCoroutine(TimeBetweenRestartAttempts));
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public IEnumerator PauseAndRestartCoroutine(float pauseTimeInSeconds)
         {
             try
@@ -166,6 +167,7 @@ namespace UnityEngine.XR.OpenXR
             }
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private IEnumerator RestartCoroutine (bool shouldRestart)
         {
             try
