@@ -13,12 +13,12 @@ namespace Unity.XR.CoreUtils
     {
         static readonly SerializableGuid k_Empty = new SerializableGuid(0, 0);
 
-        [SerializeField]
-        [HideInInspector]
+        // [SerializeField]
+        // [HideInInspector]
         ulong m_GuidLow;
 
-        [SerializeField]
-        [HideInInspector]
+        // [SerializeField]
+        // [HideInInspector]
         ulong m_GuidHigh;
 
         /// <summary>
