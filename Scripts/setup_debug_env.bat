@@ -35,6 +35,11 @@ IF EXIST "%GAME_DATA_DIR%" (
   COPY "%HC_VRTrial_SOLUTION_DIR%\OpenXRLib_UnityEngine.XR.OpenXR\x64\openxr_loader.dll" "%GAME_DATA_DIR%\Plugins\x86_64"
   COPY "%HC_VRTrial_SOLUTION_DIR%\OpenXRLib_UnityEngine.XR.OpenXR\x64\UnityOpenXR.dll" "%GAME_DATA_DIR%\Plugins\x86_64"
 
+  REM *.asset
+  MKDIR "%GAME_DATA_DIR%\StreamingAssets\OpenXR"
+  COPY "%HC_VRTrial_SOLUTION_DIR%\OpenXRLib_UnityEngine.XR.OpenXR\Assets\XR\Loaders\Open XR Loader.asset" "%GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRLoader.asset"
+  COPY "%HC_VRTrial_SOLUTION_DIR%\OpenXRLib_UnityEngine.XR.OpenXR\Assets\XR\Settings\OpenXR Package Settings.asset" "%GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRPackageSettings.asset"
+
   REM UnitySubsystemsManifest.json
   MKDIR "%GAME_DATA_DIR%\UnitySubsystems\UnityOpenXR"
   COPY "%HC_VRTrial_SOLUTION_DIR%\OpenXRLib_UnityEngine.XR.OpenXR\UnitySubsystemsManifest.json" "%GAME_DATA_DIR%\UnitySubsystems\UnityOpenXR"

@@ -34,6 +34,16 @@ IF EXIST "%GAME_DATA_DIR%\Plugins\x86_64\UnityOpenXR.dll" (
   DEL "%GAME_DATA_DIR%\Plugins\x86_64\UnityOpenXR.dll"
 )
 
+REM *.asset
+IF EXIST "%GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRLoader.asset" (
+  ECHO DELETE %GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRLoader.asset
+  DEL "%GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRLoader.asset"
+)
+IF EXIST "%GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRPackageSettings.asset" (
+  ECHO DELETE %GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRPackageSettings.asset
+  DEL "%GAME_DATA_DIR%\StreamingAssets\OpenXR\OpenXRPackageSettings.asset"
+)
+
 REM UnitySubsystemsManifest.json
 IF EXIST "%GAME_DATA_DIR%\UnitySubsystems\UnityOpenXR\UnitySubsystemsManifest.json" (
   ECHO DELETE %GAME_DATA_DIR%\UnitySubsystems\UnityOpenXR\UnitySubsystemsManifest.json
