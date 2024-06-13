@@ -1064,7 +1064,7 @@ namespace Unity.XR.CoreUtils
         /// <returns>The rotation-corrected pose for calculating UVs</returns>
         public static Pose PolygonUVPoseFromPlanePose(Pose pose)
         {
-            return new Pose(k_Zero, NormalizeRotationKeepingUp(pose.rotation));
+            return new Pose { position = k_Zero, rotation = NormalizeRotationKeepingUp(pose.rotation) };
         }
 
         /// <summary>
