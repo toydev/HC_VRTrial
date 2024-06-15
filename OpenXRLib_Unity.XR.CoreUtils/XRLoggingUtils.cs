@@ -57,7 +57,7 @@ namespace Unity.XR.CoreUtils
         public static void LogException(Exception exception, UnityEngine.Object context = null)
         {
             if(!k_DontLogAnything)
-                Debug.LogException(exception, context);
+                DebugEx.LogException(exception, context);
         }
     }
 }
