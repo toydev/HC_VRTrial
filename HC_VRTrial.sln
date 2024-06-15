@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenXRLib_UnityEngine.XR.Op
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenXRLib_UnityEngine.InputSystem", "OpenXRLib_UnityEngine.InputSystem\OpenXRLib_UnityEngine.InputSystem.csproj", "{0B65834A-768F-4649-A86B-DBEE8604D0F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXRLib_UnityEngine.XR.Inteaction.Toolkit", "OpenXRLib_UnityEngine.XR.Inteaction.Toolkit\OpenXRLib_UnityEngine.XR.Inteaction.Toolkit.csproj", "{6E2EC700-CE06-4688-9867-82C343279487}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXRLib_Unity.XR.CoreUtils", "OpenXRLib_Unity.XR.CoreUtils\OpenXRLib_Unity.XR.CoreUtils.csproj", "{F5C6BC7C-1285-4C37-A29E-B8B8B435FE87}"
 EndProject
 Global
