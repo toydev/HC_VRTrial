@@ -13,6 +13,8 @@ using UnityEngine.InputSystem.XR;
 using UnityEngine.SpatialTracking;
 #endif
 
+using BepInEx.Unity.IL2CPP.Utils;
+
 namespace Unity.XR.CoreUtils
 {
     /// <summary>
@@ -243,7 +245,7 @@ namespace Unity.XR.CoreUtils
 
             m_CameraInitialized = SetupCamera();
             if (!m_CameraInitialized & !m_CameraInitializing)
-                StartCoroutine(RepeatInitializeCamera());
+                this.StartCoroutine(RepeatInitializeCamera());
         }
 
         /// <summary>
