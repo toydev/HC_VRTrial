@@ -8,9 +8,9 @@ namespace Unity.XR.CoreUtils
     /// </summary>
     /// <typeparam name="TCollection">The desired type of collection</typeparam>
     /// <typeparam name="TValue">The value type of the ICollection specified in TCollection</typeparam>
-    public static class CollectionPool<TCollection, TValue> where TCollection : ICollection<TValue>, new()
+    public static class CollectionPool<TCollection, TValue> where TCollection : Il2CppSystem.Collections.Generic.List<TValue>, new()
     {
-        static readonly Queue<TCollection> k_CollectionQueue = new Queue<TCollection>();
+        static readonly Il2CppSystem.Collections.Generic.Queue<TCollection> k_CollectionQueue = new Il2CppSystem.Collections.Generic.Queue<TCollection>();
 
         /// <summary>
         /// Get a collection of the given type from the pool, or create a new one if the pool is empty

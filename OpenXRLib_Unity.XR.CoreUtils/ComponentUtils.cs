@@ -14,7 +14,7 @@ namespace Unity.XR.CoreUtils
     public static class ComponentUtils<T>
     {
         // Local method use only -- created here to reduce garbage collection. Collections must be cleared before use
-        static readonly List<T> k_RetrievalList = new List<T>();
+        static readonly Il2CppSystem.Collections.Generic.List<T> k_RetrievalList = new Il2CppSystem.Collections.Generic.List<T>();
 
         /// <summary>
         /// Get a single component of type T using the non-allocating GetComponents API

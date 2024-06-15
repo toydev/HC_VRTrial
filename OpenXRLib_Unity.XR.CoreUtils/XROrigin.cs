@@ -191,7 +191,7 @@ namespace Unity.XR.CoreUtils
         /// <summary>
         /// Used to cache the input subsystems without creating additional GC allocations.
         /// </summary>
-        static readonly List<XRInputSubsystem> s_InputSubsystems = new List<XRInputSubsystem>();
+        static readonly Il2CppSystem.Collections.Generic.List<XRInputSubsystem> s_InputSubsystems = new Il2CppSystem.Collections.Generic.List<XRInputSubsystem>();
 
         // Bookkeeping to track lazy initialization of the tracking origin mode type.
         bool m_CameraInitialized;

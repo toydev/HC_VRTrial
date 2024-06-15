@@ -9,15 +9,15 @@ namespace Unity.XR.CoreUtils
     public static class BoundsUtils
     {
         // Local method use only -- created here to reduce garbage collection. Collections must be cleared before use
-        static readonly List<Renderer> k_Renderers = new List<Renderer>();
-        static readonly List<Transform> k_Transforms = new List<Transform>();
+        static readonly Il2CppSystem.Collections.Generic.List<Renderer> k_Renderers = new Il2CppSystem.Collections.Generic.List<Renderer>();
+        static readonly Il2CppSystem.Collections.Generic.List<Transform> k_Transforms = new Il2CppSystem.Collections.Generic.List<Transform>();
 
         /// <summary>
         /// Get the aggregated bounds of a list of GameObjects and their children
         /// </summary>
         /// <param name="gameObjects">The list of GameObjects</param>
         /// <returns>The aggregated bounds</returns>
-        public static Bounds GetBounds(List<GameObject> gameObjects)
+        public static Bounds GetBounds(Il2CppSystem.Collections.Generic.List<Renderer> gameObjects)
         {
             Bounds? bounds = null;
             foreach (var gameObject in gameObjects)

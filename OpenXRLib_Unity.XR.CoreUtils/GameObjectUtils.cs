@@ -17,8 +17,8 @@ namespace Unity.XR.CoreUtils
     public static class GameObjectUtils
     {
         // Local method use only -- created here to reduce garbage collection. Collections must be cleared before use
-        static readonly List<GameObject> k_GameObjects = new List<GameObject>();
-        static readonly List<Transform> k_Transforms = new List<Transform>();
+        static readonly Il2CppSystem.Collections.Generic.List<GameObject> k_GameObjects = new Il2CppSystem.Collections.Generic.List<GameObject>();
+        static readonly Il2CppSystem.Collections.Generic.List<Transform> k_Transforms = new Il2CppSystem.Collections.Generic.List<Transform>();
 
         /// <summary>
         /// Called when a GameObject has been instantiated through GameObjectUtils.Instantiate

@@ -53,11 +53,11 @@ namespace Unity.XR.CoreUtils
     /// <typeparam name="TRootType">The type of component at the root of the hierarchy</typeparam>
     public class CachedComponentFilter<TFilterType, TRootType> : IDisposable where TRootType : Component where TFilterType : class
     {
-        readonly List<TFilterType> m_MasterComponentStorage;
+        readonly Il2CppSystem.Collections.Generic.List<TFilterType> m_MasterComponentStorage;
 
         // Local method use only -- created here to reduce garbage collection. Collections must be cleared before use
-        static readonly List<TFilterType> k_TempComponentList = new List<TFilterType>();
-        static readonly List<IComponentHost<TFilterType>> k_TempHostComponentList = new List<IComponentHost<TFilterType>>();
+        static readonly Il2CppSystem.Collections.Generic.List<TFilterType> k_TempComponentList = new Il2CppSystem.Collections.Generic.List<TFilterType>();
+        static readonly Il2CppSystem.Collections.Generic.List<IComponentHost<TFilterType>> k_TempHostComponentList = new Il2CppSystem.Collections.Generic.List<IComponentHost<TFilterType>>();
 
         bool m_DisposedValue; // To detect redundant calls
 
@@ -69,7 +69,7 @@ namespace Unity.XR.CoreUtils
         /// <param name="includeDisabled">Whether to include components on disabled objects</param>
         public CachedComponentFilter(TRootType componentRoot, CachedSearchType cachedSearchType = CachedSearchType.Self | CachedSearchType.Children, bool includeDisabled = true)
         {
-            m_MasterComponentStorage = CollectionPool<List<TFilterType>, TFilterType>.GetCollection();
+            m_MasterComponentStorage = CollectionPool<Il2CppSystem.Collections.Generic.List<TFilterType>, TFilterType>.GetCollection();
 
             k_TempComponentList.Clear();
             k_TempHostComponentList.Clear();
@@ -122,10 +122,10 @@ namespace Unity.XR.CoreUtils
             if (componentList == null)
                 return;
 
-            m_MasterComponentStorage = CollectionPool<List<TFilterType>, TFilterType>.GetCollection();
+            m_MasterComponentStorage = CollectionPool<Il2CppSystem.Collections.Generic.List<TFilterType>, TFilterType>.GetCollection();
 
             k_TempComponentList.Clear();
-            k_TempComponentList.AddRange(componentList);
+            foreach (var i in componentList) k_TempComponentList.Add(i);
             FilteredCopyToMaster(includeDisabled);
         }
 
@@ -176,10 +176,11 @@ namespace Unity.XR.CoreUtils
         {
             if (includeDisabled)
             {
-                m_MasterComponentStorage.AddRange(k_TempComponentList);
+                // TODO: ‚±‚±
+                m_MasterComponentStorage.AddRange(k_TempComponentList.GetEnumerator().Cast<Il2CppSystem.Collections.Generic.IEnumerable<TFilterType>>());
                 foreach (var currentEntry in k_TempHostComponentList)
                 {
-                    m_MasterComponentStorage.AddRange(currentEntry.HostedComponents);
+                    foreach (var i in currentEntry.HostedComponents) m_MasterComponentStorage.Add(i);
                 }
             }
             else
@@ -199,7 +200,7 @@ namespace Unity.XR.CoreUtils
                     if (currentBehaviour != null && !currentBehaviour.enabled)
                         continue;
 
-                    m_MasterComponentStorage.AddRange(currentEntry.HostedComponents);
+                    foreach (var i in currentEntry.HostedComponents) m_MasterComponentStorage.Add(i);
                 }
             }
         }
@@ -234,7 +235,7 @@ namespace Unity.XR.CoreUtils
                     if (currentComponent.GetComponentInParent<TRootType>() != requiredRoot)
                         continue;
 
-                    m_MasterComponentStorage.AddRange(currentEntry.HostedComponents);
+                    foreach (var i in currentEntry.HostedComponents) m_MasterComponentStorage.Add(i);
                 }
             }
             else
@@ -268,7 +269,7 @@ namespace Unity.XR.CoreUtils
                     if (currentBehaviour.GetComponentInParent<TRootType>() != requiredRoot)
                         continue;
 
-                    m_MasterComponentStorage.AddRange(currentEntry.HostedComponents);
+                    foreach (var i in currentEntry.HostedComponents) m_MasterComponentStorage.Add(i);
                 }
             }
         }
@@ -283,7 +284,7 @@ namespace Unity.XR.CoreUtils
                 return;
 
             if (disposing && m_MasterComponentStorage != null)
-                CollectionPool<List<TFilterType>, TFilterType>.RecycleCollection(m_MasterComponentStorage);
+                CollectionPool<Il2CppSystem.Collections.Generic.List<TFilterType>, TFilterType>.RecycleCollection(m_MasterComponentStorage);
 
             m_DisposedValue = true;
         }
