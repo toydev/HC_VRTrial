@@ -350,7 +350,13 @@ namespace Unity.XR.CoreUtils
         {
             k_Transforms.Clear();
             go.GetComponentsInChildren(k_Transforms);
-            var foundObject = k_Transforms.Find(currentTransform => currentTransform.name == name);
+            Transform foundObject = null;
+            foreach (var currentTransform in k_Transforms) {
+                if (currentTransform.name == name) {
+                    foundObject = currentTransform;
+                    break;
+                }
+            }
             k_Transforms.Clear();
 
             if (foundObject != null)
