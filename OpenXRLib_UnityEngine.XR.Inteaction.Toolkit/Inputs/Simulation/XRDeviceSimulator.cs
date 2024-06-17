@@ -32,9 +32,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
     /// <seealso cref="XRSimulatedController"/>
     /// <seealso cref="XRSimulatedHMD"/>
     /// <seealso cref="SimulatedInputLayoutLoader"/>
-    [AddComponentMenu("XR/Debug/XR Device Simulator", 11)]
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_DeviceSimulator)]
-    [HelpURL(XRHelpURLConstants.k_XRDeviceSimulator)]
+    // [AddComponentMenu("XR/Debug/XR Device Simulator", 11)]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_DeviceSimulator)]
+    // [HelpURL(XRHelpURLConstants.k_XRDeviceSimulator)]
     public class XRDeviceSimulator : MonoBehaviour
     {
         /// <summary>
@@ -113,8 +113,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             Secondary2DAxis = 1 << 2,
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to translate in the x-axis (left/right) while held. Must be a Value Axis Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to translate in the x-axis (left/right) while held. Must be a Value Axis Control.")]
         InputActionReference m_KeyboardXTranslateAction;
         /// <summary>
         /// The Input System Action used to translate in the x-axis (left/right) while held.
@@ -131,8 +131,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to translate in the y-axis (up/down) while held. Must be a Value Axis Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to translate in the y-axis (up/down) while held. Must be a Value Axis Control.")]
         InputActionReference m_KeyboardYTranslateAction;
         /// <summary>
         /// The Input System Action used to translate in the y-axis (up/down) while held.
@@ -149,8 +149,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to translate in the z-axis (forward/back) while held. Must be a Value Axis Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to translate in the z-axis (forward/back) while held. Must be a Value Axis Control.")]
         InputActionReference m_KeyboardZTranslateAction;
         /// <summary>
         /// The Input System Action used to translate in the z-axis (forward/back) while held.
@@ -167,8 +167,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to enable manipulation of the left-hand controller while held. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to enable manipulation of the left-hand controller while held. Must be a Button Control.")]
         InputActionReference m_ManipulateLeftAction;
         /// <summary>
         /// The Input System Action used to enable manipulation of the left-hand controller while held.
@@ -192,8 +192,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to enable manipulation of the right-hand controller while held. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to enable manipulation of the right-hand controller while held. Must be a Button Control.")]
         InputActionReference m_ManipulateRightAction;
         /// <summary>
         /// The Input System Action used to enable manipulation of the right-hand controller while held.
@@ -216,8 +216,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to toggle enable manipulation of the left-hand controller when pressed. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to toggle enable manipulation of the left-hand controller when pressed. Must be a Button Control.")]
         InputActionReference m_ToggleManipulateLeftAction;
         /// <summary>
         /// The Input System Action used to toggle enable manipulation of the left-hand controller when pressed.
@@ -236,8 +236,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to toggle enable manipulation of the right-hand controller when pressed. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to toggle enable manipulation of the right-hand controller when pressed. Must be a Button Control.")]
         InputActionReference m_ToggleManipulateRightAction;
         /// <summary>
         /// The Input System Action used to toggle enable manipulation of the right-hand controller when pressed.
@@ -256,8 +256,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to enable manipulation of the HMD while held. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to enable manipulation of the HMD while held. Must be a Button Control.")]
         InputActionReference m_ManipulateHeadAction;
         /// <summary>
         /// The Input System Action used to enable manipulation of the HMD while held.
@@ -274,8 +274,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to translate or rotate by a scaled amount along or about the x- and y-axes. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to translate or rotate by a scaled amount along or about the x- and y-axes. Must be a Value Vector2 Control.")]
         InputActionReference m_MouseDeltaAction;
         /// <summary>
         /// The Input System Action used to translate or rotate by a scaled amount along or about the x- and y-axes.
@@ -296,8 +296,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to translate or rotate by a scaled amount along or about the z-axis. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to translate or rotate by a scaled amount along or about the z-axis. Must be a Value Vector2 Control.")]
         InputActionReference m_MouseScrollAction;
         /// <summary>
         /// The Input System Action used to translate or rotate by a scaled amount along or about the z-axis.
@@ -318,8 +318,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to cause the manipulated device(s) to rotate when moving the mouse when held. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to cause the manipulated device(s) to rotate when moving the mouse when held. Must be a Button Control.")]
         InputActionReference m_RotateModeOverrideAction;
         /// <summary>
         /// The Input System Action used to cause the manipulated device(s) to rotate when moving the mouse when held.
@@ -340,8 +340,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to toggle between translating or rotating the manipulated device(s) when moving the mouse when pressed. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to toggle between translating or rotating the manipulated device(s) when moving the mouse when pressed. Must be a Button Control.")]
         InputActionReference m_ToggleMouseTransformationModeAction;
         /// <summary>
         /// The Input System Action used to toggle between translating or rotating the manipulated device(s)
@@ -359,8 +359,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to cause the manipulated device(s) to rotate when moving the mouse while held when it would normally translate, and vice-versa. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to cause the manipulated device(s) to rotate when moving the mouse while held when it would normally translate, and vice-versa. Must be a Button Control.")]
         InputActionReference m_NegateModeAction;
         /// <summary>
         /// The Input System Action used to cause the manipulated device(s) to rotate when moving the mouse
@@ -383,8 +383,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to constrain the translation or rotation to the x-axis when moving the mouse or resetting. May be combined with another axis constraint to constrain to a plane. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to constrain the translation or rotation to the x-axis when moving the mouse or resetting. May be combined with another axis constraint to constrain to a plane. Must be a Button Control.")]
         InputActionReference m_XConstraintAction;
         /// <summary>
         /// The Input System Action used to constrain the translation or rotation to the x-axis when moving the mouse or resetting.
@@ -404,8 +404,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to constrain the translation or rotation to the y-axis when moving the mouse or resetting. May be combined with another axis constraint to constrain to a plane. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to constrain the translation or rotation to the y-axis when moving the mouse or resetting. May be combined with another axis constraint to constrain to a plane. Must be a Button Control.")]
         InputActionReference m_YConstraintAction;
         /// <summary>
         /// The Input System Action used to constrain the translation or rotation to the y-axis when moving the mouse or resetting.
@@ -425,8 +425,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to constrain the translation or rotation to the z-axis when moving the mouse or resetting. May be combined with another axis constraint to constrain to a plane. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to constrain the translation or rotation to the z-axis when moving the mouse or resetting. May be combined with another axis constraint to constrain to a plane. Must be a Button Control.")]
         InputActionReference m_ZConstraintAction;
         /// <summary>
         /// The Input System Action used to constrain the translation or rotation to the z-axis when moving the mouse or resetting.
@@ -446,8 +446,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to cause the manipulated device(s) to reset position or rotation (depending on the effective manipulation mode). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to cause the manipulated device(s) to reset position or rotation (depending on the effective manipulation mode). Must be a Button Control.")]
         InputActionReference m_ResetAction;
         /// <summary>
         /// The Input System Action used to cause the manipulated device(s) to reset position or rotation
@@ -469,8 +469,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to toggle the cursor lock mode for the game window when pressed. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to toggle the cursor lock mode for the game window when pressed. Must be a Button Control.")]
         InputActionReference m_ToggleCursorLockAction;
         /// <summary>
         /// The Input System Action used to toggle the cursor lock mode for the game window when pressed.
@@ -489,8 +489,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to toggle enable translation from keyboard inputs when pressed. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to toggle enable translation from keyboard inputs when pressed. Must be a Button Control.")]
         InputActionReference m_ToggleDevicePositionTargetAction;
         /// <summary>
         /// The Input System Action used to toggle enable translation from keyboard inputs when pressed.
@@ -510,8 +510,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to toggle enable manipulation of the Primary2DAxis of the controllers when pressed. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to toggle enable manipulation of the Primary2DAxis of the controllers when pressed. Must be a Button Control.")]
         InputActionReference m_TogglePrimary2DAxisTargetAction;
         /// <summary>
         /// The Input System action used to toggle enable manipulation of the <see cref="Axis2DTargets.Primary2DAxis"/> of the controllers when pressed.
@@ -531,8 +531,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to toggle enable manipulation of the Secondary2DAxis of the controllers when pressed. Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to toggle enable manipulation of the Secondary2DAxis of the controllers when pressed. Must be a Button Control.")]
         InputActionReference m_ToggleSecondary2DAxisTargetAction;
         /// <summary>
         /// The Input System action used to toggle enable manipulation of the <see cref="Axis2DTargets.Secondary2DAxis"/> of the controllers when pressed.
@@ -552,8 +552,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the value of one or more 2D Axis controls on the manipulated controller device(s). Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the value of one or more 2D Axis controls on the manipulated controller device(s). Must be a Value Vector2 Control.")]
         InputActionReference m_Axis2DAction;
         /// <summary>
         /// The Input System Action used to control the value of one or more 2D Axis controls on the manipulated controller device(s).
@@ -577,8 +577,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control one or more 2D Axis controls on the opposite hand of the exclusively manipulated controller device. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control one or more 2D Axis controls on the opposite hand of the exclusively manipulated controller device. Must be a Value Vector2 Control.")]
         InputActionReference m_RestingHandAxis2DAction;
         /// <summary>
         /// The Input System Action used to control one or more 2D Axis controls on the opposite hand
@@ -604,8 +604,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the Grip control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the Grip control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_GripAction;
         /// <summary>
         /// The Input System Action used to control the Grip control of the manipulated controller device(s).
@@ -622,8 +622,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the Trigger control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the Trigger control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_TriggerAction;
         /// <summary>
         /// The Input System Action used to control the Trigger control of the manipulated controller device(s).
@@ -640,8 +640,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the PrimaryButton control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the PrimaryButton control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_PrimaryButtonAction;
         /// <summary>
         /// The Input System Action used to control the PrimaryButton control of the manipulated controller device(s).
@@ -658,8 +658,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the SecondaryButton control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the SecondaryButton control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_SecondaryButtonAction;
         /// <summary>
         /// The Input System Action used to control the SecondaryButton control of the manipulated controller device(s).
@@ -676,8 +676,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the Menu control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the Menu control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_MenuAction;
         /// <summary>
         /// The Input System Action used to control the Menu control of the manipulated controller device(s).
@@ -694,8 +694,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the Primary2DAxisClick control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the Primary2DAxisClick control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_Primary2DAxisClickAction;
         /// <summary>
         /// The Input System Action used to control the Primary2DAxisClick control of the manipulated controller device(s).
@@ -712,8 +712,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the Secondary2DAxisClick control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the Secondary2DAxisClick control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_Secondary2DAxisClickAction;
         /// <summary>
         /// The Input System Action used to control the Secondary2DAxisClick control of the manipulated controller device(s).
@@ -730,8 +730,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the Primary2DAxisTouch control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the Primary2DAxisTouch control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_Primary2DAxisTouchAction;
         /// <summary>
         /// The Input System Action used to control the Primary2DAxisTouch control of the manipulated controller device(s).
@@ -748,8 +748,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the Secondary2DAxisTouch control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the Secondary2DAxisTouch control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_Secondary2DAxisTouchAction;
         /// <summary>
         /// The Input System Action used to control the Secondary2DAxisTouch control of the manipulated controller device(s).
@@ -766,8 +766,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the PrimaryTouch control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the PrimaryTouch control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_PrimaryTouchAction;
         /// <summary>
         /// The Input System Action used to control the PrimaryTouch control of the manipulated controller device(s).
@@ -784,8 +784,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action used to control the SecondaryTouch control of the manipulated controller device(s). Must be a Button Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action used to control the SecondaryTouch control of the manipulated controller device(s). Must be a Button Control.")]
         InputActionReference m_SecondaryTouchAction;
         /// <summary>
         /// The Input System Action used to control the SecondaryTouch control of the manipulated controller device(s).
@@ -802,8 +802,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             }
         }
 
-        [SerializeField]
-        [Tooltip("The Transform that contains the Camera. This is usually the \"Head\" of XR Origins. Automatically set to the first enabled camera tagged MainCamera if unset.")]
+        // [SerializeField]
+        // [Tooltip("The Transform that contains the Camera. This is usually the \"Head\" of XR Origins. Automatically set to the first enabled camera tagged MainCamera if unset.")]
         Transform m_CameraTransform;
         /// <summary>
         /// The <see cref="Transform"/> that contains the <see cref="Camera"/>. This is usually the "Head" of XR Origins.
@@ -815,8 +815,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_CameraTransform = value;
         }
 
-        [SerializeField]
-        [Tooltip("The coordinate space in which keyboard translation should operate.")]
+        // [SerializeField]
+        // [Tooltip("The coordinate space in which keyboard translation should operate.")]
         Space m_KeyboardTranslateSpace = Space.Local;
         /// <summary>
         /// The coordinate space in which keyboard translation should operate.
@@ -832,8 +832,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_KeyboardTranslateSpace = value;
         }
 
-        [SerializeField]
-        [Tooltip("The coordinate space in which mouse translation should operate.")]
+        // [SerializeField]
+        // [Tooltip("The coordinate space in which mouse translation should operate.")]
         Space m_MouseTranslateSpace = Space.Screen;
         /// <summary>
         /// The coordinate space in which mouse translation should operate.
@@ -846,8 +846,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseTranslateSpace = value;
         }
 
-        [SerializeField]
-        [Tooltip("Speed of translation in the x-axis (left/right) when triggered by keyboard input.")]
+        // [SerializeField]
+        // [Tooltip("Speed of translation in the x-axis (left/right) when triggered by keyboard input.")]
         float m_KeyboardXTranslateSpeed = 0.2f;
         /// <summary>
         /// Speed of translation in the x-axis (left/right) when triggered by keyboard input.
@@ -861,8 +861,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_KeyboardXTranslateSpeed = value;
         }
 
-        [SerializeField]
-        [Tooltip("Speed of translation in the y-axis (up/down) when triggered by keyboard input.")]
+        // [SerializeField]
+        // [Tooltip("Speed of translation in the y-axis (up/down) when triggered by keyboard input.")]
         float m_KeyboardYTranslateSpeed = 0.2f;
         /// <summary>
         /// Speed of translation in the y-axis (up/down) when triggered by keyboard input.
@@ -876,8 +876,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_KeyboardYTranslateSpeed = value;
         }
 
-        [SerializeField]
-        [Tooltip("Speed of translation in the z-axis (forward/back) when triggered by keyboard input.")]
+        // [SerializeField]
+        // [Tooltip("Speed of translation in the z-axis (forward/back) when triggered by keyboard input.")]
         float m_KeyboardZTranslateSpeed = 0.2f;
         /// <summary>
         /// Speed of translation in the z-axis (forward/back) when triggered by keyboard input.
@@ -891,8 +891,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_KeyboardZTranslateSpeed = value;
         }
 
-        [SerializeField]
-        [Tooltip("Sensitivity of translation in the x-axis (left/right) when triggered by mouse input.")]
+        // [SerializeField]
+        // [Tooltip("Sensitivity of translation in the x-axis (left/right) when triggered by mouse input.")]
         float m_MouseXTranslateSensitivity = 0.0004f;
         /// <summary>
         /// Sensitivity of translation in the x-axis (left/right) when triggered by mouse input.
@@ -906,8 +906,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseXTranslateSensitivity = value;
         }
 
-        [SerializeField]
-        [Tooltip("Sensitivity of translation in the y-axis (up/down) when triggered by mouse input.")]
+        // [SerializeField]
+        // [Tooltip("Sensitivity of translation in the y-axis (up/down) when triggered by mouse input.")]
         float m_MouseYTranslateSensitivity = 0.0004f;
         /// <summary>
         /// Sensitivity of translation in the y-axis (up/down) when triggered by mouse input.
@@ -921,8 +921,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseYTranslateSensitivity = value;
         }
 
-        [SerializeField]
-        [Tooltip("Sensitivity of translation in the z-axis (forward/back) when triggered by mouse scroll input.")]
+        // [SerializeField]
+        // [Tooltip("Sensitivity of translation in the z-axis (forward/back) when triggered by mouse scroll input.")]
         float m_MouseScrollTranslateSensitivity = 0.0002f;
         /// <summary>
         /// Sensitivity of translation in the z-axis (forward/back) when triggered by mouse scroll input.
@@ -936,8 +936,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseScrollTranslateSensitivity = value;
         }
 
-        [SerializeField]
-        [Tooltip("Sensitivity of rotation along the x-axis (pitch) when triggered by mouse input.")]
+        // [SerializeField]
+        // [Tooltip("Sensitivity of rotation along the x-axis (pitch) when triggered by mouse input.")]
         float m_MouseXRotateSensitivity = 0.1f;
         /// <summary>
         /// Sensitivity of rotation along the x-axis (pitch) when triggered by mouse input.
@@ -951,8 +951,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseXRotateSensitivity = value;
         }
 
-        [SerializeField]
-        [Tooltip("Sensitivity of rotation along the y-axis (yaw) when triggered by mouse input.")]
+        // [SerializeField]
+        // [Tooltip("Sensitivity of rotation along the y-axis (yaw) when triggered by mouse input.")]
         float m_MouseYRotateSensitivity = 0.1f;
         /// <summary>
         /// Sensitivity of rotation along the y-axis (yaw) when triggered by mouse input.
@@ -966,8 +966,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseYRotateSensitivity = value;
         }
 
-        [SerializeField]
-        [Tooltip("Sensitivity of rotation along the z-axis (roll) when triggered by mouse scroll input.")]
+        // [SerializeField]
+        // [Tooltip("Sensitivity of rotation along the z-axis (roll) when triggered by mouse scroll input.")]
         float m_MouseScrollRotateSensitivity = 0.05f;
         /// <summary>
         /// Sensitivity of rotation along the z-axis (roll) when triggered by mouse scroll input.
@@ -981,10 +981,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseScrollRotateSensitivity = value;
         }
 
-        [SerializeField]
-        [Tooltip("A boolean value of whether to invert the y-axis of mouse input when rotating by mouse input." +
-            "\nA false value (default) means typical FPS style where moving the mouse up/down pitches up/down." +
-            "\nA true value means flight control style where moving the mouse up/down pitches down/up.")]
+        // [SerializeField]
+        // [Tooltip("A boolean value of whether to invert the y-axis of mouse input when rotating by mouse input." +
+        //    "\nA false value (default) means typical FPS style where moving the mouse up/down pitches up/down." +
+        //    "\nA true value means flight control style where moving the mouse up/down pitches down/up.")]
         bool m_MouseYRotateInvert;
         /// <summary>
         /// A boolean value of whether to invert the y-axis of mouse input when rotating by mouse input.
@@ -997,8 +997,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_MouseYRotateInvert = value;
         }
 
-        [SerializeField]
-        [Tooltip("The desired cursor lock mode to toggle to from None (either Locked or Confined).")]
+        // [SerializeField]
+        // [Tooltip("The desired cursor lock mode to toggle to from None (either Locked or Confined).")]
         CursorLockMode m_DesiredCursorLockMode = CursorLockMode.Locked;
         /// <summary>
         /// The desired cursor lock mode to toggle to from <see cref="CursorLockMode.None"/>
@@ -1011,8 +1011,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
             set => m_DesiredCursorLockMode = value;
         }
 
-        [SerializeField]
-        [Tooltip("Whether or not to remove other XR HMD devices in this session so that they don't conflict with the XR Device Simulator.")]
+        // [SerializeField]
+        // [Tooltip("Whether or not to remove other XR HMD devices in this session so that they don't conflict with the XR Device Simulator.")]
         bool m_RemoveOtherHMDDevices = true;
         /// <summary>
         /// This boolean value indicates whether or not we remove other <see cref="XRHMD"/> devices in this session so that they don't conflict with the <see cref="XRDeviceSimulator"/>.

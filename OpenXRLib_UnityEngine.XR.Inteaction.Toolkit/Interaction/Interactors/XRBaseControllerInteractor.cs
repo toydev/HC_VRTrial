@@ -49,7 +49,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Sticky,
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputTriggerType m_SelectActionTrigger = InputTriggerType.State;
         /// <summary>
         /// Choose how Unity interprets the select input action from the controller.
@@ -64,7 +64,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SelectActionTrigger = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_HideControllerOnSelect;
         /// <summary>
         /// Controls whether this Interactor should hide the controller model on selection.
@@ -81,7 +81,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_AllowHoveredActivate;
         /// <summary>
         /// Controls whether to send activate and deactivate events to interactables
@@ -96,7 +96,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AllowHoveredActivate = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnSelectEnter")]
+        // [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnSelectEnter")]
         bool m_PlayAudioClipOnSelectEntered;
         /// <summary>
         /// Controls whether Unity plays an <see cref="AudioClip"/> on Select Entered.
@@ -108,7 +108,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayAudioClipOnSelectEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_AudioClipForOnSelectEnter")]
+        // [SerializeField, FormerlySerializedAs("m_AudioClipForOnSelectEnter")]
         AudioClip m_AudioClipForOnSelectEntered;
         /// <summary>
         /// The <see cref="AudioClip"/> Unity plays on Select Entered.
@@ -120,7 +120,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AudioClipForOnSelectEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnSelectExit")]
+        // [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnSelectExit")]
         bool m_PlayAudioClipOnSelectExited;
         /// <summary>
         /// Controls whether Unity plays an <see cref="AudioClip"/> on Select Exited.
@@ -132,7 +132,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayAudioClipOnSelectExited = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_AudioClipForOnSelectExit")]
+        // [SerializeField, FormerlySerializedAs("m_AudioClipForOnSelectExit")]
         AudioClip m_AudioClipForOnSelectExited;
         /// <summary>
         /// The <see cref="AudioClip"/> Unity plays on Select Exited.
@@ -144,7 +144,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AudioClipForOnSelectExited = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_PlayAudioClipOnSelectCanceled;
         /// <summary>
         /// Controls whether Unity plays an <see cref="AudioClip"/> on Select Canceled.
@@ -156,7 +156,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayAudioClipOnSelectCanceled = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         AudioClip m_AudioClipForOnSelectCanceled;
         /// <summary>
         /// The <see cref="AudioClip"/> Unity plays on Select Canceled.
@@ -168,7 +168,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AudioClipForOnSelectCanceled = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnHoverEnter")]
+        // [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnHoverEnter")]
         bool m_PlayAudioClipOnHoverEntered;
         /// <summary>
         /// Controls whether Unity plays an <see cref="AudioClip"/> on Hover Entered.
@@ -180,7 +180,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayAudioClipOnHoverEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_AudioClipForOnHoverEnter")]
+        // [SerializeField, FormerlySerializedAs("m_AudioClipForOnHoverEnter")]
         AudioClip m_AudioClipForOnHoverEntered;
         /// <summary>
         /// The <see cref="AudioClip"/> Unity plays on Hover Entered.
@@ -192,7 +192,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AudioClipForOnHoverEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnHoverExit")]
+        // [SerializeField, FormerlySerializedAs("m_PlayAudioClipOnHoverExit")]
         bool m_PlayAudioClipOnHoverExited;
         /// <summary>
         /// Controls whether Unity plays an <see cref="AudioClip"/> on Hover Exited.
@@ -204,7 +204,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayAudioClipOnHoverExited = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_AudioClipForOnHoverExit")]
+        // [SerializeField, FormerlySerializedAs("m_AudioClipForOnHoverExit")]
         AudioClip m_AudioClipForOnHoverExited;
         /// <summary>
         /// The <see cref="AudioClip"/> Unity plays on Hover Exited.
@@ -216,7 +216,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AudioClipForOnHoverExited = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_PlayAudioClipOnHoverCanceled;
         /// <summary>
         /// Controls whether Unity plays an <see cref="AudioClip"/> on Hover Canceled.
@@ -228,7 +228,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayAudioClipOnHoverCanceled = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         AudioClip m_AudioClipForOnHoverCanceled;
         /// <summary>
         /// The <see cref="AudioClip"/> Unity plays on Hover Canceled.
@@ -240,7 +240,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AudioClipForOnHoverCanceled = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayHapticsOnSelectEnter")]
+        // [SerializeField, FormerlySerializedAs("m_PlayHapticsOnSelectEnter")]
         bool m_PlayHapticsOnSelectEntered;
         /// <summary>
         /// Controls whether Unity plays haptics on Select Entered.
@@ -253,8 +253,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayHapticsOnSelectEntered = value;
         }
 
-        [SerializeField]
-        [Range(0,1)]
+        // [SerializeField]
+        // [Range(0,1)]
         float m_HapticSelectEnterIntensity;
         /// <summary>
         /// The Haptics intensity Unity plays on Select Entered.
@@ -267,7 +267,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticSelectEnterIntensity= value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_HapticSelectEnterDuration;
         /// <summary>
         /// The Haptics duration (in seconds) Unity plays on Select Entered.
@@ -280,7 +280,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticSelectEnterDuration = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayHapticsOnSelectExit")]
+        // [SerializeField, FormerlySerializedAs("m_PlayHapticsOnSelectExit")]
         bool m_PlayHapticsOnSelectExited;
         /// <summary>
         /// Controls whether Unity plays haptics on Select Exited.
@@ -293,8 +293,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayHapticsOnSelectExited = value;
         }
 
-        [SerializeField]
-        [Range(0,1)]
+        // [SerializeField]
+        // [Range(0,1)]
         float m_HapticSelectExitIntensity;
         /// <summary>
         /// The Haptics intensity Unity plays on Select Exited.
@@ -307,7 +307,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticSelectExitIntensity= value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_HapticSelectExitDuration;
         /// <summary>
         /// The Haptics duration (in seconds) Unity plays on Select Exited.
@@ -320,7 +320,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticSelectExitDuration = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_PlayHapticsOnSelectCanceled;
         /// <summary>
         /// Controls whether Unity plays haptics on Select Canceled.
@@ -333,8 +333,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayHapticsOnSelectCanceled = value;
         }
 
-        [SerializeField]
-        [Range(0,1)]
+        // [SerializeField]
+        // [Range(0,1)]
         float m_HapticSelectCancelIntensity;
         /// <summary>
         /// The Haptics intensity Unity plays on Select Canceled.
@@ -347,7 +347,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticSelectCancelIntensity= value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_HapticSelectCancelDuration;
         /// <summary>
         /// The Haptics duration (in seconds) Unity plays on Select Canceled.
@@ -360,7 +360,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticSelectCancelDuration = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayHapticsOnHoverEnter")]
+        // [SerializeField, FormerlySerializedAs("m_PlayHapticsOnHoverEnter")]
         bool m_PlayHapticsOnHoverEntered;
         /// <summary>
         /// Controls whether Unity plays haptics on Hover Entered.
@@ -373,8 +373,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayHapticsOnHoverEntered = value;
         }
 
-        [SerializeField]
-        [Range(0,1)]
+        // [SerializeField]
+        // [Range(0,1)]
         float m_HapticHoverEnterIntensity;
         /// <summary>
         /// The Haptics intensity Unity plays on Hover Entered.
@@ -387,7 +387,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticHoverEnterIntensity = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_HapticHoverEnterDuration;
         /// <summary>
         /// The Haptics duration (in seconds) Unity plays on Hover Entered.
@@ -400,7 +400,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticHoverEnterDuration = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_PlayHapticsOnHoverExit")]
+        // [SerializeField, FormerlySerializedAs("m_PlayHapticsOnHoverExit")]
         bool m_PlayHapticsOnHoverExited;
         /// <summary>
         /// Controls whether Unity plays haptics on Hover Exited.
@@ -413,8 +413,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayHapticsOnHoverExited = value;
         }
 
-        [SerializeField]
-        [Range(0,1)]
+        // [SerializeField]
+        // [Range(0,1)]
         float m_HapticHoverExitIntensity;
         /// <summary>
         /// The Haptics intensity Unity plays on Hover Exited.
@@ -427,7 +427,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticHoverExitIntensity = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_HapticHoverExitDuration;
         /// <summary>
         /// The Haptics duration (in seconds) Unity plays on Hover Exited.
@@ -440,7 +440,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticHoverExitDuration = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_PlayHapticsOnHoverCanceled;
         /// <summary>
         /// Controls whether Unity plays haptics on Hover Canceled.
@@ -453,8 +453,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_PlayHapticsOnHoverCanceled = value;
         }
 
-        [SerializeField]
-        [Range(0,1)]
+        // [SerializeField]
+        // [Range(0,1)]
         float m_HapticHoverCancelIntensity;
         /// <summary>
         /// The Haptics intensity Unity plays on Hover Canceled.
@@ -467,7 +467,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HapticHoverCancelIntensity= value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_HapticHoverCancelDuration;
         /// <summary>
         /// The Haptics duration (in seconds) Unity plays on Hover Canceled.

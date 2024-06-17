@@ -7,8 +7,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// Additionally, it applies the current pose value of a tracked device to the transform of the GameObject.
     /// </summary>
     /// <seealso cref="ActionBasedController"/>
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_Controllers)]
-    [DisallowMultipleComponent]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_Controllers)]
+    // [DisallowMultipleComponent]
     public abstract partial class XRBaseController : MonoBehaviour
     {
         /// <summary>
@@ -35,7 +35,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             BeforeRender,
         }
 
-        [SerializeField]
+        // [SerializeField]
         UpdateType m_UpdateTrackingType = UpdateType.UpdateAndBeforeRender;
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_UpdateTrackingType = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_EnableInputTracking = true;
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_EnableInputTracking = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_EnableInputActions = true;
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_EnableInputActions = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         Transform m_ModelPrefab;
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ModelPrefab = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_ModelTransform")]
+        // [SerializeField, FormerlySerializedAs("m_ModelTransform")]
         Transform m_ModelParent;
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         Transform m_Model;
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Model = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_AnimateModel;
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AnimateModel = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         string m_ModelSelectTransition;
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ModelSelectTransition = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         string m_ModelDeSelectTransition;
 
         /// <summary>

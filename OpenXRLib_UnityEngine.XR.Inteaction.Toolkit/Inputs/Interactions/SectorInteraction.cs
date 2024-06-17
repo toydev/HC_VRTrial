@@ -24,7 +24,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Interactions
 #if UNITY_EDITOR
     [InitializeOnLoad]
 #endif
-    [Preserve]
+    // [Preserve]
     public class SectorInteraction : IInputInteraction<Vector2>
     {
         /// <summary>
@@ -276,13 +276,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Interactions
             // be reset to default.
         }
 
-        [Preserve]
+        // [Preserve]
         static SectorInteraction()
         {
             InputSystem.InputSystem.RegisterInteraction<SectorInteraction>();
         }
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad), Preserve]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        // [Preserve]
 #pragma warning disable IDE0051 // Remove unused private members
         static void Initialize()
 #pragma warning restore IDE0051 // Remove unused private members

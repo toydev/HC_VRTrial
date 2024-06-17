@@ -8,8 +8,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// </summary>
     /// <seealso cref="LocomotionProvider"/>
     /// <seealso cref="DeviceBasedSnapTurnProvider"/>
-    [AddComponentMenu("XR/Locomotion/Continuous Turn Provider (Device-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_DeviceBasedContinuousTurnProvider)]
+    // [AddComponentMenu("XR/Locomotion/Continuous Turn Provider (Device-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_DeviceBasedContinuousTurnProvider)]
     public class DeviceBasedContinuousTurnProvider : ContinuousTurnProviderBase
     {
         /// <summary>
@@ -28,8 +28,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Secondary2DAxis = 1,
         }
 
-        [SerializeField]
-        [Tooltip("The 2D Input Axis on the controller devices that will be used to trigger a turn.")]
+        // [SerializeField]
+        // [Tooltip("The 2D Input Axis on the controller devices that will be used to trigger a turn.")]
         InputAxes m_InputBinding = InputAxes.Primary2DAxis;
         /// <summary>
         /// The 2D Input Axis on the controller devices that will be used to trigger a turn.
@@ -40,8 +40,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_InputBinding = value;
         }
 
-        [SerializeField]
-        [Tooltip("A list of controllers that allow Turn.  If an XRController is not enabled, or does not have input actions enabled, turn will not work.")]
+        // [SerializeField]
+        // [Tooltip("A list of controllers that allow Turn.  If an XRController is not enabled, or does not have input actions enabled, turn will not work.")]
         List<XRBaseController> m_Controllers = new List<XRBaseController>();
         /// <summary>
         /// The XRControllers that allow turning. An XRController must be enabled in order to turn.
@@ -52,8 +52,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Controllers = value;
         }
 
-        [SerializeField]
-        [Tooltip("Value below which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
+        // [SerializeField]
+        // [Tooltip("Value below which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
         float m_DeadzoneMin = 0.125f;
         /// <summary>
         /// Value below which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.
@@ -64,8 +64,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_DeadzoneMin = value;
         }
 
-        [SerializeField]
-        [Tooltip("Value above which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
+        // [SerializeField]
+        // [Tooltip("Value above which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
         float m_DeadzoneMax = 0.925f;
         /// <summary>
         /// Value above which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.

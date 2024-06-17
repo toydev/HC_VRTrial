@@ -7,14 +7,14 @@
     /// When attached to an <see cref="XRRayInteractor"/>, the <see cref="XRRayInteractor.TryGetCurrentRaycast"/> 
     /// method will be used instead of the internal ray cast function of this behavior.
     /// </remarks>
-    [AddComponentMenu("XR/Visual/XR Interactor Reticle Visual", 11)]
-    [DisallowMultipleComponent]
-    [HelpURL(XRHelpURLConstants.k_XRInteractorReticleVisual)]
+    // [AddComponentMenu("XR/Visual/XR Interactor Reticle Visual", 11)]
+    // [DisallowMultipleComponent]
+    // [HelpURL(XRHelpURLConstants.k_XRInteractorReticleVisual)]
     public class XRInteractorReticleVisual : MonoBehaviour
     {
         const int k_MaxRaycastHits = 10;
 
-        [SerializeField, Tooltip("The max distance to Raycast from this Interactor.")]
+        // [SerializeField, Tooltip("The max distance to Raycast from this Interactor.")]
         float m_MaxRaycastDistance = 10f;
         /// <summary>
         /// The max distance to Raycast from this Interactor.
@@ -25,7 +25,7 @@
             set => m_MaxRaycastDistance = value;
         }
 
-        [SerializeField, Tooltip("Prefab to draw over Raycast destination.")]
+        // [SerializeField, Tooltip("Prefab to draw over Raycast destination.")]
         GameObject m_ReticlePrefab;
         /// <summary>
         /// Prefab which Unity draws over Raycast destination.
@@ -40,7 +40,7 @@
             }
         }
 
-        [SerializeField, Tooltip("Amount to scale prefab (before applying distance scaling).")]
+        // [SerializeField, Tooltip("Amount to scale prefab (before applying distance scaling).")]
         float m_PrefabScalingFactor = 1f;
         /// <summary>
         /// Amount to scale prefab (before applying distance scaling).
@@ -51,7 +51,7 @@
             set => m_PrefabScalingFactor = value;
         }
 
-        [SerializeField, Tooltip("Whether to undo the apparent scale of the prefab by distance.")]
+        // [SerializeField, Tooltip("Whether to undo the apparent scale of the prefab by distance.")]
         bool m_UndoDistanceScaling = true;
         /// <summary>
         /// Whether Unity undoes the apparent scale of the prefab by distance.
@@ -62,7 +62,7 @@
             set => m_UndoDistanceScaling = value;
         }
 
-        [SerializeField, Tooltip("Whether to align the prefab to the ray casted surface normal.")]
+        // [SerializeField, Tooltip("Whether to align the prefab to the ray casted surface normal.")]
         bool m_AlignPrefabWithSurfaceNormal = true;
         /// <summary>
         /// Whether Unity aligns the prefab to the ray casted surface normal.
@@ -73,7 +73,7 @@
             set => m_AlignPrefabWithSurfaceNormal = value;
         }
 
-        [SerializeField, Tooltip("Smoothing time for endpoint.")]
+        // [SerializeField, Tooltip("Smoothing time for endpoint.")]
         float m_EndpointSmoothingTime = 0.02f;
         /// <summary>
         /// Smoothing time for endpoint.
@@ -84,7 +84,7 @@
             set => m_EndpointSmoothingTime = value;
         }
 
-        [SerializeField, Tooltip("Draw the Reticle Prefab while selecting an Interactable.")]
+        // [SerializeField, Tooltip("Draw the Reticle Prefab while selecting an Interactable.")]
         bool m_DrawWhileSelecting;
         /// <summary>
         /// Whether Unity draws the <see cref="reticlePrefab"/> while selecting an Interactable.
@@ -95,7 +95,7 @@
             set => m_DrawWhileSelecting = value;
         }
 
-        [SerializeField, Tooltip("Layer mask for ray cast.")]
+        // [SerializeField, Tooltip("Layer mask for ray cast.")]
         LayerMask m_RaycastMask = -1;
         /// <summary>
         /// Layer mask for ray cast.

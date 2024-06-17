@@ -7,7 +7,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     public abstract partial class XRBaseInteractable
     {
 #pragma warning disable 618
-        [SerializeField, FormerlySerializedAs("m_OnFirstHoverEnter")]
+        // [SerializeField, FormerlySerializedAs("m_OnFirstHoverEnter")]
         XRInteractableEvent m_OnFirstHoverEntered = new XRInteractableEvent();
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnFirstHoverEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnLastHoverExit")]
+        // [SerializeField, FormerlySerializedAs("m_OnLastHoverExit")]
         XRInteractableEvent m_OnLastHoverExited = new XRInteractableEvent();
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnLastHoverExited = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnHoverEnter")]
+        // [SerializeField, FormerlySerializedAs("m_OnHoverEnter")]
         XRInteractableEvent m_OnHoverEntered = new XRInteractableEvent();
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnHoverEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnHoverExit")]
+        // [SerializeField, FormerlySerializedAs("m_OnHoverExit")]
         XRInteractableEvent m_OnHoverExited = new XRInteractableEvent();
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnHoverExited = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnSelectEnter")]
+        // [SerializeField, FormerlySerializedAs("m_OnSelectEnter")]
         XRInteractableEvent m_OnSelectEntered = new XRInteractableEvent();
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnSelectEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnSelectExit")]
+        // [SerializeField, FormerlySerializedAs("m_OnSelectExit")]
         XRInteractableEvent m_OnSelectExited = new XRInteractableEvent();
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnSelectExited = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnSelectCancel")]
+        // [SerializeField, FormerlySerializedAs("m_OnSelectCancel")]
         XRInteractableEvent m_OnSelectCanceled = new XRInteractableEvent();
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnSelectCanceled = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         XRInteractableEvent m_OnActivate = new XRInteractableEvent();
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnActivate = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         XRInteractableEvent m_OnDeactivate = new XRInteractableEvent();
 
         /// <summary>

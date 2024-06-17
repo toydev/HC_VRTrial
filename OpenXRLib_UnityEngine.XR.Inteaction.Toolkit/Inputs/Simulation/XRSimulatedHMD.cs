@@ -9,7 +9,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
     /// An input device representing a simulated XR head mounted display.
     /// </summary>
     [InputControlLayout(stateType = typeof(XRSimulatedHMDState), isGenericTypeOfDevice = false, displayName = "XR Simulated HMD")]
-    [Preserve]
+    // [Preserve]
     public class XRSimulatedHMD : XRHMD
     {
         /// <inheritdoc />

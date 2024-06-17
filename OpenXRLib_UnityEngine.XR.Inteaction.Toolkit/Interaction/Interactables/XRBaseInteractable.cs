@@ -12,8 +12,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// This class hooks into the interaction system (via <see cref="XRInteractionManager"/>) and provides base virtual methods for handling
     /// hover and selection.
     /// </summary>
-    [SelectionBase]
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_Interactables)]
+    // [SelectionBase]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_Interactables)]
     public abstract partial class XRBaseInteractable : MonoBehaviour, IXRActivateInteractable, IXRHoverInteractable, IXRSelectInteractable
     {
         /// <summary>
@@ -89,7 +89,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <inheritdoc />
         public event Action<InteractableUnregisteredEventArgs> unregistered;
 
-        [SerializeField]
+        // [SerializeField]
         XRInteractionManager m_InteractionManager;
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
 #pragma warning disable IDE0044 // Add readonly modifier -- readonly fields cannot be serialized by Unity
         List<Collider> m_Colliders = new List<Collider>();
 #pragma warning restore IDE0044
@@ -116,10 +116,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         public List<Collider> colliders => m_Colliders;
 
-        [SerializeField]
+        // [SerializeField]
         LayerMask m_InteractionLayerMask = -1;
-        
-        [SerializeField]
+
+        // [SerializeField]
         InteractionLayerMask m_InteractionLayers = 1;
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_InteractionLayers = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InteractableSelectMode m_SelectMode = InteractableSelectMode.Single;
 
         /// <inheritdoc />
@@ -145,7 +145,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SelectMode = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         GameObject m_CustomReticle;
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_CustomReticle = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         HoverEnterEvent m_FirstHoverEntered = new HoverEnterEvent();
 
         /// <inheritdoc />
@@ -167,7 +167,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_FirstHoverEntered = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         HoverExitEvent m_LastHoverExited = new HoverExitEvent();
 
         /// <inheritdoc />
@@ -177,7 +177,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_LastHoverExited = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         HoverEnterEvent m_HoverEntered = new HoverEnterEvent();
 
         /// <inheritdoc />
@@ -187,7 +187,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HoverEntered = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         HoverExitEvent m_HoverExited = new HoverExitEvent();
 
         /// <inheritdoc />
@@ -197,7 +197,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HoverExited = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         SelectEnterEvent m_FirstSelectEntered = new SelectEnterEvent();
 
         /// <inheritdoc />
@@ -207,7 +207,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_FirstSelectEntered = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         SelectExitEvent m_LastSelectExited = new SelectExitEvent();
 
         /// <inheritdoc />
@@ -217,7 +217,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_LastSelectExited = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         SelectEnterEvent m_SelectEntered = new SelectEnterEvent();
 
         /// <inheritdoc />
@@ -227,7 +227,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SelectEntered = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         SelectExitEvent m_SelectExited = new SelectExitEvent();
 
         /// <inheritdoc />
@@ -237,7 +237,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SelectExited = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         ActivateEvent m_Activated = new ActivateEvent();
 
         /// <inheritdoc />
@@ -247,7 +247,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Activated = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         DeactivateEvent m_Deactivated = new DeactivateEvent();
 
         /// <inheritdoc />

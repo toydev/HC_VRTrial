@@ -31,15 +31,15 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// Locomotion Provider can move the XR Origin at one time. This is the only place that access to an XR Origin is controlled,
     /// having multiple instances of a <see cref="LocomotionSystem"/> drive a single XR Origin is not recommended.
     /// </summary>
-    [AddComponentMenu("XR/Locomotion/Locomotion System", 11)]
-    [HelpURL(XRHelpURLConstants.k_LocomotionSystem)]
+    // [AddComponentMenu("XR/Locomotion/Locomotion System", 11)]
+    // [HelpURL(XRHelpURLConstants.k_LocomotionSystem)]
     public partial class LocomotionSystem : MonoBehaviour
     {
         LocomotionProvider m_CurrentExclusiveProvider;
         float m_TimeMadeExclusive;
 
-        [SerializeField]
-        [Tooltip("The timeout (in seconds) for exclusive access to the XR Origin.")]
+        // [SerializeField]
+        // [Tooltip("The timeout (in seconds) for exclusive access to the XR Origin.")]
         float m_Timeout = 10f;
 
         /// <summary>
@@ -51,8 +51,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Timeout = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_XRRig")]
-        [Tooltip("The XR Origin object to provide access control to.")]
+        // [SerializeField, FormerlySerializedAs("m_XRRig")]
+        // [Tooltip("The XR Origin object to provide access control to.")]
         XROrigin m_XROrigin;
 
         /// <summary>

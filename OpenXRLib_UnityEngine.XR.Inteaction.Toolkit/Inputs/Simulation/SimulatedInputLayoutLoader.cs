@@ -2,6 +2,7 @@
 using UnityEditor;
 #endif
 
+using System.Runtime.CompilerServices;
 using UnityEngine.Scripting;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
@@ -14,10 +15,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
 #if UNITY_EDITOR
     [InitializeOnLoad]
 #endif
-    [Preserve]
+    // [Preserve]
     public static class SimulatedInputLayoutLoader
     {
-        [Preserve]
+        // [Preserve]
         static SimulatedInputLayoutLoader()
         {
             RegisterInputLayouts();
@@ -26,7 +27,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
         /// <summary>
         /// See <see cref="RuntimeInitializeLoadType.BeforeSceneLoad"/>.
         /// </summary>
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad), Preserve]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        // [Preserve]
         public static void Initialize()
         {
             // Will execute the static constructor as a side effect.

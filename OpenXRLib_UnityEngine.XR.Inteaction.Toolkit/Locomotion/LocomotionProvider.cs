@@ -7,7 +7,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// This class provides simple ways to interrogate the <see cref="LocomotionSystem"/> for whether a locomotion can begin
     /// and simple events for hooking into a start/end locomotion.
     /// </summary>
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_LocomotionProviders)]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_LocomotionProviders)]
     public abstract partial class LocomotionProvider : MonoBehaviour
     {
         /// <summary>
@@ -20,9 +20,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         public event Action<LocomotionSystem> endLocomotion;
 
-        [SerializeField]
-        [Tooltip("The Locomotion System that this locomotion provider communicates with for exclusive access to an XR Origin." +
-            " If one is not provided, the behavior will attempt to locate one during its Awake call.")]
+        // [SerializeField]
+        // [Tooltip("The Locomotion System that this locomotion provider communicates with for exclusive access to an XR Origin." +
+        //     " If one is not provided, the behavior will attempt to locate one during its Awake call.")]
         LocomotionSystem m_System;
 
         /// <summary>

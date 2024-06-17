@@ -5,12 +5,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// specific position and/or rotation.
     /// </summary>
     /// <seealso cref="TeleportationArea"/>
-    [AddComponentMenu("XR/Teleportation Anchor", 11)]
-    [HelpURL(XRHelpURLConstants.k_TeleportationAnchor)]
+    // [AddComponentMenu("XR/Teleportation Anchor", 11)]
+    // [HelpURL(XRHelpURLConstants.k_TeleportationAnchor)]
     public class TeleportationAnchor : BaseTeleportationInteractable
     {
-        [SerializeField]
-        [Tooltip("The Transform that represents the teleportation destination.")]
+        // [SerializeField]
+        // [Tooltip("The Transform that represents the teleportation destination.")]
         Transform m_TeleportAnchorTransform;
 
         /// <summary>

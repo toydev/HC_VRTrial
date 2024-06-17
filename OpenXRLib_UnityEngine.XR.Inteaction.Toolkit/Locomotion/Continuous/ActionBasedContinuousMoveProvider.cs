@@ -9,12 +9,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// using a specified input action.
     /// </summary>
     /// <seealso cref="LocomotionProvider"/>
-    [AddComponentMenu("XR/Locomotion/Continuous Move Provider (Action-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_ActionBasedContinuousMoveProvider)]
+    // [AddComponentMenu("XR/Locomotion/Continuous Move Provider (Action-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_ActionBasedContinuousMoveProvider)]
     public class ActionBasedContinuousMoveProvider : ContinuousMoveProviderBase
     {
-        [SerializeField]
-        [Tooltip("The Input System Action that will be used to read Move data from the left hand controller. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action that will be used to read Move data from the left hand controller. Must be a Value Vector2 Control.")]
         InputActionProperty m_LeftHandMoveAction;
         /// <summary>
         /// The Input System Action that Unity uses to read Move data from the left hand controller. Must be a <see cref="InputActionType.Value"/> <see cref="Vector2Control"/> Control.
@@ -25,8 +25,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_LeftHandMoveAction, value);
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action that will be used to read Move data from the right hand controller. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action that will be used to read Move data from the right hand controller. Must be a Value Vector2 Control.")]
         InputActionProperty m_RightHandMoveAction;
         /// <summary>
         /// The Input System Action that Unity uses to read Move data from the right hand controller. Must be a <see cref="InputActionType.Value"/> <see cref="Vector2Control"/> Control.

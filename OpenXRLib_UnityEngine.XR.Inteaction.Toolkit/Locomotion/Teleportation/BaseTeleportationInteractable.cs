@@ -108,9 +108,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
             OnDeactivate = OnDeactivated,
         }
 
-        [SerializeField]
-        [Tooltip("The teleportation provider that this teleportation interactable will communicate teleport requests to." +
-            " If no teleportation provider is configured, will attempt to find a teleportation provider during Awake.")]
+        // [SerializeField]
+        // [Tooltip("The teleportation provider that this teleportation interactable will communicate teleport requests to." +
+        //     " If no teleportation provider is configured, will attempt to find a teleportation provider during Awake.")]
         TeleportationProvider m_TeleportationProvider;
 
         /// <summary>
@@ -123,13 +123,13 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TeleportationProvider = value;
         }
 
-        [SerializeField]
-        [Tooltip("How to orient the rig after teleportation." +
-            "\nSet to:" +
-            "\n\nWorld Space Up to stay oriented according to the world space up vector." +
-            "\n\nSet to Target Up to orient according to the target BaseTeleportationInteractable Transform's up vector." +
-            "\n\nSet to Target Up And Forward to orient according to the target BaseTeleportationInteractable Transform's rotation." +
-            "\n\nSet to None to maintain the same orientation before and after teleporting.")]
+        // [SerializeField]
+        // [Tooltip("How to orient the rig after teleportation." +
+        //     "\nSet to:" +
+        //     "\n\nWorld Space Up to stay oriented according to the world space up vector." +
+        //     "\n\nSet to Target Up to orient according to the target BaseTeleportationInteractable Transform's up vector." +
+        //     "\n\nSet to Target Up And Forward to orient according to the target BaseTeleportationInteractable Transform's rotation." +
+        //     "\n\nSet to None to maintain the same orientation before and after teleporting.")]
         MatchOrientation m_MatchOrientation = MatchOrientation.WorldSpaceUp;
 
         /// <summary>
@@ -162,8 +162,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_MatchOrientation = value;
         }
 
-        [SerializeField]
-        [Tooltip("Specify when the teleportation will be triggered. Options map to when the trigger is pressed or when it is released.")]
+        // [SerializeField]
+        // [Tooltip("Specify when the teleportation will be triggered. Options map to when the trigger is pressed or when it is released.")]
         TeleportTrigger m_TeleportTrigger = TeleportTrigger.OnSelectExited;
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TeleportTrigger = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         TeleportingEvent m_Teleporting = new TeleportingEvent();
 
         /// <summary>

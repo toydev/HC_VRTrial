@@ -11,33 +11,33 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// The <see cref="XRControllerRecording"/> <see cref="ScriptableObject"/> stores position, rotation,
     /// and Interaction state changes from the XR Controller for playback.
     /// </summary>
-    [CreateAssetMenu(menuName = "XR/XR Controller Recording")]
-    [Serializable, PreferBinarySerialization]
-    [HelpURL(XRHelpURLConstants.k_XRControllerRecording)]
+    // [CreateAssetMenu(menuName = "XR/XR Controller Recording")]
+    [Serializable]/* [PreferBinarySerialization] */
+    // [HelpURL(XRHelpURLConstants.k_XRControllerRecording)]
     public partial class XRControllerRecording : ScriptableObject, ISerializationCallbackReceiver
     {
         /// <summary>
         /// Whether the selection interaction was activated in the first frame.
         /// Used to proper deserialize the first frame.
         /// </summary>
-        [SerializeField]
+        // [SerializeField]
         bool m_SelectActivatedInFirstFrame;
-        
+
         /// <summary>
         /// Whether the activate interaction was activated in the first frame.
         /// Used to proper deserialize the first frame.
         /// </summary>
-        [SerializeField]
+        // [SerializeField]
         bool m_ActivateActivatedInFirstFrame;
-        
+
         /// <summary>
         /// Whether the UI press interaction was activated in the first frame.
         /// Used to proper deserialize the first frame.
         /// </summary>
-        [SerializeField]
+        // [SerializeField]
         bool m_FirstUIPressActivatedInFirstFrame;
-        
-        [SerializeField]
+
+        // [SerializeField]
 #pragma warning disable IDE0044 // Add readonly modifier -- readonly fields cannot be serialized by Unity
         List<XRControllerState> m_Frames = new List<XRControllerState>();
 #pragma warning restore IDE0044

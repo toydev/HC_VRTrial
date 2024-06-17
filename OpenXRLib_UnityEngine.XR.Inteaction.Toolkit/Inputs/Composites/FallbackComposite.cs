@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -17,7 +19,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Composites
 #if UNITY_EDITOR
     [InitializeOnLoad]
 #endif
-    [Preserve]
+    // [Preserve]
     public class Vector3FallbackComposite : FallbackComposite<Vector3>
     {
         /// <summary>
@@ -58,7 +60,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Composites
             return value;
         }
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad), Preserve]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        // [Preserve]
 #pragma warning disable IDE0051 // Remove unused private members
         // ReSharper disable once UnusedMember.Local
         static void Initialize()
@@ -67,7 +70,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Composites
             // Will execute the static constructor as a side effect.
         }
 
-        [Preserve]
+        // [Preserve]
         static Vector3FallbackComposite()
         {
             InputSystem.InputSystem.RegisterBindingComposite<Vector3FallbackComposite>();
@@ -82,7 +85,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Composites
 #if UNITY_EDITOR
     [InitializeOnLoad]
 #endif
-    [Preserve]
+    // [Preserve]
     public class QuaternionFallbackComposite : FallbackComposite<Quaternion>
     {
         /// <summary>
@@ -123,7 +126,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Composites
             return value;
         }
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad), Preserve]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        // [Preserve]
 #pragma warning disable IDE0051 // Remove unused private members
         // ReSharper disable once UnusedMember.Local
         static void Initialize()
@@ -132,7 +136,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Composites
             // Will execute the static constructor as a side effect.
         }
 
-        [Preserve]
+        // [Preserve]
         static QuaternionFallbackComposite()
         {
             InputSystem.InputSystem.RegisterBindingComposite<QuaternionFallbackComposite>();
@@ -149,7 +153,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Composites
     /// uses an ordered priority list of bindings. If the first input binding is not bound to
     /// an input control, it falls back to try the second input binding, and so on.
     /// </remarks>
-    [Preserve]
+    // [Preserve]
     public abstract class FallbackComposite<TValue> : InputBindingComposite<TValue>
         where TValue : struct
     {

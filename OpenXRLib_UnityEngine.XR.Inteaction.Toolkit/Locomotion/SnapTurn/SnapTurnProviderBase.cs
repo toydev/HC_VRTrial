@@ -9,8 +9,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// </summary>
     public abstract class SnapTurnProviderBase : LocomotionProvider
     {
-        [SerializeField]
-        [Tooltip("The number of degrees clockwise to rotate when snap turning clockwise.")]
+        // [SerializeField]
+        // [Tooltip("The number of degrees clockwise to rotate when snap turning clockwise.")]
         float m_TurnAmount = 45f;
         /// <summary>
         /// The number of degrees clockwise Unity rotates the rig when snap turning clockwise.
@@ -21,8 +21,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TurnAmount = value;
         }
 
-        [SerializeField]
-        [Tooltip("The amount of time that the system will wait before starting another snap turn.")]
+        // [SerializeField]
+        // [Tooltip("The amount of time that the system will wait before starting another snap turn.")]
         float m_DebounceTime = 0.5f;
         /// <summary>
         /// The amount of time that Unity waits before starting another snap turn.
@@ -33,8 +33,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_DebounceTime = value;
         }
 
-        [SerializeField]
-        [Tooltip("Controls whether to enable left & right snap turns.")]
+        // [SerializeField]
+        // [Tooltip("Controls whether to enable left & right snap turns.")]
         bool m_EnableTurnLeftRight = true;
         /// <summary>
         /// Controls whether to enable left and right snap turns.
@@ -46,8 +46,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_EnableTurnLeftRight = value;
         }
 
-        [SerializeField]
-        [Tooltip("Controls whether to enable 180° snap turns.")]
+        // [SerializeField]
+        // [Tooltip("Controls whether to enable 180° snap turns.")]
         bool m_EnableTurnAround = true;
         /// <summary>
         /// Controls whether to enable 180° snap turns.

@@ -6,8 +6,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// The <see cref="TeleportationProvider"/> is responsible for moving the XR Origin
     /// to the desired location on the user's request.
     /// </summary>
-    [AddComponentMenu("XR/Locomotion/Teleportation Provider", 11)]
-    [HelpURL(XRHelpURLConstants.k_TeleportationProvider)]
+    // [AddComponentMenu("XR/Locomotion/Teleportation Provider", 11)]
+    // [HelpURL(XRHelpURLConstants.k_TeleportationProvider)]
     public class TeleportationProvider : LocomotionProvider
     {
         /// <summary>

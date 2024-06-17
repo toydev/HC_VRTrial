@@ -7,12 +7,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// Interactable component that allows basic "grab" functionality.
     /// Can attach to a selecting Interactor and follow it around while obeying physics (and inherit velocity when released).
     /// </summary>
-    [SelectionBase]
-    [DisallowMultipleComponent]
+    // [SelectionBase]
+    // [DisallowMultipleComponent]
     [CanSelectMultiple(false)]
-    [RequireComponent(typeof(Rigidbody))]
-    [AddComponentMenu("XR/XR Grab Interactable", 11)]
-    [HelpURL(XRHelpURLConstants.k_XRGrabInteractable)]
+    // [RequireComponent(typeof(Rigidbody))]
+    // [AddComponentMenu("XR/XR Grab Interactable", 11)]
+    // [HelpURL(XRHelpURLConstants.k_XRGrabInteractable)]
     public partial class XRGrabInteractable : XRBaseInteractable
     {
         const float k_DefaultTighteningAmount = 0.5f;
@@ -50,7 +50,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Legacy,
         }
 
-        [SerializeField]
+        // [SerializeField]
         Transform m_AttachTransform;
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AttachTransform = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_AttachEaseInTime = k_DefaultAttachEaseInTime;
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AttachEaseInTime = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         MovementType m_MovementType = MovementType.Instantaneous;
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField, Range(0f, 1f)]
+        // [SerializeField, Range(0f, 1f)]
         float m_VelocityDamping = k_VelocityDamping;
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_VelocityDamping = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_VelocityScale = k_VelocityScale;
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_VelocityScale = value;
         }
 
-        [SerializeField, Range(0f, 1f)]
+        // [SerializeField, Range(0f, 1f)]
         float m_AngularVelocityDamping = k_AngularVelocityDamping;
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AngularVelocityDamping = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_AngularVelocityScale = k_AngularVelocityScale;
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AngularVelocityScale = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_TrackPosition = true;
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TrackPosition = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_SmoothPosition;
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SmoothPosition = value;
         }
 
-        [SerializeField, Range(0f, 20f)]
+        // [SerializeField, Range(0f, 20f)]
         float m_SmoothPositionAmount = k_DefaultSmoothingAmount;
 
         /// <summary>
@@ -212,7 +212,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SmoothPositionAmount = value;
         }
 
-        [SerializeField, Range(0f, 1f)]
+        // [SerializeField, Range(0f, 1f)]
         float m_TightenPosition = k_DefaultTighteningAmount;
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TightenPosition = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_TrackRotation = true;
 
         /// <summary>
@@ -244,7 +244,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TrackRotation = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_SmoothRotation;
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SmoothRotation = value;
         }
 
-        [SerializeField, Range(0f, 20f)]
+        // [SerializeField, Range(0f, 20f)]
         float m_SmoothRotationAmount = k_DefaultSmoothingAmount;
 
         /// <summary>
@@ -273,7 +273,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SmoothRotationAmount = value;
         }
 
-        [SerializeField, Range(0f, 1f)]
+        // [SerializeField, Range(0f, 1f)]
         float m_TightenRotation = k_DefaultTighteningAmount;
 
         /// <summary>
@@ -292,7 +292,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TightenRotation = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_ThrowOnDetach = true;
 
         /// <summary>
@@ -304,7 +304,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ThrowOnDetach = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_ThrowSmoothingDuration = k_DefaultThrowSmoothingDuration;
 
         /// <summary>
@@ -317,7 +317,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ThrowSmoothingDuration = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         AnimationCurve m_ThrowSmoothingCurve = AnimationCurve.Linear(1f, 1f, 1f, 0f);
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ThrowSmoothingCurve = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_ThrowVelocityScale = k_DefaultThrowVelocityScale;
 
         /// <summary>
@@ -343,7 +343,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ThrowVelocityScale = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_ThrowAngularVelocityScale = k_DefaultThrowAngularVelocityScale;
 
         /// <summary>
@@ -356,7 +356,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ThrowAngularVelocityScale = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_GravityOnDetach")]
+        // [SerializeField, FormerlySerializedAs("m_GravityOnDetach")]
         bool m_ForceGravityOnDetach;
 
         /// <summary>
@@ -369,7 +369,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ForceGravityOnDetach = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_RetainTransformParent = true;
 
         /// <summary>
@@ -381,7 +381,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_RetainTransformParent = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         AttachPointCompatibilityMode m_AttachPointCompatibilityMode = AttachPointCompatibilityMode.Default;
 
         /// <summary>
@@ -445,7 +445,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             base.Awake();
 
             m_CurrentMovementType = m_MovementType;
-            m_Rigidbody = GetComponent<Rigidbody>();
+            m_Rigidbody = gameObject.AddComponent<Rigidbody>();
             if (m_Rigidbody == null)
                 Debug.LogError("Grab Interactable does not have a required Rigidbody.", this);
         }

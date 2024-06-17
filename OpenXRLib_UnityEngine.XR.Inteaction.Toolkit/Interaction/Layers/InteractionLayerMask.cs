@@ -8,7 +8,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     [Serializable]
     public struct InteractionLayerMask : ISerializationCallbackReceiver
     {
-        [SerializeField] 
+        // [SerializeField] 
         uint m_Bits;
         
         int m_Mask;

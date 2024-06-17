@@ -34,8 +34,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Immediately,
         }
 
-        [SerializeField]
-        [Tooltip("The speed, in units per second, to move forward.")]
+        // [SerializeField]
+        // [Tooltip("The speed, in units per second, to move forward.")]
         float m_MoveSpeed = 1f;
         /// <summary>
         /// The speed, in units per second, to move forward.
@@ -46,8 +46,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_MoveSpeed = value;
         }
 
-        [SerializeField]
-        [Tooltip("Controls whether to enable strafing (sideways movement).")]
+        // [SerializeField]
+        // [Tooltip("Controls whether to enable strafing (sideways movement).")]
         bool m_EnableStrafe = true;
         /// <summary>
         /// Controls whether to enable strafing (sideways movement).
@@ -58,8 +58,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_EnableStrafe = value;
         }
 
-        [SerializeField]
-        [Tooltip("Controls whether gravity affects this provider when a Character Controller is used.")]
+        // [SerializeField]
+        // [Tooltip("Controls whether gravity affects this provider when a Character Controller is used.")]
         bool m_UseGravity = true;
         /// <summary>
         /// Controls whether gravity affects this provider when a <see cref="CharacterController"/> is used.
@@ -70,8 +70,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_UseGravity = value;
         }
 
-        [SerializeField]
-        [Tooltip("Controls when gravity begins to take effect.")]
+        // [SerializeField]
+        // [Tooltip("Controls when gravity begins to take effect.")]
         GravityApplicationMode m_GravityApplicationMode;
         /// <summary>
         /// Controls when gravity begins to take effect.
@@ -83,8 +83,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_GravityApplicationMode = value;
         }
 
-        [SerializeField]
-        [Tooltip("The source Transform to define the forward direction.")]
+        // [SerializeField]
+        // [Tooltip("The source Transform to define the forward direction.")]
         Transform m_ForwardSource;
         /// <summary>
         /// The source <see cref="Transform"/> that defines the forward direction.

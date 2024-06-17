@@ -7,10 +7,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// and <see cref="XRBaseInteractable.selectEntered"/>/<see cref="XRBaseInteractable.selectExited"/>
     /// events with no underlying interaction behavior.
     /// </summary>
-    [SelectionBase]
-    [DisallowMultipleComponent]
-    [AddComponentMenu("XR/XR Simple Interactable", 11)]
-    [HelpURL(XRHelpURLConstants.k_XRSimpleInteractable)]
+    // [SelectionBase]
+    // [DisallowMultipleComponent]
+    // [AddComponentMenu("XR/XR Simple Interactable", 11)]
+    // [HelpURL(XRHelpURLConstants.k_XRSimpleInteractable)]
     public class XRSimpleInteractable : XRBaseInteractable
     {
     }

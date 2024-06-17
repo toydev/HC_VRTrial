@@ -35,17 +35,17 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// <summary>
     /// Interactor helper object aligns a <see cref="LineRenderer"/> with the Interactor.
     /// </summary>
-    [AddComponentMenu("XR/Visual/XR Interactor Line Visual", 11)]
-    [DisallowMultipleComponent]
-    [RequireComponent(typeof(LineRenderer))]
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_LineVisual)]
-    [HelpURL(XRHelpURLConstants.k_XRInteractorLineVisual)]
+    // [AddComponentMenu("XR/Visual/XR Interactor Line Visual", 11)]
+    // [DisallowMultipleComponent]
+    // [RequireComponent(typeof(LineRenderer))]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_LineVisual)]
+    // [HelpURL(XRHelpURLConstants.k_XRInteractorLineVisual)]
     public class XRInteractorLineVisual : MonoBehaviour, IXRCustomReticleProvider
     {
         const float k_MinLineWidth = 0.0001f;
         const float k_MaxLineWidth = 0.05f;
 
-        [SerializeField, Range(k_MinLineWidth, k_MaxLineWidth)]
+        // [SerializeField, Range(k_MinLineWidth, k_MaxLineWidth)]
         float m_LineWidth = 0.02f;
         /// <summary>
         /// Controls the width of the line.
@@ -60,7 +60,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_OverrideInteractorLineLength = true;
         /// <summary>
         /// A boolean value that controls which source Unity uses to determine the length of the line.
@@ -74,7 +74,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OverrideInteractorLineLength = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_LineLength = 10f;
         /// <summary>
         /// Controls the length of the line when overriding.
@@ -86,7 +86,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_LineLength = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         AnimationCurve m_WidthCurve = AnimationCurve.Linear(0f, 1f, 1f, 1f);
         /// <summary>
         /// Controls the relative width of the line from start to end.
@@ -101,7 +101,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         Gradient m_ValidColorGradient = new Gradient
         {
             colorKeys = new[] { new GradientColorKey(Color.white, 0f), new GradientColorKey(Color.white, 1f) },
@@ -116,7 +116,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ValidColorGradient = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         Gradient m_InvalidColorGradient = new Gradient
         {
             colorKeys = new[] { new GradientColorKey(Color.red, 0f), new GradientColorKey(Color.red, 1f) },
@@ -131,7 +131,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_InvalidColorGradient = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_SmoothMovement;
         /// <summary>
         /// Controls whether the rendered segments will be delayed from and smoothly follow the target segments.
@@ -144,7 +144,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SmoothMovement = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_FollowTightness = 10f;
         /// <summary>
         /// Controls the speed that the rendered segments follow the target segments when Smooth Movement is enabled.
@@ -157,7 +157,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_FollowTightness = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_SnapThresholdDistance = 10f;
         /// <summary>
         /// Controls the threshold distance between line points at two consecutive frames to snap rendered segments to target segments when Smooth Movement is enabled.
@@ -170,7 +170,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SnapThresholdDistance = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         GameObject m_Reticle;
         /// <summary>
         /// Stores the reticle that appears at the end of the line when it is valid.
@@ -189,7 +189,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_StopLineAtFirstRaycastHit = true;
         /// <summary>
         /// Controls whether this behavior always cuts the line short at the first ray cast hit, even when invalid.
@@ -257,6 +257,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         protected void Awake()
         {
+            gameObject.AddComponent<LineRenderer>();
             m_LineRenderable = GetComponent<ILineRenderable>();
 
             SetupReticle();
@@ -305,7 +306,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [BeforeRenderOrder(XRInteractionUpdateOrder.k_BeforeRenderLineVisual)]
+        // [BeforeRenderOrder(XRInteractionUpdateOrder.k_BeforeRenderLineVisual)]
         void OnBeforeRenderLineVisual()
         {
             UpdateLineVisual();

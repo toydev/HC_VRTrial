@@ -16,7 +16,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => Origin = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         GameObject m_CameraGameObject;
 
         /// <summary>

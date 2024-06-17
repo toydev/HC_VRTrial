@@ -3,15 +3,15 @@
     /// <summary>
     /// <see cref="MonoBehaviour"/> that controls interaction recording and playback (via <see cref="XRControllerRecording"/> assets).
     /// </summary>
-    [AddComponentMenu("XR/Debug/XR Controller Recorder", 11)]
-    [DisallowMultipleComponent]
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_ControllerRecorder)]
-    [HelpURL(XRHelpURLConstants.k_XRControllerRecorder)]
+    // [AddComponentMenu("XR/Debug/XR Controller Recorder", 11)]
+    // [DisallowMultipleComponent]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_ControllerRecorder)]
+    // [HelpURL(XRHelpURLConstants.k_XRControllerRecorder)]
     public class XRControllerRecorder : MonoBehaviour
     {
-        [Header("Input Recording/Playback")]
+        // [Header("Input Recording/Playback")]
 
-        [SerializeField, Tooltip("Controls whether this recording will start playing when the component's Awake() method is called.")]
+        // [SerializeField, Tooltip("Controls whether this recording will start playing when the component's Awake() method is called.")]
         bool m_PlayOnStart;
 
         /// <summary>
@@ -23,7 +23,7 @@
             set => m_PlayOnStart = value;
         }
 
-        [SerializeField, Tooltip("Controller Recording asset for recording and playback of controller events.")]
+        // [SerializeField, Tooltip("Controller Recording asset for recording and playback of controller events.")]
         XRControllerRecording m_Recording;
 
         /// <summary>
@@ -35,7 +35,7 @@
             set => m_Recording = value;
         }
 
-        [SerializeField, Tooltip("XR Controller who's output will be recorded and played back")]
+        // [SerializeField, Tooltip("XR Controller who's output will be recorded and played back")]
         XRBaseController m_XRController;
 
         /// <summary>

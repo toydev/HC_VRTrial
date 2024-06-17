@@ -7,8 +7,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// using a specified 2D axis input.
     /// </summary>
     /// <seealso cref="LocomotionProvider"/>
-    [AddComponentMenu("XR/Locomotion/Continuous Move Provider (Device-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_DeviceBasedContinuousMoveProvider)]
+    // [AddComponentMenu("XR/Locomotion/Continuous Move Provider (Device-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_DeviceBasedContinuousMoveProvider)]
     public class DeviceBasedContinuousMoveProvider : ContinuousMoveProviderBase
     {
         /// <summary>
@@ -27,8 +27,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Secondary2DAxis = 1,
         }
 
-        [SerializeField]
-        [Tooltip("The 2D Input Axis on the controller devices that will be used to trigger a move.")]
+        // [SerializeField]
+        // [Tooltip("The 2D Input Axis on the controller devices that will be used to trigger a move.")]
         InputAxes m_InputBinding = InputAxes.Primary2DAxis;
         /// <summary>
         /// The 2D Input Axis on the controller devices that will be used to trigger a move.
@@ -39,8 +39,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_InputBinding = value;
         }
 
-        [SerializeField]
-        [Tooltip("A list of controllers that allow move.  If an XRController is not enabled, or does not have input actions enabled, move will not work.")]
+        // [SerializeField]
+        // [Tooltip("A list of controllers that allow move.  If an XRController is not enabled, or does not have input actions enabled, move will not work.")]
         List<XRBaseController> m_Controllers = new List<XRBaseController>();
         /// <summary>
         /// The XRControllers that allow movement. An XRController must be enabled in order to move.
@@ -51,8 +51,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Controllers = value;
         }
 
-        [SerializeField]
-        [Tooltip("Value below which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
+        // [SerializeField]
+        // [Tooltip("Value below which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
         float m_DeadzoneMin = 0.125f;
         /// <summary>
         /// Value below which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.
@@ -63,8 +63,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_DeadzoneMin = value;
         }
 
-        [SerializeField]
-        [Tooltip("Value above which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
+        // [SerializeField]
+        // [Tooltip("Value above which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.")]
         float m_DeadzoneMax = 0.925f;
         /// <summary>
         /// Value above which input values will be clamped. After clamping, values will be renormalized to [0, 1] between min and max.

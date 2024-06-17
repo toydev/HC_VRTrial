@@ -11,12 +11,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// (thus does not derive from <see cref="XRBaseControllerInteractor"/>) and instead will always attempt to select an interactable that it is
     /// hovering over.
     /// </summary>
-    [DisallowMultipleComponent]
-    [AddComponentMenu("XR/XR Socket Interactor", 11)]
-    [HelpURL(XRHelpURLConstants.k_XRSocketInteractor)]
+    // [DisallowMultipleComponent]
+    // [AddComponentMenu("XR/XR Socket Interactor", 11)]
+    // [HelpURL(XRHelpURLConstants.k_XRSocketInteractor)]
     public partial class XRSocketInteractor : XRBaseInteractor
     {
-        [SerializeField]
+        // [SerializeField]
         bool m_ShowInteractableHoverMeshes = true;
         /// <summary>
         /// Whether this socket should show a mesh at socket's attach point for Interactables that it is hovering over.
@@ -31,7 +31,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ShowInteractableHoverMeshes = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         Material m_InteractableHoverMeshMaterial;
         /// <summary>
         /// Material used for rendering interactable meshes on hover
@@ -43,7 +43,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_InteractableHoverMeshMaterial = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         Material m_InteractableCantHoverMeshMaterial;
         /// <summary>
         /// Material used for rendering interactable meshes on hover when there is already a selected object in the socket
@@ -55,7 +55,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_InteractableCantHoverMeshMaterial = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_SocketActive = true;
         /// <summary>
         /// Whether socket interaction is enabled.
@@ -66,7 +66,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SocketActive = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_InteractableHoverScale = 1f;
         /// <summary>
         /// Scale at which to render hovered Interactable.
@@ -77,7 +77,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_InteractableHoverScale = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_RecycleDelayTime = 1f;
         /// <summary>
         /// Sets the amount of time the socket will refuse hovers after an object is removed.
