@@ -351,7 +351,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         static bool RayIntersectsRectTransform(RectTransform transform, Vector4 raycastPadding, Ray ray, out Vector3 worldPosition, out float distance)
         {
             GetRectTransformWorldCorners(transform, raycastPadding, s_Corners);
-            var plane = new Plane(s_Corners[0], s_Corners[1], s_Corners[2]);
+            var plane = new Plane();
+            plane.Set3Points(s_Corners[0], s_Corners[1], s_Corners[2]);
 
             if (plane.Raycast(ray, out var enter))
             {
