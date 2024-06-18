@@ -6,7 +6,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// Specifies Interaction Layers to use in XR interactions.
     /// </summary>
     [Serializable]
-    public struct InteractionLayerMask : ISerializationCallbackReceiver
+    public struct InteractionLayerMask/* : ISerializationCallbackReceiver*/
     {
         // [SerializeField] 
         uint m_Bits;
