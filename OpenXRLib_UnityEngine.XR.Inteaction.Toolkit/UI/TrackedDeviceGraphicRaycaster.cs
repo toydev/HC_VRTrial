@@ -126,7 +126,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         /// </summary>
         /// <param name="eventData">Data containing where and how to ray cast.</param>
         /// <param name="resultAppendList">The resultant hits from the ray cast.</param>
-        public override void Raycast(PointerEventData eventData, List<RaycastResult> resultAppendList)
+        public override void Raycast(PointerEventData eventData, Il2CppSystem.Collections.Generic.List<RaycastResult> resultAppendList)
         {
             if (eventData is TrackedDeviceEventData trackedEventData)
             {
@@ -196,7 +196,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
 #endif
         }
 
-        void PerformRaycasts(TrackedDeviceEventData eventData, List<RaycastResult> resultAppendList)
+        void PerformRaycasts(TrackedDeviceEventData eventData, Il2CppSystem.Collections.Generic.List<RaycastResult> resultAppendList)
         {
             if (canvas == null)
                 return;
@@ -230,7 +230,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             }
         }
 
-        bool PerformRaycast(Vector3 from, Vector3 to, LayerMask layerMask, Camera currentEventCamera, List<RaycastResult> resultAppendList)
+        bool PerformRaycast(Vector3 from, Vector3 to, LayerMask layerMask, Camera currentEventCamera, Il2CppSystem.Collections.Generic.List<RaycastResult> resultAppendList)
         {
             var hitSomething = false;
 
@@ -313,7 +313,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             var graphics = GraphicRegistry.GetGraphicsForCanvas(canvas);
 
             s_SortedGraphics.Clear();
-            for (int i = 0; i < graphics.Count; ++i)
+            for (int i = 0; i < graphics.Cast<Il2CppSystem.Collections.Generic.ICollection<Graphic>>().Count; ++i)
             {
                 var graphic = graphics[i];
 

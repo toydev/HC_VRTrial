@@ -108,13 +108,13 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
         // [SerializeField]
 #pragma warning disable IDE0044 // Add readonly modifier -- readonly fields cannot be serialized by Unity
-        List<Collider> m_Colliders = new List<Collider>();
+        Il2CppSystem.Collections.Generic.List<Collider> m_Colliders = new Il2CppSystem.Collections.Generic.List<Collider>();
 #pragma warning restore IDE0044
 
         /// <summary>
         /// (Read Only) Colliders to use for interaction with this Interactable (if empty, will use any child Colliders).
         /// </summary>
-        public List<Collider> colliders => m_Colliders;
+        public Il2CppSystem.Collections.Generic.List<Collider> colliders => m_Colliders;
 
         // [SerializeField]
         LayerMask m_InteractionLayerMask = -1;

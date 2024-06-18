@@ -170,7 +170,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             /// This tracks the current GUI targets being hovered over.
             /// </summary>
             /// <seealso cref="PointerEventData.hovered"/>
-            public List<GameObject> hoverTargets { get; set; }
+            public Il2CppSystem.Collections.Generic.List<GameObject> hoverTargets { get; set; }
 
             /// <summary>
             /// Tracks the current enter/exit target being hovered over at any given moment.
@@ -183,7 +183,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
                 pointerTarget = null;
 
                 if (hoverTargets == null)
-                    hoverTargets = new List<GameObject>();
+                    hoverTargets = new Il2CppSystem.Collections.Generic.List<GameObject>();
                 else
                     hoverTargets.Clear();
             }
@@ -368,14 +368,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
 
             eventData.pointerEnter = m_InternalData.pointerTarget;
             eventData.hovered.Clear();
-            eventData.hovered.AddRange(m_InternalData.hoverTargets);
+            eventData.hovered.AddRange(m_InternalData.hoverTargets.Cast<Il2CppSystem.Collections.Generic.IEnumerable<GameObject>>());
         }
 
         public void CopyFrom(PointerEventData eventData)
         {
             var hoverTargets = m_InternalData.hoverTargets;
             m_InternalData.hoverTargets.Clear();
-            m_InternalData.hoverTargets.AddRange(eventData.hovered);
+            m_InternalData.hoverTargets.AddRange(eventData.hovered.Cast<Il2CppSystem.Collections.Generic.IEnumerable<GameObject>>());
             m_InternalData.hoverTargets = hoverTargets;
             m_InternalData.pointerTarget = eventData.pointerEnter;
         }

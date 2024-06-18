@@ -110,7 +110,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <summary>
         /// Reusable list of type <see cref="MeshFilter"/> to reduce allocations.
         /// </summary>
-        static readonly List<MeshFilter> s_MeshFilters = new List<MeshFilter>();
+        static readonly Il2CppSystem.Collections.Generic.List<MeshFilter> s_MeshFilters = new Il2CppSystem.Collections.Generic.List<MeshFilter>();
 
         /// <summary>
         /// Reusable value of <see cref="WaitForFixedUpdate"/> to reduce allocations.

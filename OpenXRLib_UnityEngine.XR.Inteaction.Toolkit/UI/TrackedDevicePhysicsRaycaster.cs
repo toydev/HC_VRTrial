@@ -160,7 +160,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         /// <remarks>Will only process events of type <see cref="TrackedDeviceEventData"/>.</remarks>
         /// <param name="eventData">Data containing where and how to ray cast.</param>
         /// <param name="resultAppendList">The resultant hits from the ray cast.</param>
-        public override void Raycast(PointerEventData eventData, List<RaycastResult> resultAppendList)
+        public override void Raycast(PointerEventData eventData, Il2CppSystem.Collections.Generic.List<RaycastResult> resultAppendList)
         {
             if (eventData is TrackedDeviceEventData trackedEventData)
             {
@@ -191,7 +191,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             m_RaycastArrayWrapper = new RaycastHitArraySegment(m_RaycastHits, 0);
         }
 
-        void PerformRaycasts(TrackedDeviceEventData eventData, List<RaycastResult> resultAppendList)
+        void PerformRaycasts(TrackedDeviceEventData eventData, Il2CppSystem.Collections.Generic.List<RaycastResult> resultAppendList)
         {
             // Property can call Camera.main, so cache the reference
             var currentEventCamera = eventCamera;
@@ -222,7 +222,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             }
         }
 
-        bool PerformRaycast(Vector3 from, Vector3 to, LayerMask layerMask, Camera currentEventCamera, List<RaycastResult> resultAppendList)
+        bool PerformRaycast(Vector3 from, Vector3 to, LayerMask layerMask, Camera currentEventCamera, Il2CppSystem.Collections.Generic.List<RaycastResult> resultAppendList)
         {
             var hitSomething = false;
 
