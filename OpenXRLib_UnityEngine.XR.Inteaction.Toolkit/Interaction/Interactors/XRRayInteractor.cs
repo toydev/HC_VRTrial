@@ -896,13 +896,13 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 return false;
             }
 
-            if (raycastResult.HasValue && isUIHitClosest)
+            if (raycastResult != null && isUIHitClosest)
             {
-                position = raycastResult.Value.worldPosition;
-                normal = raycastResult.Value.worldNormal;
+                position = raycastResult.worldPosition;
+                normal = raycastResult.worldNormal;
                 positionInLine = raycastResultIndex;
 
-                isValidTarget = raycastResult.Value.gameObject != null;
+                isValidTarget = raycastResult.gameObject != null;
             }
             else if (raycastHit.HasValue)
             {
@@ -1032,7 +1032,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         public bool TryGetCurrentRaycast(
             out RaycastHit? raycastHit,
             out int raycastHitIndex,
-            out RaycastResult? uiRaycastHit,
+            out RaycastResult uiRaycastHit,
             out int uiRaycastHitIndex,
             out bool isUIHitClosest)
         {
