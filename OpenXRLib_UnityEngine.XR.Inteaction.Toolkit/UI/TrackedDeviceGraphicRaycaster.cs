@@ -187,7 +187,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         }
 
         /// <inheritdoc />
-        protected override void Awake()
+        public override void Awake()
         {
             base.Awake();
             m_LocalPhysicsScene = gameObject.scene.GetPhysicsScene();
