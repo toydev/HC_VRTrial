@@ -1,5 +1,3 @@
-using UnityEngine.SpatialTracking;
-
 #if LIH_PRESENT
 using UnityEngine.Experimental.XR.Interaction;
 #endif

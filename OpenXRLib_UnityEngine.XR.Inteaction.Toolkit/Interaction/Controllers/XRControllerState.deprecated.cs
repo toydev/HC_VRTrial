@@ -1,11 +1,11 @@
 ﻿using System;
-using UnityEngine.SpatialTracking;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
     public partial class XRControllerState
     {
 #pragma warning disable 618
+        /*
         /// <summary>
         /// (Deprecated) The pose data flags of the controller.
         /// </summary>
@@ -35,6 +35,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                     inputTrackingState |= InputTrackingState.Rotation;
             }
         }
+        */
         
         /// <summary>
         /// (Deprecated) Initializes and returns an instance of <see cref="XRControllerState"/>.
