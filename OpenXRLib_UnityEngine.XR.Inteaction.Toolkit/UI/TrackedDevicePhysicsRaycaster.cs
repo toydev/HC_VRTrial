@@ -186,7 +186,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         {
             base.Awake();
 
-            m_LocalPhysicsScene = gameObject.scene.GetPhysicsScene();
+            m_LocalPhysicsScene = PhysicsSceneExtensions.GetPhysicsScene(gameObject.scene);
             m_RaycastHits = new RaycastHit[m_MaxRayIntersections];
             m_RaycastArrayWrapper = new RaycastHitArraySegment(m_RaycastHits, 0);
         }

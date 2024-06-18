@@ -137,7 +137,7 @@
         /// </summary>
         protected void Awake()
         {
-            m_LocalPhysicsScene = gameObject.scene.GetPhysicsScene();
+            m_LocalPhysicsScene = PhysicsSceneExtensions.GetPhysicsScene(gameObject.scene);
 
             m_Interactor = GetComponent<XRBaseInteractor>();
             if (m_Interactor != null)
