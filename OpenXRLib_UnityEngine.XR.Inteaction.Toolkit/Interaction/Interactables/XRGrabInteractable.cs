@@ -924,7 +924,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         void OnBeginTeleportation(LocomotionSystem locomotionSystem)
         {
             var originTransform = locomotionSystem.xrOrigin.Origin.transform;
-            m_PoseBeforeTeleport = new Pose(originTransform.position, originTransform.rotation);
+            m_PoseBeforeTeleport = new Pose { position = originTransform.position, rotation = originTransform.rotation };
         }
 
         void OnEndTeleportation(LocomotionSystem locomotionSystem)

@@ -441,9 +441,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if (thisAttachTransform != null)
             {
                 m_AttachPoseOnSelect[interactable] =
-                    new Pose(thisAttachTransform.position, thisAttachTransform.rotation);
+                    new Pose { position = thisAttachTransform.position, rotation = thisAttachTransform.rotation };
                 m_LocalAttachPoseOnSelect[interactable] =
-                    new Pose(thisAttachTransform.localPosition, thisAttachTransform.localRotation);
+                    new Pose { position = thisAttachTransform.localPosition, rotation = thisAttachTransform.localRotation };
             }
             else
             {
