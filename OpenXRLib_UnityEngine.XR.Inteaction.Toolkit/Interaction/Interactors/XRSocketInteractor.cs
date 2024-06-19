@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine.XR.Interaction.Toolkit.Utilities;
 
+using BepInEx.Unity.IL2CPP.Utils;
+
 namespace UnityEngine.XR.Interaction.Toolkit
 {
     /// <summary>
@@ -134,7 +136,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             base.Start();
 
-            StartCoroutine(UpdateCollidersAfterOnTriggerStay());
+            this.StartCoroutine(UpdateCollidersAfterOnTriggerStay());
         }
 
         /// <summary>
