@@ -271,7 +271,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             selectDelta = ButtonDeltaState.NoChange;
             m_RaycastPoints.Clear();
             currentRaycastEndpointIndex = 0;
-            m_RaycastLayerMask = Physics.DefaultRaycastLayers;
+            m_RaycastLayerMask = -5 /* Physics.DefaultRaycastLayers */;
             m_ScrollDelta = Vector2.zero;
 
             if (resetImplementation)
