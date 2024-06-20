@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.Rendering;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
@@ -277,7 +278,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 m_ReticleToUse = null;
             }
 
-            Application.onBeforeRender += OnBeforeRenderLineVisual;
+            if (onBeforeRenderLineVisual == null) onBeforeRenderLineVisual = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)OnBeforeRenderLineVisual;
+            RenderPipelineManager.beginContextRendering += onBeforeRenderLineVisual;
         }
 
         /// <summary>
@@ -294,7 +296,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 m_ReticleToUse = null;
             }
 
-            Application.onBeforeRender -= OnBeforeRenderLineVisual;
+            RenderPipelineManager.beginContextRendering -= onBeforeRenderLineVisual;
         }
 
         void ClearLineRenderer()
@@ -307,7 +309,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         }
 
         // [BeforeRenderOrder(XRInteractionUpdateOrder.k_BeforeRenderLineVisual)]
-        void OnBeforeRenderLineVisual()
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRenderLineVisual;
+        void OnBeforeRenderLineVisual(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
         {
             UpdateLineVisual();
         }
