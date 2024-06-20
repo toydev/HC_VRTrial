@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DefineConstants>$(DefineConstants);ENABLE_VR;ANIMATION_MODULE_PRESENT;INPUT_SYSTEM_1_1_OR_NEWER;PHYSICS2D_MODULE_PRESENT;UNITY_2020_1_OR_NEWER;UNITY_2021_1_OR_NEWER</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DefineConstants>$(DefineConstants);ENABLE_VR;ANIMATION_MODULE_PRESENT;INPUT_SYSTEM_1_1_OR_NEWER;PHYSICS2D_MODULE_PRESENT;UNITY_2020_1_OR_NEWER;UNITY_2021_1_OR_NEWER</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\OpenXRLib_Common\OpenXRLib_Common.csproj" />
+		<ProjectReference Include="..\OpenXRLib_Unity.XR.CoreUtils\OpenXRLib_Unity.XR.CoreUtils.csproj" />
+	  <ProjectReference Include="..\OpenXRLib_UnityEngine.InputSystem\OpenXRLib_UnityEngine.InputSystem.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Preloader.Core.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.Common.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\BepInEx.Unity.IL2CPP.dll" />
+		<Reference Include="$(HC_VRTrial_GAME_HOME)\BepInEx\core\Il2CppInterop.Runtime.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\Il2Cppmscorlib.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.AnimationModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.AudioModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.CoreModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.InputLegacyModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.Physics2DModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.PhysicsModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.UI.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.UIModule.dll" />
+		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.XRModule.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Locomotion\" />
+	</ItemGroup>
+
+</Project>
