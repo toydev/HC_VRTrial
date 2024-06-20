@@ -40,7 +40,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Utilities
 
             // Try to load the singleton
             var path = k_HasCustomPath ? GetFilePath() : string.Format(k_LoadPathFormat, GetFilePath());
-            s_Instance = Resources.Load(path) as T;
+            s_Instance = Resources.Load<T>(path);
 
             // Create it if it doesn't exist
             if (s_Instance == null)
