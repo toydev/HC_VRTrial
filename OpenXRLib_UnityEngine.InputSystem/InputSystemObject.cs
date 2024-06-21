@@ -12,11 +12,11 @@ namespace UnityEngine.InputSystem
     /// </remarks>
     internal class InputSystemObject : ScriptableObject, ISerializationCallbackReceiver
     {
-        [SerializeField] public InputSystem.State systemState;
-        [SerializeField] public bool newInputBackendsCheckedAsEnabled;
-        [SerializeField] public string settings;
-        [SerializeField] public double exitEditModeTime;
-        [SerializeField] public double enterPlayModeTime;
+        /* [SerializeField] */ public InputSystem.State systemState;
+        /* [SerializeField] */ public bool newInputBackendsCheckedAsEnabled;
+        /* [SerializeField] */ public string settings;
+        /* [SerializeField] */ public double exitEditModeTime;
+        /* [SerializeField] */ public double enterPlayModeTime;
 
         public void OnBeforeSerialize()
         {

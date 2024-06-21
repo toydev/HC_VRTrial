@@ -5,8 +5,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// location on a surface.
     /// </summary>
     /// <seealso cref="TeleportationAnchor"/>
-    [AddComponentMenu("XR/Teleportation Area", 11)]
-    [HelpURL(XRHelpURLConstants.k_TeleportationArea)]
+    // [AddComponentMenu("XR/Teleportation Area", 11)]
+    // [HelpURL(XRHelpURLConstants.k_TeleportationArea)]
     public class TeleportationArea : BaseTeleportationInteractable
     {
         /// <inheritdoc />

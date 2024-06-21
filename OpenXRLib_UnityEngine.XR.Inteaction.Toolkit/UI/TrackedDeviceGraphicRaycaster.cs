@@ -11,8 +11,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
     /// at all Graphics on the canvas and determines if any of them have been hit by a ray
     /// from a tracked device.
     /// </summary>
-    [AddComponentMenu("Event/Tracked Device Graphic Raycaster", 11)]
-    [HelpURL(XRHelpURLConstants.k_TrackedDeviceGraphicRaycaster)]
+    // [AddComponentMenu("Event/Tracked Device Graphic Raycaster", 11)]
+    // [HelpURL(XRHelpURLConstants.k_TrackedDeviceGraphicRaycaster)]
     public class TrackedDeviceGraphicRaycaster : BaseRaycaster
     {
         const int k_MaxRaycastHits = 10;
@@ -44,8 +44,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
                 => b.graphic.depth.CompareTo(a.graphic.depth);
         }
 
-        [SerializeField]
-        [Tooltip("Whether Graphics facing away from the ray caster are checked for ray casts. Enable this to ignore backfacing Graphics.")]
+        // [SerializeField]
+        // [Tooltip("Whether Graphics facing away from the ray caster are checked for ray casts. Enable this to ignore backfacing Graphics.")]
         bool m_IgnoreReversedGraphics;
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_IgnoreReversedGraphics = value;
         }
 
-        [SerializeField]
-        [Tooltip("Whether or not 2D occlusion is checked when performing ray casts. Enable to make Graphics be blocked by 2D objects that exist in front of it.")]
+        // [SerializeField]
+        // [Tooltip("Whether or not 2D occlusion is checked when performing ray casts. Enable to make Graphics be blocked by 2D objects that exist in front of it.")]
         bool m_CheckFor2DOcclusion;
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_CheckFor2DOcclusion = value;
         }
 
-        [SerializeField]
-        [Tooltip("Whether or not 3D occlusion is checked when performing ray casts. Enable to make Graphics be blocked by 3D objects that exist in front of it.")]
+        // [SerializeField]
+        // [Tooltip("Whether or not 3D occlusion is checked when performing ray casts. Enable to make Graphics be blocked by 3D objects that exist in front of it.")]
         bool m_CheckFor3DOcclusion;
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_CheckFor3DOcclusion = value;
         }
 
-        [SerializeField]
-        [Tooltip("The layers of objects that are checked to determine if they block Graphic ray casts when checking for 2D or 3D occlusion.")]
+        // [SerializeField]
+        // [Tooltip("The layers of objects that are checked to determine if they block Graphic ray casts when checking for 2D or 3D occlusion.")]
         LayerMask m_BlockingMask = -1;
 
         /// <summary>
@@ -103,8 +103,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_BlockingMask = value;
         }
 
-        [SerializeField]
-        [Tooltip("Specifies whether the ray cast should hit Triggers when checking for 3D occlusion.")]
+        // [SerializeField]
+        // [Tooltip("Specifies whether the ray cast should hit Triggers when checking for 3D occlusion.")]
         QueryTriggerInteraction m_RaycastTriggerInteraction = QueryTriggerInteraction.Ignore;
 
         /// <summary>

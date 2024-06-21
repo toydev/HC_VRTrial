@@ -19,11 +19,11 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// </remarks>
     /// <seealso cref="XRBaseController"/>
     /// <seealso cref="ActionBasedController"/>
-    [AddComponentMenu("XR/XR Controller (Device-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_XRController)]
+    // [AddComponentMenu("XR/XR Controller (Device-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_XRController)]
     public class XRController : XRBaseController
     {
-        [SerializeField]
+        // [SerializeField]
         XRNode m_ControllerNode = XRNode.RightHand;
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ControllerNode = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputHelpers.Button m_SelectUsage = InputHelpers.Button.Grip;
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SelectUsage = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputHelpers.Button m_ActivateUsage = InputHelpers.Button.Trigger;
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ActivateUsage = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputHelpers.Button m_UIPressUsage = InputHelpers.Button.Trigger;
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_UIPressUsage = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_AxisToPressThreshold = 0.1f;
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AxisToPressThreshold = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputHelpers.Button m_RotateAnchorLeft = InputHelpers.Button.PrimaryAxis2DLeft;
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_RotateAnchorLeft = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputHelpers.Button m_RotateAnchorRight = InputHelpers.Button.PrimaryAxis2DRight;
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_RotateAnchorRight = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputHelpers.Button m_MoveObjectIn = InputHelpers.Button.PrimaryAxis2DUp;
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_MoveObjectIn = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputHelpers.Button m_MoveObjectOut = InputHelpers.Button.PrimaryAxis2DDown;
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         }
 
 #if LIH_PRESENT
-        [SerializeField]
+        // [SerializeField]
         BasePoseProvider m_PoseProvider;
 
         /// <summary>

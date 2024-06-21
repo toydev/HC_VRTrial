@@ -33,7 +33,7 @@ namespace UnityEngine.InputSystem.Interactions
         /// <remarks>
         /// If this value is equal to or smaller than zero, the input system will use (<see cref="InputSettings.defaultTapTime"/>) instead.
         /// </remarks>
-        [Tooltip("The maximum time (in seconds) allowed to elapse between pressing and releasing a control for it to register as a tap.")]
+        // [Tooltip("The maximum time (in seconds) allowed to elapse between pressing and releasing a control for it to register as a tap.")]
         public float tapTime;
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace UnityEngine.InputSystem.Interactions
         /// If this time is exceeded, the multi-tap interaction is canceled.
         /// If this value is equal to or smaller than zero, the input system will use the duplicate value of <see cref="tapTime"/> instead.
         /// </remarks>
-        [Tooltip("The maximum delay (in seconds) allowed between each tap. If this time is exceeded, the multi-tap is canceled.")]
+        // [Tooltip("The maximum delay (in seconds) allowed between each tap. If this time is exceeded, the multi-tap is canceled.")]
         public float tapDelay;
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace UnityEngine.InputSystem.Interactions
         /// <remarks>
         /// How many taps need to be performed in succession. Two means double-tap, three means triple-tap, and so on.
         /// </remarks>
-        [Tooltip("How many taps need to be performed in succession. Two means double-tap, three means triple-tap, and so on.")]
+        // [Tooltip("How many taps need to be performed in succession. Two means double-tap, three means triple-tap, and so on.")]
         public int tapCount = 2;
 
         /// <summary>

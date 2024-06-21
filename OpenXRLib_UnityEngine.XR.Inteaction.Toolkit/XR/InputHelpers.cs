@@ -6,7 +6,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// <summary>
     /// Helper class for different kinds of input.
     /// </summary>
-    [MovedFrom("")]
+    // [MovedFrom("")]
     public static class InputHelpers
     {
         /// <summary>

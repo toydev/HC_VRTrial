@@ -56,11 +56,11 @@ namespace UnityEngine.InputSystem.OnScreen
         }
 
         [FormerlySerializedAs("movementRange")]
-        [SerializeField]
+        /* [SerializeField] */
         private float m_MovementRange = 50;
 
         [InputControl(layout = "Vector2")]
-        [SerializeField]
+        /* [SerializeField] */
         private string m_ControlPath;
 
         private Vector3 m_StartPos;

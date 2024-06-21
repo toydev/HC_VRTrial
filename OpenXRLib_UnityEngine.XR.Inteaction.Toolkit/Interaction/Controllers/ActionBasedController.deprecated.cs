@@ -4,7 +4,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
 {
     public partial class ActionBasedController
     {
-        [SerializeField]
+        // [SerializeField]
         float m_ButtonPressPoint = 0.5f;
 
         /// <summary>

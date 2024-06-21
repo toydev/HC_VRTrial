@@ -1405,36 +1405,37 @@ namespace UnityEngine.InputSystem
         }
 
         ////REVIEW: it would be best if these were InternedStrings; however, for serialization, it has to be strings
-        [Tooltip("Human readable name of the action. Must be unique within its action map (case is ignored). Can be changed "
-            + "without breaking references to the action.")]
-        [SerializeField] internal string m_Name;
-        [Tooltip("Determines how the action triggers.\n"
-            + "\n"
-            + "A Value action will start and perform when a control moves from its default value and then "
-            + "perform on every value change. It will cancel when controls go back to default value. Also, when enabled, a Value "
-            + "action will respond right away to a control's current value.\n"
-            + "\n"
-            + "A Button action will start when a button is pressed and perform when the press threshold (see 'Default Button Press Point' in settings) "
-            + "is reached. It will cancel when the button is going below the release threshold (see 'Button Release Threshold' in settings). Also, "
-            + "if a button is already pressed when the action is enabled, the button has to be released first.\n"
-            + "\n"
-            + "A Pass-Through action will not explicitly start and will never cancel. Instead, for every value change on any bound control, "
-            + "the action will perform.")]
-        [SerializeField] internal InputActionType m_Type;
-        [FormerlySerializedAs("m_ExpectedControlLayout")]
-        [Tooltip("The type of control expected by the action (e.g. \"Button\" or \"Stick\"). This will limit the controls shown "
-            + "when setting up bindings in the UI and will also limit which controls can be bound interactively to the action.")]
-        [SerializeField] internal string m_ExpectedControlType;
-        [Tooltip("Unique ID of the action (GUID). Used to reference the action from bindings such that actions can be renamed "
-            + "without breaking references.")]
-        [SerializeField] internal string m_Id; // Can't serialize System.Guid and Unity's GUID is editor only.
-        [SerializeField] internal string m_Processors;
-        [SerializeField] internal string m_Interactions;
+        // [Tooltip("Human readable name of the action. Must be unique within its action map (case is ignored). Can be changed "
+        //     + "without breaking references to the action.")]
+        /* [SerializeField] */ internal string m_Name;
+        // [Tooltip("Determines how the action triggers.\n"
+        //     + "\n"
+        //     + "A Value action will start and perform when a control moves from its default value and then "
+        //     + "perform on every value change. It will cancel when controls go back to default value. Also, when enabled, a Value "
+        //     + "action will respond right away to a control's current value.\n"
+        //     + "\n"
+        //     + "A Button action will start when a button is pressed and perform when the press threshold (see 'Default Button Press Point' in settings) "
+        //     + "is reached. It will cancel when the button is going below the release threshold (see 'Button Release Threshold' in settings). Also, "
+        //     + "if a button is already pressed when the action is enabled, the button has to be released first.\n"
+        //     + "\n"
+        //     + "A Pass-Through action will not explicitly start and will never cancel. Instead, for every value change on any bound control, "
+        //     + "the action will perform.")]
+        /* [SerializeField] */
+        internal InputActionType m_Type;
+        // [FormerlySerializedAs("m_ExpectedControlLayout")]
+        // [Tooltip("The type of control expected by the action (e.g. \"Button\" or \"Stick\"). This will limit the controls shown "
+        //     + "when setting up bindings in the UI and will also limit which controls can be bound interactively to the action.")]
+        /* [SerializeField] */ internal string m_ExpectedControlType;
+        // [Tooltip("Unique ID of the action (GUID). Used to reference the action from bindings such that actions can be renamed "
+        //     + "without breaking references.")]
+        /* [SerializeField] */ internal string m_Id; // Can't serialize System.Guid and Unity's GUID is editor only.
+        /* [SerializeField] */ internal string m_Processors;
+        /* [SerializeField] */ internal string m_Interactions;
 
         // For singleton actions, we serialize the bindings directly as part of the action.
         // For any other type of action, this is null.
-        [SerializeField] internal InputBinding[] m_SingletonActionBindings;
-        [SerializeField] internal ActionFlags m_Flags;
+        /* [SerializeField] */ internal InputBinding[] m_SingletonActionBindings;
+        /* [SerializeField] */ internal ActionFlags m_Flags;
 
         [NonSerialized] internal InputBinding? m_BindingMask;
         [NonSerialized] internal int m_BindingsStartIndex;

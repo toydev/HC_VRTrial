@@ -13,9 +13,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// Interactor used for interacting with interactables at a distance. This is handled via ray casts
     /// that update the current set of valid targets for this interactor.
     /// </summary>
-    [DisallowMultipleComponent]
-    [AddComponentMenu("XR/XR Ray Interactor", 11)]
-    [HelpURL(XRHelpURLConstants.k_XRRayInteractor)]
+    // [DisallowMultipleComponent]
+    // [AddComponentMenu("XR/XR Ray Interactor", 11)]
+    // [HelpURL(XRHelpURLConstants.k_XRRayInteractor)]
     public partial class XRRayInteractor : XRBaseControllerInteractor, ILineRenderable, IUIInteractor
     {
         /// <summary>
@@ -80,7 +80,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             SphereCast,
         }
 
-        [SerializeField]
+        // [SerializeField]
         LineType m_LineType = LineType.StraightLine;
         /// <summary>
         /// Gets or sets the type of ray cast.
@@ -91,7 +91,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_LineType = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_BlendVisualLinePoints = true;
         /// <summary>
         /// Blend the line sample points Unity uses for ray casting with the current pose of the controller.
@@ -111,7 +111,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_BlendVisualLinePoints = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_MaxRaycastDistance = 30f;
         /// <summary>
         /// Gets or sets the max distance of ray cast when the line type is a straight line.
@@ -124,7 +124,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_MaxRaycastDistance = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         Transform m_RayOriginTransform;
         /// <summary>
         /// The starting position and direction of any ray casts.
@@ -140,7 +140,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_RayOriginTransform = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         Transform m_ReferenceFrame;
         /// <summary>
         /// The reference frame of the curve to define the ground plane and up.
@@ -155,7 +155,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ReferenceFrame = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_Velocity = 16f;
         /// <summary>
         /// Initial velocity of the projectile. Increasing this value will make the curve reach further.
@@ -167,7 +167,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Velocity = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_Acceleration = 9.8f;
         /// <summary>
         /// Gravity of the projectile in the reference frame.
@@ -179,7 +179,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Acceleration = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_AdditionalGroundHeight = 0.1f;
         /// <summary>
         /// Additional height below ground level that the projectile will continue to.
@@ -192,7 +192,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AdditionalGroundHeight = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_AdditionalFlightTime = 0.5f;
         /// <summary>
         /// Additional flight time after the projectile lands at the adjusted ground level.
@@ -205,7 +205,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AdditionalFlightTime = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_EndPointDistance = 30f;
         /// <summary>
         /// Increase this value distance to make the end of the curve further from the start point.
@@ -217,7 +217,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_EndPointDistance = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_EndPointHeight = -10f;
         /// <summary>
         /// Decrease this value to make the end of the curve drop lower relative to the start point.
@@ -229,7 +229,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_EndPointHeight = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_ControlPointDistance = 10f;
         /// <summary>
         /// Increase this value to make the peak of the curve further from the start point.
@@ -241,7 +241,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ControlPointDistance = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_ControlPointHeight = 5f;
         /// <summary>
         /// Increase this value to make the peak of the curve higher relative to the start point.
@@ -253,8 +253,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_ControlPointHeight = value;
         }
 
-        [SerializeField]
-        [Range(k_MinSampleFrequency, k_MaxSampleFrequency)]
+        // [SerializeField]
+        // [Range(k_MinSampleFrequency, k_MaxSampleFrequency)]
         int m_SampleFrequency = 20;
         /// <summary>
         /// The number of sample points Unity uses to approximate curved paths.
@@ -273,7 +273,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SampleFrequency = SanitizeSampleFrequency(value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         HitDetectionType m_HitDetectionType = HitDetectionType.Raycast;
         /// <summary>
         /// Gets or sets which type of hit detection to use for the ray cast.
@@ -284,8 +284,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HitDetectionType = value;
         }
 
-        [SerializeField]
-        [Range(0.01f, 0.25f)]
+        // [SerializeField]
+        // [Range(0.01f, 0.25f)]
         float m_SphereCastRadius = 0.1f;
         /// <summary>
         /// Gets or sets radius used for sphere casting. Will use regular ray casting if set to 0 or less.
@@ -298,7 +298,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_SphereCastRadius = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         LayerMask m_RaycastMask = -1;
         /// <summary>
         /// Gets or sets layer mask used for limiting ray cast targets.
@@ -309,7 +309,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_RaycastMask = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         QueryTriggerInteraction m_RaycastTriggerInteraction = QueryTriggerInteraction.Ignore;
         /// <summary>
         /// Gets or sets type of interaction with trigger volumes via ray cast.
@@ -320,7 +320,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_RaycastTriggerInteraction = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_HitClosestOnly;
         /// <summary>
         /// Whether Unity considers only the closest Interactable as a valid target for interaction.
@@ -336,7 +336,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HitClosestOnly = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_HoverToSelect;
         /// <summary>
         /// Whether this Interactor will automatically select an Interactable after hovering over it for a period of time.
@@ -348,7 +348,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HoverToSelect = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_HoverTimeToSelect = 0.5f;
         /// <summary>
         /// Number of seconds for which this Interactor must hover over an Interactable to select it if Hover To Select is enabled.
@@ -360,7 +360,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_HoverTimeToSelect = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_EnableUIInteraction = true;
         /// <summary>
         /// Gets or sets whether this Interactor is able to affect UI.
@@ -378,7 +378,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_AllowAnchorControl = true;
         /// <summary>
         /// Allows the user to move the attach anchor point using the joystick.
@@ -392,7 +392,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_AllowAnchorControl = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         bool m_UseForceGrab = true;
         /// <summary>
         /// Force grab moves the object to your hand rather than interacting with it at a distance.
@@ -403,7 +403,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_UseForceGrab = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_RotateSpeed = 180f;
         /// <summary>
         /// Speed that the anchor is rotated.
@@ -416,7 +416,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_RotateSpeed = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_TranslateSpeed = 1f;
         /// <summary>
         /// Speed that the anchor is translated.
@@ -429,7 +429,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TranslateSpeed = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         Transform m_AnchorRotateReferenceFrame;
         /// <summary>
         /// The optional reference frame to define the up axis when rotating the attach anchor point.

@@ -12,12 +12,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
     /// Multiple input modules may be placed on the same event system. In such a setup,
     /// the modules will synchronize with each other.
     /// </remarks>
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_UIInputModule)]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_UIInputModule)]
     public abstract partial class UIInputModule : BaseInputModule
     {
-        [Header("Configuration")]
-        [SerializeField, FormerlySerializedAs("clickSpeed")]
-        [Tooltip("The maximum time (in seconds) between two mouse presses for it to be consecutive click.")]
+        // [Header("Configuration")]
+        // [SerializeField, FormerlySerializedAs("clickSpeed")]
+        // [Tooltip("The maximum time (in seconds) between two mouse presses for it to be consecutive click.")]
         float m_ClickSpeed = 0.3f;
         /// <summary>
         /// The maximum time (in seconds) between two mouse presses for it to be consecutive click.
@@ -28,8 +28,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_ClickSpeed = value;
         }
 
-        [SerializeField, FormerlySerializedAs("moveDeadzone")]
-        [Tooltip("The absolute value required by a move action on either axis required to trigger a move event.")]
+        // [SerializeField, FormerlySerializedAs("moveDeadzone")]
+        // [Tooltip("The absolute value required by a move action on either axis required to trigger a move event.")]
         float m_MoveDeadzone = 0.6f;
         /// <summary>
         /// The absolute value required by a move action on either axis required to trigger a move event.
@@ -40,8 +40,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_MoveDeadzone = value;
         }
 
-        [SerializeField, FormerlySerializedAs("repeatDelay")]
-        [Tooltip("The Initial delay (in seconds) between an initial move action and a repeated move action.")]
+        // [SerializeField, FormerlySerializedAs("repeatDelay")]
+        // [Tooltip("The Initial delay (in seconds) between an initial move action and a repeated move action.")]
         float m_RepeatDelay = 0.5f;
         /// <summary>
         /// The Initial delay (in seconds) between an initial move action and a repeated move action.
@@ -52,8 +52,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_RepeatDelay = value;
         }
 
-        [FormerlySerializedAs("repeatRate")]
-        [SerializeField, Tooltip("The speed (in seconds) that the move action repeats itself once repeating.")]
+        // [FormerlySerializedAs("repeatRate")]
+        // [SerializeField, Tooltip("The speed (in seconds) that the move action repeats itself once repeating.")]
         float m_RepeatRate = 0.1f;
         /// <summary>
         /// The speed (in seconds) that the move action repeats itself once repeating.
@@ -64,8 +64,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_RepeatRate = value;
         }
 
-        [FormerlySerializedAs("trackedDeviceDragThresholdMultiplier")]
-        [SerializeField, Tooltip("Scales the EventSystem.pixelDragThreshold, for tracked devices, to make selection easier.")]
+        // [FormerlySerializedAs("trackedDeviceDragThresholdMultiplier")]
+        // [SerializeField, Tooltip("Scales the EventSystem.pixelDragThreshold, for tracked devices, to make selection easier.")]
         float m_TrackedDeviceDragThresholdMultiplier = 1.4f;
         /// <summary>
         /// Scales the <see cref="EventSystem.pixelDragThreshold"/>, for tracked devices, to make selection easier.

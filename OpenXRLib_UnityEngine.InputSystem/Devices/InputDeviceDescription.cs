@@ -395,13 +395,13 @@ namespace UnityEngine.InputSystem.Layouts
             return json.CurrentPropertyHasValueEqualTo(propertyValue);
         }
 
-        [SerializeField] private string m_InterfaceName;
-        [SerializeField] private string m_DeviceClass;
-        [SerializeField] private string m_Manufacturer;
-        [SerializeField] private string m_Product;
-        [SerializeField] private string m_Serial;
-        [SerializeField] private string m_Version;
-        [SerializeField] private string m_Capabilities;
+        /* [SerializeField] */ private string m_InterfaceName;
+        /* [SerializeField] */ private string m_DeviceClass;
+        /* [SerializeField] */ private string m_Manufacturer;
+        /* [SerializeField] */ private string m_Product;
+        /* [SerializeField] */ private string m_Serial;
+        /* [SerializeField] */ private string m_Version;
+        /* [SerializeField] */ private string m_Capabilities;
 
         private struct DeviceDescriptionJson
         {

@@ -37,73 +37,73 @@ namespace UnityEngine.XR.OpenXR.Features.Interactions
         /// <summary>
         /// An Input System device based off the <see href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#_khronos_simple_controller_profile">Khronos Simple Controller interaction profile</see>. This device contains one haptic output motor.
         /// </summary>
-        [Preserve, InputControlLayout(displayName = "Khronos Simple Controller (OpenXR)", commonUsages = new[] { "LeftHand", "RightHand" })]
+        /* [Preserve] */[InputControlLayout(displayName = "Khronos Simple Controller (OpenXR)", commonUsages = new[] { "LeftHand", "RightHand" })]
         public class KHRSimpleController : XRControllerWithRumble
         {
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) that represents the <see cref="KHRSimpleControllerProfile.select"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(aliases = new[] { "Secondary", "selectbutton" }, usage = "PrimaryButton")]
+            /* [Preserve] */[InputControl(aliases = new[] { "Secondary", "selectbutton" }, usage = "PrimaryButton")]
             public ButtonControl select { get; private set; }
 
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) that represents the <see cref="KHRSimpleControllerProfile.menu"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(aliases = new[] { "Primary", "menubutton" }, usage ="MenuButton")]
+            /* [Preserve] */[InputControl(aliases = new[] { "Primary", "menubutton" }, usage ="MenuButton")]
             public ButtonControl menu { get; private set; }
 
             /// <summary>
             /// A <see cref="PoseControl"/> that represents information from the <see cref="KHRSimpleControllerProfile.grip"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(offset = 0, aliases = new[] { "device", "gripPose" }, usage = "Device")]
+            /* [Preserve] */[InputControl(offset = 0, aliases = new[] { "device", "gripPose" }, usage = "Device")]
             public PoseControl devicePose { get; private set; }
 
             /// <summary>
             /// A <see cref="PoseControl"/> that represents information from the <see cref="KHRSimpleControllerProfile.aim"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(offset = 0, alias = "aimPose", usage = "Pointer")]
+            /* [Preserve] */[InputControl(offset = 0, alias = "aimPose", usage = "Pointer")]
             public PoseControl pointer { get; private set; }
 
             /// <summary>
             /// A [ButtonControl](xref:UnityEngine.InputSystem.Controls.ButtonControl) required for backwards compatibility with the XRSDK layouts. This represents the overall tracking state of the device. This value is equivalent to mapping devicePose/isTracked.
             /// </summary>
-            [Preserve, InputControl(offset = 2)]
+            /* [Preserve] */[InputControl(offset = 2)]
             new public ButtonControl isTracked { get; private set; }
 
             /// <summary>
             /// A [IntegerControl](xref:UnityEngine.InputSystem.Controls.IntegerControl) required for backwards compatibility with the XRSDK layouts. This represents the bit flag set indicating what data is valid. This value is equivalent to mapping devicePose/trackingState.
             /// </summary>
-            [Preserve, InputControl(offset = 4)]
+            /* [Preserve] */[InputControl(offset = 4)]
             new public IntegerControl trackingState { get; private set; }
 
             /// <summary>
             /// A [Vector3Control](xref:UnityEngine.InputSystem.Controls.Vector3Control) required for backwards compatibility with the XRSDK layouts. This is the device position, or grip position. This value is equivalent to mapping devicePose/position.
             /// </summary>
-            [Preserve, InputControl(offset = 8, alias = "gripPosition")]
+            /* [Preserve] */[InputControl(offset = 8, alias = "gripPosition")]
             new public Vector3Control devicePosition { get; private set; }
 
             /// <summary>
             /// A [QuaternionControl](xref:UnityEngine.InputSystem.Controls.QuaternionControl) required for backwards compatibility with the XRSDK layouts. This is the device orientation, or grip orientation. This value is equivalent to mapping devicePose/rotation.
             /// </summary>
-            [Preserve, InputControl(offset = 20, alias = "gripOrientation")]
+            /* [Preserve] */[InputControl(offset = 20, alias = "gripOrientation")]
             new public QuaternionControl deviceRotation { get; private set; }
 
             /// <summary>
             /// A [Vector3Control](xref:UnityEngine.InputSystem.Controls.Vector3Control) required for backwards compatibility with the XRSDK layouts. This is the pointer position. This value is equivalent to mapping pointerPose/position.
             /// </summary>
-            [Preserve, InputControl(offset = 68)]
+            /* [Preserve] */[InputControl(offset = 68)]
             public Vector3Control pointerPosition { get; private set; }
 
             /// <summary>
             /// A [QuaternionControl](xref:UnityEngine.InputSystem.Controls.QuaternionControl) required for backwards compatibility with the XRSDK layouts. This is the pointer rotation. This value is equivalent to mapping pointerPose/rotation.
             /// </summary>
-            [Preserve, InputControl(offset = 80, alias = "pointerOrientation")]
+            /* [Preserve] */[InputControl(offset = 80, alias = "pointerOrientation")]
             public QuaternionControl pointerRotation { get; private set; }
 
             /// <summary>
             /// A <see cref="HapticControl"/> that represents the <see cref="KHRSimpleControllerProfile.haptic"/> binding.
             /// </summary>
-            [Preserve, InputControl(usage = "Haptic")]
+            /* [Preserve] */[InputControl(usage = "Haptic")]
             public HapticControl haptic { get; private set; }
 
             /// <inheritdoc  cref="OpenXRDevice"/>

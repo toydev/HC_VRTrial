@@ -33,11 +33,11 @@ namespace UnityEngine.InputSystem.OnScreen
         /// <remarks>
         /// This essentially allows having trigger-like buttons as on-screen controls.
         /// </remarks>
-        [SerializeField] private bool m_UsePressure;
+        /* [SerializeField] */ private bool m_UsePressure;
         */
 
         [InputControl(layout = "Button")]
-        [SerializeField]
+        /* [SerializeField] */
         private string m_ControlPath;
 
         protected override string controlPathInternal

@@ -20,13 +20,13 @@ namespace Unity.XR.CoreUtils
     /// and stores the <see cref="GameObject"/> that will be manipulated via locomotion.
     /// It is also used for offsetting the camera.
     /// </summary>
-    [AddComponentMenu("XR/XR Origin")]
-    [DisallowMultipleComponent]
-    [HelpURL("https://docs.unity3d.com/Packages/com.unity.xr.core-utils@2.0/api/Unity.XR.CoreUtils.XROrigin.html")]
+    // [AddComponentMenu("XR/XR Origin")]
+    // [DisallowMultipleComponent]
+    // [HelpURL("https://docs.unity3d.com/Packages/com.unity.xr.core-utils@2.0/api/Unity.XR.CoreUtils.XROrigin.html")]
     public class XROrigin : MonoBehaviour
     {
-        [SerializeField]
-        [Tooltip("The Camera to associate with the XR device.")]
+        // [SerializeField]
+        // [Tooltip("The Camera to associate with the XR device.")]
         Camera m_Camera;
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Unity.XR.CoreUtils
         //This is the average seated height, which is 44 inches.
         const float k_DefaultCameraYOffset = 1.1176f;
 
-        [SerializeField, FormerlySerializedAs("m_RigBaseGameObject")]
+        // [SerializeField, FormerlySerializedAs("m_RigBaseGameObject")]
         GameObject m_OriginBaseGameObject;
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Unity.XR.CoreUtils
             set => m_OriginBaseGameObject = value;
         }
 
-        [SerializeField]
+        // [SerializeField]
         GameObject m_CameraFloorOffsetObject;
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Unity.XR.CoreUtils
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         TrackingOriginMode m_RequestedTrackingOriginMode = TrackingOriginMode.NotSpecified;
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Unity.XR.CoreUtils
             }
         }
 
-        [SerializeField]
+        // [SerializeField]
         float m_CameraYOffset = k_DefaultCameraYOffset;
 
         /// <summary>

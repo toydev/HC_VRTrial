@@ -16,7 +16,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         internal const int k_LayerSize = 32;
         internal const int k_BuiltInLayerSize = 1;
 
-        [SerializeField]
+        // [SerializeField]
         string[] m_LayerNames;
 
         /// <summary>

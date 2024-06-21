@@ -612,9 +612,9 @@ namespace UnityEngine.InputSystem
             return !left.Equals(right);
         }
 
-        [SerializeField] internal string m_Name;
-        [SerializeField] internal string m_BindingGroup;
-        [SerializeField] internal DeviceRequirement[] m_DeviceRequirements;
+        /* [SerializeField] */ internal string m_Name;
+        /* [SerializeField] */ internal string m_BindingGroup;
+        /* [SerializeField] */ internal DeviceRequirement[] m_DeviceRequirements;
 
         /// <summary>
         /// The result of matching a list of <see cref="InputDevice">devices</see> against a list of
@@ -978,8 +978,8 @@ namespace UnityEngine.InputSystem
                 }
             }
 
-            [SerializeField] internal string m_ControlPath;
-            [SerializeField] internal Flags m_Flags;
+            /* [SerializeField] */ internal string m_ControlPath;
+            /* [SerializeField] */ internal Flags m_Flags;
 
             [Flags]
             internal enum Flags

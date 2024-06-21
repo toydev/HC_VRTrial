@@ -40,8 +40,8 @@ namespace UnityEngine.InputSystem.Interactions
         /// <remarks>
         /// If zero (default), defaults to <see cref="InputSettings.defaultButtonPressPoint"/>.
         /// </remarks>
-        [Tooltip("The amount of actuation a control requires before being considered pressed. If not set, default to "
-            + "'Default Press Point' in the global input settings.")]
+        // [Tooltip("The amount of actuation a control requires before being considered pressed. If not set, default to "
+        //     + "'Default Press Point' in the global input settings.")]
         public float pressPoint;
 
         ////REVIEW: this should really be named "pressBehavior"
@@ -53,8 +53,8 @@ namespace UnityEngine.InputSystem.Interactions
         /// With ReleaseOnly, the action is performed on release. With PressAndRelease, the action is
         /// performed on press and on release.
         /// </remarks>
-        [Tooltip("Determines how button presses trigger the action. By default (PressOnly), the action is performed on press. "
-            + "With ReleaseOnly, the action is performed on release. With PressAndRelease, the action is performed on press and release.")]
+        // [Tooltip("Determines how button presses trigger the action. By default (PressOnly), the action is performed on press. "
+        //     + "With ReleaseOnly, the action is performed on release. With PressAndRelease, the action is performed on press and release.")]
         public PressBehavior behavior;
 
         private float pressPointOrDefault => pressPoint > 0 ? pressPoint : ButtonControl.s_GlobalDefaultButtonPressPoint;

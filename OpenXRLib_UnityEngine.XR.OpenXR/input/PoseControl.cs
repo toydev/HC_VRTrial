@@ -50,42 +50,42 @@ namespace UnityEngine.XR.OpenXR.Input
         /// <summary>
         /// Separate access to the <see cref="Pose.isTracked"/> value.
         /// </summary>
-        [Preserve]
+        // [Preserve]
         [InputControl(offset = 0)]
         public ButtonControl isTracked { get; private set; }
 
         /// <summary>
         /// Separate access to the <see cref="Pose.trackingState"/> value.
         /// </summary>
-        [Preserve]
+        // [Preserve]
         [InputControl(offset = 4)]
         public IntegerControl trackingState { get; private set; }
 
         /// <summary>
         /// Separate access to the <see cref="Pose.position"/> value.
         /// </summary>
-        [Preserve]
+        // [Preserve]
         [InputControl(offset = 8, noisy = true)]
         public Vector3Control position { get; private set; }
 
         /// <summary>
         /// Separate access to the <see cref="Pose.rotation"/> value.
         /// </summary>
-        [Preserve]
+        // [Preserve]
         [InputControl(offset = 20, noisy = true)]
         public QuaternionControl rotation { get; private set; }
 
         /// <summary>
         /// Separate access to the <see cref="Pose.velocity"/> value.
         /// </summary>
-        [Preserve]
+        // [Preserve]
         [InputControl(offset = 36, noisy = true)]
         public Vector3Control velocity { get; private set; }
 
         /// <summary>
         /// Separate access to the <see cref="Pose.angularVelocity"/> value.
         /// </summary>
-        [Preserve]
+        // [Preserve]
         [InputControl(offset = 48, noisy = true)]
         public Vector3Control angularVelocity { get; private set; }
 

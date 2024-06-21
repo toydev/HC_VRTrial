@@ -9,9 +9,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// that update the current set of valid targets for this interactor. This component must have a collision volume that is
     /// set to be a trigger to work.
     /// </summary>
-    [DisallowMultipleComponent]
-    [AddComponentMenu("XR/XR Direct Interactor", 11)]
-    [HelpURL(XRHelpURLConstants.k_XRDirectInteractor)]
+    // [DisallowMultipleComponent]
+    // [AddComponentMenu("XR/XR Direct Interactor", 11)]
+    // [HelpURL(XRHelpURLConstants.k_XRDirectInteractor)]
     public partial class XRDirectInteractor : XRBaseControllerInteractor
     {
         /// <summary>

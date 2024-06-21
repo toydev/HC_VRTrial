@@ -8,10 +8,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// and stores the <see cref="GameObject"/> that will be manipulated via locomotion.
     /// It is also used for offsetting the camera.
     /// </summary>
-    [AddComponentMenu("")]
-    [DisallowMultipleComponent]
+    // [AddComponentMenu("")]
+    // [DisallowMultipleComponent]
     [Obsolete("XRRig has been deprecated. Use the XROrigin component instead.")]
-    [HelpURL(XRHelpURLConstants.k_XRRig)]
+    // [HelpURL(XRHelpURLConstants.k_XRRig)]
     public partial class XRRig : XROrigin
     {
         /// <summary>

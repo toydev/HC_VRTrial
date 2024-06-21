@@ -746,12 +746,12 @@ namespace UnityEngine.InputSystem.UI
 
         [FormerlySerializedAs("m_RepeatDelay")]
         [Tooltip("The Initial delay (in seconds) between an initial move action and a repeated move action.")]
-        [SerializeField]
+        /* [SerializeField] */
         private float m_MoveRepeatDelay = 0.5f;
 
         [FormerlySerializedAs("m_RepeatRate")]
         [Tooltip("The speed (in seconds) that the move action repeats itself once repeating (max 1 per frame).")]
-        [SerializeField]
+        /* [SerializeField] */
         private float m_MoveRepeatRate = 0.1f;
 
         [Tooltip("Scales the Eventsystem.DragThreshold, for tracked devices, to make selection easier.")]
@@ -759,7 +759,7 @@ namespace UnityEngine.InputSystem.UI
         private float m_TrackedDeviceDragThresholdMultiplier = 2.0f;
 
         [Tooltip("Transform representing the real world origin for tracking devices. When using the XR Interaction Toolkit, this should be pointing to the XR Rig's Transform.")]
-        [SerializeField]
+        /* [SerializeField] */
         private Transform m_XRTrackingOrigin;
 
         /// <summary>
@@ -2271,8 +2271,8 @@ namespace UnityEngine.InputSystem.UI
         [SerializeField, HideInInspector] private InputActionReference m_TrackedDevicePositionAction;
         [SerializeField, HideInInspector] private InputActionReference m_TrackedDeviceOrientationAction;
 
-        [SerializeField] private bool m_DeselectOnBackgroundClick = true;
-        [SerializeField] private UIPointerBehavior m_PointerBehavior = UIPointerBehavior.SingleMouseOrPenButMultiTouchAndTrack;
+        /* [SerializeField] */ private bool m_DeselectOnBackgroundClick = true;
+        /* [SerializeField] */ private UIPointerBehavior m_PointerBehavior = UIPointerBehavior.SingleMouseOrPenButMultiTouchAndTrack;
         [SerializeField, HideInInspector] internal CursorLockBehavior m_CursorLockBehavior = CursorLockBehavior.OutsideScreen;
 
         private static Dictionary<InputAction, InputActionReferenceState> s_InputActionReferenceCounts = new Dictionary<InputAction, InputActionReferenceState>();

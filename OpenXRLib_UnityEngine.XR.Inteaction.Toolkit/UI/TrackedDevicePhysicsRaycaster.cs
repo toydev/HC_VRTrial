@@ -14,8 +14,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
     /// Designed to work with <see cref="XRUIInputModule"/>, which configures the final screen position once all hits are tallied.
     /// </remarks>
     /// <seealso cref="PhysicsRaycaster"/>
-    [AddComponentMenu("Event/Tracked Device Physics Raycaster", 11)]
-    [HelpURL(XRHelpURLConstants.k_TrackedDevicePhysicsRaycaster)]
+    // [AddComponentMenu("Event/Tracked Device Physics Raycaster", 11)]
+    // [HelpURL(XRHelpURLConstants.k_TrackedDevicePhysicsRaycaster)]
     public class TrackedDevicePhysicsRaycaster : BaseRaycaster
     {
         /// <summary>
@@ -89,8 +89,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
                 => a.distance.CompareTo(b.distance);
         }
 
-        [SerializeField]
-        [Tooltip("Specifies whether the ray cast should hit triggers.")]
+        // [SerializeField]
+        // [Tooltip("Specifies whether the ray cast should hit triggers.")]
         QueryTriggerInteraction m_RaycastTriggerInteraction = QueryTriggerInteraction.Ignore;
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_RaycastTriggerInteraction = value;
         }
 
-        [SerializeField, Tooltip("Layer mask used to filter events. Always combined with the ray cast mask of the UI interactor.")]
+        // [SerializeField, Tooltip("Layer mask used to filter events. Always combined with the ray cast mask of the UI interactor.")]
         LayerMask m_EventMask = k_EverythingLayerMask;
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_EventMask = value;
         }
 
-        [SerializeField, Tooltip("The max number of intersections allowed. Value will be clamped to greater than 0.")]
+        // [SerializeField, Tooltip("The max number of intersections allowed. Value will be clamped to greater than 0.")]
         int m_MaxRayIntersections = 10;
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_MaxRayIntersections = Math.Max(value, 1);
         }
 
-        [SerializeField, Tooltip("The event camera for this ray caster. The event camera is used to determine the screen position and display of the ray cast results.")]
+        // [SerializeField, Tooltip("The event camera for this ray caster. The event camera is used to determine the screen position and display of the ray cast results.")]
         Camera m_EventCamera;
 
         /// <summary>

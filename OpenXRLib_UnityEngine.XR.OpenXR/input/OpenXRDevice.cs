@@ -8,7 +8,7 @@ namespace UnityEngine.XR.OpenXR.Input
     /// OpenXR Input System device
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputDevice"/>
-    [Preserve, InputControlLayout(displayName = "OpenXR Action Map")]
+    /* [Preserve] */[InputControlLayout(displayName = "OpenXR Action Map")]
     public abstract class OpenXRDevice : UnityEngine.InputSystem.InputDevice
     {
         /// <summary>

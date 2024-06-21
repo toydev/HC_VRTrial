@@ -21,10 +21,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// </remarks>
     /// <seealso cref="IXRInteractor"/>
     /// <seealso cref="IXRInteractable"/>
-    [AddComponentMenu("XR/XR Interaction Manager", 11)]
-    [DisallowMultipleComponent]
-    [DefaultExecutionOrder(XRInteractionUpdateOrder.k_InteractionManager)]
-    [HelpURL(XRHelpURLConstants.k_XRInteractionManager)]
+    // [AddComponentMenu("XR/XR Interaction Manager", 11)]
+    // [DisallowMultipleComponent]
+    // [DefaultExecutionOrder(XRInteractionUpdateOrder.k_InteractionManager)]
+    // [HelpURL(XRHelpURLConstants.k_XRInteractionManager)]
     public partial class XRInteractionManager : MonoBehaviour
     {
         /// <summary>
@@ -246,7 +246,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// Delegate method used to register for "Just Before Render" input updates for VR devices.
         /// </summary>
         /// <seealso cref="Application"/>
-        [BeforeRenderOrder(XRInteractionUpdateOrder.k_BeforeRenderOrder)]
+        // [BeforeRenderOrder(XRInteractionUpdateOrder.k_BeforeRenderOrder)]
         protected virtual void OnBeforeRender()
         {
             FlushRegistration();

@@ -8,8 +8,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     [Serializable]
     public partial struct InteractionState
     {
-        [Range(0f, 1f)]
-        [SerializeField]
+        // [Range(0f, 1f)]
+        // [SerializeField]
         float m_Value;
 
         /// <summary>
@@ -20,8 +20,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             get => m_Value;
             set => m_Value = value;
         }
-        
-        [SerializeField]
+
+        // [SerializeField]
         bool m_Active;
 
         /// <summary>

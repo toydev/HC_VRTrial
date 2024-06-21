@@ -22,7 +22,7 @@ namespace UnityEngine.InputSystem.Processors
         /// <summary>
         /// Scale factor to apply to incoming input values. Defaults to 1 (no scaling).
         /// </summary>
-        [Tooltip("Scale factor to multiply incoming float values by.")]
+        // [Tooltip("Scale factor to multiply incoming float values by.")]
         public float factor = 1;
 
         /// <summary>

@@ -474,34 +474,34 @@ namespace UnityEngine.InputSystem.UI
         [Header("Cursor")]
         [Tooltip("Whether the component should set the cursor position of the hardware mouse cursor, if one is available. If so, "
             + "the software cursor pointed (to by 'Cursor Graphic') will be hidden.")]
-        [SerializeField] private CursorMode m_CursorMode;
+        /* [SerializeField] */ private CursorMode m_CursorMode;
         [Tooltip("The graphic that represents the software cursor. This is hidden if a hardware cursor (see 'Cursor Mode') is used.")]
-        [SerializeField] private Graphic m_CursorGraphic;
+        /* [SerializeField] */ private Graphic m_CursorGraphic;
         [Tooltip("The transform for the software cursor. Will only be set if a software cursor is used (see 'Cursor Mode'). Moving the cursor "
             + "updates the anchored position of the transform.")]
-        [SerializeField] private RectTransform m_CursorTransform;
+        /* [SerializeField] */ private RectTransform m_CursorTransform;
 
         [Header("Motion")]
         [Tooltip("Speed in pixels per second with which to move the cursor. Scaled by the input from 'Stick Action'.")]
-        [SerializeField] private float m_CursorSpeed = 400;
+        /* [SerializeField] */ private float m_CursorSpeed = 400;
         [Tooltip("Scale factor to apply to 'Scroll Wheel Action' when setting the mouse 'scrollWheel' control.")]
-        [SerializeField] private float m_ScrollSpeed = 45;
+        /* [SerializeField] */ private float m_ScrollSpeed = 45;
 
         [Space(10)]
         [Tooltip("Vector2 action that moves the cursor left/right (X) and up/down (Y) on screen.")]
-        [SerializeField] private InputActionProperty m_StickAction;
+        /* [SerializeField] */ private InputActionProperty m_StickAction;
         [Tooltip("Button action that triggers a left-click on the mouse.")]
-        [SerializeField] private InputActionProperty m_LeftButtonAction;
+        /* [SerializeField] */ private InputActionProperty m_LeftButtonAction;
         [Tooltip("Button action that triggers a middle-click on the mouse.")]
-        [SerializeField] private InputActionProperty m_MiddleButtonAction;
+        /* [SerializeField] */ private InputActionProperty m_MiddleButtonAction;
         [Tooltip("Button action that triggers a right-click on the mouse.")]
-        [SerializeField] private InputActionProperty m_RightButtonAction;
+        /* [SerializeField] */ private InputActionProperty m_RightButtonAction;
         [Tooltip("Button action that triggers a forward button (button #4) click on the mouse.")]
-        [SerializeField] private InputActionProperty m_ForwardButtonAction;
+        /* [SerializeField] */ private InputActionProperty m_ForwardButtonAction;
         [Tooltip("Button action that triggers a back button (button #5) click on the mouse.")]
-        [SerializeField] private InputActionProperty m_BackButtonAction;
+        /* [SerializeField] */ private InputActionProperty m_BackButtonAction;
         [Tooltip("Vector2 action that feeds into the mouse 'scrollWheel' action (scaled by 'Scroll Speed').")]
-        [SerializeField] private InputActionProperty m_ScrollWheelAction;
+        /* [SerializeField] */ private InputActionProperty m_ScrollWheelAction;
 
         private Canvas m_Canvas; // Canvas that gives the motion range for the software cursor.
         private Mouse m_VirtualMouse;

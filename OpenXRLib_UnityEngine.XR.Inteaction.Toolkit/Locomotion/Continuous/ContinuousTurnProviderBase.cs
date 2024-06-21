@@ -10,8 +10,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// <seealso cref="SnapTurnProviderBase"/>
     public abstract class ContinuousTurnProviderBase : LocomotionProvider
     {
-        [SerializeField]
-        [Tooltip("The number of degrees/second clockwise to rotate when turning clockwise.")]
+        // [SerializeField]
+        // [Tooltip("The number of degrees/second clockwise to rotate when turning clockwise.")]
         float m_TurnSpeed = 60f;
         /// <summary>
         /// The number of degrees/second clockwise to rotate when turning clockwise.

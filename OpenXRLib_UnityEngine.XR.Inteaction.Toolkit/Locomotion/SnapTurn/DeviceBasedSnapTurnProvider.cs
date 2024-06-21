@@ -6,8 +6,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// A locomotion provider that allows the user to rotate their rig using a specified 2D axis input.
     /// The provider can take input from multiple different devices (such as Left and Right hands).
     /// </summary>
-    [AddComponentMenu("XR/Locomotion/Snap Turn Provider (Device-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_DeviceBasedSnapTurnProvider)]
+    // [AddComponentMenu("XR/Locomotion/Snap Turn Provider (Device-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_DeviceBasedSnapTurnProvider)]
     public class DeviceBasedSnapTurnProvider : SnapTurnProviderBase
     {
         /// <summary>
@@ -26,8 +26,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Secondary2DAxis = 1,
         }
 
-        [SerializeField]
-        [Tooltip("The 2D Input Axis on the controller devices that will be used to trigger a snap turn.")]
+        // [SerializeField]
+        // [Tooltip("The 2D Input Axis on the controller devices that will be used to trigger a snap turn.")]
         InputAxes m_TurnUsage = InputAxes.Primary2DAxis;
         /// <summary>
         /// The 2D Input Axis on the controller devices that will be used to trigger a snap turn.
@@ -38,8 +38,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_TurnUsage = value;
         }
 
-        [SerializeField]
-        [Tooltip("A list of controllers that allow Snap Turn.  If an XRController is not enabled, or does not have input actions enabled, snap turn will not work.")]
+        // [SerializeField]
+        // [Tooltip("A list of controllers that allow Snap Turn.  If an XRController is not enabled, or does not have input actions enabled, snap turn will not work.")]
         List<XRBaseController> m_Controllers = new List<XRBaseController>();
         /// <summary>
         /// The XRControllers that allow SnapTurn.  An XRController must be enabled in order to Snap Turn.
@@ -50,8 +50,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_Controllers = value;
         }
 
-        [SerializeField]
-        [Tooltip("The deadzone that the controller movement will have to be above to trigger a snap turn.")]
+        // [SerializeField]
+        // [Tooltip("The deadzone that the controller movement will have to be above to trigger a snap turn.")]
         float m_DeadZone = 0.75f;
         /// <summary>
         /// The deadzone that the controller movement will have to be above to trigger a snap turn.

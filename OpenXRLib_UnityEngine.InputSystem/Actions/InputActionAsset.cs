@@ -914,8 +914,8 @@ namespace UnityEngine.InputSystem
 
         ////TODO: ApplyBindingOverrides, RemoveBindingOverrides, RemoveAllBindingOverrides
 
-        [SerializeField] internal InputActionMap[] m_ActionMaps;
-        [SerializeField] internal InputControlScheme[] m_ControlSchemes;
+        /* [SerializeField] */ internal InputActionMap[] m_ActionMaps;
+        /* [SerializeField] */ internal InputControlScheme[] m_ControlSchemes;
 
         ////TODO: make this persistent across domain reloads
         /// <summary>

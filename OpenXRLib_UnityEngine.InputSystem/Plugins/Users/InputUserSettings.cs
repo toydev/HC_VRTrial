@@ -100,6 +100,6 @@ namespace UnityEngine.InputSystem.Users
             //set overrideProcessors and redirectPaths on respective bindings
         }
 
-        [SerializeField] private string m_CustomBindings;
+        /* [SerializeField] */ private string m_CustomBindings;
     }
 }

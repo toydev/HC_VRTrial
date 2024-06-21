@@ -16,7 +16,7 @@ namespace UnityEngine.InputSystem.XR
     /// externally defined must be managed externally from this behavior.
     /// </remarks>
     [Serializable]
-    [AddComponentMenu("XR/Tracked Pose Driver (Input System)")]
+    // [AddComponentMenu("XR/Tracked Pose Driver (Input System)")]
     public class TrackedPoseDriver : MonoBehaviour, ISerializationCallbackReceiver
     {
         /// <summary>
@@ -41,7 +41,7 @@ namespace UnityEngine.InputSystem.XR
             PositionOnly,
         }
 
-        [SerializeField]
+        /* [SerializeField] */
         TrackingType m_TrackingType;
         /// <summary>
         /// The tracking type being used by the Tracked Pose Driver
@@ -80,7 +80,7 @@ namespace UnityEngine.InputSystem.XR
             BeforeRender,
         }
 
-        [SerializeField]
+        /* [SerializeField] */
         UpdateType m_UpdateType = UpdateType.UpdateAndBeforeRender;
         /// <summary>
         /// The update type being used by the Tracked Pose Driver
@@ -93,7 +93,7 @@ namespace UnityEngine.InputSystem.XR
             set => m_UpdateType = value;
         }
 
-        [SerializeField]
+        /* [SerializeField] */
         InputActionProperty m_PositionInput;
         /// <summary>
         /// The action to read the position value of a tracked device.
@@ -114,7 +114,7 @@ namespace UnityEngine.InputSystem.XR
             }
         }
 
-        [SerializeField]
+        /* [SerializeField] */
         InputActionProperty m_RotationInput;
         /// <summary>
         /// The action to read the rotation value of a tracked device.
@@ -352,7 +352,7 @@ namespace UnityEngine.InputSystem.XR
         // ReSharper disable UnassignedField.Local
 #pragma warning disable 0649
         [Obsolete]
-        [SerializeField, HideInInspector]
+        // [SerializeField, HideInInspector]
         InputAction m_PositionAction;
         public InputAction positionAction
         {
@@ -361,7 +361,7 @@ namespace UnityEngine.InputSystem.XR
         }
 
         [Obsolete]
-        [SerializeField, HideInInspector]
+        // [SerializeField, HideInInspector]
         InputAction m_RotationAction;
         public InputAction rotationAction
         {
@@ -374,7 +374,7 @@ namespace UnityEngine.InputSystem.XR
         /// <summary>
         /// Stores whether the fields of type <see cref="InputAction"/> have been migrated to fields of type <see cref="InputActionProperty"/>.
         /// </summary>
-        [SerializeField, HideInInspector]
+        // [SerializeField, HideInInspector]
         bool m_HasMigratedActions;
 
         /// <summary>

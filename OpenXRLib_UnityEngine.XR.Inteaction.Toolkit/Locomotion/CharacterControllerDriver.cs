@@ -6,12 +6,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// Controls a <see cref="CharacterController"/> height
     /// upon locomotion events of a <see cref="LocomotionProvider"/>.
     /// </summary>
-    [AddComponentMenu("XR/Locomotion/Character Controller Driver", 11)]
-    [HelpURL(XRHelpURLConstants.k_CharacterControllerDriver)]
+    // [AddComponentMenu("XR/Locomotion/Character Controller Driver", 11)]
+    // [HelpURL(XRHelpURLConstants.k_CharacterControllerDriver)]
     public partial class CharacterControllerDriver : MonoBehaviour
     {
-        [SerializeField]
-        [Tooltip("The Locomotion Provider object to listen to.")]
+        // [SerializeField]
+        // [Tooltip("The Locomotion Provider object to listen to.")]
         LocomotionProvider m_LocomotionProvider;
         /// <summary>
         /// The <see cref="LocomotionProvider"/> object to listen to.
@@ -30,8 +30,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField]
-        [Tooltip("The minimum height of the character's capsule that will be set by this behavior.")]
+        // [SerializeField]
+        // [Tooltip("The minimum height of the character's capsule that will be set by this behavior.")]
         float m_MinHeight;
         /// <summary>
         /// The minimum height of the character's capsule that this behavior sets.
@@ -44,8 +44,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_MinHeight = value;
         }
 
-        [SerializeField]
-        [Tooltip("The maximum height of the character's capsule that will be set by this behavior.")]
+        // [SerializeField]
+        // [Tooltip("The maximum height of the character's capsule that will be set by this behavior.")]
         float m_MaxHeight = float.PositiveInfinity;
         /// <summary>
         /// The maximum height of the character's capsule that this behavior sets.

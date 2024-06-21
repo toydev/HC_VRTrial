@@ -37,13 +37,13 @@ namespace UnityEngine.XR.OpenXR.Features.Interactions
         /// <summary>
         /// An Input System device based off the <see href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#_eye_gaze_input">Eye Gaze Interaction Profile</see>. Enabled through <see cref="EyeGazeInteraction"/>.
         /// </summary>
-        [Preserve, InputControlLayout(displayName = "Eye Gaze (OpenXR)", isGenericTypeOfDevice = true)]
+        /* [Preserve] */[InputControlLayout(displayName = "Eye Gaze (OpenXR)", isGenericTypeOfDevice = true)]
         public class EyeGazeDevice : OpenXRDevice
         {
             /// <summary>
             /// A <see cref="PoseControl"/> representing the <see cref="EyeGazeInteraction.pose"/> OpenXR binding.
             /// </summary>
-            [Preserve, InputControl(offset = 0, usages = new [] {"Device", "gaze"})]
+            /* [Preserve] */[InputControl(offset = 0, usages = new [] {"Device", "gaze"})]
             public PoseControl pose { get; private set; }
 
             /// <inheritdoc/>

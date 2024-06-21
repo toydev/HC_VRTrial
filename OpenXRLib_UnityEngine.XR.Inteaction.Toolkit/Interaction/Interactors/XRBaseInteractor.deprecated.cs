@@ -43,7 +43,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnHoverEnter")]
+        // [SerializeField, FormerlySerializedAs("m_OnHoverEnter")]
         XRInteractorEvent m_OnHoverEntered = new XRInteractorEvent();
         /// <summary>
         /// (Deprecated) Gets or sets the event that Unity calls when this Interactor begins hovering over an Interactable.
@@ -56,7 +56,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnHoverEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnHoverExit")]
+        // [SerializeField, FormerlySerializedAs("m_OnHoverExit")]
         XRInteractorEvent m_OnHoverExited = new XRInteractorEvent();
         /// <summary>
         /// (Deprecated) Gets or sets the event that Unity calls when this Interactor ends hovering over an Interactable.
@@ -69,7 +69,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnHoverExited = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnSelectEnter")]
+        // [SerializeField, FormerlySerializedAs("m_OnSelectEnter")]
         XRInteractorEvent m_OnSelectEntered = new XRInteractorEvent();
         /// <summary>
         /// (Deprecated) Gets or sets the event that Unity calls when this Interactor begins selecting an Interactable.
@@ -82,7 +82,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => m_OnSelectEntered = value;
         }
 
-        [SerializeField, FormerlySerializedAs("m_OnSelectExit")]
+        // [SerializeField, FormerlySerializedAs("m_OnSelectExit")]
         XRInteractorEvent m_OnSelectExited = new XRInteractorEvent();
         /// <summary>
         /// (Deprecated) Gets or sets the event that Unity calls when this Interactor ends selecting an Interactable.

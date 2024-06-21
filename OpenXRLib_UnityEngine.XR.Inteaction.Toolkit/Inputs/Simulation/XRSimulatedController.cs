@@ -8,7 +8,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation
     /// <summary>
     /// An input device representing a simulated XR handed controller.
     /// </summary>
-    [InputControlLayout(stateType = typeof(XRSimulatedControllerState), commonUsages = new[] { "LeftHand", "RightHand" }, isGenericTypeOfDevice = false, displayName = "XR Simulated Controller"), Preserve]
+    [InputControlLayout(stateType = typeof(XRSimulatedControllerState), commonUsages = new[] { "LeftHand", "RightHand" }, isGenericTypeOfDevice = false, displayName = "XR Simulated Controller")]
+    // [Preserve]
     public class XRSimulatedController : InputSystem.XR.XRController
     {
         /// <summary>

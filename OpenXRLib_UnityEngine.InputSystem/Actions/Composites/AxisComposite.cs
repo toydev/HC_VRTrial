@@ -83,7 +83,7 @@ namespace UnityEngine.InputSystem.Composites
         /// <seealso cref="negative"/>
         // ReSharper disable once MemberCanBePrivate.Global
         // ReSharper disable once FieldCanBeMadeReadOnly.Global
-        [Tooltip("Value to return when the negative side is fully actuated.")]
+        // [Tooltip("Value to return when the negative side is fully actuated.")]
         public float minValue = -1;
 
         /// <summary>
@@ -105,16 +105,16 @@ namespace UnityEngine.InputSystem.Composites
         /// <seealso cref="positive"/>
         // ReSharper disable once MemberCanBePrivate.Global
         // ReSharper disable once FieldCanBeMadeReadOnly.Global
-        [Tooltip("Value to return when the positive side is fully actuated.")]
+        // [Tooltip("Value to return when the positive side is fully actuated.")]
         public float maxValue = 1;
 
         /// <summary>
         /// If both the <see cref="positive"/> and <see cref="negative"/> button are actuated, this
         /// determines which value is returned from the composite.
         /// </summary>
-        [Tooltip("If both the positive and negative side are actuated, decides what value to return. 'Neither' (default) means that " +
-            "the resulting value is the midpoint between min and max. 'Positive' means that max will be returned. 'Negative' means that " +
-            "min will be returned.")]
+        // [Tooltip("If both the positive and negative side are actuated, decides what value to return. 'Neither' (default) means that " +
+        //     "the resulting value is the midpoint between min and max. 'Positive' means that max will be returned. 'Negative' means that " +
+        //     "min will be returned.")]
         public WhichSideWins whichSideWins = WhichSideWins.Neither;
 
         /// <summary>

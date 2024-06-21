@@ -10,8 +10,8 @@ namespace UnityEngine.InputSystem.Linux
     [Serializable]
     internal class SDLLayoutBuilder
     {
-        [SerializeField] private string m_ParentLayout;
-        [SerializeField] private SDLDeviceDescriptor m_Descriptor;
+        /* [SerializeField] */ private string m_ParentLayout;
+        /* [SerializeField] */ private SDLDeviceDescriptor m_Descriptor;
 
         internal static string OnFindLayoutForDevice(ref InputDeviceDescription description, string matchedLayout,
             InputDeviceExecuteCommandDelegate executeCommandDelegate)

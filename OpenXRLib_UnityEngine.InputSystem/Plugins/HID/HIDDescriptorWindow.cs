@@ -90,9 +90,9 @@ namespace UnityEngine.InputSystem.HID.Editor
         [NonSerialized] private HIDDescriptorTreeView m_TreeView;
         [NonSerialized] private GUIContent m_Label;
 
-        [SerializeField] private int m_DeviceId;
-        [SerializeField] private InputDeviceDescription m_DeviceDescription;
-        [SerializeField] private TreeViewState m_TreeViewState;
+        /* [SerializeField] */ private int m_DeviceId;
+        /* [SerializeField] */ private InputDeviceDescription m_DeviceDescription;
+        /* [SerializeField] */ private TreeViewState m_TreeViewState;
 
         private void AddToList()
         {

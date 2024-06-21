@@ -29,9 +29,9 @@ namespace UnityEngine.InputSystem.EnhancedTouch
     /// Adds a <see cref="Touchscreen"/> with input simulated from other types of <see cref="Pointer"/> devices (e.g. <see cref="Mouse"/>
     /// or <see cref="Pen"/>).
     /// </summary>
-    [AddComponentMenu("Input/Debug/Touch Simulation")]
-    [ExecuteInEditMode]
-    [HelpURL(InputSystem.kDocUrl + "/manual/Touch.html#touch-simulation")]
+    // [AddComponentMenu("Input/Debug/Touch Simulation")]
+    // [ExecuteInEditMode]
+    // [HelpURL(InputSystem.kDocUrl + "/manual/Touch.html#touch-simulation")]
     #if UNITY_EDITOR
     [InitializeOnLoad]
     #endif

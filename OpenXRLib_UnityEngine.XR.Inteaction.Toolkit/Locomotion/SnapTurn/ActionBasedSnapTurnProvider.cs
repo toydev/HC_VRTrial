@@ -8,12 +8,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// A locomotion provider that allows the user to rotate their rig using a 2D axis input
     /// from an input system action.
     /// </summary>
-    [AddComponentMenu("XR/Locomotion/Snap Turn Provider (Action-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_ActionBasedSnapTurnProvider)]
+    // [AddComponentMenu("XR/Locomotion/Snap Turn Provider (Action-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_ActionBasedSnapTurnProvider)]
     public class ActionBasedSnapTurnProvider : SnapTurnProviderBase
     {
-        [SerializeField]
-        [Tooltip("The Input System Action that will be used to read Snap Turn data from the left hand controller. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action that will be used to read Snap Turn data from the left hand controller. Must be a Value Vector2 Control.")]
         InputActionProperty m_LeftHandSnapTurnAction;
         /// <summary>
         /// The Input System Action that Unity uses to read Snap Turn data sent from the left hand controller. Must be a <see cref="InputActionType.Value"/> <see cref="Vector2Control"/> Control.
@@ -24,8 +24,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_LeftHandSnapTurnAction, value);
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action that will be used to read Snap Turn data from the right hand controller. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action that will be used to read Snap Turn data from the right hand controller. Must be a Value Vector2 Control.")]
         InputActionProperty m_RightHandSnapTurnAction;
         /// <summary>
         /// The Input System Action that Unity uses to read Snap Turn data sent from the right hand controller. Must be a <see cref="InputActionType.Value"/> <see cref="Vector2Control"/> Control.

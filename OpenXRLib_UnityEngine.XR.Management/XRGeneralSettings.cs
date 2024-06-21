@@ -18,11 +18,11 @@ namespace UnityEngine.XR.Management
         public static string k_SettingsKey = "com.unity.xr.management.loader_settings";
         internal static XRGeneralSettings s_RuntimeSettingsInstance = null;
 
-        [SerializeField]
+        // [SerializeField]
         internal XRManagerSettings m_LoaderManagerInstance = null;
 
-        [SerializeField]
-        [Tooltip("Toggling this on/off will enable/disable the automatic startup of XR at run time.")]
+        // [SerializeField]
+        // [Tooltip("Toggling this on/off will enable/disable the automatic startup of XR at run time.")]
         internal bool m_InitManagerOnStart = true;
 
         /// <summary>The current active manager used to manage XR lifetime.</summary>
@@ -138,7 +138,7 @@ namespace UnityEngine.XR.Management
             DeInitXRSDK();
         }
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         internal static void AttemptInitializeXRSDKOnLoad()
         {
             XRGeneralSettings instance = XRGeneralSettings.Instance;
@@ -148,7 +148,7 @@ namespace UnityEngine.XR.Management
             instance.InitXRSDK();
         }
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
         internal static void AttemptStartXRSDKOnBeforeSplashScreen()
         {
             XRGeneralSettings instance = XRGeneralSettings.Instance;

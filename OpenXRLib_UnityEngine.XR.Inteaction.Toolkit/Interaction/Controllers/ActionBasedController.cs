@@ -17,11 +17,11 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// input actions in an Input Action Asset are not enabled by default.
     /// </remarks>
     /// <seealso cref="XRBaseController"/>
-    [AddComponentMenu("XR/XR Controller (Action-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_ActionBasedController)]
+    // [AddComponentMenu("XR/XR Controller (Action-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_ActionBasedController)]
     public partial class ActionBasedController : XRBaseController
     {
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_PositionAction;
         /// <summary>
         /// The Input System action to use for Position Tracking for this GameObject. Must be a <see cref="Vector3Control"/> Control.
@@ -32,7 +32,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_PositionAction, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_RotationAction;
         /// <summary>
         /// The Input System action to use for Rotation Tracking for this GameObject. Must be a <see cref="QuaternionControl"/> Control.
@@ -43,7 +43,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_RotationAction, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_TrackingStateAction;
         /// <summary>
         /// The Input System action to get the Tracking State when updating this GameObject position and rotation;
@@ -57,7 +57,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_TrackingStateAction, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_SelectAction;
         /// <summary>
         /// The Input System action to use for selecting an Interactable.
@@ -70,8 +70,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             get => m_SelectAction;
             set => SetInputActionProperty(ref m_SelectAction, value);
         }
-        
-        [SerializeField]
+
+        // [SerializeField]
         InputActionProperty m_SelectActionValue;
         /// <summary>
         /// The Input System action to read values for selecting an Interactable.
@@ -87,7 +87,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_SelectActionValue, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_ActivateAction;
         /// <summary>
         /// The Input System action to use for activating a selected Interactable.
@@ -100,8 +100,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             get => m_ActivateAction;
             set => SetInputActionProperty(ref m_ActivateAction, value);
         }
-        
-        [SerializeField]
+
+        // [SerializeField]
         InputActionProperty m_ActivateActionValue;
         /// <summary>
         /// The Input System action to read values for activating a selected Interactable.
@@ -117,7 +117,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_ActivateActionValue, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_UIPressAction;
         /// <summary>
         /// The Input System action to use for Canvas UI interaction.
@@ -130,8 +130,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             get => m_UIPressAction;
             set => SetInputActionProperty(ref m_UIPressAction, value);
         }
-        
-        [SerializeField]
+
+        // [SerializeField]
         InputActionProperty m_UIPressActionValue;
         /// <summary>
         /// The Input System action to read values for Canvas UI interaction.
@@ -147,7 +147,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_UIPressActionValue, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_HapticDeviceAction;
         /// <summary>
         /// The Input System action to use for identifying the device to send haptic impulses to.
@@ -159,7 +159,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_HapticDeviceAction, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_RotateAnchorAction;
         /// <summary>
         /// The Input System action to use for rotating the interactor's attach point.
@@ -171,7 +171,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_RotateAnchorAction, value);
         }
 
-        [SerializeField]
+        // [SerializeField]
         InputActionProperty m_TranslateAnchorAction;
         /// <summary>
         /// The Input System action to use for translating the interactor's attach point closer or further away from the interactor.

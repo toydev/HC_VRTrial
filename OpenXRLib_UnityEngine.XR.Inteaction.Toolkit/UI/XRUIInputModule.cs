@@ -25,8 +25,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
     /// <summary>
     /// Custom class for input modules that send UI input in XR.
     /// </summary>
-    [AddComponentMenu("Event/XR UI Input Module", 11)]
-    [HelpURL(XRHelpURLConstants.k_XRUIInputModule)]
+    // [AddComponentMenu("Event/XR UI Input Module", 11)]
+    // [HelpURL(XRHelpURLConstants.k_XRUIInputModule)]
     public partial class XRUIInputModule : UIInputModule
     {
         struct RegisteredInteractor
@@ -55,13 +55,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             }
         }
 
-        [SerializeField, HideInInspector]
-        [Tooltip("The maximum distance to ray cast with tracked devices to find hit objects.")]
+        // [SerializeField, HideInInspector]
+        // [Tooltip("The maximum distance to ray cast with tracked devices to find hit objects.")]
         float m_MaxTrackedDeviceRaycastDistance = 1000f;
 
-        [Header("Input Devices")]
-        [SerializeField]
-        [Tooltip("If true, will forward 3D tracked device data to UI elements.")]
+        // [Header("Input Devices")]
+        // [SerializeField]
+        // [Tooltip("If true, will forward 3D tracked device data to UI elements.")]
         bool m_EnableXRInput = true;
 
         /// <summary>
@@ -73,8 +73,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_EnableXRInput = value;
         }
 
-        [SerializeField]
-        [Tooltip("If true, will forward 2D mouse data to UI elements.")]
+        // [SerializeField]
+        // [Tooltip("If true, will forward 2D mouse data to UI elements.")]
         bool m_EnableMouseInput = true;
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_EnableMouseInput = value;
         }
 
-        [SerializeField]
-        [Tooltip("If true, will forward 2D touch data to UI elements.")]
+        // [SerializeField]
+        // [Tooltip("If true, will forward 2D touch data to UI elements.")]
         bool m_EnableTouchInput = true;
 
         /// <summary>
@@ -99,8 +99,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_EnableTouchInput = value;
         }
 
-        [SerializeField]
-        [Tooltip("If true, will forward gamepad data to UI elements.")]
+        // [SerializeField]
+        // [Tooltip("If true, will forward gamepad data to UI elements.")]
         bool m_EnableGamepadInput = true;
 
         /// <summary>
@@ -112,8 +112,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_EnableGamepadInput = value;
         }
 
-        [SerializeField]
-        [Tooltip("If true, will forward joystick data to UI elements.")]
+        // [SerializeField]
+        // [Tooltip("If true, will forward joystick data to UI elements.")]
         bool m_EnableJoystickInput = true;
 
         /// <summary>
@@ -125,9 +125,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_EnableJoystickInput = value;
         }
 
-        [Header("Input Manager (Old) Gamepad/Joystick Bindings")]
-        [SerializeField]
-        [Tooltip("Name of the horizontal axis for gamepad/joystick UI navigation when using the old Input Manager.")]
+        // [Header("Input Manager (Old) Gamepad/Joystick Bindings")]
+        // [SerializeField]
+        // [Tooltip("Name of the horizontal axis for gamepad/joystick UI navigation when using the old Input Manager.")]
         string m_HorizontalAxis = "Horizontal";
 
         /// <summary>
@@ -139,8 +139,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_HorizontalAxis = value;
         }
 
-        [SerializeField]
-        [Tooltip("Name of the vertical axis for gamepad/joystick UI navigation when using the old Input Manager.")]
+        // [SerializeField]
+        // [Tooltip("Name of the vertical axis for gamepad/joystick UI navigation when using the old Input Manager.")]
         string m_VerticalAxis = "Vertical";
 
         /// <summary>
@@ -152,8 +152,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_VerticalAxis = value;
         }
 
-        [SerializeField]
-        [Tooltip("Name of the gamepad/joystick button to use for UI selection or submission when using the old Input Manager.")]
+        // [SerializeField]
+        // [Tooltip("Name of the gamepad/joystick button to use for UI selection or submission when using the old Input Manager.")]
         string m_SubmitButton = "Submit";
 
         /// <summary>
@@ -165,8 +165,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             set => m_SubmitButton = value;
         }
 
-        [SerializeField]
-        [Tooltip("Name of the gamepad/joystick button to use for UI cancel or back commands when using the old Input Manager.")]
+        // [SerializeField]
+        // [Tooltip("Name of the gamepad/joystick button to use for UI cancel or back commands when using the old Input Manager.")]
         string m_CancelButton = "Cancel";
 
         /// <summary>

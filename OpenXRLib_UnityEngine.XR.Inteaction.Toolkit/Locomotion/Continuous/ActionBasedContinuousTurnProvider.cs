@@ -10,12 +10,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// </summary>
     /// <seealso cref="LocomotionProvider"/>
     /// <seealso cref="ActionBasedSnapTurnProvider"/>
-    [AddComponentMenu("XR/Locomotion/Continuous Turn Provider (Action-based)", 11)]
-    [HelpURL(XRHelpURLConstants.k_ActionBasedContinuousTurnProvider)]
+    // [AddComponentMenu("XR/Locomotion/Continuous Turn Provider (Action-based)", 11)]
+    // [HelpURL(XRHelpURLConstants.k_ActionBasedContinuousTurnProvider)]
     public class ActionBasedContinuousTurnProvider : ContinuousTurnProviderBase
     {
-        [SerializeField]
-        [Tooltip("The Input System Action that will be used to read Turn data from the left hand controller. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action that will be used to read Turn data from the left hand controller. Must be a Value Vector2 Control.")]
         InputActionProperty m_LeftHandTurnAction;
         /// <summary>
         /// The Input System Action that Unity uses to read Turn data from the left hand controller. Must be a <see cref="InputActionType.Value"/> <see cref="Vector2Control"/> Control.
@@ -26,8 +26,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             set => SetInputActionProperty(ref m_LeftHandTurnAction, value);
         }
 
-        [SerializeField]
-        [Tooltip("The Input System Action that will be used to read Turn data from the right hand controller. Must be a Value Vector2 Control.")]
+        // [SerializeField]
+        // [Tooltip("The Input System Action that will be used to read Turn data from the right hand controller. Must be a Value Vector2 Control.")]
         InputActionProperty m_RightHandTurnAction;
         /// <summary>
         /// The Input System Action that Unity uses to read Turn data from the right hand controller. Must be a <see cref="InputActionType.Value"/> <see cref="Vector2Control"/> Control.
