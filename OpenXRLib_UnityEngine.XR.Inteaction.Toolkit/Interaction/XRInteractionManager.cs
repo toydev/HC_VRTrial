@@ -170,7 +170,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             FlushRegistration();
 
-            using (s_PreprocessInteractorsMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_PreprocessInteractorsMarker.Auto()))
                 PreprocessInteractors(XRInteractionUpdateOrder.UpdatePhase.Dynamic);
 
             foreach (var interactor in m_Interactors.registeredSnapshot)
@@ -178,7 +178,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 if (!m_Interactors.IsStillRegistered(interactor))
                     continue;
 
-                using (s_GetValidTargetsMarker.Auto())
+                using (DisposableExtensions.CreateDisposable(s_GetValidTargetsMarker.Auto()))
                     GetValidTargets(interactor, m_ValidTargets);
 
                 // Cast to the abstract base classes to assist with backwards compatibility with existing user code.
@@ -189,32 +189,32 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
                 if (selectInteractor != null)
                 {
-                    using (s_EvaluateInvalidSelectionsMarker.Auto())
+                    using (DisposableExtensions.CreateDisposable(s_EvaluateInvalidSelectionsMarker.Auto()))
                         ClearInteractorSelectionInternal(selectInteractor, m_ValidTargets);
                 }
 
                 if (hoverInteractor != null)
                 {
-                    using (s_EvaluateInvalidHoversMarker.Auto())
+                    using (DisposableExtensions.CreateDisposable(s_EvaluateInvalidHoversMarker.Auto()))
                         ClearInteractorHoverInternal(hoverInteractor, m_ValidTargets, m_DeprecatedValidTargets);
                 }
 
                 if (selectInteractor != null)
                 {
-                    using (s_EvaluateValidSelectionsMarker.Auto())
+                    using (DisposableExtensions.CreateDisposable(s_EvaluateValidSelectionsMarker.Auto()))
                         InteractorSelectValidTargetsInternal(selectInteractor, m_ValidTargets, m_DeprecatedValidTargets);
                 }
 
                 if (hoverInteractor != null)
                 {
-                    using (s_EvaluateValidHoversMarker.Auto())
+                    using (DisposableExtensions.CreateDisposable(s_EvaluateValidHoversMarker.Auto()))
                         InteractorHoverValidTargetsInternal(hoverInteractor, m_ValidTargets, m_DeprecatedValidTargets);
                 }
             }
 
-            using (s_ProcessInteractorsMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractorsMarker.Auto()))
                 ProcessInteractors(XRInteractionUpdateOrder.UpdatePhase.Dynamic);
-            using (s_ProcessInteractablesMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractablesMarker.Auto()))
                 ProcessInteractables(XRInteractionUpdateOrder.UpdatePhase.Dynamic);
         }
 
@@ -225,9 +225,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             FlushRegistration();
 
-            using (s_ProcessInteractorsMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractorsMarker.Auto()))
                 ProcessInteractors(XRInteractionUpdateOrder.UpdatePhase.Late);
-            using (s_ProcessInteractablesMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractablesMarker.Auto()))
                 ProcessInteractables(XRInteractionUpdateOrder.UpdatePhase.Late);
         }
 
@@ -238,9 +238,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             FlushRegistration();
 
-            using (s_ProcessInteractorsMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractorsMarker.Auto()))
                 ProcessInteractors(XRInteractionUpdateOrder.UpdatePhase.Fixed);
-            using (s_ProcessInteractablesMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractablesMarker.Auto()))
                 ProcessInteractables(XRInteractionUpdateOrder.UpdatePhase.Fixed);
         }
 
@@ -254,9 +254,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             FlushRegistration();
 
-            using (s_ProcessInteractorsMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractorsMarker.Auto()))
                 ProcessInteractors(XRInteractionUpdateOrder.UpdatePhase.OnBeforeRender);
-            using (s_ProcessInteractablesMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_ProcessInteractablesMarker.Auto()))
                 ProcessInteractables(XRInteractionUpdateOrder.UpdatePhase.OnBeforeRender);
         }
         // ReSharper restore PossiblyImpureMethodCallOnReadonlyVariable
@@ -620,7 +620,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
 
             // ReSharper disable once PossiblyImpureMethodCallOnReadonlyVariable -- ProfilerMarker.Begin with context object does not have Pure attribute
-            using (s_FilterRegisteredValidTargetsMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_FilterRegisteredValidTargetsMarker.Auto()))
                 RemoveAllUnregistered(this, targets);
         }
 
@@ -1013,7 +1013,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Debug.Assert(args.manager == this || args.manager == null, this);
             args.manager = this;
 
-            using (s_SelectEnterMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_SelectEnterMarker.Auto()))
             {
                 interactor.OnSelectEntering(args);
                 interactable.OnSelectEntering(args);
@@ -1051,7 +1051,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Debug.Assert(args.manager == this || args.manager == null, this);
             args.manager = this;
 
-            using (s_SelectExitMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_SelectExitMarker.Auto()))
             {
                 interactor.OnSelectExiting(args);
                 interactable.OnSelectExiting(args);
@@ -1089,7 +1089,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Debug.Assert(args.manager == this || args.manager == null, this);
             args.manager = this;
 
-            using (s_HoverEnterMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_HoverEnterMarker.Auto()))
             {
                 interactor.OnHoverEntering(args);
                 interactable.OnHoverEntering(args);
@@ -1127,7 +1127,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Debug.Assert(args.manager == this || args.manager == null, this);
             args.manager = this;
 
-            using (s_HoverExitMarker.Auto())
+            using (DisposableExtensions.CreateDisposable(s_HoverExitMarker.Auto()))
             {
                 interactor.OnHoverExiting(args);
                 interactable.OnHoverExiting(args);

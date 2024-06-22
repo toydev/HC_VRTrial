@@ -835,7 +835,7 @@ namespace UnityEngine.InputSystem
                 throw new ArgumentNullException(nameof(control));
 
             ////TODO: if it's not a bit-addressing control, send a delta state change only
-            using (StateEvent.From(control.device, out var eventPtr))
+            using (DisposableExtensions.CreateDisposable(StateEvent.From(control.device, out var eventPtr)))
             {
                 if (time >= 0)
                     eventPtr.time = time;

@@ -763,7 +763,7 @@ namespace UnityEngine.InputSystem.LowLevel
 
         public unsafe Record RecordStateChange(InputControl<TValue> control, TValue value, double time = -1)
         {
-            using (StateEvent.From(control.device, out var eventPtr))
+            using (DisposableExtensions.CreateDisposable(StateEvent.From(control.device, out var eventPtr)))
             {
                 var statePtr = (byte*)StateEvent.From(eventPtr)->state - control.device.stateBlock.byteOffset;
                 control.WriteValueIntoState(value, statePtr);

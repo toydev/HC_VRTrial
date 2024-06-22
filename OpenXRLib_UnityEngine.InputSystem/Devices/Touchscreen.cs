@@ -964,7 +964,8 @@ namespace UnityEngine.InputSystem
             ////      What we're doing here is constructing an event solely for the purpose of Finger.ShouldRecordTouch() not
             ////      ignoring the state change like it does for delta resets.
 
-            using (var buffer = new NativeArray<byte>(StateEvent.GetEventSizeWithPayload<TouchState>(), Allocator.Temp))
+            var buffer = new NativeArray<byte>(StateEvent.GetEventSizeWithPayload<TouchState>(), Allocator.Temp);
+            using (DisposableExtensions.CreateDisposable(buffer))
             {
                 var eventPtr = (StateEvent*)buffer.GetUnsafePtr();
 
