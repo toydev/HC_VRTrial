@@ -17,7 +17,7 @@ namespace UnityEngine.InputSystem.HID.Editor
     /// Not specific to InputDevices of type <see cref="HID"/> so that it can work with
     /// any <see cref="InputDevice"/> created for a device using the "HID" interface.
     /// </remarks>
-    internal class HIDDescriptorWindow : EditorWindow, ISerializationCallbackReceiver
+    internal class HIDDescriptorWindow : EditorWindow, ISerializationCallbackReceiverExtensions
     {
         public static void CreateOrShowExisting(int deviceId, InputDeviceDescription deviceDescription)
         {

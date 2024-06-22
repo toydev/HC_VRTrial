@@ -14,7 +14,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     // [CreateAssetMenu(menuName = "XR/XR Controller Recording")]
     [Serializable]/* [PreferBinarySerialization] */
     // [HelpURL(XRHelpURLConstants.k_XRControllerRecording)]
-    public partial class XRControllerRecording : ScriptableObject, ISerializationCallbackReceiver
+    public partial class XRControllerRecording : ScriptableObject, ISerializationCallbackReceiverExtensions
     {
         /// <summary>
         /// Whether the selection interaction was activated in the first frame.
@@ -55,7 +55,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <summary>
         /// See <see cref="ISerializationCallbackReceiver.OnBeforeSerialize"/>.
         /// </summary>
-        void ISerializationCallbackReceiver.OnBeforeSerialize()
+        void ISerializationCallbackReceiverExtensions.OnBeforeSerialize()
         {
             if (m_Frames == null || m_Frames.Count <= 0)
                 return;
@@ -69,7 +69,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <summary>
         /// See <see cref="ISerializationCallbackReceiver.OnAfterDeserialize"/>.
         /// </summary>
-        void ISerializationCallbackReceiver.OnAfterDeserialize()
+        void ISerializationCallbackReceiverExtensions.OnAfterDeserialize()
         {
             if (m_Frames == null || m_Frames.Count <= 0)
                 return;

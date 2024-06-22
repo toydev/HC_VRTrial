@@ -9,7 +9,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// Stores all interaction layers.
     /// </summary>
     [ScriptableSettingsPath(ProjectPath.k_XRInteractionSettingsFolder)]
-    class InteractionLayerSettings : ScriptableSettings<InteractionLayerSettings>, ISerializationCallbackReceiver
+    class InteractionLayerSettings : ScriptableSettings<InteractionLayerSettings>, ISerializationCallbackReceiverExtensions
     {
         const string k_DefaultLayerName = "Default";
 

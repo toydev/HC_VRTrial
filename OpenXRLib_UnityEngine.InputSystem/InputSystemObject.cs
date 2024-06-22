@@ -10,7 +10,7 @@ namespace UnityEngine.InputSystem
     /// <remarks>
     /// Player doesn't need this stuff because there's no domain reloads to survive.
     /// </remarks>
-    internal class InputSystemObject : ScriptableObject, ISerializationCallbackReceiver
+    internal class InputSystemObject : ScriptableObject, ISerializationCallbackReceiverExtensions
     {
         /* [SerializeField] */ public InputSystem.State systemState;
         /* [SerializeField] */ public bool newInputBackendsCheckedAsEnabled;
