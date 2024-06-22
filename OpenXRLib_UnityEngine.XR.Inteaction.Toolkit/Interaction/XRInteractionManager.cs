@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.Profiling;
+using UnityEngine.Rendering;
 using UnityEngine.XR.Interaction.Toolkit.Utilities.Pooling;
 #if AR_FOUNDATION_PRESENT
 using UnityEngine.XR.Interaction.Toolkit.AR;
@@ -148,7 +149,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         protected virtual void OnEnable()
         {
             activeInteractionManagers.Add(this);
-            Application.onBeforeRender += OnBeforeRender;
+            if (onBeforeRender == null) onBeforeRender = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)OnBeforeRender;
+            RenderPipelineManager.beginContextRendering += onBeforeRender;
         }
 
         /// <summary>
@@ -156,7 +158,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         protected virtual void OnDisable()
         {
-            Application.onBeforeRender -= OnBeforeRender;
+            RenderPipelineManager.beginContextRendering -= onBeforeRender;
             activeInteractionManagers.Remove(this);
         }
 
@@ -247,7 +249,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         /// <seealso cref="Application"/>
         // [BeforeRenderOrder(XRInteractionUpdateOrder.k_BeforeRenderOrder)]
-        protected virtual void OnBeforeRender()
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRender;
+        protected virtual void OnBeforeRender(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
         {
             FlushRegistration();
 

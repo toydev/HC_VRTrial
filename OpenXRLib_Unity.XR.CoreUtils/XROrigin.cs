@@ -8,6 +8,8 @@ using UnityEngine.Assertions;
 using UnityEngine.Serialization;
 #if INCLUDE_INPUT_SYSTEM
 using UnityEngine.InputSystem.XR;
+using UnityEngine.Rendering;
+
 #endif
 #if INCLUDE_LEGACY_INPUT_HELPERS
 using UnityEngine.SpatialTracking;
@@ -262,8 +264,8 @@ namespace Unity.XR.CoreUtils
                     {
                         // It is possible this could happen more than
                         // once so unregister the callback first just in case.
-                        inputSubsystem.trackingOriginUpdated -= OnInputSubsystemTrackingOriginUpdated;
-                        inputSubsystem.trackingOriginUpdated += OnInputSubsystemTrackingOriginUpdated;
+                        inputSubsystem.trackingOriginUpdated -= onInputSubsystemTrackingOriginUpdated;
+                        inputSubsystem.trackingOriginUpdated += onInputSubsystemTrackingOriginUpdated;
                     }
                     else
                     {
@@ -341,6 +343,7 @@ namespace Unity.XR.CoreUtils
             m_CameraInitializing = false;
         }
 
+        private Il2CppSystem.Action<XRInputSubsystem> onInputSubsystemTrackingOriginUpdated;
         void OnInputSubsystemTrackingOriginUpdated(XRInputSubsystem inputSubsystem)
         {
             CurrentTrackingOriginMode = inputSubsystem.GetTrackingOriginMode();
@@ -490,6 +493,9 @@ namespace Unity.XR.CoreUtils
         /// </summary>
         protected void Awake()
         {
+            onBeforeRender = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)OnBeforeRender;
+            onInputSubsystemTrackingOriginUpdated = (Il2CppSystem.Action<XRInputSubsystem>)OnInputSubsystemTrackingOriginUpdated;
+
             if (m_CameraFloorOffsetObject == null)
             {
                 Debug.LogWarning("No Camera Floor Offset Object specified for XR Origin, using attached GameObject.", this);
@@ -565,14 +571,15 @@ namespace Unity.XR.CoreUtils
         /// <summary>
         /// See <see cref="MonoBehaviour"/>.
         /// </summary>
-        protected void OnEnable() => Application.onBeforeRender += OnBeforeRender;
+        protected void OnEnable() => RenderPipelineManager.beginContextRendering += onBeforeRender;
 
         /// <summary>
         /// See <see cref="MonoBehaviour"/>.
         /// </summary>
-        protected void OnDisable() => Application.onBeforeRender -= OnBeforeRender;
+        protected void OnDisable() => RenderPipelineManager.beginContextRendering -= onBeforeRender;
 
-        void OnBeforeRender()
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRender;
+        void OnBeforeRender(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
         {
             if (m_Camera)
             {
@@ -657,7 +664,7 @@ namespace Unity.XR.CoreUtils
             foreach (var inputSubsystem in s_InputSubsystems)
             {
                 if (inputSubsystem != null)
-                    inputSubsystem.trackingOriginUpdated -= OnInputSubsystemTrackingOriginUpdated;
+                    inputSubsystem.trackingOriginUpdated -= onInputSubsystemTrackingOriginUpdated;
             }
         }
     }

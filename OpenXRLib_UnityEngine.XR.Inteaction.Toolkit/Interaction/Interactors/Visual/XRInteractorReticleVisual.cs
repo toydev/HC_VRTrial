@@ -1,4 +1,6 @@
-﻿namespace UnityEngine.XR.Interaction.Toolkit
+﻿using UnityEngine.Events;
+
+namespace UnityEngine.XR.Interaction.Toolkit
 {
     /// <summary>
     /// Interactor helper object that draws a targeting <see cref="reticlePrefab"/> over a ray casted point in front of the Interactor.
@@ -142,7 +144,8 @@
             m_Interactor = GetComponent<XRBaseInteractor>();
             if (m_Interactor != null)
             {
-                m_Interactor.selectEntered.AddListener(OnSelectEntered);
+                if (onSelectEntered == null) onSelectEntered = (UnityAction<SelectEnterEventArgs>)OnSelectEntered;
+                m_Interactor.selectEntered.AddListener(onSelectEntered);
             }
             SetupReticlePrefab();
             reticleActive = false;
@@ -166,7 +169,7 @@
         {
             if (m_Interactor != null)
             {
-                m_Interactor.selectEntered.RemoveListener(OnSelectEntered);
+                m_Interactor.selectEntered.RemoveListener(onSelectEntered);
             }
         }
 
@@ -276,6 +279,7 @@
             }
         }
 
+        private UnityAction<SelectEnterEventArgs> onSelectEntered;
         void OnSelectEntered(SelectEnterEventArgs args)
         {
             reticleActive = false;

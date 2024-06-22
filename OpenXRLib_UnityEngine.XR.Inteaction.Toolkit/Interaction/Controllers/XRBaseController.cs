@@ -1,4 +1,5 @@
-﻿using UnityEngine.Serialization;
+﻿using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
@@ -273,7 +274,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         protected virtual void OnEnable()
         {
-            Application.onBeforeRender += OnBeforeRender;
+            if (onBeforeRender == null) onBeforeRender = (Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>>)OnBeforeRender;
+            RenderPipelineManager.beginContextRendering += onBeforeRender;
         }
 
         /// <summary>
@@ -281,7 +283,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         protected virtual void OnDisable()
         {
-            Application.onBeforeRender -= OnBeforeRender;
+            RenderPipelineManager.beginContextRendering -= onBeforeRender;
         }
 
         /// <summary>
@@ -353,7 +355,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// This method is automatically called for "Just Before Render" input updates for VR devices.
         /// </summary>
         /// <seealso cref="Application.onBeforeRender"/>
-        protected virtual void OnBeforeRender()
+        private Il2CppSystem.Action<ScriptableRenderContext, Il2CppSystem.Collections.Generic.List<Camera>> onBeforeRender;
+        protected virtual void OnBeforeRender(ScriptableRenderContext context, Il2CppSystem.Collections.Generic.List<Camera> cameras)
         {
             if (m_EnableInputTracking &&
                 (m_UpdateTrackingType == UpdateType.BeforeRender ||

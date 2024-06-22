@@ -90,7 +90,7 @@ namespace UnityEngine.XR.Management
         {
             Debug.Log("XRGeneral Settings awakening...");
             s_RuntimeSettingsInstance = this;
-            Application.quitting += Quit;
+            Application.quitting += (Il2CppSystem.Action)Quit;
             DontDestroyOnLoad(s_RuntimeSettingsInstance);
         }
 #endif
