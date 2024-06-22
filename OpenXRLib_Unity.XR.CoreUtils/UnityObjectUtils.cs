@@ -70,7 +70,7 @@ namespace Unity.XR.CoreUtils
         /// <param name="list">A dictionary of UnityObjects that may contain destroyed objects</param>
         public static void RemoveDestroyedObjects<T>(List<T> list) where T : UnityObject
         {
-            var removeList = CollectionPool<List<T>, T>.GetCollection();
+            var removeList = CollectionPool<Il2CppSystem.Collections.Generic.List<T>, T>.GetCollection();
             foreach (var component in list)
             {
                 if (component == null)
@@ -82,7 +82,7 @@ namespace Unity.XR.CoreUtils
                 list.Remove(entry);
             }
 
-            CollectionPool<List<T>, T>.RecycleCollection(removeList);
+            CollectionPool<Il2CppSystem.Collections.Generic.List<T>, T>.RecycleCollection(removeList);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Unity.XR.CoreUtils
         /// <param name="dictionary">A dictionary of UnityObjects that may contain destroyed objects</param>
         public static void RemoveDestroyedKeys<TKey, TValue>(Dictionary<TKey, TValue> dictionary) where TKey : UnityObject
         {
-            var removeList = CollectionPool<List<TKey>, TKey>.GetCollection();
+            var removeList = CollectionPool<Il2CppSystem.Collections.Generic.List<TKey>, TKey>.GetCollection();
             foreach (var kvp in dictionary)
             {
                 var key = kvp.Key;
@@ -106,7 +106,7 @@ namespace Unity.XR.CoreUtils
                 dictionary.Remove(key);
             }
 
-            CollectionPool<List<TKey>, TKey>.RecycleCollection(removeList);
+            CollectionPool<Il2CppSystem.Collections.Generic.List<TKey>, TKey>.RecycleCollection(removeList);
         }
     }
 }

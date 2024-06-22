@@ -12,7 +12,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         /// This event can be used to read, modify, or reorder results.
         /// After the event, the first result in the list with a non-null GameObject will be used.
         /// </summary>
-        public event Action<PointerEventData, List<RaycastResult>> finalizeRaycastResults;
+        public event Action<PointerEventData, Il2CppSystem.Collections.Generic.List<RaycastResult>> finalizeRaycastResults;
 
         /// <summary>
         /// This occurs when a UI pointer enters an element.

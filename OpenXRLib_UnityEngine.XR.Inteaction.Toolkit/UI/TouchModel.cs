@@ -11,7 +11,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             /// This tracks the current GUI targets being hovered over.
             /// </summary>
             /// <seealso cref="PointerEventData.hovered"/>
-            public List<GameObject> hoverTargets { get; set; }
+            public Il2CppSystem.Collections.Generic.List<GameObject> hoverTargets { get; set; }
 
             /// <summary>
             /// Tracks the current enter/exit target being hovered over at any given moment.
@@ -74,7 +74,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
                 pressedGameObject = pressedGameObjectRaw = draggedGameObject = null;
 
                 if (hoverTargets == null)
-                    hoverTargets = new List<GameObject>();
+                    hoverTargets = new Il2CppSystem.Collections.Generic.List<GameObject>();
                 else
                     hoverTargets.Clear();
             }
@@ -177,7 +177,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             eventData.pointerDrag = m_ImplementationData.draggedGameObject;
 
             eventData.hovered.Clear();
-            eventData.hovered.AddRange(m_ImplementationData.hoverTargets);
+            eventData.hovered.AddRange(m_ImplementationData.hoverTargets.Cast<Il2CppSystem.Collections.Generic.IEnumerable<GameObject>>());
         }
 
         public void CopyFrom(PointerEventData eventData)
@@ -192,7 +192,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
             m_ImplementationData.draggedGameObject = eventData.pointerDrag;
 
             m_ImplementationData.hoverTargets.Clear();
-            m_ImplementationData.hoverTargets.AddRange(eventData.hovered);
+            m_ImplementationData.hoverTargets.AddRange(eventData.hovered.Cast<Il2CppSystem.Collections.Generic.IEnumerable<GameObject>>());
         }
     }
 }

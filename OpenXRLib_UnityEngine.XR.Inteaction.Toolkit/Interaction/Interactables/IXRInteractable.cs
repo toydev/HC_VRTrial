@@ -48,7 +48,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <summary>
         /// (Read Only) Colliders to use for interaction with this Interactable.
         /// </summary>
-        List<Collider> colliders { get; }
+        Il2CppSystem.Collections.Generic.List<Collider> colliders { get; }
 
         /// <summary>
         /// (Read Only) The <see cref="Transform"/> associated with the Interactable.

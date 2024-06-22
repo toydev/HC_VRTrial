@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine.XR.Interaction.Toolkit.Utilities;
 
+using BepInEx.Unity.IL2CPP.Utils;
+
 namespace UnityEngine.XR.Interaction.Toolkit
 {
     /// <summary>
@@ -110,7 +112,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <summary>
         /// Reusable list of type <see cref="MeshFilter"/> to reduce allocations.
         /// </summary>
-        static readonly List<MeshFilter> s_MeshFilters = new List<MeshFilter>();
+        static readonly Il2CppSystem.Collections.Generic.List<MeshFilter> s_MeshFilters = new Il2CppSystem.Collections.Generic.List<MeshFilter>();
 
         /// <summary>
         /// Reusable value of <see cref="WaitForFixedUpdate"/> to reduce allocations.
@@ -134,7 +136,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             base.Start();
 
-            StartCoroutine(UpdateCollidersAfterOnTriggerStay());
+            this.StartCoroutine(UpdateCollidersAfterOnTriggerStay());
         }
 
         /// <summary>
