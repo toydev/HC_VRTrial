@@ -3074,7 +3074,7 @@ namespace UnityEngine.InputSystem
         /// In the editor, this is always initialized. In players, this will be null
         /// if remoting is disabled (which it is by default in release players).
         /// </remarks>
-        public static InputRemoting remoting => s_Remote;
+        // public static InputRemoting remoting => s_Remote;
 
         #endregion
 
@@ -3092,7 +3092,7 @@ namespace UnityEngine.InputSystem
         public static InputMetrics metrics => s_Manager.metrics;
 
         internal static InputManager s_Manager;
-        internal static InputRemoting s_Remote;
+        // internal static InputRemoting s_Remote;
 
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
         internal static RemoteInputPlayerConnection s_RemoteConnection;
