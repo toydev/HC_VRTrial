@@ -553,7 +553,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             base.Awake();
 
-            m_LocalPhysicsScene = gameObject.scene.GetPhysicsScene();
+            m_LocalPhysicsScene = PhysicsSceneExtensions.GetPhysicsScene(gameObject.scene);
 
             var capacity = m_LineType == LineType.StraightLine ? 2 : m_SampleFrequency;
             m_SamplePoints = new List<SamplePoint>(capacity);

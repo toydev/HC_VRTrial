@@ -190,9 +190,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         public override void Awake()
         {
             base.Awake();
-            m_LocalPhysicsScene = gameObject.scene.GetPhysicsScene();
+            m_LocalPhysicsScene = PhysicsSceneExtensions.GetPhysicsScene(gameObject.scene);
 #if PHYSICS2D_MODULE_PRESENT
-            m_LocalPhysicsScene2D = gameObject.scene.GetPhysicsScene2D();
+            m_LocalPhysicsScene2D = PhysicsSceneExtensions2D.GetPhysicsScene2D(gameObject.scene);
 #endif
         }
 
