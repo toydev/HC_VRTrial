@@ -8,6 +8,36 @@ using UnityEngineInternal.Input;
 
 namespace UnityEngine.InputSystem.LowLevel
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 1, Size = 20)]
+    internal struct NativeInputEvent
+    {
+        public const int structSize = 20;
+
+        [FieldOffset(0)]
+        public NativeInputEventType type;
+
+        [FieldOffset(4)]
+        public ushort sizeInBytes;
+
+        [FieldOffset(6)]
+        public ushort deviceId;
+
+        [FieldOffset(8)]
+        public double time;
+
+        [FieldOffset(16)]
+        public int eventId;
+
+        public NativeInputEvent(NativeInputEventType type, int sizeInBytes, int deviceId, double time)
+        {
+            this.type = type;
+            this.sizeInBytes = (ushort)sizeInBytes;
+            this.deviceId = (ushort)deviceId;
+            eventId = 0;
+            this.time = time;
+        }
+    }
+
     /// <summary>
     /// A chunk of memory signaling a data transfer in the input system.
     /// </summary>
