@@ -15,7 +15,11 @@ namespace Unity.XR.CoreUtils
         /// <returns>The local pose</returns>
         public static Pose GetLocalPose(this Transform transform)
         {
-            return new Pose(transform.localPosition, transform.localRotation);
+            return new Pose
+            {
+                position = transform.localPosition,
+                rotation = transform.localRotation
+            };
         }
 
         /// <summary>
@@ -25,7 +29,11 @@ namespace Unity.XR.CoreUtils
         /// <returns>The world pose</returns>
         public static Pose GetWorldPose(this Transform transform)
         {
-            return new Pose(transform.position, transform.rotation);
+            return new Pose
+            {
+                position = transform.position,
+                rotation = transform.rotation
+            };
         }
 
         /// <summary>

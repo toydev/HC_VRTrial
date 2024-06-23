@@ -314,12 +314,15 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 var localAttachPose = selectable.GetLocalAttachPoseOnSelect(selectable.firstInteractorSelecting);
                 var attachTransformParent = interactableAttachTransform.parent;
                 interactableAttachPose =
-                    new Pose(attachTransformParent.TransformPoint(localAttachPose.position),
-                        attachTransformParent.rotation * localAttachPose.rotation);
+                    new Pose
+                    {
+                        position = attachTransformParent.TransformPoint(localAttachPose.position),
+                        rotation = attachTransformParent.rotation * localAttachPose.rotation
+                    };
             }
             else
             {
-                interactableAttachPose = new Pose(interactableAttachTransform.position, interactableAttachTransform.rotation);
+                interactableAttachPose = new Pose { position = interactableAttachTransform.position, rotation = interactableAttachTransform.rotation };
             }
 
             var attachOffset = meshFilter.transform.position - interactableAttachPose.position;
@@ -330,7 +333,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Quaternion rotation;
 
             var interactorAttachTransform = GetAttachTransform(interactable);
-            var interactorAttachPose = new Pose(interactorAttachTransform.position, interactorAttachTransform.rotation);
+            var interactorAttachPose = new Pose { position = interactorAttachTransform.position, rotation = interactorAttachTransform.rotation };
             if (grabInteractable == null || grabInteractable.trackRotation)
             {
                 position = interactorAttachPose.rotation * interactableLocalPosition + interactorAttachPose.position;

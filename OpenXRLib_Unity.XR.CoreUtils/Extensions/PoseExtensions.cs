@@ -16,9 +16,11 @@ namespace Unity.XR.CoreUtils
         public static Pose ApplyOffsetTo(this Pose pose, Pose otherPose)
         {
             var rotation = pose.rotation;
-            return new Pose(
-                rotation * otherPose.position + pose.position,
-                rotation * otherPose.rotation);
+            return new Pose
+            {
+                position = rotation * otherPose.position + pose.position,
+                rotation = rotation * otherPose.rotation
+            };
         }
 
         /// <summary>
