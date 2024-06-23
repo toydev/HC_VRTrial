@@ -78,10 +78,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <summary>
         /// Mapping of <see cref="InputAxes"/> to actual common usage values.
         /// </summary>
-        static readonly InputFeatureUsage<Vector2>[] k_Vec2UsageList =
+        static readonly string[] k_Vec2UsageList =
         {
-            CommonUsages.primary2DAxis,
-            CommonUsages.secondary2DAxis,
+            "Primary2DAxis",
+            "Secondary2DAxis",
         };
 
         /// <inheritdoc />
@@ -98,7 +98,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 var controller = m_Controllers[i] as XRController;
                 if (controller != null &&
                     controller.enableInputActions &&
-                    controller.inputDevice.TryGetFeatureValue(feature, out var controllerInput))
+                    controller.inputDevice.TryGetFeatureValue(feature, out Vector2 controllerInput))
                 {
                     input += GetDeadzoneAdjustedValue(controllerInput);
                 }

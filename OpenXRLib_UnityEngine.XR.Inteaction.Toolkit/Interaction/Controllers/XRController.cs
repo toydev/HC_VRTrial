@@ -188,18 +188,18 @@ namespace UnityEngine.XR.Interaction.Toolkit
             else
 #endif
             {
-                if (inputDevice.TryGetFeatureValue(CommonUsages.trackingState, out var trackingState))
+                if (inputDevice.TryGetFeatureValue("TrackingState", out InputTrackingState trackingState))
                 {
                     controllerState.inputTrackingState = trackingState;
                     
                     if ((trackingState & InputTrackingState.Position) != 0 &&
-                        inputDevice.TryGetFeatureValue(CommonUsages.devicePosition, out var devicePosition))
+                        inputDevice.TryGetFeatureValue("DevicePosition", out Vector3 devicePosition))
                     {
                         controllerState.position = devicePosition;
                     }
 
                     if ((trackingState & InputTrackingState.Rotation) != 0 &&
-                        inputDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out var deviceRotation))
+                        inputDevice.TryGetFeatureValue("DeviceRotation", out Quaternion deviceRotation))
                     {
                         controllerState.rotation = deviceRotation;
                     }
