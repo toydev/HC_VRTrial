@@ -34,7 +34,7 @@ namespace Unity.XR.CoreUtils
 
             // Try to load the singleton
             var path = HasCustomPath ? GetFilePath() : string.Format(k_LoadPathFormat, GetFilePath());
-            BaseInstance = Resources.Load(path) as T;
+            BaseInstance = Resources.Load<T>(path);
 
             // Create it if it doesn't exist
             if (BaseInstance == null)
