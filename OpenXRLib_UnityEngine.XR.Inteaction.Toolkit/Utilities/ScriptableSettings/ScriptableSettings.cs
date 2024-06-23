@@ -169,7 +169,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Utilities.Internal
             }
             catch (Exception e)
             {
-                Debug.LogWarningFormat("{0}\n{1}", k_PathExceptionMessage, e);
+                Debug.LogWarning($"{k_PathExceptionMessage}\n{e}");
                 return false;
             }
 

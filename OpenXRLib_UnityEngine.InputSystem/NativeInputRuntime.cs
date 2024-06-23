@@ -73,7 +73,7 @@ namespace UnityEngine.InputSystem.LowLevel
                             catch (Exception e)
                             {
                                 // Always report the original exception first to confuse users less about what it the actual failure.
-                                DebugEx.LogException(e);
+                                DebugExtensions.LogException(e);
                                 Debug.LogError($"{e.GetType().Name} during event processing of {updateType} update; resetting event buffer");
                                 buffer.Reset();
                             }

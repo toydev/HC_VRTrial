@@ -40,7 +40,7 @@ namespace UnityEngine.InputSystem.Utilities
 
             public void OnError(Exception error)
             {
-                Debug.LogException(error);
+                DebugExtensions.LogException(error);
             }
 
             public void OnNext(InputEventPtr value)
