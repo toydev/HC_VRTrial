@@ -191,7 +191,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         /// <summary>
         /// See <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnEnable.html">MonoBehavior.OnEnable</a>.
         /// </summary>
-        protected override void OnEnable()
+        public override void OnEnable()
         {
             base.OnEnable();
             m_Mouse = new MouseModel(m_RollingPointerId++);
@@ -202,7 +202,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         /// <summary>
         /// See <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDisable.html">MonoBehavior.OnDisable</a>.
         /// </summary>
-        protected override void OnDisable()
+        public override void OnDisable()
         {
             RemovePointerEventData(m_Mouse.pointerId);
             base.OnDisable();

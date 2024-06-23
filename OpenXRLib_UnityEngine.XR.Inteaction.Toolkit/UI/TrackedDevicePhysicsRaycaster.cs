@@ -182,7 +182,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.UI
         /// <summary>
         /// See <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html">MonoBehaviour.Awake</a>.
         /// </summary>
-        protected override void Awake()
+        public override void Awake()
         {
             base.Awake();
 
