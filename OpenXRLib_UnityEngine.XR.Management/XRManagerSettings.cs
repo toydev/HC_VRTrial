@@ -115,6 +115,7 @@ namespace UnityEngine.XR.Management
         /// <see cref="TrySetLoaders"/>.
         /// </remarks>
         [Obsolete("'XRManagerSettings.loaders' property is obsolete. Use 'XRManagerSettings.activeLoaders' instead to get a list of the current loaders.")]
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public List<XRLoader> loaders
         {
             get { return m_Loaders; }
@@ -131,6 +132,7 @@ namespace UnityEngine.XR.Management
         /// used by this XR Manager instance. To mutate the list of loaders currently managed by this instance,
         /// use <see cref="TryAddLoader"/>, <see cref="TryRemoveLoader"/>, and/or <see cref="TrySetLoaders"/>.
         /// </remarks>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public IReadOnlyList<XRLoader> activeLoaders => m_Loaders;
 
         /// <summary>
@@ -147,6 +149,7 @@ namespace UnityEngine.XR.Management
         /// Return the current singleton active loader instance.
         ///</summary>
         // [HideInInspector]
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public XRLoader activeLoader { get; private set; }
 
         /// <summary>
@@ -157,6 +160,7 @@ namespace UnityEngine.XR.Management
         /// <typeparam name="T">Requested type of the loader</typeparam>
         ///
         /// <returns>The active loader as requested type, or null.</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public T ActiveLoaderAs<T>() where T : XRLoader
         {
             return activeLoader as T;
@@ -222,6 +226,7 @@ namespace UnityEngine.XR.Management
         /// </summary>
         ///
         /// <returns>Enumerator marking the next spot to continue execution at.</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public IEnumerator InitializeLoader()
         {
             if (activeLoader != null)
@@ -271,6 +276,7 @@ namespace UnityEngine.XR.Management
         /// that type was registered. If the check is successful, the loader is added. If not, the loader is not added and the method
         /// returns <c>false</c>.
         /// </remarks>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool TryAddLoader(XRLoader loader, int index = -1)
         {
             if (loader == null || currentLoaders.Contains(loader))
@@ -307,6 +313,7 @@ namespace UnityEngine.XR.Management
         /// it will be unregistered from this instance and any attempts to add it during
         /// runtime/Play mode will fail. You can re-add the loader in the Editor while not in Play mode.
         /// </remarks>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool TryRemoveLoader(XRLoader loader)
         {
             var removedLoader = true;
@@ -336,6 +343,7 @@ namespace UnityEngine.XR.Management
         /// runtime/Play mode, the new loader list will be validated against the registered <see cref="XRLoader"/> types.
         /// If any loaders exist in the list that were not registered at startup, the attempt will fail.
         /// </remarks>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool TrySetLoaders(List<XRLoader> reorderedLoaders)
         {
             var originalLoaders = new List<XRLoader>(activeLoaders);
@@ -369,6 +377,7 @@ namespace UnityEngine.XR.Management
             return true;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         private bool CheckGraphicsAPICompatibility(XRLoader loader)
         {
             GraphicsDeviceType deviceType = SystemInfo.graphicsDeviceType;
@@ -486,6 +495,7 @@ namespace UnityEngine.XR.Management
         // To modify the list of loaders internally use `currentLoaders` as it will return a list reference rather
         // than a shallow copy.
         // TODO @davidmo 10/12/2020: remove this in next major version bump and make 'loaders' internal.
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         internal List<XRLoader> currentLoaders
         {
             get { return m_Loaders; }
@@ -494,6 +504,7 @@ namespace UnityEngine.XR.Management
 
         // To modify the set of registered loaders use `registeredLoaders` as it will return a reference to the
         // hashset of loaders.
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         internal HashSet<XRLoader> registeredLoaders
         {
             get { return m_RegisteredLoaders; }

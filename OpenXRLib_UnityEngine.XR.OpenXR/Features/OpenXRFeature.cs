@@ -255,6 +255,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// Notification to the feature implementer that the environment blend mode has changed.
         /// </summary>
         /// <param name="xrEnvironmentBlendMode">New environment blend mode value</param>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         protected internal virtual void OnEnvironmentBlendModeChange (XrEnvironmentBlendMode xrEnvironmentBlendMode) {}
 
         /// <summary>
@@ -315,6 +316,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// Set the current XR Environment Blend Mode if it is supported by the active runtime. If not supported, fall back to the runtime preference.
         /// </summary>
         /// <param name="xrEnvironmentBlendMode">Environment Blend Mode (e.g.: Opaque = 1, Additive = 2, AlphaBlend = 3)</param>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         protected static void SetEnvironmentBlendMode(XrEnvironmentBlendMode xrEnvironmentBlendMode) =>
             Internal_SetEnvironmentBlendMode(xrEnvironmentBlendMode);
 
@@ -322,6 +324,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// Returns the current XR Environment Blend Mode.
         /// </summary>
         /// <returns>Current XR Environment Blend Mode</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         protected static XrEnvironmentBlendMode GetEnvironmentBlendMode() =>
             Internal_GetEnvironmentBlendMode();
 
@@ -453,6 +456,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// <typeparam name="TSubsystem">The subsystem type being requested</typeparam>
         /// <param name="descriptors">List of TDescriptor instances to use for subsystem matching</param>
         /// <param name="id">The identifier key of the particular subsystem implementation being requested</param>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         protected void CreateIntegratedSubsystem(List<IntegratedSubsystemDescriptor> descriptors, string id)
         {
             if (OpenXRLoaderBase.Instance == null)
@@ -704,6 +708,7 @@ namespace UnityEngine.XR.OpenXR.Features
         /// </summary>
         /// <param name="inputAction">Action to retrieve XrAction handles for</param>
         /// <returns>XrAction handle bound to the given <see cref="UnityEngine.InputSystem.InputAction"/> or 0 if there is no bound XrAction</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         protected ulong GetAction(InputAction inputAction) => OpenXRInput.GetActionHandle(inputAction);
     }
 }
