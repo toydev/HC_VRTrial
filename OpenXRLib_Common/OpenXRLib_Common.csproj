@@ -18,4 +18,8 @@
 		<Reference Include="$(HC_VRTrial_INTEROP_DIR)\UnityEngine.SubsystemsModule.dll" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
 </Project>
