@@ -34,6 +34,11 @@ namespace UnityEngine.XR.OpenXR
     [Serializable]
     public partial class OpenXRSettings : ScriptableObject
     {
+        static OpenXRSettings()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OpenXRSettings>();
+        }
+
 #if UNITY_EDITOR
         internal bool versionChanged = false;
 #else

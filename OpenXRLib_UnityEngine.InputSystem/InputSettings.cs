@@ -43,6 +43,11 @@ namespace UnityEngine.InputSystem
     /// <seealso cref="InputSystem.onSettingsChange"/>
     public partial class InputSettings : ScriptableObject
     {
+        static InputSettings()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<InputSettings>();
+        }
+
         /// <summary>
         /// Allows you to control how the input system handles updates. In other words, how and when pending input events are processed.
         /// </summary>

@@ -27,6 +27,11 @@ namespace UnityEngine.XR.OpenXR.Features
     [Serializable]
     public abstract partial class OpenXRFeature : ScriptableObject
     {
+        static OpenXRFeature()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OpenXRFeature>();
+        }
+
 #if UNITY_EDITOR
         internal static Func<string, bool> canSetFeatureDisabled;
 #endif

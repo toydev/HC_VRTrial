@@ -37,6 +37,11 @@ namespace UnityEngine.InputSystem.OnScreen
     /// </remarks>
     public abstract class OnScreenControl : MonoBehaviour
     {
+        static OnScreenControl()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<OnScreenControl>();
+        }
+
         /// <summary>
         /// The control path (see <see cref="InputControlPath"/>) for the control that the on-screen
         /// control will feed input into.

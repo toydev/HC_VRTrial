@@ -37,6 +37,11 @@ namespace UnityEngine.InputSystem.EnhancedTouch
     #endif
     public class TouchSimulation : MonoBehaviour, IInputStateChangeMonitor
     {
+        static TouchSimulation()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<TouchSimulation>();
+        }
+
         public Touchscreen simulatedTouchscreen { get; private set; }
 
         public static TouchSimulation instance => s_Instance;
