@@ -231,8 +231,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 {
                     if (isUIHitClosest)
                     {
-                        Debug.Assert(uiRaycastHit.HasValue, this);
-                        var hit = uiRaycastHit.Value;
+                        Debug.Assert(uiRaycastHit != null, this);
+                        var hit = uiRaycastHit;
                         raycastPos = hit.worldPosition;
                         raycastNormal = hit.worldNormal;
                         hasRaycastHit = true;
