@@ -359,7 +359,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             if (s_InteractionManagerCache == null)
             {
-                var interactionManagerGO = new GameObject("XR Interaction Manager", typeof(XRInteractionManager));
+                var interactionManagerGO = new GameObject("XR Interaction Manager", Il2CppInterop.Runtime.Il2CppType.From(typeof(XRInteractionManager)));
                 s_InteractionManagerCache = interactionManagerGO.GetComponent<XRInteractionManager>();
             }
 

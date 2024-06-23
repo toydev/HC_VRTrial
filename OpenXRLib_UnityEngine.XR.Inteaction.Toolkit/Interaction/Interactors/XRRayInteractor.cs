@@ -720,7 +720,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             var eventSystem = FindObjectOfType<EventSystem>();
             if (eventSystem == null)
-                eventSystem = new GameObject("EventSystem", typeof(EventSystem)).GetComponent<EventSystem>();
+                eventSystem = new GameObject("EventSystem", Il2CppInterop.Runtime.Il2CppType.From(typeof(EventSystem))).GetComponent<EventSystem>();
             else
             {
                 // Remove the Standalone Input Module if already implemented, since it will block the XRUIInputModule
