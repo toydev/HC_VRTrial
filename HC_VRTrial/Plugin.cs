@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Unity.IL2CPP;
 using Il2CppInterop.Runtime;
 using UnityEngine;
@@ -34,12 +31,10 @@ namespace HC_VRTrial
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             // Detects a single mode scene and starts VR control of the scene.
-            /*
             if (mode == LoadSceneMode.Single)
             {
                 new GameObject($"{nameof(SimpleVRController)}{scene.name}").AddComponent<SimpleVRController>();
             }
-            */
         }
     }
 }

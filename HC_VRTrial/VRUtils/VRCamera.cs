@@ -1,0 +1,119 @@
+﻿using Il2CppInterop.Runtime.Injection;
+using Il2CppInterop.Runtime.Attributes;
+using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.InputSystem.XR;
+using Unity.XR.CoreUtils;
+
+using HC_VRTrial.Logging;
+
+namespace HC_VRTrial.VRUtils
+{
+    /// <summary>
+    /// A VR camera capable of projecting images onto the HMD and supporting HMD tracking.
+    /// 
+    /// The internal structure of the game objects is as follows:
+    /// - parentGameObject
+    ///   - Origin: VR Camera's origin
+    ///     - Camera: Normal and VR Camera
+    /// </summary>
+    public class VRCamera : MonoBehaviour
+    {
+        static VRCamera() { ClassInjector.RegisterTypeInIl2Cpp<VRCamera>(); }
+
+        public static VRCamera Create(GameObject parentGameObject, string name, int depth)
+        {
+            var gameObject = new GameObject($"{parentGameObject.name}{name}Origin");
+            // Ensure the lifecycle of the GameObject is synchronized with its parent.
+            gameObject.transform.parent = parentGameObject.transform;
+            gameObject.SetActive(false);
+            var result = gameObject.AddComponent<VRCamera>();
+            result.Depth = depth;
+            gameObject.SetActive(true);
+            return result;
+        }
+
+        public static bool IsBaseHeadSet { get; private set; } = false;
+        public static Vector3 BaseHeadPosition { get; private set; } = Vector3.zero;
+        public static Quaternion BaseHeadRotation { get; private set; } = Quaternion.identity;
+
+        /// <summary>
+        /// Sets the current head position and rotation as the center point for future viewpoints.
+        /// </summary>
+        public static void UpdateViewport(VRCamera vrCamera)
+        {
+            IsBaseHeadSet = true;
+            BaseHeadPosition = InputTracking.GetLocalPosition(XRNode.Head);
+            var orientationEulerAngles = InputTracking.GetLocalRotation(XRNode.Head).eulerAngles;
+            BaseHeadRotation = Quaternion.Euler(
+                PluginConfig.ReflectHMDRotationXOnViewport.Value ? orientationEulerAngles.x : 0,
+                PluginConfig.ReflectHMDRotationYOnViewport.Value ? orientationEulerAngles.y : 0,
+                PluginConfig.ReflectHMDRotationZOnViewport.Value ? orientationEulerAngles.z : 0);
+        }
+
+        private int Depth { get; set; }
+        private GameObject CameraObject { get; set; }
+        public Camera Normal { get; private set; }
+        [HideFromIl2Cpp] public XROrigin VR { get; private set; }
+
+        void Awake()
+        {
+            PluginLog.Debug($"Awake: {name}");
+            Setup();
+        }
+
+        void OnDestroy()
+        {
+            PluginLog.Debug($"OnDestroy: {name}");
+        }
+
+        private void Setup()
+        {
+            if (!CameraObject)
+            {
+                CameraObject = new GameObject($"{name}Camera");
+                // Ensure the lifecycle of the GameObject is synchronized with its parent.
+                CameraObject.transform.parent = gameObject.transform;
+            }
+
+            // Prepare a VR camera separate from the game camera to minimize the impact on the game.
+            if (!CameraObject.GetComponent<Camera>())
+            {
+                Normal = CameraObject.AddComponent<Camera>();
+                Normal.depth = Depth;
+            }
+
+            // By combining Camera and SteamVR_Camera, the player can see the camera's view from the HMD.
+            if (!CameraObject.GetComponent<XROrigin>()) VR = CameraObject.AddComponent<XROrigin>();
+            // When SteamVR_TrackedObject is also combined, the camera moves with the movement of the HMD.
+            if (!CameraObject.GetComponent<TrackedPoseDriver>()) CameraObject.AddComponent<TrackedPoseDriver>();
+
+            // After that, just move the camera as you like.
+            // This project camera usage is just one example.
+        }
+
+        /// <summary>
+        /// Hijacks the viewpoint of a camera and displays it through the VR camera.
+        /// </summary>
+        /// <param name="targetCamera">The target camera.</param>
+        /// <param name="useCopyFrom">If true, copies the camera settings using Camera.CopyFrom. Specify false to adjust the camera settings independently.</param>
+        /// <param name="synchronization">If true, synchronizes some of the camera settings in real-time. Refer to CameraHijacker.Synchronize for detailed synchronization content.</param>
+        public void Hijack(Camera targetCamera, bool useCopyFrom = true, bool synchronization = true)
+        {
+            Setup();
+
+            if (targetCamera != null)
+            {
+                CameraHijacker.Hijack(targetCamera, Normal, useCopyFrom, synchronization);
+
+                // Set origin to the inverse position of the base head from the target camera.
+                // The origin of the VR camera is the center of the play area (Usually at the player's feet).
+                VR.Origin.transform.rotation = targetCamera.transform.rotation * Quaternion.Inverse(BaseHeadRotation);
+                VR.Origin.transform.position = targetCamera.transform.position - VR.Origin.transform.rotation * BaseHeadPosition;
+                VR.Origin.transform.SetParent(targetCamera.transform);
+            }
+
+            Normal.depth = Depth;
+        }
+    }
+}
