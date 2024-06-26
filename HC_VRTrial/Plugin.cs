@@ -16,6 +16,7 @@ namespace HC_VRTrial
         public override void Load()
         {
             PluginLog.Setup(Log);
+            PluginConfig.Setup(Config);
 
             // Log some information debugging purposes.
             for (var i = 0; i < 32; ++i) PluginLog.Debug($"Available layers - Layer[{i}]: {LayerMask.LayerToName(i)}");
