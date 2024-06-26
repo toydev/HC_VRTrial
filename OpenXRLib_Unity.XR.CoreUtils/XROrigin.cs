@@ -57,6 +57,7 @@ namespace Unity.XR.CoreUtils
         /// [Application.onBeforeRender](xref:UnityEngine.Application.onBeforeRender(UnityEngine.Events.UnityAction))
         /// whenever the <see cref="TrackablesParent"/> [transform](xref:UnityEngine.Transform) changes.
         /// </summary>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public event Action<ARTrackablesParentTransformChangedEventArgs> TrackablesParentTransformChanged;
 
         /// <summary>
@@ -144,6 +145,7 @@ namespace Unity.XR.CoreUtils
         /// of tracking. Not all devices support all tracking origin modes.
         /// </summary>
         /// <seealso cref="TrackingOriginMode"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public TrackingOriginMode RequestedTrackingOriginMode
         {
             get => m_RequestedTrackingOriginMode;
@@ -175,6 +177,7 @@ namespace Unity.XR.CoreUtils
         /// (Read Only) The Tracking Origin Mode of this XR Origin.
         /// </summary>
         /// <seealso cref="RequestedTrackingOriginMode"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public TrackingOriginModeFlags CurrentTrackingOriginMode { get; private set; }
 
         /// <summary>
@@ -333,6 +336,7 @@ namespace Unity.XR.CoreUtils
             return successful;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         IEnumerator RepeatInitializeCamera()
         {
             m_CameraInitializing = true;

@@ -53,6 +53,7 @@ namespace UnityEngine.InputSystem.XR
         /// to control which <see cref="Transform"/> properties to update.
         /// </summary>
         /// <seealso cref="TrackingType"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public TrackingType trackingType
         {
             get => m_TrackingType;
@@ -92,6 +93,7 @@ namespace UnityEngine.InputSystem.XR
         /// to control which phases of the player loop will update <see cref="Transform"/> properties.
         /// </summary>
         /// <seealso cref="UpdateType"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public UpdateType updateType
         {
             get => m_UpdateType;
@@ -104,6 +106,7 @@ namespace UnityEngine.InputSystem.XR
         /// The action to read the position value of a tracked device.
         /// Must support reading a value of type <see cref="Vector3"/>.
         /// </summary>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputActionProperty positionInput
         {
             get => m_PositionInput;
@@ -125,6 +128,7 @@ namespace UnityEngine.InputSystem.XR
         /// The action to read the rotation value of a tracked device.
         /// Must support reading a value of type <see cref="Quaternion"/>.
         /// </summary>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputActionProperty rotationInput
         {
             get => m_RotationInput;
@@ -231,24 +235,28 @@ namespace UnityEngine.InputSystem.XR
             m_RotationBound = false;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         void OnPositionPerformed(InputAction.CallbackContext context)
         {
             Debug.Assert(m_PositionBound, this);
             m_CurrentPosition = context.ReadValue<Vector3>();
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         void OnPositionCanceled(InputAction.CallbackContext context)
         {
             Debug.Assert(m_PositionBound, this);
             m_CurrentPosition = Vector3.zero;
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         void OnRotationPerformed(InputAction.CallbackContext context)
         {
             Debug.Assert(m_RotationBound, this);
             m_CurrentRotation = context.ReadValue<Quaternion>();
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         void OnRotationCanceled(InputAction.CallbackContext context)
         {
             Debug.Assert(m_RotationBound, this);
@@ -359,6 +367,7 @@ namespace UnityEngine.InputSystem.XR
         [Obsolete]
         // [SerializeField, HideInInspector]
         InputAction m_PositionAction;
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputAction positionAction
         {
             get => m_PositionInput.action;
@@ -368,6 +377,7 @@ namespace UnityEngine.InputSystem.XR
         [Obsolete]
         // [SerializeField, HideInInspector]
         InputAction m_RotationAction;
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputAction rotationAction
         {
             get => m_RotationInput.action;
