@@ -167,7 +167,7 @@ namespace UnityEngine.XR.Management
             instance.StartXRSDK();
         }
 
-        private void InitXRSDK()
+        public void InitXRSDK()
         {
             if (XRGeneralSettings.Instance == null || XRGeneralSettings.Instance.m_LoaderManagerInstance == null || XRGeneralSettings.Instance.m_InitManagerOnStart == false)
                 return;
@@ -185,7 +185,7 @@ namespace UnityEngine.XR.Management
             m_ProviderIntialized = true;
         }
 
-        private void StartXRSDK()
+        public void StartXRSDK()
         {
             if (m_XRManager != null && m_XRManager.activeLoader != null)
             {
