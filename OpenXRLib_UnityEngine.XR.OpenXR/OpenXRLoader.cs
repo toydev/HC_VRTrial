@@ -598,6 +598,7 @@ namespace UnityEngine.XR.OpenXR
         }
 
         // [AOT.MonoPInvokeCallback(typeof(ReceiveNativeEventDelegate))]
+        private static ReceiveNativeEventDelegate receiveNativeEventDelegate = ReceiveNativeEvent;
         private static void ReceiveNativeEvent(OpenXRFeature.NativeEvent e, ulong payload)
         {
             var loader = Instance;
@@ -657,7 +658,7 @@ namespace UnityEngine.XR.OpenXR
 
         internal static void RegisterOpenXRCallbacks()
         {
-            Internal_SetCallbacks(ReceiveNativeEvent);
+            Internal_SetCallbacks(receiveNativeEventDelegate);
         }
 
 #if UNITY_EDITOR
