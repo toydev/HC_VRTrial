@@ -29,6 +29,11 @@ namespace Unity.XR.CoreUtils
     // [HelpURL("https://docs.unity3d.com/Packages/com.unity.xr.core-utils@2.0/api/Unity.XR.CoreUtils.XROrigin.html")]
     public class XROrigin : MonoBehaviour
     {
+        static XROrigin()
+        {
+            Il2CppInterop.Runtime.Injection.ClassInjector.RegisterTypeInIl2Cpp<XROrigin>();
+        }
+
         // [SerializeField]
         // [Tooltip("The Camera to associate with the XR device.")]
         Camera m_Camera;
