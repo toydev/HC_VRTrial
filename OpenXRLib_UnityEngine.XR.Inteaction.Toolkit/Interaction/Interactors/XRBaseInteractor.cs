@@ -289,13 +289,13 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// <inheritdoc />
         public Pose GetAttachPoseOnSelect(IXRSelectInteractable interactable)
         {
-            return m_AttachPoseOnSelect.TryGetValue(interactable, out var pose) ? pose : Pose.identity;
+            return m_AttachPoseOnSelect.TryGetValue(interactable, out var pose) ? pose : PoseExtensions.identity;
         }
 
         /// <inheritdoc />
         public Pose GetLocalAttachPoseOnSelect(IXRSelectInteractable interactable)
         {
-            return m_LocalAttachPoseOnSelect.TryGetValue(interactable, out var pose) ? pose : Pose.identity;
+            return m_LocalAttachPoseOnSelect.TryGetValue(interactable, out var pose) ? pose : PoseExtensions.identity;
         }
 
         /// <inheritdoc />

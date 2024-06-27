@@ -571,7 +571,7 @@ namespace Unity.XR.CoreUtils
 
         Pose GetCameraOriginPose()
         {
-            var localOriginPose = Pose.identity;
+            var localOriginPose = UnityEngine.PoseExtensions.identity;
             var parent = m_Camera.transform.parent;
 
             return parent
