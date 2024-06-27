@@ -148,6 +148,34 @@ namespace HC_VRTrial.VRUtils
             */
         }
 
+        public void Update()
+        {
+            if (PositionAction != null && RotationAction != null)
+            {
+                PluginLog.Info($"PositionAction value: {PositionAction.ReadValue<Vector3>()}");
+                PluginLog.Info($"RotationAction value: {RotationAction.ReadValue<Quaternion>()}");
+            }
+            else
+            {
+                PluginLog.Warning("Actions are null");
+            }
+
+            foreach (var device in InputSystem.devices)
+            {
+                PluginLog.Info("Device: " + device);
+            }
+
+            var trackedPoseDriver = CameraObject.GetComponent<TrackedPoseDriver>();
+            if (trackedPoseDriver != null)
+            {
+                PluginLog.Info("TrackedPoseDriver is attached");
+            }
+            else
+            {
+                PluginLog.Error("TrackedPoseDriver is not attached");
+            }
+        }
+
         private static InputActionAsset InputActionAsset;
         public static InputActionAsset GetInputActionAsset()
         {

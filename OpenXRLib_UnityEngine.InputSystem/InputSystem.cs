@@ -3379,6 +3379,7 @@ namespace UnityEngine.InputSystem
 
             // No domain reloads in the player so we don't need to look for existing
             // instances.
+            Debug.Log("InputSystem.InitializeInPlayer");
             s_Manager = new InputManager();
             s_Manager.Initialize(runtime ?? NativeInputRuntime.instance, settings);
 
