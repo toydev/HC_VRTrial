@@ -1,0 +1,51 @@
+{
+    "maps": [
+        {
+            "name": "XR",
+            "id": "a9d3f2c8-9c4a-4a5e-8c6b-4e9d5a1d0a4a",
+            "actions": [
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "1f5a7b3d-4e23-4e0a-9f6e-2f8e1c1e5d8b",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Rotation",
+                    "type": "PassThrough",
+                    "id": "3d8f9e6c-3b2e-4e0a-9f6e-3f5e1a7b8d8c",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b2f0e7c8-3a6e-4b0a-9f6e-1e5d8b4a9c2a",
+                    "path": "<XRHMD>/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2f1e7c9-4a7e-4b0a-9f6e-2e5d9b4b9c3b",
+                    "path": "<XRHMD>/deviceRotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

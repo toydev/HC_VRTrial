@@ -3396,7 +3396,7 @@ namespace UnityEngine.InputSystem
 #endif // UNITY_EDITOR
 
         // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void RunInitialUpdate()
+        public static void RunInitialUpdate()
         {
             // Request an initial Update so that user methods such as Start and Awake
             // can access the input devices.

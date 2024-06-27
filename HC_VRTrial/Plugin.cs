@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using HC_VRTrial.Logging;
 using HC_VRTrial.VRUtils;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace HC_VRTrial
 {
@@ -31,6 +32,7 @@ namespace HC_VRTrial
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            InputSystem.RunInitialUpdate();
             // Detects a single mode scene and starts VR control of the scene.
             if (mode == LoadSceneMode.Single)
             {

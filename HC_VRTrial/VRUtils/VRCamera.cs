@@ -1,4 +1,6 @@
-﻿using Il2CppInterop.Runtime.Injection;
+﻿using System.IO;
+
+using Il2CppInterop.Runtime.Injection;
 using Il2CppInterop.Runtime.Attributes;
 using UnityEngine;
 using UnityEngine.XR;
@@ -54,9 +56,19 @@ namespace HC_VRTrial.VRUtils
 
         private int Depth { get; set; }
 
+        private InputAction PositionAction;
+        private InputAction RotationAction;
         void Awake()
         {
-            PluginLog.Debug($"Awake: {name}");
+            PluginLog.Info($"Awake: {name}");
+            var actionMap = GetInputActionAsset().FindActionMap("XR");
+            PluginLog.Info($"actionMap: {actionMap != null}");
+            PositionAction = actionMap.FindAction("Position");
+            PluginLog.Info($"PositionAction: {PositionAction != null}");
+            PositionAction.Enable();
+            RotationAction = actionMap.FindAction("Rotation");
+            PluginLog.Info($"RotationAction: {RotationAction != null}");
+            RotationAction.Enable();
             Setup();
         }
 
@@ -84,18 +96,8 @@ namespace HC_VRTrial.VRUtils
                 CameraObject.transform.SetParent(CameraOffsetObject.transform, false);
                 Camera = CameraObject.AddComponent<Camera>();
                 var trackedPoseDriver = CameraObject.AddComponent<TrackedPoseDriver>();
-
-                // Position Input の設定
-                InputAction positionAction = new InputAction("Position", InputActionType.PassThrough, "<XRHMD>/devicePosition");
-                positionAction.AddBinding("<XRHMD>/devicePosition");
-                positionAction.Enable();
-                trackedPoseDriver.positionAction = positionAction;
-
-                // Rotation Input の設定
-                InputAction rotationAction = new InputAction("Rotation", InputActionType.PassThrough, "<XRHMD>/deviceRotation");
-                rotationAction.AddBinding("<XRHMD>/deviceRotation");
-                rotationAction.Enable();
-                trackedPoseDriver.rotationAction = rotationAction;
+                trackedPoseDriver.positionAction = PositionAction;
+                trackedPoseDriver.rotationAction = RotationAction;
             }
 
             if (!OriginObject)
@@ -144,6 +146,27 @@ namespace HC_VRTrial.VRUtils
 
             Normal.depth = Depth;
             */
+        }
+
+        private static InputActionAsset InputActionAsset;
+        public static InputActionAsset GetInputActionAsset()
+        {
+            if (InputActionAsset == null)
+            {
+                InputActionAsset = InputActionAsset.FromJson(System.Text.Encoding.UTF8.GetString(ReadAllBytes($"{nameof(HC_VRTrial)}.Assets.inputactions.json")));
+                PluginLog.Info($"InputActionAsset: {InputActionAsset != null}");
+            }
+            return InputActionAsset;
+        }
+        private static byte[] ReadAllBytes(string resourceName)
+        {
+            var assembly = typeof(VRCamera).Assembly;
+            using (var stream = assembly.GetManifestResourceStream(resourceName))
+            using (var memoryStream = new MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                return memoryStream.ToArray();
+            }
         }
     }
 }
