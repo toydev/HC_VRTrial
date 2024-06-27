@@ -4073,8 +4073,8 @@ namespace UnityEngine.InputSystem
                 this.compositeCount = compositeCount;
 
                 var numBytes = sizeInBytes;
-                var ptr = (byte*)UnsafeUtility.Malloc(numBytes, 8, Allocator.Persistent);
-                UnsafeUtility.MemClear(ptr, numBytes);
+                var ptr = (byte*)Marshal.AllocHGlobal(numBytes);
+                Marshal.Copy(new byte[numBytes], 0, (IntPtr)ptr, numBytes);
 
                 basePtr = ptr;
 
@@ -4099,7 +4099,7 @@ namespace UnityEngine.InputSystem
                 if (basePtr == null)
                     return;
 
-                UnsafeUtility.Free(basePtr, Allocator.Persistent);
+                Marshal.FreeHGlobal((IntPtr)basePtr);
 
                 basePtr = null;
                 actionStates = null;
