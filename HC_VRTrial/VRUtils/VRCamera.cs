@@ -73,26 +73,15 @@ namespace HC_VRTrial.VRUtils
 
         private void Setup()
         {
-            if (!OriginObject)
-            {
-                OriginObject = new GameObject($"{name}Origin");
-                Origin = OriginObject.AddComponent<XROrigin>();
-            }
-
             if (!CameraOffsetObject)
             {
                 CameraOffsetObject = new GameObject($"{name}CameraOffset");
-                CameraOffsetObject.transform.SetParent(Origin.transform, false);
-                Origin.CameraFloorOffsetObject = CameraOffsetObject;
             }
 
             if (!CameraObject)
             {
                 CameraObject = new GameObject($"{name}Camera");
                 CameraObject.transform.SetParent(CameraOffsetObject.transform, false);
-                Camera = CameraObject.AddComponent<Camera>();
-                // Ensure the lifecycle of the GameObject is synchronized with its parent.
-                CameraObject.transform.parent = gameObject.transform;
                 Camera = CameraObject.AddComponent<Camera>();
                 var trackedPoseDriver = CameraObject.AddComponent<TrackedPoseDriver>();
 
@@ -107,8 +96,18 @@ namespace HC_VRTrial.VRUtils
                 rotationAction.AddBinding("<XRHMD>/deviceRotation");
                 rotationAction.Enable();
                 trackedPoseDriver.rotationAction = rotationAction;
+            }
 
+            if (!OriginObject)
+            {
+                OriginObject = new GameObject($"{name}Origin");
+                OriginObject.transform.parent = gameObject.transform;
+                OriginObject.SetActive(false);
+                Origin = OriginObject.AddComponent<XROrigin>();
                 Origin.Camera = Camera;
+                Origin.CameraFloorOffsetObject = CameraOffsetObject;
+                OriginObject.SetActive(true);
+                CameraOffsetObject.transform.SetParent(Origin.transform, false);
             }
         }
 
