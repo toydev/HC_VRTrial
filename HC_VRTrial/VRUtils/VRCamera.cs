@@ -6,6 +6,7 @@ using UnityEngine.InputSystem.XR;
 using Unity.XR.CoreUtils;
 
 using HC_VRTrial.Logging;
+using UnityEngine.InputSystem;
 
 namespace HC_VRTrial.VRUtils
 {
@@ -52,9 +53,6 @@ namespace HC_VRTrial.VRUtils
         }
 
         private int Depth { get; set; }
-        private GameObject CameraObject { get; set; }
-        public Camera Normal { get; private set; }
-        [HideFromIl2Cpp] public XROrigin VR { get; private set; }
 
         void Awake()
         {
@@ -67,29 +65,51 @@ namespace HC_VRTrial.VRUtils
             PluginLog.Debug($"OnDestroy: {name}");
         }
 
+        private GameObject OriginObject { get; set; }
+        [HideFromIl2Cpp] private XROrigin Origin { get; set; }
+        private GameObject CameraOffsetObject { get; set; }
+        private GameObject CameraObject { get; set; }
+        private Camera Camera { get; set; }
+
         private void Setup()
         {
+            if (!OriginObject)
+            {
+                OriginObject = new GameObject($"{name}Origin");
+                Origin = OriginObject.AddComponent<XROrigin>();
+            }
+
+            if (!CameraOffsetObject)
+            {
+                CameraOffsetObject = new GameObject($"{name}CameraOffset");
+                CameraOffsetObject.transform.SetParent(Origin.transform, false);
+                Origin.CameraFloorOffsetObject = CameraOffsetObject;
+            }
+
             if (!CameraObject)
             {
                 CameraObject = new GameObject($"{name}Camera");
+                CameraObject.transform.SetParent(CameraOffsetObject.transform, false);
+                Camera = CameraObject.AddComponent<Camera>();
                 // Ensure the lifecycle of the GameObject is synchronized with its parent.
                 CameraObject.transform.parent = gameObject.transform;
+                Camera = CameraObject.AddComponent<Camera>();
+                var trackedPoseDriver = CameraObject.AddComponent<TrackedPoseDriver>();
+
+                // Position Input の設定
+                InputAction positionAction = new InputAction("Position", InputActionType.PassThrough, "<XRHMD>/devicePosition");
+                positionAction.AddBinding("<XRHMD>/devicePosition");
+                positionAction.Enable();
+                trackedPoseDriver.positionAction = positionAction;
+
+                // Rotation Input の設定
+                InputAction rotationAction = new InputAction("Rotation", InputActionType.PassThrough, "<XRHMD>/deviceRotation");
+                rotationAction.AddBinding("<XRHMD>/deviceRotation");
+                rotationAction.Enable();
+                trackedPoseDriver.rotationAction = rotationAction;
+
+                Origin.Camera = Camera;
             }
-
-            // Prepare a VR camera separate from the game camera to minimize the impact on the game.
-            if (!CameraObject.GetComponent<Camera>())
-            {
-                Normal = CameraObject.AddComponent<Camera>();
-                Normal.depth = Depth;
-            }
-
-            // By combining Camera and SteamVR_Camera, the player can see the camera's view from the HMD.
-            if (!CameraObject.GetComponent<XROrigin>()) VR = CameraObject.AddComponent<XROrigin>();
-            // When SteamVR_TrackedObject is also combined, the camera moves with the movement of the HMD.
-            if (!CameraObject.GetComponent<TrackedPoseDriver>()) CameraObject.AddComponent<TrackedPoseDriver>();
-
-            // After that, just move the camera as you like.
-            // This project camera usage is just one example.
         }
 
         /// <summary>
@@ -102,18 +122,29 @@ namespace HC_VRTrial.VRUtils
         {
             Setup();
 
+            /*
             if (targetCamera != null)
             {
                 CameraHijacker.Hijack(targetCamera, Normal, useCopyFrom, synchronization);
+                PluginLog.Info("Hijack 2");
 
                 // Set origin to the inverse position of the base head from the target camera.
                 // The origin of the VR camera is the center of the play area (Usually at the player's feet).
+                PluginLog.Info($"VR: {VR != null}");
+                PluginLog.Info($"VR.Origin: {VR.Origin != null}");
+                PluginLog.Info($"VR.Origin.transform: {VR.Origin.transform != null}");
+                PluginLog.Info($"targetCamera: {targetCamera != null}");
+                PluginLog.Info($"targetCamera.transform: {targetCamera.transform != null}");
                 VR.Origin.transform.rotation = targetCamera.transform.rotation * Quaternion.Inverse(BaseHeadRotation);
+                PluginLog.Info("Hijack 3");
                 VR.Origin.transform.position = targetCamera.transform.position - VR.Origin.transform.rotation * BaseHeadPosition;
+                PluginLog.Info("Hijack 4");
                 VR.Origin.transform.SetParent(targetCamera.transform);
+                PluginLog.Info("Hijack 5s");
             }
 
             Normal.depth = Depth;
+            */
         }
     }
 }
