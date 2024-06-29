@@ -2208,6 +2208,8 @@ namespace UnityEngine.InputSystem
 
         private void OnNativeDeviceDiscovered(int deviceId, string deviceDescriptor)
         {
+            Debug.Log($"OnNativeDeviceDiscovered ... {deviceId}");
+
             // Make sure we're not adding to m_AvailableDevices before we restored what we
             // had before a domain reload.
             RestoreDevicesAfterDomainReloadIfNecessary();

@@ -150,6 +150,7 @@ namespace HC_VRTrial.VRUtils
 
         public void Update()
         {
+            /*
             if (PositionAction != null && RotationAction != null)
             {
                 PluginLog.Info($"PositionAction value: {PositionAction.ReadValue<Vector3>()}");
@@ -174,6 +175,7 @@ namespace HC_VRTrial.VRUtils
             {
                 PluginLog.Error("TrackedPoseDriver is not attached");
             }
+            */
         }
 
         private static InputActionAsset InputActionAsset;
