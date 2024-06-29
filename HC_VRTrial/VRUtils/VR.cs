@@ -53,13 +53,19 @@ namespace HC_VRTrial.VRUtils
                     OpenXRSettings.Instance.renderMode = OpenXRSettings.RenderMode.MultiPass;
                     OpenXRSettings.Instance.depthSubmissionMode = OpenXRSettings.DepthSubmissionMode.None;
                     xrManagerSettings.InitializeLoaderSync();
-                    xrManagerSettings.StartSubsystems();
-                    PluginLog.Info("OpenXR initialized successfully.");
+                    if (xrManagerSettings.activeLoader != null)
+                    {
+                        xrManagerSettings.StartSubsystems();
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     PluginLog.Error("Failed to initialize OpenXR Loader.");
-                    throw new Exception("OpenXR initialization error.", e);
+                    return;
                 }
 
                 Initialized = true;
