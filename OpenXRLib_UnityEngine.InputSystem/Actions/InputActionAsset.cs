@@ -115,6 +115,7 @@ namespace UnityEngine.InputSystem
         /// <seealso cref="InputActionSetupExtensions.AddActionMap(InputActionAsset,string)"/>
         /// <seealso cref="InputActionSetupExtensions.RemoveActionMap(InputActionAsset,InputActionMap)"/>
         /// <seealso cref="FindActionMap(string,bool)"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public ReadOnlyArray<InputActionMap> actionMaps => new ReadOnlyArray<InputActionMap>(m_ActionMaps);
 
         /// <summary>
@@ -123,6 +124,7 @@ namespace UnityEngine.InputSystem
         /// <value>Control schemes defined for the asset.</value>
         /// <seealso cref="InputActionSetupExtensions.AddControlScheme(InputActionAsset,string)"/>
         /// <seealso cref="InputActionSetupExtensions.RemoveControlScheme"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public ReadOnlyArray<InputControlScheme> controlSchemes => new ReadOnlyArray<InputControlScheme>(m_ControlSchemes);
 
         /// <summary>
@@ -133,6 +135,7 @@ namespace UnityEngine.InputSystem
         /// map, over the set of <see cref="InputActionMap.bindings"/>.
         /// </remarks>
         /// <seealso cref="InputActionMap.bindings"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public IEnumerable<InputBinding> bindings
         {
             get
@@ -183,6 +186,7 @@ namespace UnityEngine.InputSystem
         /// <seealso cref="InputBinding.MaskByGroup"/>
         /// <seealso cref="InputAction.bindingMask"/>
         /// <seealso cref="InputActionMap.bindingMask"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputBinding? bindingMask
         {
             get => m_BindingMask;
@@ -240,6 +244,7 @@ namespace UnityEngine.InputSystem
         /// </example>
         /// </remarks>
         /// <seealso cref="InputActionMap.devices"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public ReadOnlyArray<InputDevice>? devices
         {
             get => m_Devices.Get();
@@ -269,6 +274,7 @@ namespace UnityEngine.InputSystem
         /// <exception cref="KeyNotFoundException">No action was found matching <paramref name="actionNameOrId"/>.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="actionNameOrId"/> is <c>null</c> or empty.</exception>
         /// <seealso cref="FindAction(string,bool)"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputAction this[string actionNameOrId]
         {
             get
@@ -462,6 +468,7 @@ namespace UnityEngine.InputSystem
         /// <exception cref="ArgumentNullException"><paramref name="json"/> is <c>null</c> or empty.</exception>
         /// <seealso cref="LoadFromJson"/>
         /// <seealso cref="ToJson"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public static InputActionAsset FromJson(string json)
         {
             if (string.IsNullOrEmpty(json))
@@ -532,6 +539,7 @@ namespace UnityEngine.InputSystem
         /// <exception cref="ArgumentException">Thrown if <paramref name="throwIfNotFound"/> is true and the
         /// action could not be found. -Or- If <paramref name="actionNameOrId"/> contains a slash but is missing
         /// either the action or the map name.</exception>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputAction FindAction(string actionNameOrId, bool throwIfNotFound = false)
         {
             if (actionNameOrId == null)
@@ -596,6 +604,7 @@ namespace UnityEngine.InputSystem
         }
 
         /// <inheritdoc/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public int FindBinding(InputBinding mask, out InputAction action)
         {
             var numMaps = m_ActionMaps.LengthSafe();
@@ -626,6 +635,7 @@ namespace UnityEngine.InputSystem
         /// the action map cannot be found.</exception>
         /// <seealso cref="actionMaps"/>
         /// <seealso cref="FindActionMap(System.Guid)"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputActionMap FindActionMap(string nameOrId, bool throwIfNotFound = false)
         {
             if (nameOrId == null)
@@ -668,6 +678,7 @@ namespace UnityEngine.InputSystem
         /// <c>null</c> if no map in the asset has the given ID.</returns>
         /// <seealso cref="actionMaps"/>
         /// <seealso cref="FindActionMap"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputActionMap FindActionMap(Guid id)
         {
             if (m_ActionMaps == null)
@@ -689,6 +700,7 @@ namespace UnityEngine.InputSystem
         /// <param name="guid">ID of the action to look for.</param>
         /// <returns>The action in the asset with the given ID or null if no action
         /// in the asset has the given ID.</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputAction FindAction(Guid guid)
         {
             if (m_ActionMaps == null)
@@ -737,6 +749,7 @@ namespace UnityEngine.InputSystem
         /// with the given name could be found in the asset.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="name"/> is <c>null</c>
         /// or empty.</exception>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public InputControlScheme? FindControlScheme(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -768,6 +781,7 @@ namespace UnityEngine.InputSystem
         /// </remarks>
         /// <seealso cref="InputActionMap.IsUsableWithDevice"/>
         /// <seealso cref="InputControlScheme.SupportsDevice"/>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool IsUsableWithDevice(InputDevice device)
         {
             if (device == null)
@@ -826,6 +840,7 @@ namespace UnityEngine.InputSystem
         /// </summary>
         /// <param name="action">An action. Can be null.</param>
         /// <returns>True if the given action is part of the asset, false otherwise.</returns>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public bool Contains(InputAction action)
         {
             var map = action?.actionMap;
@@ -845,6 +860,7 @@ namespace UnityEngine.InputSystem
         ///
         /// This method will allocate GC heap memory.
         /// </remarks>
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         public IEnumerator<InputAction> GetEnumerator()
         {
             if (m_ActionMaps == null)
@@ -860,6 +876,7 @@ namespace UnityEngine.InputSystem
             }
         }
 
+        [Il2CppInterop.Runtime.Attributes.HideFromIl2Cpp]
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
