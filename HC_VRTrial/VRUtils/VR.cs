@@ -52,15 +52,8 @@ namespace HC_VRTrial.VRUtils
                     ((List<XRLoader>)xrManagerSettings.activeLoaders).Add(xrLoader);
                     OpenXRSettings.Instance.renderMode = OpenXRSettings.RenderMode.MultiPass;
                     OpenXRSettings.Instance.depthSubmissionMode = OpenXRSettings.DepthSubmissionMode.None;
-                    xrManagerSettings.InitializeLoaderSync();
-                    if (xrManagerSettings.activeLoader != null)
-                    {
-                        xrManagerSettings.StartSubsystems();
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
+                    xrGeneralSettings.InitXRSDK();
+                    xrGeneralSettings.StartXRSDK();
                 }
                 catch (Exception)
                 {

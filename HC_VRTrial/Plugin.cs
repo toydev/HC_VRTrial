@@ -39,9 +39,9 @@ namespace HC_VRTrial
             var headDevice = InputDevices.GetDeviceAtXRNode(XRNode.Head);
             PluginLog.Info($"Head device: {headDevice.deviceId}, {headDevice.name}");
             var leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-            PluginLog.Info($"Head device: {leftHandDevice.deviceId}, {leftHandDevice.name}");
+            PluginLog.Info($"Left device: {leftHandDevice.deviceId}, {leftHandDevice.name}");
             var rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-            PluginLog.Info($"Head device: {rightHandDevice.deviceId}, {rightHandDevice.name}");
+            PluginLog.Info($"Right device: {rightHandDevice.deviceId}, {rightHandDevice.name}");
 
             InputSystem.RunInitialUpdate();
             // Detects a single mode scene and starts VR control of the scene.
