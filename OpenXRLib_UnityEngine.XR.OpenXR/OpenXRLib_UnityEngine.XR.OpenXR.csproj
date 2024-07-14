@@ -28,8 +28,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\OpenXRLib_Common\OpenXRLib_Common.csproj" />
-		<ProjectReference Include="..\OpenXRLib_UnityEngine.InputSystem\OpenXRLib_UnityEngine.InputSystem.csproj" />
 		<ProjectReference Include="..\OpenXRLib_UnityEngine.XR.Management\OpenXRLib_UnityEngine.XR.Management.csproj" />
 	</ItemGroup>
 

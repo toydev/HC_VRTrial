@@ -2,14 +2,12 @@
 using BepInEx.Unity.IL2CPP;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using UnityEngine.SceneManagement;
 using Il2CppInterop.Runtime;
 
 using HC_VRTrial.Logging;
 using HC_VRTrial.VRUtils;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 namespace HC_VRTrial
 {
@@ -20,8 +18,6 @@ namespace HC_VRTrial
         {
             PluginLog.Setup(Log);
             PluginConfig.Setup(Config);
-
-            var devices = InputSystem.devices;
 
             // Log some information debugging purposes.
             for (var i = 0; i < 32; ++i) PluginLog.Debug($"Available layers - Layer[{i}]: {LayerMask.LayerToName(i)}");
@@ -42,13 +38,6 @@ namespace HC_VRTrial
             PluginLog.Info($"Left device: {leftHandDevice.deviceId}, {leftHandDevice.name}");
             var rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
             PluginLog.Info($"Right device: {rightHandDevice.deviceId}, {rightHandDevice.name}");
-
-            InputSystem.RunInitialUpdate();
-            // Detects a single mode scene and starts VR control of the scene.
-            if (mode == LoadSceneMode.Single)
-            {
-                new GameObject($"{nameof(SimpleVRController)}{scene.name}").AddComponent<SimpleVRController>();
-            }
         }
     }
 }

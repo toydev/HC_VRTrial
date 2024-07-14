@@ -12,17 +12,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Assets\inputactions.json" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="Assets\inputactions.json" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
-		<ProjectReference Include="..\OpenXRLib_UnityEngine.InputSystem\OpenXRLib_UnityEngine.InputSystem.csproj" />
-		<ProjectReference Include="..\OpenXRLib_UnityEngine.XR.Inteaction.Toolkit\OpenXRLib_UnityEngine.XR.Inteaction.Toolkit.csproj" />
 		<ProjectReference Include="..\OpenXRLib_UnityEngine.XR.Management\OpenXRLib_UnityEngine.XR.Management.csproj" />
 		<ProjectReference Include="..\OpenXRLib_UnityEngine.XR.OpenXR\OpenXRLib_UnityEngine.XR.OpenXR.csproj" />
 	</ItemGroup>
