@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenXRLib_UnityEngine.XR.Op
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenXRLib_Common", "OpenXRLib_Common\OpenXRLib_Common.csproj", "{B35FC24E-E60D-472A-A863-5EE66AE0EC40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXRLib_UnityEngine.SpatialTracking", "OpenXRLib_UnityEngine.SpatialTracking\OpenXRLib_UnityEngine.SpatialTracking.csproj", "{10C8AE08-C871-48F9-9CC7-AAD5962B9576}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HC_VRTrial", "HC_VRTrial\HC_VRTrial.csproj", "{C85511EF-8284-4B05-BC5A-CCE8389E641F}"
 EndProject
 Global
@@ -33,6 +35,10 @@ Global
 		{C85511EF-8284-4B05-BC5A-CCE8389E641F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C85511EF-8284-4B05-BC5A-CCE8389E641F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C85511EF-8284-4B05-BC5A-CCE8389E641F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C8AE08-C871-48F9-9CC7-AAD5962B9576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C8AE08-C871-48F9-9CC7-AAD5962B9576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C8AE08-C871-48F9-9CC7-AAD5962B9576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C8AE08-C871-48F9-9CC7-AAD5962B9576}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
