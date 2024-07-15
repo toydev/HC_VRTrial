@@ -23,13 +23,10 @@ IF EXIST "%PLUGIN_DIR%" (
   MKDIR "%PLUGIN_DIR%"\HC_VRTrial
   MKLINK "%PLUGIN_DIR%\HC_VRTrial\HC_VRTrial.dll" "%HC_VRTrial_DEBUG_OUTPUT_DIR%\HC_VRTrial.dll"
   MKLINK "%PLUGIN_DIR%\HC_VRTrial\OpenXRLib_Common.dll" "%HC_VRTrial_DEBUG_OUTPUT_DIR%\OpenXRLib_Common.dll"
-  MKLINK "%PLUGIN_DIR%\HC_VRTrial\OpenXRLib_Unity.XR.CoreUtils.dll" "%HC_VRTrial_DEBUG_OUTPUT_DIR%\OpenXRLib_Unity.XR.CoreUtils.dll"
-  MKLINK "%PLUGIN_DIR%\HC_VRTrial\OpenXRLib_UnityEngine.InputSystem.dll" "%HC_VRTrial_DEBUG_OUTPUT_DIR%\OpenXRLib_UnityEngine.InputSystem.dll"
   MKLINK "%PLUGIN_DIR%\HC_VRTrial\OpenXRLib_UnityEngine.XR.Management.dll" "%HC_VRTrial_DEBUG_OUTPUT_DIR%\OpenXRLib_UnityEngine.XR.Management.dll"
   MKLINK "%PLUGIN_DIR%\HC_VRTrial\OpenXRLib_UnityEngine.XR.OpenXR.dll" "%HC_VRTrial_DEBUG_OUTPUT_DIR%\OpenXRLib_UnityEngine.XR.OpenXR.dll"
   COPY "%HC_VRTrial_SOLUTION_DIR%\OpenXRLib_UnityEngine.XR.OpenXR\x64\openxr_loader.dll" "%PLUGIN_DIR%"\HC_VRTrial
   COPY "%HC_VRTrial_SOLUTION_DIR%\OpenXRLib_UnityEngine.XR.OpenXR\x64\UnityOpenXR.dll" "%PLUGIN_DIR%"\HC_VRTrial
-  MKLINK "%PLUGIN_DIR%\HC_VRTrial\OpenXRLib_UnityEngine.XR.Inteaction.Toolkit.dll" "%HC_VRTrial_DEBUG_OUTPUT_DIR%\OpenXRLib_UnityEngine.XR.Inteaction.Toolkit.dll"
   COPY "%HC_VRTrial_DEBUG_OUTPUT_DIR%\Newtonsoft.Json.dll" "%PLUGIN_DIR%"\HC_VRTrial
 )
 
